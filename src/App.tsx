@@ -11,11 +11,8 @@ import FounderChat from './components/FounderChat';
 import FinalCTASection from './components/FinalCTASection';
 
 // Pages
-import AboutPage from './pages/About.tsx';
-import PricingPage from './pages/Pricing.tsx';
-import DemoFlow from './pages/DemoFlow.tsx';
-import AIDemo from './pages/AIDemo.tsx';
-import AILearningSystem from './components/AILearningSystem';
+import AboutPage from './pages/About';
+import PricingPage from './pages/Pricing';
 
 function HomePage() {
   const location = useLocation();
@@ -68,8 +65,6 @@ const App: React.FC = () => {
               <Route path="/" element={<HomePage />} />
               <Route path="/about" element={<AboutPage />} />
               <Route path="/pricing" element={<PricingPage />} />
-              <Route path="/demo" element={<DemoFlow />} />
-              <Route path="/ai-demo" element={<AIDemo />} />
               <Route path="/early-access-form" element={<EarlyAccessForm />} />
             </Routes>
             <Footer />
