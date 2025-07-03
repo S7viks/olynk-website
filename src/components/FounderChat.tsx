@@ -28,12 +28,12 @@ const FounderChat = () => {
 
   const founders: Founder[] = [
     {
-      id: 'priya',
-      name: 'Priya Sharma',
+      id: 'customer1',
+      name: 'Customer 1',
       role: 'Founder & CEO',
       company: 'EcoStyle Fashion',
       revenue: '₹2.5Cr',
-      avatar: '👩‍💼',
+      avatar: '',
       stage: 'scaling',
       color: 'from-red-500 to-red-600 dark:from-blue-500 dark:to-blue-600',
       questions: [
@@ -52,12 +52,12 @@ const FounderChat = () => {
       ]
     },
     {
-      id: 'rahul',
-      name: 'Rahul Mehta',
+      id: 'customer2',
+      name: 'Customer 2',
       role: 'Co-Founder',
       company: 'TechGadget Hub',
       revenue: '₹5.2Cr',
-      avatar: '👨‍💻',
+      avatar: '',
       stage: 'struggling',
       color: 'from-red-600 to-red-700 dark:from-blue-600 dark:to-blue-700',
       questions: [
@@ -76,12 +76,12 @@ const FounderChat = () => {
       ]
     },
     {
-      id: 'anjali',
-      name: 'Anjali Patel',
+      id: 'customer3',
+      name: 'Customer 3',
       role: 'Founder',
       company: 'Wellness Naturals',
       revenue: '₹8.5Cr',
-      avatar: '👩‍🔬',
+      avatar: '',
       stage: 'optimizing',
       color: 'from-red-400 to-red-500 dark:from-blue-400 dark:to-blue-500',
       questions: [
@@ -100,12 +100,12 @@ const FounderChat = () => {
       ]
     },
     {
-      id: 'vikram',
-      name: 'Vikram Singh',
+      id: 'customer4',
+      name: 'Customer 4',
       role: 'CEO',
       company: 'Urban Fitness Co',
       revenue: '₹12Cr',
-      avatar: '🏃‍♂️',
+      avatar: '',
       stage: 'growing',
       color: 'from-red-700 to-red-800 dark:from-blue-700 dark:to-blue-800',
       questions: [
