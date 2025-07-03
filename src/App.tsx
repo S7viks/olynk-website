@@ -11,10 +11,10 @@ import FounderChat from './components/FounderChat';
 import FinalCTASection from './components/FinalCTASection';
 
 // Pages
-import AboutPage from './pages/About';
-import PricingPage from './pages/Pricing';
-import DemoFlow from './pages/DemoFlow';
-import AIDemo from './pages/AIDemo';
+import AboutPage from './pages/About.tsx';
+import PricingPage from './pages/Pricing.tsx';
+import DemoFlow from './pages/DemoFlow.tsx';
+import AIDemo from './pages/AIDemo.tsx';
 import AILearningSystem from './components/AILearningSystem';
 
 function HomePage() {
