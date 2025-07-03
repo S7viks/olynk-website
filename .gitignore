@@ -112,3 +112,15 @@ firebase-debug.*.log
 .Trashes
 ehthumbs.db
 Thumbs.db
+
+# Demo and AI Demo related files
+src/pages/Demo.tsx
+src/pages/AIDemo.tsx
+src/pages/DemoFlow.tsx
+src/pages/DemoOnboarding.tsx
+src/components/DemoOnboarding.tsx
+src/components/InsightEngine.tsx
+src/components/ROICalculator.tsx
+
+# Nested project directory
+src/olnyk-loss-foreseer-main/

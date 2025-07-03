@@ -7,7 +7,7 @@ const FinalCTASection = () => {
     <section className="py-20 bg-gradient-to-br from-gray-900 via-gray-800 to-black text-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-teal-400 to-cyan-400 bg-clip-text text-transparent">
+          <h2 className="text-4xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-red-400 to-red-500 dark:from-blue-400 dark:to-blue-500 bg-clip-text text-transparent">
             Ready to Give Your Operations an AI Brain?
           </h2>
           <p className="text-xl text-gray-300 mb-8 max-w-3xl mx-auto">
@@ -19,7 +19,7 @@ const FinalCTASection = () => {
         {/* Demo Promise Cards */}
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
           <div className="bg-gray-800/50 backdrop-blur-sm rounded-xl p-6 border border-gray-700">
-            <div className="w-12 h-12 bg-gradient-to-r from-teal-500 to-cyan-500 rounded-lg flex items-center justify-center mb-4">
+            <div className="w-12 h-12 bg-gradient-to-r from-red-500 to-red-600 dark:from-blue-500 dark:to-blue-600 rounded-lg flex items-center justify-center mb-4">
               <CheckCircle className="h-6 w-6 text-white" />
             </div>
             <h3 className="text-lg font-semibold mb-2">Live AI Analysis</h3>
@@ -29,7 +29,7 @@ const FinalCTASection = () => {
           </div>
 
           <div className="bg-gray-800/50 backdrop-blur-sm rounded-xl p-6 border border-gray-700">
-            <div className="w-12 h-12 bg-gradient-to-r from-teal-500 to-cyan-500 rounded-lg flex items-center justify-center mb-4">
+            <div className="w-12 h-12 bg-gradient-to-r from-red-500 to-red-600 dark:from-blue-500 dark:to-blue-600 rounded-lg flex items-center justify-center mb-4">
               <Users className="h-6 w-6 text-white" />
             </div>
             <h3 className="text-lg font-semibold mb-2">Custom Insights</h3>
@@ -39,7 +39,7 @@ const FinalCTASection = () => {
           </div>
 
           <div className="bg-gray-800/50 backdrop-blur-sm rounded-xl p-6 border border-gray-700">
-            <div className="w-12 h-12 bg-gradient-to-r from-teal-500 to-cyan-500 rounded-lg flex items-center justify-center mb-4">
+            <div className="w-12 h-12 bg-gradient-to-r from-red-500 to-red-600 dark:from-blue-500 dark:to-blue-600 rounded-lg flex items-center justify-center mb-4">
               <CheckCircle className="h-6 w-6 text-white" />
             </div>
             <h3 className="text-lg font-semibold mb-2">ROI Projection</h3>
@@ -49,7 +49,7 @@ const FinalCTASection = () => {
           </div>
 
           <div className="bg-gray-800/50 backdrop-blur-sm rounded-xl p-6 border border-gray-700">
-            <div className="w-12 h-12 bg-gradient-to-r from-teal-500 to-cyan-500 rounded-lg flex items-center justify-center mb-4">
+            <div className="w-12 h-12 bg-gradient-to-r from-red-500 to-red-600 dark:from-blue-500 dark:to-blue-600 rounded-lg flex items-center justify-center mb-4">
               <Download className="h-6 w-6 text-white" />
             </div>
             <h3 className="text-lg font-semibold mb-2">Free Operations Audit</h3>
@@ -64,7 +64,7 @@ const FinalCTASection = () => {
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
             <Link
               to="/early-access-form"
-              className="bg-gradient-to-r from-teal-600 to-cyan-600 text-white px-8 py-4 rounded-xl font-semibold text-lg hover:shadow-2xl hover:scale-105 transition-all duration-300 flex items-center space-x-3 group"
+              className="bg-gradient-to-r from-red-600 to-red-700 dark:from-blue-600 dark:to-blue-700 text-white px-8 py-4 rounded-xl font-semibold text-lg hover:shadow-2xl hover:scale-105 transition-all duration-300 flex items-center space-x-3 group"
             >
               <span>Book AI Demo - See Your Insights Live</span>
               <ArrowRight className="h-5 w-5 group-hover:translate-x-1 transition-transform duration-300" />
@@ -98,8 +98,8 @@ const FinalCTASection = () => {
         {/* Contact Information */}
         <div className="text-center mt-12 pt-8 border-t border-gray-700">
           <p className="text-gray-400 mb-4">
-            Questions? Call <a href="tel:+917993359150" className="text-teal-400 hover:text-teal-300">+91-799-335-9150</a> or email{' '}
-            <a href="mailto:Sathvik.chenna@outlook.com" className="text-teal-400 hover:text-teal-300">hello@olynk.ai</a>
+            Questions? Call <a href="tel:+917993359150" className="text-red-400 dark:text-yellow-300 hover:text-red-300 dark:hover:text-yellow-100">+91-799-335-9150</a> or email{' '}
+            <a href="mailto:Sathvik.chenna@outlook.com" className="text-red-400 dark:text-yellow-300 hover:text-red-300 dark:hover:text-yellow-100">hello@olynk.ai</a>
           </p>
           <p className="text-sm text-gray-500">
             Average demo duration: 45 minutes • No technical setup required • Get insights immediately

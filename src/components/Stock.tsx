@@ -870,33 +870,24 @@ const Stock: React.FC<StockProps> = ({ isLoaded, onClose }) => {
   };
 
   return (
-    <div className="fixed inset-0 flex items-center justify-center z-50 bg-black/10">
-      <div className="bg-white rounded-lg shadow-lg p-1 md:p-3 w-full max-w-5xl max-h-[80vh] overflow-y-auto relative">
-        <button
-          onClick={() => onClose && onClose()}
-          className="absolute top-1 right-1 z-50 text-black hover:text-red-600 focus:outline-none focus:ring-2 focus:ring-teal-500 rounded-full bg-white/80 backdrop-blur-sm p-0.5 shadow-sm"
-          aria-label="Close"
-        >
-          <X className="w-4 h-4" />
-        </button>
-        <div className="min-h-screen w-full bg-gradient-to-br from-teal-50 via-cyan-50 to-blue-50 dark:from-gray-900 dark:via-teal-900 dark:to-blue-900 overflow-hidden">
+    <div className="w-full h-full bg-gradient-to-br from-teal-50 via-cyan-50 to-blue-50 dark:from-gray-900 dark:via-teal-900 dark:to-blue-900 rounded-lg overflow-hidden relative">
           {/* Animated Background Elements */}
-          <div className="fixed inset-0 overflow-hidden pointer-events-none">
+          <div className="absolute inset-0 overflow-hidden pointer-events-none">
             <div className={`absolute -top-24 -right-24 w-48 h-48 bg-gradient-to-br from-teal-200/10 to-cyan-200/10 rounded-full blur-sm transition-all duration-500 ${isLoaded ? 'animate-pulse' : 'scale-0'}`} />
             <div className={`absolute -bottom-24 -left-24 w-56 h-56 bg-gradient-to-tr from-blue-200/5 to-teal-200/5 rounded-full blur-sm transition-all duration-600 delay-100 ${isLoaded ? 'animate-pulse' : 'scale-0'}`} />
             <div className={`absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[300px] h-[300px] bg-gradient-to-r from-cyan-100/5 to-teal-100/5 rounded-full blur-sm transition-all duration-700 delay-200 ${isLoaded ? 'animate-spin' : 'scale-0'}`} style={{ animationDuration: '10s' }} />
           </div>
 
           {/* Header */}
-          <header className={`bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm border-b border-teal-100 dark:border-gray-700 sticky top-0 z-40 transition-all duration-300 ${isLoaded ? 'translate-y-0 opacity-100' : '-translate-y-full opacity-0'}`}>
-            <div className="max-w-5xl mx-auto px-2 py-1">
+          <header className={`bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm border-b border-teal-100 dark:border-gray-700 z-40 transition-all duration-300 ${isLoaded ? 'translate-y-0 opacity-100' : '-translate-y-full opacity-0'}`}>
+            <div className="px-2 py-1">
               <div className="flex items-center justify-between">
                 <div className="flex items-center gap-1">
                   <div className={`w-6 h-6 bg-gradient-to-r from-teal-500 to-cyan-500 rounded flex items-center justify-center transition-all duration-300 delay-100 ${isLoaded ? 'scale-100 rotate-0' : 'scale-0 rotate-180'}`}>
                     <Brain className="w-3 h-3 text-white dark:text-white" />
                   </div>
                   <div className={`transition-all duration-300 delay-200 ${isLoaded ? 'translate-x-0 opacity-100' : '-translate-x-6 opacity-0'}`}>
-                    <h1 className="text-lg font-bold text-gray-800 dark:text-white">StockSense AI</h1>
+                    <h1 className="text-base font-bold text-gray-800 dark:text-white">StockSense AI</h1>
                     <p className="text-xs text-gray-600 dark:text-gray-400">Predictive Inventory Intelligence</p>
                   </div>
                 </div>
@@ -910,14 +901,14 @@ const Stock: React.FC<StockProps> = ({ isLoaded, onClose }) => {
           </header>
 
           {/* Main Content */}
-          <main className="max-w-5xl mx-auto px-1 sm:px-2 md:px-3 py-1 md:py-2 relative z-10">
+          <main className="px-1 sm:px-2 md:px-3 py-1 md:py-2 relative z-10">
             {/* Title Section */}
-            <div className={`text-center mb-4 transition-all duration-400 delay-200 ${isLoaded ? 'translate-y-0 opacity-100' : 'translate-y-4 opacity-0'}`}>
-              <h2 className="text-xl font-bold text-gray-800 dark:text-white mb-1 bg-gradient-to-r from-teal-600 to-cyan-600 bg-clip-text text-transparent">
+            <div className={`text-center mb-2 transition-all duration-400 delay-200 ${isLoaded ? 'translate-y-0 opacity-100' : 'translate-y-4 opacity-0'}`}>
+              <h2 className="text-lg font-bold text-gray-800 dark:text-white mb-1 bg-gradient-to-r from-teal-600 to-cyan-600 bg-clip-text text-transparent">
                 The Invisible Stockout
               </h2>
-              <p className="text-xs text-gray-600 dark:text-gray-400 max-w-xl mx-auto">
-                Watch how a normal sales pattern can lead to stockouts, and see how AI prevents losses.
+              <p className="text-xs text-gray-600 dark:text-gray-400">
+                Watch how sales spikes lead to stockouts, and see how AI prevents losses.
               </p>
             </div>
 
@@ -925,7 +916,7 @@ const Stock: React.FC<StockProps> = ({ isLoaded, onClose }) => {
             <div className={`grid grid-cols-1 lg:grid-cols-3 gap-1 md:gap-2 mb-2 transition-all duration-400 delay-300 ${isLoaded ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'}`}>
               {/* Main Chart */}
               <div className="lg:col-span-2">
-                <div className="bg-white/90 dark:bg-gray-800/90 backdrop-blur-sm rounded-lg shadow-md hover:shadow-lg transition-all duration-200 p-1 md:p-2 h-[300px] md:h-[400px] relative overflow-hidden border border-white/50 dark:border-gray-700">
+                <div className="bg-white/90 dark:bg-gray-800/90 backdrop-blur-sm rounded-lg shadow-md hover:shadow-lg transition-all duration-200 p-1 md:p-2 h-[250px] md:h-[320px] relative overflow-hidden border border-white/50 dark:border-gray-700">
                   <div className="flex items-center justify-between mb-1">
                     <h3 className="text-base font-semibold text-gray-800 dark:text-white">Product Sales Trend</h3>
                     <FestivalIndicator scene={parseInt(currentScene)} />
@@ -934,7 +925,7 @@ const Stock: React.FC<StockProps> = ({ isLoaded, onClose }) => {
                   <BarChart 
                     scene={parseInt(currentScene)} 
                     showAI={showAI}
-                    className="h-[280px]"
+                    className="h-[220px] md:h-[280px]"
                   />
 
                   {/* Scene Overlays */}
@@ -1014,8 +1005,8 @@ const Stock: React.FC<StockProps> = ({ isLoaded, onClose }) => {
 
             {/* Impact Summary */}
             <div className={`grid grid-cols-1 md:grid-cols-2 gap-2 transform ${isLoaded ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'}`} style={{ transitionDelay: '700ms' }}>
-              <div className="bg-white/90 dark:bg-gray-800/90 backdrop-blur-sm rounded-lg shadow-md hover:shadow-lg transition-all duration-200 p-2 border border-white/50 dark:border-gray-700">
-                <h3 className="text-base font-semibold text-gray-800 dark:text-white mb-2">Without AI Prediction</h3>
+              <div className="bg-white/90 dark:bg-gray-800/90 backdrop-blur-sm rounded-lg shadow-md hover:shadow-lg transition-all duration-200 p-1.5 border border-white/50 dark:border-gray-700">
+                <h3 className="text-sm font-semibold text-gray-800 dark:text-white mb-1.5">Without AI Prediction</h3>
                 <div className="space-y-1">
                   <div className="flex items-center gap-2 transform hover:translate-x-0.5 transition-all duration-200">
                     <div className="w-8 h-8 bg-red-100 dark:bg-red-900 rounded flex items-center justify-center">
@@ -1038,10 +1029,10 @@ const Stock: React.FC<StockProps> = ({ isLoaded, onClose }) => {
                 </div>
               </div>
 
-              <div className="bg-gradient-to-r from-teal-500 to-cyan-500 rounded-lg shadow-md hover:shadow-lg transition-all duration-200 p-2 text-white relative overflow-hidden">
+              <div className="bg-gradient-to-r from-teal-500 to-cyan-500 rounded-lg shadow-md hover:shadow-lg transition-all duration-200 p-1.5 text-white relative overflow-hidden">
                 <div className="absolute inset-0 bg-gradient-to-r from-teal-400/10 to-cyan-400/10 animate-pulse" />
                 <div className="relative z-10">
-                  <h3 className="text-base font-semibold mb-2">With AI Prediction</h3>
+                  <h3 className="text-sm font-semibold mb-1.5">With AI Prediction</h3>
                   <div className="space-y-1">
                     <div className="flex items-center gap-2 transform hover:translate-x-0.5 transition-all duration-200">
                       <div className="w-8 h-8 bg-white/20 rounded flex items-center justify-center">
@@ -1067,8 +1058,6 @@ const Stock: React.FC<StockProps> = ({ isLoaded, onClose }) => {
             </div>
           </main>
         </div>
-      </div>
-    </div>
   );
 };
 

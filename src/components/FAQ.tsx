@@ -110,7 +110,7 @@ const FAQ = () => {
                 onClick={() => toggleFAQ(index)}
                 className="w-full flex justify-between items-center p-6 text-left focus:outline-none"
               >
-                <span className="text-xl font-semibold text-gray-900 dark:text-white group-hover:text-teal-600 dark:group-hover:text-teal-400 transition-colors duration-300">
+                <span className="text-xl font-semibold text-gray-900 dark:text-white group-hover:text-red-600 dark:group-hover:text-yellow-300 transition-colors duration-300">
                   {faq.question}
                 </span>
                 <ChevronDown
