@@ -266,7 +266,7 @@ const Footer = () => {
             <div className="md:col-span-1">
               <div className="flex items-center space-x-2 mb-3">
                 <img
-                  src="/assets/Olynk_Logo.png"
+                  src="/assets/Olynk.AI_Logo.png"
                   alt="Olynk.ai Logo"
                   className="h-6 w-6 object-contain"
                   onError={(e) => {

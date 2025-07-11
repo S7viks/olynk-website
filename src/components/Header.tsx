@@ -36,11 +36,11 @@ const Header = () => {
           {/* Logo */}
           <Link to="/" className="flex items-center space-x-2">
             <img
-              src="/assets/Olynk_Logo.png"
+              src="/assets/Olynk.AI_Logo.png"
               alt="Olynk.ai Logo"
               className="h-8 w-8 object-contain"
               onError={(e) => {
-                console.error('Failed to load logo image at /assets/Olynk_Logo.png');
+                console.error('Failed to load logo image at /assets/Olynk.AI_Logo.png');
                 e.currentTarget.src = 'https://via.placeholder.com/32?text=Logo'; // Fallback image
               }}
             />
