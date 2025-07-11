@@ -1,616 +1,368 @@
 import React, { useState, useEffect } from 'react';
-import { Play, Pause, RotateCcw, Calendar, TrendingUp, AlertTriangle, Brain, Zap, Shield, Target, Clock, Star, Sparkles, Package, CheckCircle, TrendingDown, DollarSign, AlertCircle, X } from 'lucide-react';
+import { Brain, TrendingUp, Clock, CheckCircle, AlertTriangle, Package, TrendingDown, Shield, AlertCircle, DollarSign, Play, RotateCcw, Zap, Target, Calendar } from 'lucide-react';
+
+interface StockProps {
+  isLoaded: boolean;
+  onClose: () => void;
+}
 
 // --- FestivalIndicator ---
 const FestivalIndicator: React.FC<{ scene: number }> = ({ scene }) => {
-  if (scene < 1) return null;
+  const festivals = [
+    { name: 'Normal', color: 'bg-gray-400' },
+    { name: 'Diwali', color: 'bg-orange-400' },
+    { name: 'Holi', color: 'bg-pink-400' },
+    { name: 'Eid', color: 'bg-green-400' }
+  ];
+
   return (
-    <div className="flex items-center gap-1 animate-slide-down">
-      <div className="relative">
-        <div className="absolute -inset-0.5 bg-gradient-to-r from-orange-400 via-red-500 to-pink-500 rounded-md blur-sm opacity-40 animate-pulse" />
-        <div className="relative bg-white px-1 py-0.5 rounded-md border border-orange-200 shadow-sm backdrop-blur-sm">
-          <div className="flex items-center gap-0.5">
-            <Star className="w-2 h-2 text-orange-500 animate-spin" style={{ animationDuration: '1.5s' }} />
-            <span className="text-xs font-semibold text-orange-600">Festival Season</span>
-            <Sparkles className="w-2 h-2 text-pink-500 animate-pulse" />
-          </div>
-        </div>
-      </div>
-      <div className="bg-gradient-to-r from-red-500 to-pink-500 text-white px-1 py-0.5 rounded-full text-xs font-medium animate-bounce">
-        <div className="flex items-center gap-0.5">
-          <TrendingUp className="w-1.5 h-1.5" />
-          High Demand Alert
-        </div>
-      </div>
-      <div className="relative">
-        {[...Array(2)].map((_, i) => (
-          <div
-            key={i}
-            className="absolute w-1 h-1 bg-yellow-400 rounded-full animate-ping"
-            style={{
-              left: `${i * 4}px`,
-              top: `${i * 2}px`,
-              animationDelay: `${i * 100}ms`,
-              animationDuration: '0.8s'
-            }}
-          />
-        ))}
-      </div>
+    <div className="flex items-center gap-2">
+      <div className={`w-3 h-3 rounded-full ${festivals[scene]?.color || festivals[0].color} transition-all duration-500`} />
+      <span className="text-sm font-medium text-gray-600 dark:text-gray-400">
+        {festivals[scene]?.name || festivals[0].name}
+      </span>
     </div>
   );
 };
 
-// --- BarChart ---
-const BarChart: React.FC<{ scene: number; showAI: boolean; className?: string }> = ({ scene, showAI, className = "" }) => {
-  type BarData = { day: string; sales: number; predicted?: number };
-  const [animatedData, setAnimatedData] = useState<BarData[]>([
-    { day: 'Mon', sales: 45000 },
-    { day: 'Tue', sales: 52000 },
-    { day: 'Wed', sales: 48000 },
-    { day: 'Thu', sales: 55000 },
-    { day: 'Fri', sales: 62000 },
-    { day: 'Sat', sales: 58000 },
-    { day: 'Sun', sales: 51000 },
-  ]);
-  const [isAnimating, setIsAnimating] = useState(false);
-  const steadyData = [
-    { day: 'Mon', sales: 45000 },
-    { day: 'Tue', sales: 52000 },
-    { day: 'Wed', sales: 48000 },
-    { day: 'Thu', sales: 55000 },
-    { day: 'Fri', sales: 62000 },
-    { day: 'Sat', sales: 58000 },
-    { day: 'Sun', sales: 51000 },
-  ];
-  const spikeData = [
-    { day: 'Mon', sales: 45000 },
-    { day: 'Tue', sales: 52000 },
-    { day: 'Wed', sales: 48000 },
-    { day: 'Thu', sales: 55000 },
-    { day: 'Fri', sales: 125000 },
-    { day: 'Sat', sales: 180000 },
-    { day: 'Sun', sales: 160000 },
-  ];
-  const aiData = [
-    { day: 'Mon', sales: 45000, predicted: 45000 },
-    { day: 'Tue', sales: 52000, predicted: 52000 },
-    { day: 'Wed', sales: 48000, predicted: 48000 },
-    { day: 'Thu', sales: 55000, predicted: 55000 },
-    { day: 'Fri', sales: 62000, predicted: 125000 },
-    { day: 'Sat', sales: 58000, predicted: 180000 },
-    { day: 'Sun', sales: 51000, predicted: 160000 },
-  ];
+// --- StorybookChart ---
+const StorybookChart: React.FC<{ scene: number; showAI: boolean; className?: string }> = ({ scene, showAI, className = "" }) => {
+  const [currentStep, setCurrentStep] = useState(0);
+  
   useEffect(() => {
-    setIsAnimating(true);
-    const timer = setTimeout(() => setIsAnimating(false), 300);
-    if (showAI) {
-      setAnimatedData(aiData);
-    } else if (scene >= 1) {
-      setAnimatedData(spikeData);
-    } else {
-      setAnimatedData(steadyData);
+    const interval = setInterval(() => {
+      setCurrentStep(prev => (prev + 1) % 4);
+    }, 2000);
+    return () => clearInterval(interval);
+  }, []);
+
+  const storySteps = [
+    {
+      title: "Peaceful Operations",
+      description: "Normal sales patterns, steady inventory flow",
+      data: [120, 135, 110, 125, 130, 140, 115],
+      color: "from-blue-400 to-blue-500",
+      icon: TrendingUp
+    },
+    {
+      title: "Rising Tension",
+      description: "First signs of increased demand",
+      data: [120, 135, 150, 180, 200, 220, 240],
+      color: "from-yellow-400 to-orange-500",
+      icon: Clock
+    },
+    {
+      title: "Critical Phase",
+      description: "Demand skyrockets, inventory depleting fast",
+      data: [240, 280, 320, 380, 420, 450, 480],
+      color: "from-orange-400 to-red-500",
+      icon: AlertTriangle
+    },
+    {
+      title: "Crisis Point",
+      description: "Complete stockout, revenue loss begins",
+      data: [480, 520, 0, 0, 0, 0, 0],
+      color: "from-red-400 to-red-600",
+      icon: AlertTriangle
     }
-    return () => clearTimeout(timer);
-  }, [scene, showAI]);
-  const maxValue = Math.max(...animatedData.map(d => Math.max(d.sales, d.predicted || 0)));
-  const getBarHeight = (value: number) => (value / maxValue) * 80;
+  ];
+
+  const currentStory = storySteps[scene] || storySteps[0];
+  const Icon = currentStory.icon;
+
   return (
     <div className={`relative ${className}`}>
-      <div className="flex items-end gap-1 h-full px-1 pb-4">
-        {animatedData.map((data, index) => (
-          <div key={data.day} className="flex-1 flex flex-col items-center">
-            <div className="relative w-full flex justify-center items-end h-80">
-              <div
-                className={`w-8 bg-gradient-to-t transition-all duration-300 ease-out rounded-t-md shadow-sm hover:shadow-md transform hover:scale-101 ${
-                  scene >= 1 && (index >= 4) 
-                    ? 'from-red-400 to-red-500 animate-pulse' 
-                    : 'from-teal-400 to-teal-500'
-                } ${isAnimating ? 'animate-bounce' : ''}`}
-                style={{
-                  height: `${getBarHeight(data.sales)}%`,
-                  animationDelay: `${index * 50}ms`
-                }}
-              />
-              {showAI && data.predicted && data.predicted !== data.sales && (
+      {/* Story Header */}
+      <div className="mb-4 text-center">
+        <div className="flex items-center justify-center gap-2 mb-2">
+          <div className={`w-8 h-8 bg-gradient-to-r ${currentStory.color} rounded-lg flex items-center justify-center shadow-lg`}>
+            <Icon className="w-4 h-4 text-white" />
+          </div>
+          <h3 className="text-lg font-bold text-gray-800 dark:text-white">{currentStory.title}</h3>
+        </div>
+        <p className="text-sm text-gray-600 dark:text-gray-400">{currentStory.description}</p>
+      </div>
+
+      {/* Animated Chart */}
+      <div className="relative h-64 bg-gradient-to-br from-gray-50 to-gray-100 dark:from-gray-800 dark:to-gray-900 rounded-lg p-4 border border-gray-200 dark:border-gray-700">
+        <div className="flex items-end justify-between h-full gap-2">
+          {currentStory.data.map((value, index) => (
+            <div key={index} className="flex-1 flex flex-col items-center">
+              <div className="relative w-full flex justify-center items-end h-48">
                 <div
-                  className={`w-8 bg-gradient-to-t from-yellow-400 to-yellow-500 rounded-t-md ml-0.5 opacity-80 border border-yellow-600 shadow-sm transform hover:scale-101 animate-slide-up ${isAnimating ? 'animate-bounce' : ''}`}
-                  style={{
-                    height: `${getBarHeight(data.predicted)}%`,
-                    animationDelay: `${index * 50 + 25}ms`
+                  className={`w-6 bg-gradient-to-t ${currentStory.color} rounded-t-lg shadow-md transition-all duration-1000 ease-out`}
+                style={{
+                    height: `${(value / 500) * 100}%`,
+                    animationDelay: `${index * 150}ms`
                   }}
                 />
-              )}
-              {scene >= 1 && index >= 4 && (
-                <div className="absolute inset-0 bg-red-400/10 rounded-t-md blur-sm animate-pulse" />
-              )}
-              <div className={`absolute -top-4 text-center transition-all duration-300 ${isAnimating ? 'animate-fade-in' : ''}`}>
-                <div className={`text-xs font-semibold px-0.5 py-0.5 rounded-md ${
-                  scene >= 1 && index >= 4 ? 'text-red-700 bg-red-100' : 'text-gray-700 bg-white/80'
-                }`}>
-                  {(data.sales / 1000).toFixed(0)}K
-                </div>
-                {showAI && data.predicted && data.predicted !== data.sales && (
-                  <div className="text-xs font-medium text-yellow-600 mt-0.5 bg-yellow-100 px-0.5 py-0.5 rounded-md">
-                    Pred: {(data.predicted / 1000).toFixed(0)}K
-                  </div>
+                {showAI && scene >= 1 && index >= 4 && (
+                  <div className="absolute -top-2 -right-2 w-3 h-3 bg-green-400 rounded-full border-2 border-white shadow-lg" />
                 )}
+                </div>
+              <div className="text-xs text-gray-600 dark:text-gray-400 mt-2">
+                Day {index + 1}
+                  </div>
               </div>
+          ))}
             </div>
-            <div className={`mt-1 text-xs font-medium text-gray-600 transition-all duration-200 ${
-              scene >= 1 && index >= 4 ? 'text-red-600 font-bold' : ''
-            }`}>
-              {data.day}
+
+        {/* AI Prediction Overlay */}
+        {showAI && scene >= 1 && (
+          <div className="absolute inset-0 bg-green-500/10 rounded-lg flex items-center justify-center">
+            <div className="bg-white dark:bg-gray-800 p-4 rounded-lg shadow-xl border-2 border-green-200 dark:border-green-700">
+              <div className="flex items-center gap-2 mb-2">
+                <Brain className="w-5 h-5 text-green-600" />
+                <span className="font-bold text-green-600">AI Prediction Active</span>
             </div>
+              <p className="text-sm text-gray-600 dark:text-gray-400">
+                Demand spike predicted 7 days early
+              </p>
           </div>
-        ))}
       </div>
-      <div className="absolute left-0 top-0 h-80 flex flex-col justify-between text-xs text-gray-500 -ml-4">
-        <span className="bg-white/80 px-0.5 py-0.5 rounded">{(maxValue / 1000).toFixed(0)}K</span>
-        <span className="bg-white/80 px-0.5 py-0.5 rounded">{(maxValue * 0.75 / 1000).toFixed(0)}K</span>
-        <span className="bg-white/80 px-0.5 py-0.5 rounded">{(maxValue * 0.5 / 1000).toFixed(0)}K</span>
-        <span className="bg-white/80 px-0.5 py-0.5 rounded">{(maxValue * 0.25 / 1000).toFixed(0)}K</span>
-        <span className="bg-white/80 px-0.5 py-0.5 rounded">0</span>
+        )}
+
+        {/* Crisis Overlay */}
+        {scene >= 3 && !showAI && (
+          <div className="absolute inset-0 bg-red-500/10 rounded-lg flex items-center justify-center">
+            <div className="bg-white dark:bg-gray-800 p-4 rounded-lg shadow-xl border-2 border-red-200 dark:border-red-700">
+              <div className="flex items-center gap-2 mb-2">
+                <AlertTriangle className="w-5 h-5 text-red-600" />
+                <span className="font-bold text-red-600">STOCKOUT CRISIS</span>
       </div>
-      <div className="absolute bottom-0 right-0 flex gap-1 text-xs">
-        <div className="flex items-center gap-0.5 bg-white/80 px-1 py-0.5 rounded-md">
-          <div className="w-1.5 h-1.5 bg-gradient-to-r from-teal-400 to-teal-500 rounded shadow-sm"></div>
-          <span className="text-gray-600 font-medium">Actual Sales</span>
+              <p className="text-sm text-gray-600 dark:text-gray-400">
+                Revenue loss: ₹2.3L and counting...
+              </p>
         </div>
-        {showAI && (
-          <div className="flex items-center gap-0.5 bg-white/80 px-1 py-0.5 rounded-md animate-fade-in">
-            <div className="w-1.5 h-1.5 bg-gradient-to-r from-yellow-400 to-yellow-500 rounded border border-yellow-600 shadow-sm"></div>
-            <span className="text-gray-600 font-medium">AI Prediction</span>
           </div>
         )}
       </div>
-      <div className="absolute inset-0 pointer-events-none">
-        {[...Array(3)].map((_, i) => (
-          <div
-            key={i}
-            className="absolute left-0 right-0 border-t border-gray-200/50"
-            style={{ top: `${i * 25}%` }}
-          />
-        ))}
-      </div>
     </div>
   );
 };
 
-// --- InventoryCounter ---
-const InventoryCounter: React.FC<{ scene: number; showAI: boolean }> = ({ scene, showAI }) => {
+// --- SmartInventory ---
+const SmartInventory: React.FC<{ scene: number; showAI: boolean }> = ({ scene, showAI }) => {
   const [inventory, setInventory] = useState(1200);
-  const [isAnimating, setIsAnimating] = useState(false);
-  const [previousInventory, setPreviousInventory] = useState(1200);
+  
   useEffect(() => {
     if (showAI) {
       setInventory(1200);
       return;
     }
-    setPreviousInventory(inventory);
-    setIsAnimating(true);
-    const timer = setTimeout(() => setIsAnimating(false), 300);
-    switch (scene) {
-      case 0:
-        setInventory(1200);
-        break;
-      case 1:
-        setInventory(850);
-        break;
-      case 2:
-        setInventory(200);
-        break;
-      case 3:
-        setInventory(0);
-        break;
-    }
-    return () => clearTimeout(timer);
+    
+    const levels = [1200, 850, 200, 0];
+    setInventory(levels[scene] || 1200);
   }, [scene, showAI]);
-  const getStatusColor = () => {
-    if (showAI) return 'text-green-600';
-    if (inventory === 0) return 'text-red-600';
-    if (inventory < 300) return 'text-orange-600';
-    return 'text-green-600';
+
+  const getStatus = () => {
+    if (showAI) return { text: 'AI Optimized', color: 'text-green-600', bg: 'bg-green-50', border: 'border-green-200' };
+    if (inventory === 0) return { text: 'Out of Stock', color: 'text-red-600', bg: 'bg-red-50', border: 'border-red-200' };
+    if (inventory < 300) return { text: 'Low Stock', color: 'text-orange-600', bg: 'bg-orange-50', border: 'border-orange-200' };
+    return { text: 'Healthy', color: 'text-green-600', bg: 'bg-green-50', border: 'border-green-200' };
   };
-  const getStatusIcon = () => {
-    if (showAI) return <CheckCircle className="w-3 h-3 text-green-600" />;
-    if (inventory === 0) return <AlertTriangle className="w-3 h-3 text-red-600 animate-pulse" />;
-    if (inventory < 300) return <AlertTriangle className="w-3 h-3 text-orange-600 animate-bounce" />;
-    return <Package className="w-3 h-3 text-green-600" />;
-  };
-  const getProgressWidth = () => {
-    const maxInventory = 1200;
-    return (inventory / maxInventory) * 100;
-  };
-  const getProgressColor = () => {
-    if (showAI) return 'bg-gradient-to-r from-green-400 to-green-500';
-    if (inventory === 0) return 'bg-gradient-to-r from-red-400 to-red-500';
-    if (inventory < 300) return 'bg-gradient-to-r from-orange-400 to-orange-500';
-    return 'bg-gradient-to-r from-teal-400 to-teal-500';
-  };
-  const getChangeIndicator = () => {
-    const change = inventory - previousInventory;
-    if (change === 0) return null;
+
+  const status = getStatus();
+
     return (
-      <div className={`flex items-center gap-0.5 text-xs ${change < 0 ? 'text-red-600' : 'text-green-600'} animate-fade-in`}>
-        <TrendingDown className={`w-1.5 h-1.5 ${change > 0 ? 'rotate-180' : ''}`} />
-        <span>{Math.abs(change).toLocaleString()}</span>
-      </div>
-    );
-  };
-  return (
-    <div className="space-y-2">
-      <div className="text-center relative">
-        <div className={`text-xl font-bold transition-all duration-300 ${getStatusColor()} ${isAnimating ? 'animate-pulse scale-102' : ''}`}>
+    <div className="space-y-3">
+      {/* Main Display */}
+      <div className="text-center">
+        <div className={`text-2xl font-bold ${status.color} mb-1`}>
           {inventory.toLocaleString()}
         </div>
-        <p className="text-xs text-gray-600 mt-0.5">Units Available</p>
-        {getChangeIndicator()}
-        {inventory === 0 && (
-          <div className="absolute -top-0.5 -right-0.5 w-2 h-2 bg-red-500 rounded-full animate-ping" />
-        )}
+        <div className="text-sm text-gray-600 dark:text-gray-400">Units Available</div>
       </div>
-      <div className="space-y-0.5">
-        <div className="flex justify-between text-xs text-gray-600">
-          <span>Stock Level</span>
-          <span className={`font-semibold ${getStatusColor()}`}>{Math.round(getProgressWidth())}%</span>
-        </div>
-        <div className="w-full bg-gray-200 rounded-full h-2 overflow-hidden shadow-inner">
-          <div
-            className={`h-2 rounded-full transition-all duration-300 ease-out shadow-sm ${getProgressColor()} ${
-              inventory < 300 ? 'animate-pulse' : ''
-            }`}
-            style={{ width: `${getProgressWidth()}%` }}
-          >
-            <div className="h-full w-full bg-gradient-to-r from-transparent via-white/10 to-transparent animate-shimmer" />
+
+      {/* Progress Bar */}
+      <div className="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-3">
+        <div 
+          className={`h-3 rounded-full transition-all duration-1000 ${
+            showAI ? 'bg-gradient-to-r from-green-400 to-green-500' :
+            inventory === 0 ? 'bg-gradient-to-r from-red-400 to-red-500' :
+            inventory < 300 ? 'bg-gradient-to-r from-orange-400 to-orange-500' :
+            'bg-gradient-to-r from-blue-400 to-blue-500'
+          }`}
+          style={{ width: `${(inventory / 1200) * 100}%` }}
+        />
           </div>
-        </div>
-        <div className="flex justify-between text-xs text-gray-400 px-0.5">
-          <span>0</span>
-          <span className="text-orange-500">300 (Low)</span>
-          <span className="text-green-500">1200 (Max)</span>
-        </div>
-      </div>
-      <div className={`flex items-center gap-1 p-1 rounded-md transition-all duration-300 transform hover:scale-101 ${
-        showAI 
-          ? 'bg-green-50 border border-green-200 shadow-green-50' 
-          : inventory === 0 
-            ? 'bg-red-50 border border-red-200 shadow-red-50 animate-pulse' 
-            : inventory < 300 
-              ? 'bg-orange-50 border border-orange-200 shadow-orange-50' 
-              : 'bg-gray-50 border border-gray-200'
-      } shadow-sm`}>
-        {getStatusIcon()}
-        <div className="flex-1">
-          <p className={`font-semibold text-xs ${getStatusColor()}`}>
-            {showAI 
-              ? 'AI Optimized' 
-              : inventory === 0 
-                ? 'Out of Stock' 
-                : inventory < 300 
-                  ? 'Low Stock Alert' 
-                  : 'Healthy Stock'
-            }
-          </p>
-          <p className="text-xs text-gray-600">
-            {showAI 
-              ? 'Proactive restocking scheduled' 
-              : inventory === 0 
-                ? 'Immediate restock required' 
-                : inventory < 300 
-                  ? 'Consider reordering soon' 
-                  : 'Normal operations'
-            }
-          </p>
-        </div>
-        <div className={`w-1.5 h-1.5 rounded-full ${
-          showAI ? 'bg-green-500' : inventory === 0 ? 'bg-red-500 animate-pulse' : inventory < 300 ? 'bg-orange-500' : 'bg-green-500'
-        }`} />
-      </div>
-      {scene >= 1 && !showAI && (
-        <div className="bg-red-50 border border-red-200 rounded-md p-1 animate-slide-up shadow-sm">
-          <div className="flex items-center gap-1">
-            <div className="w-5 h-5 bg-red-100 rounded-full flex items-center justify-center">
-              <TrendingDown className="w-2 h-2 text-red-600" />
-            </div>
-            <div className="flex-1">
-              <div className="flex items-center gap-0.5 text-red-700">
-                <div className="w-1 h-1 bg-red-500 rounded-full animate-pulse" />
-                <span className="text-xs font-medium">
-                  Rapid Depletion: {scene === 1 ? '2.5x' : scene === 2 ? '4.2x' : '0x'} normal rate
+
+      {/* Status Card */}
+      <div className={`p-3 rounded-lg border ${status.bg} ${status.border}`}>
+        <div className="flex items-center gap-2">
+          {showAI ? (
+            <Brain className="w-4 h-4 text-green-600" />
+          ) : inventory === 0 ? (
+            <AlertTriangle className="w-4 h-4 text-red-600" />
+          ) : inventory < 300 ? (
+            <Clock className="w-4 h-4 text-orange-600" />
+          ) : (
+            <CheckCircle className="w-4 h-4 text-green-600" />
+          )}
+          <span className={`font-semibold text-sm ${status.color}`}>
+            {status.text}
                 </span>
               </div>
-              <div className="text-xs text-red-600 mt-0.5">
-                {scene === 1 ? 'Demand spike detected' : scene === 2 ? 'Critical depletion rate' : 'Stock exhausted'}
               </div>
-            </div>
-          </div>
-        </div>
-      )}
+
+      {/* AI Insights */}
       {showAI && (
-        <div className="bg-gradient-to-r from-teal-50 to-cyan-50 border border-teal-200 rounded-md p-1 animate-fade-in shadow-sm">
-          <div className="flex items-center gap-1">
-            <div className="w-5 h-5 bg-teal-100 rounded-full flex items-center justify-center">
-              <CheckCircle className="w-2 h-2 text-teal-600" />
+        <div className="bg-gradient-to-r from-green-50 to-blue-50 border border-green-200 rounded-lg p-3">
+          <div className="flex items-center gap-2 mb-2">
+            <Brain className="w-4 h-4 text-green-600" />
+            <span className="font-semibold text-sm text-green-700">AI Insights</span>
             </div>
-            <div>
-              <div className="text-xs font-medium text-teal-700">AI Prevention Active</div>
-              <div className="text-xs text-teal-600">Automatic reorder triggered 7 days early</div>
-            </div>
-          </div>
+          <p className="text-xs text-green-600">
+            Proactive restocking scheduled • 7-day advance warning • Zero stockout risk
+          </p>
         </div>
       )}
     </div>
   );
 };
 
-// --- LossCounter ---
-const LossCounter: React.FC<{ scene: number; showAI: boolean }> = ({ scene, showAI }) => {
-  const [lossAmount, setLossAmount] = useState(0);
-  const [isCountingUp, setIsCountingUp] = useState(false);
+// --- FinancialImpact ---
+const FinancialImpact: React.FC<{ scene: number; showAI: boolean }> = ({ scene, showAI }) => {
   const [displayAmount, setDisplayAmount] = useState(0);
+  
   useEffect(() => {
     if (showAI) {
-      setLossAmount(0);
       setDisplayAmount(0);
-      setIsCountingUp(false);
       return;
     }
-    switch (scene) {
-      case 0:
-      case 1:
-        setLossAmount(0);
-        setDisplayAmount(0);
-        setIsCountingUp(false);
-        break;
-      case 2:
-        setLossAmount(45000);
-        setIsCountingUp(true);
-        break;
-      case 3:
-        setLossAmount(230000);
-        setIsCountingUp(false);
-        break;
-    }
+    
+    const amounts = [0, 45000, 120000, 230000];
+    setDisplayAmount(amounts[scene] || 0);
   }, [scene, showAI]);
-  useEffect(() => {
-    if (lossAmount === displayAmount) return;
-    const increment = Math.ceil((lossAmount - displayAmount) / 15);
-    const timer = setInterval(() => {
-      setDisplayAmount(prev => {
-        const next = prev + increment;
-        if (next >= lossAmount) {
-          clearInterval(timer);
-          return lossAmount;
-        }
-        return next;
-      });
-    }, 15);
-    return () => clearTimeout(timer);
-  }, [lossAmount, displayAmount]);
+
   const formatCurrency = (amount: number) => {
     if (amount >= 100000) {
       return `₹${(amount / 100000).toFixed(1)}L`;
     }
     return `₹${(amount / 1000).toFixed(0)}K`;
   };
-  const getLossBreakdown = () => {
-    const ratio = displayAmount / 230000;
-    return {
-      lostSales: Math.round(180000 * ratio),
-      customerChurn: Math.round(35000 * ratio),
-      brandImpact: Math.round(15000 * ratio)
-    };
-  };
-  const breakdown = getLossBreakdown();
+
   return (
-    <div className="space-y-2">
-      <div className="text-center relative">
-        <div className={`text-xl font-bold transition-all duration-300 ${
-          showAI ? 'text-green-600' : displayAmount > 0 ? 'text-red-600' : 'text-gray-400'
-        } ${isCountingUp ? 'animate-pulse scale-102' : ''}`}>
+    <div className="space-y-3">
+      {/* Main Display */}
+      <div className="text-center">
+        <div className={`text-2xl font-bold ${showAI ? 'text-green-600' : displayAmount > 0 ? 'text-red-600' : 'text-gray-400'}`}>
           {showAI ? '₹0' : formatCurrency(displayAmount)}
         </div>
-        <p className="text-xs text-gray-600 mt-0.5">
-          {showAI ? 'Prevented Loss' : 'Revenue Loss'}
-        </p>
-        {displayAmount > 0 && !showAI && (
-          <>
-            <div className="absolute -top-0.5 -right-0.5 w-2 h-2 bg-red-500 rounded-full animate-ping" />
-            <div className="absolute -top-0.5 -right-0.5 w-1 h-1 bg-red-600 rounded-full" />
-          </>
-        )}
-        {showAI && (
-          <div className="absolute -top-0.5 -right-0.5 w-2 h-2 bg-green-500 rounded-full animate-pulse" />
-        )}
+        <div className="text-sm text-gray-600 dark:text-gray-400">
+          {showAI ? 'Loss Prevented' : 'Revenue Loss'}
       </div>
-      {displayAmount > 0 && !showAI && (
-        <div className="space-y-1 animate-fade-in">
-          <div className="text-xs font-semibold text-gray-700 border-b border-gray-200 pb-0.5">
-            Loss Breakdown
           </div>
-          <div className="flex justify-between items-center py-0.5 border-b border-gray-100 hover:bg-red-50 transition-colors duration-200 rounded px-0.5">
-            <span className="text-xs text-gray-600 flex items-center gap-0.5">
-              <div className="w-1 h-1 bg-red-400 rounded-full" />
-              Lost Sales
-            </span>
-            <span className="font-semibold text-red-600">{formatCurrency(breakdown.lostSales)}</span>
-          </div>
-          <div className="flex justify-between items-center py-0.5 border-b border-gray-100 hover:bg-orange-50 transition-colors duration-200 rounded px-0.5">
-            <span className="text-xs text-gray-600 flex items-center gap-0.5">
-              <div className="w-1 h-1 bg-orange-400 rounded-full" />
-              Customer Churn
-            </span>
-            <span className="font-semibold text-red-600">{formatCurrency(breakdown.customerChurn)}</span>
-          </div>
-          <div className="flex justify-between items-center py-0.5 border-b border-gray-100 hover:bg-yellow-50 transition-colors duration-200 rounded px-0.5">
-            <span className="text-xs text-gray-600 flex items-center gap-0.5">
-              <div className="w-1 h-1 bg-yellow-400 rounded-full" />
-              Brand Impact
-            </span>
-            <span className="font-semibold text-red-600">{formatCurrency(breakdown.brandImpact)}</span>
-          </div>
-        </div>
-      )}
-      <div className={`flex items-center gap-1 p-1 rounded-md transition-all duration-300 transform hover:scale-101 shadow-sm ${
+
+      {/* Impact Card */}
+      <div className={`p-3 rounded-lg border ${
         showAI 
-          ? 'bg-green-50 border border-green-200 shadow-green-50' 
+          ? 'bg-green-50 border-green-200' 
           : displayAmount > 0 
-            ? 'bg-red-50 border border-red-200 shadow-red-50' 
-            : 'bg-gray-50 border border-gray-200'
+            ? 'bg-red-50 border-red-200' 
+            : 'bg-gray-50 border-gray-200'
       }`}>
-        <div className={`w-6 h-6 rounded-full flex items-center justify-center ${
-          showAI ? 'bg-green-100' : displayAmount > 0 ? 'bg-red-100' : 'bg-gray-100'
-        }`}>
+        <div className="flex items-center gap-2">
           {showAI ? (
-            <Shield className="w-3 h-3 text-green-600" />
+            <Shield className="w-4 h-4 text-green-600" />
           ) : displayAmount > 0 ? (
-            <TrendingDown className="w-3 h-3 text-red-600 animate-bounce" />
+            <TrendingDown className="w-4 h-4 text-red-600" />
           ) : (
-            <AlertCircle className="w-3 h-3 text-gray-400" />
+            <CheckCircle className="w-4 h-4 text-gray-400" />
           )}
-        </div>
-        <div className="flex-1">
-          <p className={`font-semibold text-xs ${
+          <span className={`font-semibold text-sm ${
             showAI ? 'text-green-700' : displayAmount > 0 ? 'text-red-700' : 'text-gray-500'
           }`}>
-            {showAI 
-              ? 'Loss Prevention Active' 
-              : displayAmount > 0 
-                ? 'Financial Impact Detected' 
-                : 'No Impact'
-            }
-          </p>
-          <p className="text-xs text-gray-600">
-            {showAI 
-              ? 'AI prevented stockout scenario' 
-              : displayAmount > 0 
-                ? 'Due to inventory shortage' 
-                : 'All systems normal'
-            }
-          </p>
+            {showAI ? 'AI Protection Active' : displayAmount > 0 ? 'Financial Impact' : 'No Impact'}
+          </span>
         </div>
-        <div className={`w-1.5 h-1.5 rounded-full ${
-          showAI ? 'bg-green-500' : displayAmount > 0 ? 'bg-red-500 animate-pulse' : 'bg-gray-300'
-        }`} />
       </div>
+
+      {/* Recovery Info */}
       {scene >= 3 && !showAI && (
-        <div className="bg-orange-50 border border-orange-200 rounded-md p-1 animate-slide-up shadow-sm">
-          <div className="flex items-center gap-1">
-            <div className="w-5 h-5 bg-orange-100 rounded-full flex items-center justify-center">
-              <AlertCircle className="w-2 h-2 text-orange-600" />
+        <div className="bg-orange-50 border border-orange-200 rounded-lg p-3">
+          <div className="flex items-center gap-2 mb-2">
+            <Calendar className="w-4 h-4 text-orange-600" />
+            <span className="font-semibold text-sm text-orange-700">Recovery Timeline</span>
             </div>
-            <div className="flex-1">
-              <div className="flex items-center gap-0.5 text-orange-700">
-                <div className="w-1 h-1 bg-orange-500 rounded-full animate-pulse" />
-                <span className="text-xs font-medium">Recovery: 5-7 business days</span>
-              </div>
-              <div className="text-xs text-orange-600 mt-0.5">
-                Additional costs: Expedited shipping, customer retention campaigns
-              </div>
-            </div>
-          </div>
-        </div>
-      )}
-      {showAI && (
-        <div className="bg-gradient-to-r from-green-50 to-teal-50 border border-green-200 rounded-md p-1 animate-fade-in shadow-sm">
-          <div className="flex items-center gap-1">
-            <div className="w-5 h-5 bg-green-100 rounded-full flex items-center justify-center">
-              <DollarSign className="w-2 h-2 text-green-600" />
-            </div>
-            <div>
-              <div className="text-xs font-medium text-green-700">₹2.3L Loss Prevented</div>
-              <div className="text-xs text-green-600">ROI: 1,150% on AI investment</div>
-            </div>
-          </div>
+          <p className="text-xs text-orange-600">
+            5-7 business days to restock • Additional costs: ₹50K expedited shipping
+          </p>
         </div>
       )}
     </div>
   );
 };
 
-// --- AIPredictor ---
-const AIPredictor: React.FC = () => {
+// --- AIProtector ---
+const AIProtector: React.FC = () => {
   return (
-    <div className="space-y-2 relative overflow-hidden">
-      <div className="absolute inset-0 bg-gradient-to-br from-white/5 to-transparent rounded-lg" />
-      <div className="absolute top-0 right-0 w-16 h-16 bg-white/5 rounded-full blur-sm animate-pulse" />
-      <div className="text-center relative z-10">
-        <div className="w-8 h-8 mx-auto mb-1 bg-white/10 rounded-full flex items-center justify-center animate-pulse">
-          <Brain className="w-4 h-4 text-white" />
+    <div className="space-y-3">
+      {/* Header */}
+      <div className="text-center">
+        <div className="w-10 h-10 mx-auto mb-2 bg-gradient-to-r from-purple-500 to-blue-500 rounded-lg flex items-center justify-center shadow-lg">
+          <Brain className="w-5 h-5 text-white" />
         </div>
-        <h3 className="text-base font-bold text-white mb-0.5">AI Prediction Engine</h3>
-        <p className="text-teal-100 text-xs flex items-center justify-center gap-0.5">
-          <Clock className="w-2 h-2" />
-          7 days ahead of demand spike
-        </p>
+        <h3 className="text-lg font-bold text-white mb-1">AI Protection System</h3>
+        <p className="text-sm text-purple-100">Active 24/7 monitoring</p>
       </div>
-      <div className="space-y-1 relative z-10">
-        <div className="bg-white/5 backdrop-blur-sm rounded-lg p-1 border border-white/10 hover:bg-white/10 transition-all duration-200 transform hover:scale-101">
-          <div className="flex items-center gap-1 mb-0.5">
-            <div className="w-5 h-5 bg-yellow-400/10 rounded flex items-center justify-center">
-              <Zap className="w-2 h-2 text-yellow-300" />
+
+      {/* Protection Features */}
+      <div className="space-y-2">
+        <div className="bg-white/10 rounded-lg p-2 border border-white/20">
+          <div className="flex items-center gap-2 mb-1">
+            <div className="w-6 h-6 bg-green-400/20 rounded flex items-center justify-center">
+              <CheckCircle className="w-3 h-3 text-green-300" />
             </div>
-            <span className="font-semibold text-white text-xs">Early Warning System</span>
+            <span className="font-semibold text-white text-sm">Early Warning</span>
           </div>
-          <p className="text-teal-100 text-xs leading-tight">
-            Festival season spike detected 7 days early using historical patterns, weather data, and social media sentiment analysis
+          <p className="text-xs text-purple-100">
+            7-day advance prediction of demand spikes
           </p>
-          <div className="mt-0.5 flex items-center gap-0.5">
-            <div className="w-1 h-1 bg-yellow-400 rounded-full animate-pulse" />
-            <span className="text-xs text-yellow-200">Confidence: 94.7%</span>
+          </div>
+
+        <div className="bg-white/10 rounded-lg p-2 border border-white/20">
+          <div className="flex items-center gap-2 mb-1">
+            <div className="w-6 h-6 bg-blue-400/20 rounded flex items-center justify-center">
+              <Zap className="w-3 h-3 text-blue-300" />
+        </div>
+            <span className="font-semibold text-white text-sm">Auto Reorder</span>
+            </div>
+          <p className="text-xs text-purple-100">
+            Automatic restock triggers with supplier alerts
+          </p>
+          </div>
+
+        <div className="bg-white/10 rounded-lg p-2 border border-white/20">
+          <div className="flex items-center gap-2 mb-1">
+            <div className="w-6 h-6 bg-purple-400/20 rounded flex items-center justify-center">
+              <Target className="w-3 h-3 text-purple-300" />
+        </div>
+            <span className="font-semibold text-white text-sm">Loss Prevention</span>
+            </div>
+          <p className="text-xs text-purple-100">
+            ₹2.3L revenue protected • 100% availability maintained
+          </p>
           </div>
         </div>
-        <div className="bg-white/5 backdrop-blur-sm rounded-lg p-1 border border-white/10 hover:bg-white/10 transition-all duration-200 transform hover:scale-101">
-          <div className="flex items-center gap-1 mb-0.5">
-            <div className="w-5 h-5 bg-green-400/10 rounded flex items-center justify-center">
-              <Shield className="w-2 h-2 text-green-300" />
-            </div>
-            <span className="font-semibold text-white text-xs">Automated Reorder</span>
-          </div>
-          <p className="text-teal-100 text-xs leading-tight">
-            Emergency restock of 800 units automatically triggered with expedited supplier notification
-          </p>
-          <div className="mt-0.5 flex items-center gap-0.5">
-            <div className="w-1 h-1 bg-green-400 rounded-full animate-pulse" />
-            <span className="text-xs text-green-200">Status: Order Placed</span>
-          </div>
-        </div>
-        <div className="bg-white/5 backdrop-blur-sm rounded-lg p-1 border border-white/10 hover:bg-white/10 transition-all duration-200 transform hover:scale-101">
-          <div className="flex items-center gap-1 mb-0.5">
-            <div className="w-5 h-5 bg-blue-400/10 rounded flex items-center justify-center">
-              <Target className="w-2 h-2 text-blue-300" />
-            </div>
-            <span className="font-semibold text-white text-xs">Impact Prevention</span>
-          </div>
-          <p className="text-teal-100 text-xs leading-tight">
-            ₹2.3L revenue loss prevented ✔ Zero stockout incidents ✔ 100% customer satisfaction maintained ✔ Brand reputation protected
-          </p>
-          <div className="mt-0.5 flex items-center gap-0.5">
-            <div className="w-1 h-1 bg-blue-400 rounded-full animate-pulse" />
-            <span className="text-xs text-blue-200">ROI: 1,150%</span>
-          </div>
-        </div>
-      </div>
-      <div className="text-center pt-1 border-t border-white/10 relative z-10">
-        <div className="grid grid-cols-2 gap-1">
+
+      {/* Stats */}
+      <div className="grid grid-cols-2 gap-2 pt-2 border-t border-white/20">
           <div className="text-center">
-            <div className="text-base font-bold text-white animate-pulse">99.2%</div>
-            <div className="text-xs text-teal-100">Prediction Accuracy</div>
+          <div className="text-lg font-bold text-white">99.2%</div>
+          <div className="text-xs text-purple-100">Accuracy</div>
           </div>
           <div className="text-center">
-            <div className="text-base font-bold text-white animate-pulse">2.3s</div>
-            <div className="text-xs text-teal-100">Response Time</div>
+          <div className="text-lg font-bold text-white">2.3s</div>
+          <div className="text-xs text-purple-100">Response</div>
           </div>
         </div>
-      </div>
-      <div className="absolute top-1 left-1 w-1 h-1 bg-white/20 rounded-full animate-ping" />
-      <div className="absolute bottom-2 right-2 w-0.5 h-0.5 bg-teal-300/30 rounded-full animate-pulse" />
     </div>
   );
 };
 
-// --- TimelineControls ---
-const TimelineControls: React.FC<{
+// --- StoryControls ---
+const StoryControls: React.FC<{
   currentScene: string;
   isPlaying: boolean;
   showAI: boolean;
@@ -628,26 +380,28 @@ const TimelineControls: React.FC<{
   onSceneChange
 }) => {
   const scenes = [
-    { id: '0', title: 'Steady Sales', icon: TrendingUp, color: 'text-teal-600', bgColor: 'bg-teal-100' },
-    { id: '1', title: 'Demand Spike', icon: TrendingUp, color: 'text-orange-600', bgColor: 'bg-orange-100' },
-    { id: '2', title: 'Rapid Depletion', icon: Clock, color: 'text-red-600', bgColor: 'bg-red-100' },
-    { id: '3', title: 'Stockout Crisis', icon: AlertTriangle, color: 'text-red-600', bgColor: 'bg-red-100' }
+    { id: '0', title: 'Chapter 1', subtitle: 'The Beginning', icon: TrendingUp },
+    { id: '1', title: 'Chapter 2', subtitle: 'Rising Tension', icon: Clock },
+    { id: '2', title: 'Chapter 3', subtitle: 'The Crisis', icon: AlertTriangle },
+    { id: '3', title: 'Chapter 4', subtitle: 'The Fallout', icon: AlertTriangle }
   ];
+
   return (
     <div className="space-y-4">
+      {/* Header */}
       <div className="flex items-center justify-between">
         <div>
-          <h3 className="text-base font-semibold text-gray-800 mb-0.5">Scenario Timeline</h3>
-          <p className="text-xs text-gray-600">Interactive demo of inventory crisis and AI prevention</p>
+          <h3 className="text-lg font-bold text-gray-800 dark:text-white">The Stockout Story</h3>
+          <p className="text-sm text-gray-600 dark:text-gray-400">Interactive narrative of inventory crisis</p>
         </div>
-        <div className="flex items-center gap-1">
+        <div className="flex items-center gap-2">
           <button
             onClick={onPlay}
             disabled={isPlaying}
-            className={`flex items-center gap-0.5 px-2 py-1 rounded-md font-semibold transition-all transform hover:scale-101 shadow-sm ${
+            className={`flex items-center gap-1 px-3 py-1.5 rounded-lg font-semibold transition-all ${
               isPlaying 
                 ? 'bg-gray-100 text-gray-400 cursor-not-allowed' 
-                : 'bg-gradient-to-r from-teal-500 to-cyan-500 text-white hover:from-teal-600 hover:to-cyan-600 hover:shadow-md'
+                : 'bg-gradient-to-r from-blue-500 to-purple-500 text-white hover:from-blue-600 hover:to-purple-600'
             }`}
           >
             {isPlaying ? (
@@ -658,163 +412,125 @@ const TimelineControls: React.FC<{
             ) : (
               <>
                 <Play className="w-3 h-3" />
-                Play Scenario
+                Play Story
               </>
             )}
           </button>
           <button
             onClick={onAIDemo}
-            className="flex items-center gap-0.5 px-2 py-1 bg-gradient-to-r from-purple-500 to-indigo-500 text-white rounded-md font-semibold hover:from-purple-600 hover:to-indigo-600 transition-all shadow-sm hover:shadow-md transform hover:scale-101"
+            className="flex items-center gap-1 px-3 py-1.5 bg-gradient-to-r from-green-500 to-teal-500 text-white rounded-lg font-semibold hover:from-green-600 hover:to-teal-600 transition-all"
           >
             <Brain className="w-3 h-3" />
             AI Solution
-            <Zap className="w-2 h-2 animate-pulse" />
           </button>
           <button
             onClick={onReset}
-            className="flex items-center gap-0.5 px-2 py-1 bg-gray-100 text-gray-600 rounded-md font-semibold hover:bg-gray-200 transition-all transform hover:scale-101"
+            className="flex items-center gap-1 px-3 py-1.5 bg-gray-100 text-gray-600 rounded-lg font-semibold hover:bg-gray-200 transition-all"
           >
             <RotateCcw className="w-3 h-3" />
             Reset
           </button>
         </div>
       </div>
+
+      {/* Story Timeline */}
       <div className="relative">
         <div className="flex items-center justify-between relative">
-          <div className="absolute top-3 left-3 right-3 h-0.5 bg-gray-200 rounded-full">
+          <div className="absolute top-4 left-4 right-4 h-1 bg-gray-200 dark:bg-gray-700 rounded-full">
             <div 
-              className="h-full bg-gradient-to-r from-teal-400 to-cyan-400 rounded-full transition-all duration-300 ease-out"
+              className="h-full bg-gradient-to-r from-blue-400 to-purple-400 rounded-full transition-all duration-500"
               style={{ width: `${(parseInt(currentScene) / (scenes.length - 1)) * 100}%` }}
             />
           </div>
           {scenes.map((scene, index) => {
             const Icon = scene.icon;
             const isActive = parseInt(currentScene) >= parseInt(scene.id);
-            const isCurrent = currentScene === scene.id;
+            const isCurrent = parseInt(currentScene) === parseInt(scene.id);
+            
             return (
-              <div key={scene.id} className="flex flex-col items-center relative z-10">
                 <button
-                  onClick={() => !isPlaying && onSceneChange(scene.id)}
-                  disabled={isPlaying}
-                  className={`w-8 h-8 rounded-full flex items-center justify-center transition-all duration-200 border-2 shadow-sm transform hover:scale-102 ${
+                key={scene.id}
+                onClick={() => onSceneChange(scene.id)}
+                className={`relative z-10 flex flex-col items-center gap-1 transition-all ${
+                  isActive ? 'text-blue-600 dark:text-blue-400' : 'text-gray-400'
+                }`}
+              >
+                <div className={`w-8 h-8 rounded-full flex items-center justify-center transition-all ${
                     isCurrent
-                      ? 'bg-teal-500 border-teal-500 text-white shadow-teal-100 scale-102 animate-pulse'
+                    ? 'bg-gradient-to-r from-blue-500 to-purple-500 text-white shadow-lg scale-110' 
                       : isActive
-                        ? `${scene.bgColor} border-teal-400 ${scene.color} shadow-sm`
-                        : 'bg-white border-gray-300 text-gray-400 hover:border-gray-400'
-                  } ${!isPlaying ? 'cursor-pointer' : 'cursor-not-allowed'}`}
-                >
-                  <Icon className={`w-3 h-3 ${isCurrent ? 'animate-bounce' : ''}`} />
-                </button>
-                <div className="text-center mt-1">
-                  <div className={`text-xs font-semibold transition-colors duration-200 ${
-                    isCurrent ? 'text-teal-600' : isActive ? 'text-gray-700' : 'text-gray-400'
-                  }`}>
-                    {scene.title}
+                      ? 'bg-blue-100 dark:bg-blue-900 text-blue-600 dark:text-blue-400' 
+                      : 'bg-gray-100 dark:bg-gray-800 text-gray-400'
+                }`}>
+                  <Icon className="w-4 h-4" />
                   </div>
-                  <div className={`text-xs mt-0.5 transition-colors duration-200 ${
-                    isCurrent ? 'text-teal-500' : 'text-gray-500'
-                  }`}>
-                    Day {parseInt(scene.id) + 1}
+                <div className="text-center">
+                  <div className="text-xs font-semibold">{scene.title}</div>
+                  <div className="text-xs text-gray-500 dark:text-gray-400">{scene.subtitle}</div>
                   </div>
-                </div>
-                {isCurrent && (
-                  <div className="absolute -bottom-0.5 w-1 h-1 bg-teal-500 rounded-full animate-ping" />
-                )}
-              </div>
+              </button>
             );
           })}
         </div>
       </div>
-      <div className={`p-2 rounded-md border transition-all duration-300 transform hover:scale-101 shadow-sm ${
+
+      {/* Current Status */}
+      <div className={`p-3 rounded-lg border transition-all ${
         showAI 
-          ? 'bg-gradient-to-r from-purple-50 to-indigo-50 border-purple-200 shadow-purple-50' 
+          ? 'bg-gradient-to-r from-green-50 to-teal-50 border-green-200' 
           : parseInt(currentScene) >= 3 
-            ? 'bg-gradient-to-r from-red-50 to-pink-50 border-red-200 shadow-red-50' 
+            ? 'bg-gradient-to-r from-red-50 to-pink-50 border-red-200' 
             : parseInt(currentScene) >= 2 
-              ? 'bg-gradient-to-r from-orange-50 to-yellow-50 border-orange-200 shadow-orange-50' 
-              : 'bg-gradient-to-r from-teal-50 to-cyan-50 border-teal-200 shadow-teal-50'
+              ? 'bg-gradient-to-r from-orange-50 to-yellow-50 border-orange-200' 
+              : 'bg-gradient-to-r from-blue-50 to-purple-50 border-blue-200'
       }`}>
-        <div className="flex items-start gap-2">
-          <div className={`w-8 h-8 rounded-full flex items-center justify-center ${
+        <div className="flex items-center gap-2">
+          <div className={`w-6 h-6 rounded-full flex items-center justify-center ${
             showAI 
-              ? 'bg-purple-100' 
+              ? 'bg-green-100' 
               : parseInt(currentScene) >= 3 
                 ? 'bg-red-100' 
                 : parseInt(currentScene) >= 2 
                   ? 'bg-orange-100' 
-                  : 'bg-teal-100'
+                  : 'bg-blue-100'
           }`}>
             {showAI ? (
-              <Brain className="w-4 h-4 text-purple-600 animate-pulse" />
+              <Brain className="w-3 h-3 text-green-600" />
             ) : parseInt(currentScene) >= 3 ? (
-              <AlertTriangle className="w-4 h-4 text-red-600 animate-bounce" />
+              <AlertTriangle className="w-3 h-3 text-red-600" />
             ) : parseInt(currentScene) >= 2 ? (
-              <Clock className="w-4 h-4 text-orange-600 animate-spin" />
+              <Clock className="w-3 h-3 text-orange-600" />
             ) : (
-              <TrendingUp className="w-4 h-4 text-teal-600" />
+              <TrendingUp className="w-3 h-3 text-blue-600" />
             )}
           </div>
-          <div className="flex-1">
-            <p className={`font-semibold text-sm mb-0.5 ${
-              showAI 
-                ? 'text-purple-700' 
-                : parseInt(currentScene) >= 3 
-                  ? 'text-red-700' 
-                  : parseInt(currentScene) >= 2 
-                    ? 'text-orange-700' 
-                    : 'text-teal-700'
-            }`}>
+          <div>
+            <div className="font-semibold text-sm text-gray-800 dark:text-white">
               {showAI 
-                ? 'AI Prevention Mode: Crisis Averted' 
+                ? 'AI Protection Active' 
                 : parseInt(currentScene) >= 3 
-                  ? 'Stockout Crisis: Immediate Action Required' 
+                  ? 'Critical Stockout Crisis' 
                   : parseInt(currentScene) >= 2 
-                    ? 'Critical Inventory Levels: High Risk' 
-                    : parseInt(currentScene) >= 1 
-                      ? 'Demand Spike Detected: Monitor Closely' 
-                      : 'Normal Operations: All Systems Green'
+                    ? 'Rapid Inventory Depletion' 
+                    : 'Normal Operations'
               }
-            </p>
-            <p className="text-xs text-gray-600 leading-tight">
-              {showAI 
-                ? 'AI predicted demand surge 7 days early and prevented stockout through automated reordering. Revenue protected, customers satisfied, and operational efficiency maintained.' 
-                : parseInt(currentScene) >= 3 
-                  ? 'Product unavailable to customers. Estimated revenue loss: ₹2.3L. Recovery time: 5-7 business days. Customer satisfaction at risk.' 
-                  : parseInt(currentScene) >= 2 
-                    ? 'Inventory depleting at 4.2x normal rate. Stockout imminent within hours without immediate intervention. Emergency restock required.' 
-                    : parseInt(currentScene) >= 1 
-                      ? 'Festival season driving unexpected 2.5x demand spike. Current inventory levels becoming critical. Monitoring required.' 
-                      : 'Sales following expected patterns with healthy inventory levels. All key performance indicators within normal ranges.'
-              }
-            </p>
-            <div className="flex items-center gap-2 mt-0.5">
-              <div className="flex items-center gap-0.5">
-                <div className={`w-1 h-1 rounded-full ${
-                  showAI ? 'bg-green-500' : parseInt(currentScene) >= 3 ? 'bg-red-500 animate-pulse' : parseInt(currentScene) >= 2 ? 'bg-orange-500' : 'bg-teal-500'
-                }`} />
-                <span className="text-xs text-gray-600">
-                  {showAI ? 'Protected' : parseInt(currentScene) >= 3 ? 'Critical' : parseInt(currentScene) >= 2 ? 'Warning' : 'Normal'}
-                </span>
-              </div>
-              {!showAI && (
-                <div className="text-xs text-gray-500">
-                  Scene {parseInt(currentScene) + 1} of {scenes.length}
-                </div>
-              )}
             </div>
+            <div className="text-xs text-gray-600 dark:text-gray-400">
+              {showAI 
+                ? 'All systems protected by AI' 
+                : parseInt(currentScene) >= 3 
+                  ? 'Revenue loss accumulating' 
+                  : parseInt(currentScene) >= 2 
+                    ? 'Demand spike detected' 
+                    : 'Steady sales patterns'
+              }
+              </div>
           </div>
         </div>
       </div>
     </div>
   );
 };
-
-// --- Stock Component ---
-interface StockProps {
-  isLoaded: boolean;
-  onClose?: () => void;
-}
 
 const Stock: React.FC<StockProps> = ({ isLoaded, onClose }) => {
   const [currentScene, setCurrentScene] = useState('0');
@@ -829,7 +545,7 @@ const Stock: React.FC<StockProps> = ({ isLoaded, onClose }) => {
         setHasAutoPlayed(true);
         handlePlay();
       }
-    }, 500);
+    }, 1000);
 
     return () => clearTimeout(autoPlayTimer);
   }, [hasAutoPlayed, isLoaded]);
@@ -839,13 +555,13 @@ const Stock: React.FC<StockProps> = ({ isLoaded, onClose }) => {
     if (!isPlaying) return;
 
     const timers = [
-      setTimeout(() => setCurrentScene('1'), 1000),  // Scene 1: Spike
-      setTimeout(() => setCurrentScene('2'), 2000),  // Scene 2: Countdown
-      setTimeout(() => setCurrentScene('3'), 3000),  // Scene 3: Stockout
+      setTimeout(() => setCurrentScene('1'), 2000),  // Scene 1: Spike
+      setTimeout(() => setCurrentScene('2'), 4000),  // Scene 2: Countdown
+      setTimeout(() => setCurrentScene('3'), 6000),  // Scene 3: Stockout
       setTimeout(() => {
         setIsPlaying(false);
         setCurrentScene('3');
-      }, 4000), // End
+      }, 8000), // End
     ];
 
     return () => timers.forEach(clearTimeout);
@@ -870,29 +586,30 @@ const Stock: React.FC<StockProps> = ({ isLoaded, onClose }) => {
   };
 
   return (
-    <div className="w-full h-full bg-gradient-to-br from-teal-50 via-cyan-50 to-blue-50 dark:from-gray-900 dark:via-teal-900 dark:to-blue-900 rounded-lg overflow-hidden relative">
-          {/* Animated Background Elements */}
-          <div className="absolute inset-0 overflow-hidden pointer-events-none">
-            <div className={`absolute -top-24 -right-24 w-48 h-48 bg-gradient-to-br from-teal-200/10 to-cyan-200/10 rounded-full blur-sm transition-all duration-500 ${isLoaded ? 'animate-pulse' : 'scale-0'}`} />
-            <div className={`absolute -bottom-24 -left-24 w-56 h-56 bg-gradient-to-tr from-blue-200/5 to-teal-200/5 rounded-full blur-sm transition-all duration-600 delay-100 ${isLoaded ? 'animate-pulse' : 'scale-0'}`} />
-            <div className={`absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[300px] h-[300px] bg-gradient-to-r from-cyan-100/5 to-teal-100/5 rounded-full blur-sm transition-all duration-700 delay-200 ${isLoaded ? 'animate-spin' : 'scale-0'}`} style={{ animationDuration: '10s' }} />
-          </div>
+    <div className="w-full h-full bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-100 dark:from-slate-900 dark:via-blue-900 dark:to-indigo-900 rounded-xl overflow-hidden relative shadow-lg border border-slate-200 dark:border-slate-700">
+      {/* Subtle Background Pattern */}
+      <div className="absolute inset-0 bg-[linear-gradient(to_right,#64748B_1px,transparent_1px),linear-gradient(to_bottom,#64748B_1px,transparent_1px)] dark:bg-[linear-gradient(to_right,#334155_1px,transparent_1px),linear-gradient(to_bottom,#334155_1px,transparent_1px)] bg-[size:3rem_3rem] opacity-5 pointer-events-none" />
+      
+      {/* Soft Gradient Overlays */}
+      <div className="absolute -top-16 -right-16 w-32 h-32 bg-blue-400/5 dark:bg-blue-400/10 rounded-full blur-2xl" />
+      <div className="absolute -bottom-16 -left-16 w-40 h-40 bg-indigo-400/5 dark:bg-indigo-400/10 rounded-full blur-2xl" />
 
           {/* Header */}
-          <header className={`bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm border-b border-teal-100 dark:border-gray-700 z-40 transition-all duration-300 ${isLoaded ? 'translate-y-0 opacity-100' : '-translate-y-full opacity-0'}`}>
-            <div className="px-2 py-1">
+      <header className="bg-white/80 dark:bg-slate-800/80 backdrop-blur-sm border-b border-slate-200 dark:border-slate-700 z-40">
+        <div className="px-4 py-3">
               <div className="flex items-center justify-between">
-                <div className="flex items-center gap-1">
-                  <div className={`w-6 h-6 bg-gradient-to-r from-teal-500 to-cyan-500 rounded flex items-center justify-center transition-all duration-300 delay-100 ${isLoaded ? 'scale-100 rotate-0' : 'scale-0 rotate-180'}`}>
-                    <Brain className="w-3 h-3 text-white dark:text-white" />
+            <div className="flex items-center gap-3">
+              <div className="w-8 h-8 bg-gradient-to-r from-blue-600 to-indigo-600 dark:from-blue-400 dark:to-indigo-400 rounded-lg flex items-center justify-center shadow-md">
+                <Brain className="w-4 h-4 text-white" />
                   </div>
-                  <div className={`transition-all duration-300 delay-200 ${isLoaded ? 'translate-x-0 opacity-100' : '-translate-x-6 opacity-0'}`}>
-                    <h1 className="text-base font-bold text-gray-800 dark:text-white">StockSense AI</h1>
-                    <p className="text-xs text-gray-600 dark:text-gray-400">Predictive Inventory Intelligence</p>
+              <div>
+                <h1 className="text-lg font-bold text-slate-800 dark:text-white">StockSense AI</h1>
+                <p className="text-sm text-slate-600 dark:text-slate-400">Predictive Inventory Intelligence</p>
                   </div>
                 </div>
-                <div className={`flex items-center gap-1 transition-all duration-300 delay-300 ${isLoaded ? 'translate-x-0 opacity-100' : 'translate-x-6 opacity-0'}`}>
-                  <div className="px-1 py-0.5 bg-teal-100 dark:bg-teal-900 text-teal-700 dark:text-teal-300 rounded-full text-xs font-medium animate-pulse">
+            <div className="px-3 py-1.5 bg-gradient-to-r from-blue-600 to-indigo-600 dark:from-blue-400 dark:to-indigo-400 text-white rounded-full text-sm font-semibold shadow-md">
+              <div className="flex items-center gap-1.5">
+                <div className="w-1.5 h-1.5 bg-white rounded-full" />
                     Live Demo
                   </div>
                 </div>
@@ -901,98 +618,72 @@ const Stock: React.FC<StockProps> = ({ isLoaded, onClose }) => {
           </header>
 
           {/* Main Content */}
-          <main className="px-1 sm:px-2 md:px-3 py-1 md:py-2 relative z-10">
+      <main className="px-4 py-4 relative z-10">
             {/* Title Section */}
-            <div className={`text-center mb-2 transition-all duration-400 delay-200 ${isLoaded ? 'translate-y-0 opacity-100' : 'translate-y-4 opacity-0'}`}>
-              <h2 className="text-lg font-bold text-gray-800 dark:text-white mb-1 bg-gradient-to-r from-teal-600 to-cyan-600 bg-clip-text text-transparent">
+        <div className="text-center mb-6">
+          <h2 className="text-2xl font-bold text-slate-800 dark:text-white mb-2 bg-gradient-to-r from-blue-600 to-indigo-600 dark:from-blue-400 dark:to-indigo-400 bg-clip-text text-transparent">
                 The Invisible Stockout
               </h2>
-              <p className="text-xs text-gray-600 dark:text-gray-400">
+          <div className="w-16 h-1 bg-gradient-to-r from-blue-500 to-indigo-500 dark:from-blue-400 dark:to-indigo-400 mx-auto rounded-full mb-3" />
+          <p className="text-base text-slate-600 dark:text-slate-400 max-w-md mx-auto">
                 Watch how sales spikes lead to stockouts, and see how AI prevents losses.
               </p>
             </div>
 
             {/* Visualization Area */}
-            <div className={`grid grid-cols-1 lg:grid-cols-3 gap-1 md:gap-2 mb-2 transition-all duration-400 delay-300 ${isLoaded ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'}`}>
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 mb-6">
               {/* Main Chart */}
               <div className="lg:col-span-2">
-                <div className="bg-white/90 dark:bg-gray-800/90 backdrop-blur-sm rounded-lg shadow-md hover:shadow-lg transition-all duration-200 p-1 md:p-2 h-[250px] md:h-[320px] relative overflow-hidden border border-white/50 dark:border-gray-700">
-                  <div className="flex items-center justify-between mb-1">
-                    <h3 className="text-base font-semibold text-gray-800 dark:text-white">Product Sales Trend</h3>
+            <div className="bg-white/90 dark:bg-slate-800/90 backdrop-blur-sm rounded-lg shadow-md p-4 h-[350px] md:h-[400px] relative overflow-hidden border border-slate-200 dark:border-slate-700">
+              <div className="flex items-center justify-between mb-3">
+                <h3 className="text-lg font-bold text-slate-800 dark:text-white">Storybook Chart</h3>
                     <FestivalIndicator scene={parseInt(currentScene)} />
                   </div>
                   
-                  <BarChart 
+              <StorybookChart 
                     scene={parseInt(currentScene)} 
                     showAI={showAI}
-                    className="h-[220px] md:h-[280px]"
-                  />
-
-                  {/* Scene Overlays */}
-                  {parseInt(currentScene) >= 3 && !showAI && (
-                    <div className="absolute inset-0 bg-red-500/5 flex items-center justify-center backdrop-blur-sm animate-fade-in">
-                      <div className="bg-white dark:bg-gray-800 p-2 rounded-lg shadow-lg text-center max-w-xs transform animate-bounce-in">
-                        <AlertTriangle className="w-10 h-10 text-red-500 mx-auto mb-1 animate-pulse" />
-                        <h4 className="text-base font-bold text-red-600 dark:text-red-400 mb-0.5">OUT OF STOCK</h4>
-                        <p className="text-gray-600 dark:text-gray-400 text-xs">Critical inventory shortage detected</p>
-                      </div>
-                    </div>
-                  )}
-
-                  {/* Floating particles effect */}
-                  <div className="absolute inset-0 pointer-events-none">
-                    {[...Array(3)].map((_, i) => (
-                      <div
-                        key={i}
-                        className={`absolute w-1 h-1 bg-teal-400/10 rounded-full transition-all duration-500 ${isLoaded ? 'animate-float' : 'opacity-0'}`}
-                        style={{
-                          left: `${15 + i * 15}%`,
-                          top: `${20 + (i % 2) * 20}%`,
-                          animationDelay: `${i * 200}ms`,
-                          animationDuration: `${1000 + i * 200}ms`
-                        }}
-                      />
-                    ))}
-                  </div>
+                className="h-[280px] md:h-[330px]"
+              />
                 </div>
               </div>
 
               {/* Side Panels */}
-              <div className="space-y-2">
+          <div className="space-y-4">
                 {/* Inventory Counter */}
-                <div className={`bg-white/90 dark:bg-gray-800/90 backdrop-blur-sm rounded-lg shadow-md hover:shadow-lg transition-all duration-200 p-1 border border-white/50 dark:border-gray-700 transform ${isLoaded ? 'translate-x-0 opacity-100' : 'translate-x-4 opacity-0'}`} style={{ transitionDelay: '400ms' }}>
-                  <div className="flex items-center gap-1 mb-0.5">
-                    <div className="w-6 h-6 bg-blue-100 dark:bg-blue-900 rounded flex items-center justify-center">
-                      <TrendingUp className="w-3 h-3 text-blue-600 dark:text-blue-300" />
+            <div className="bg-white/90 dark:bg-slate-800/90 backdrop-blur-sm rounded-lg shadow-md p-4 border border-slate-200 dark:border-slate-700">
+              <div className="flex items-center gap-2 mb-3">
+                <div className="w-8 h-8 bg-gradient-to-r from-blue-600 to-indigo-600 dark:from-blue-400 dark:to-indigo-400 rounded-lg flex items-center justify-center shadow-md">
+                  <Package className="w-4 h-4 text-white" />
                     </div>
-                    <h3 className="text-sm font-semibold text-gray-800 dark:text-white">Inventory Level</h3>
+                <h3 className="text-base font-bold text-slate-800 dark:text-white">Inventory Level</h3>
                   </div>
-                  <InventoryCounter scene={parseInt(currentScene)} showAI={showAI} />
+              <SmartInventory scene={parseInt(currentScene)} showAI={showAI} />
                 </div>
 
                 {/* Loss Counter */}
-                <div className={`bg-white/90 dark:bg-gray-800/90 backdrop-blur-sm rounded-lg shadow-md hover:shadow-lg transition-all duration-200 p-1 border border-white/50 dark:border-gray-700 transform ${isLoaded ? 'translate-x-0 opacity-100' : 'translate-x-4 opacity-0'}`} style={{ transitionDelay: '500ms' }}>
-                  <div className="flex items-center gap-1 mb-0.5">
-                    <div className="w-6 h-6 bg-red-100 dark:bg-red-900 rounded flex items-center justify-center">
-                      <AlertTriangle className="w-3 h-3 text-red-600 dark:text-red-300" />
+            <div className="bg-white/90 dark:bg-slate-800/90 backdrop-blur-sm rounded-lg shadow-md p-4 border border-slate-200 dark:border-slate-700">
+              <div className="flex items-center gap-2 mb-3">
+                <div className="w-8 h-8 bg-gradient-to-r from-red-500 to-red-600 dark:from-red-400 dark:to-red-500 rounded-lg flex items-center justify-center shadow-md">
+                  <DollarSign className="w-4 h-4 text-white" />
                     </div>
-                    <h3 className="text-sm font-semibold text-gray-800 dark:text-white">Financial Impact</h3>
+                <h3 className="text-base font-bold text-slate-800 dark:text-white">Financial Impact</h3>
                   </div>
-                  <LossCounter scene={parseInt(currentScene)} showAI={showAI} />
+              <FinancialImpact scene={parseInt(currentScene)} showAI={showAI} />
                 </div>
 
                 {/* AI Predictor */}
                 {showAI && (
-                  <div className="bg-gradient-to-r from-teal-500 to-cyan-500 rounded-lg p-1 text-white animate-slide-up">
-                    <AIPredictor />
+              <div className="bg-gradient-to-r from-purple-600 to-blue-600 dark:from-purple-500 dark:to-blue-500 rounded-lg p-4 text-white shadow-md border border-purple-400/30 dark:border-blue-400/30">
+                <AIProtector />
                   </div>
                 )}
               </div>
             </div>
 
             {/* Controls */}
-            <div className={`bg-white/90 dark:bg-gray-800/90 backdrop-blur-sm rounded-lg shadow-md hover:shadow-lg transition-all duration-200 p-1 mb-2 border border-white/50 dark:border-gray-700 transform ${isLoaded ? 'translate-y-0 opacity-100' : 'translate-y-4 opacity-0'}`} style={{ transitionDelay: '600ms' }}>
-              <TimelineControls 
+        <div className="bg-white/90 dark:bg-slate-800/90 backdrop-blur-sm rounded-lg shadow-md p-4 mb-6 border border-slate-200 dark:border-slate-700">
+          <StoryControls 
                 currentScene={currentScene}
                 isPlaying={isPlaying}
                 showAI={showAI}
@@ -1004,52 +695,61 @@ const Stock: React.FC<StockProps> = ({ isLoaded, onClose }) => {
             </div>
 
             {/* Impact Summary */}
-            <div className={`grid grid-cols-1 md:grid-cols-2 gap-2 transform ${isLoaded ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'}`} style={{ transitionDelay: '700ms' }}>
-              <div className="bg-white/90 dark:bg-gray-800/90 backdrop-blur-sm rounded-lg shadow-md hover:shadow-lg transition-all duration-200 p-1.5 border border-white/50 dark:border-gray-700">
-                <h3 className="text-sm font-semibold text-gray-800 dark:text-white mb-1.5">Without AI Prediction</h3>
-                <div className="space-y-1">
-                  <div className="flex items-center gap-2 transform hover:translate-x-0.5 transition-all duration-200">
-                    <div className="w-8 h-8 bg-red-100 dark:bg-red-900 rounded flex items-center justify-center">
-                      <AlertTriangle className="w-4 h-4 text-red-500 dark:text-red-300" />
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div className="bg-white/90 dark:bg-slate-800/90 backdrop-blur-sm rounded-lg shadow-md p-4 border border-slate-200 dark:border-slate-700">
+            <h3 className="text-lg font-bold text-slate-800 dark:text-white mb-4 flex items-center gap-2">
+              <div className="w-6 h-6 bg-gradient-to-r from-red-500 to-red-600 dark:from-red-400 dark:to-red-500 rounded-lg flex items-center justify-center shadow-md">
+                <AlertTriangle className="w-3 h-3 text-white" />
+              </div>
+              Without AI Prediction
+            </h3>
+            <div className="space-y-3">
+              <div className="flex items-center gap-3 p-3 bg-red-50 dark:bg-red-900/20 rounded-lg border border-red-200 dark:border-red-800">
+                <div className="w-8 h-8 bg-gradient-to-r from-red-500 to-red-600 dark:from-red-400 dark:to-red-500 rounded-lg flex items-center justify-center shadow-md">
+                  <AlertTriangle className="w-4 h-4 text-white" />
                     </div>
                     <div>
-                      <p className="font-semibold text-gray-800 dark:text-white text-xs">₹2.3L Revenue Loss</p>
-                      <p className="text-xs text-gray-600 dark:text-gray-400">Due to stockout during peak demand</p>
+                  <p className="font-bold text-slate-800 dark:text-white text-sm">₹2.3L Revenue Loss</p>
+                  <p className="text-sm text-slate-600 dark:text-slate-400">Due to stockout during peak demand</p>
                     </div>
                   </div>
-                  <div className="flex items-center gap-2 transform hover:translate-x-0.5 transition-all duration-200">
-                    <div className="w-8 h-8 bg-orange-100 dark:bg-orange-900 rounded flex items-center justify-center">
-                      <Calendar className="w-4 h-4 text-orange-500 dark:text-orange-300" />
+              <div className="flex items-center gap-3 p-3 bg-orange-50 dark:bg-orange-900/20 rounded-lg border border-orange-200 dark:border-orange-800">
+                <div className="w-8 h-8 bg-gradient-to-r from-orange-500 to-red-600 dark:from-orange-400 dark:to-red-500 rounded-lg flex items-center justify-center shadow-md">
+                  <Calendar className="w-4 h-4 text-white" />
                     </div>
                     <div>
-                      <p className="font-semibold text-gray-800 dark:text-white text-xs">5 Days Recovery Time</p>
-                      <p className="text-xs text-gray-600 dark:text-gray-400">To restock and restore availability</p>
+                  <p className="font-bold text-slate-800 dark:text-white text-sm">5 Days Recovery Time</p>
+                  <p className="text-sm text-slate-600 dark:text-slate-400">To restock and restore availability</p>
                     </div>
                   </div>
                 </div>
               </div>
 
-              <div className="bg-gradient-to-r from-teal-500 to-cyan-500 rounded-lg shadow-md hover:shadow-lg transition-all duration-200 p-1.5 text-white relative overflow-hidden">
-                <div className="absolute inset-0 bg-gradient-to-r from-teal-400/10 to-cyan-400/10 animate-pulse" />
+          <div className="bg-gradient-to-r from-purple-600 to-blue-600 dark:from-purple-500 dark:to-blue-500 rounded-lg shadow-md p-4 text-white relative overflow-hidden border border-purple-400/30 dark:border-blue-400/30">
                 <div className="relative z-10">
-                  <h3 className="text-sm font-semibold mb-1.5">With AI Prediction</h3>
-                  <div className="space-y-1">
-                    <div className="flex items-center gap-2 transform hover:translate-x-0.5 transition-all duration-200">
-                      <div className="w-8 h-8 bg-white/20 rounded flex items-center justify-center">
+              <h3 className="text-lg font-bold mb-4 flex items-center gap-2">
+                <div className="w-6 h-6 bg-white/20 rounded-lg flex items-center justify-center shadow-md">
+                  <Brain className="w-3 h-3 text-white" />
+                </div>
+                With AI Prediction
+              </h3>
+              <div className="space-y-3">
+                <div className="flex items-center gap-3 p-3 bg-white/10 rounded-lg border border-white/20">
+                  <div className="w-8 h-8 bg-white/20 rounded-lg flex items-center justify-center shadow-md">
                         <Brain className="w-4 h-4 text-white" />
                       </div>
                       <div>
-                        <p className="font-semibold text-xs">7-Day Advance Warning</p>
-                        <p className="text-xs text-teal-100">Predict demand spikes before they happen</p>
+                    <p className="font-bold text-sm">7-Day Advance Warning</p>
+                    <p className="text-sm text-purple-100">Predict demand spikes before they happen</p>
                       </div>
                     </div>
-                    <div className="flex items-center gap-2 transform hover:translate-x-0.5 transition-all duration-200">
-                      <div className="w-8 h-8 bg-white/20 rounded flex items-center justify-center">
+                <div className="flex items-center gap-3 p-3 bg-white/10 rounded-lg border border-white/20">
+                  <div className="w-8 h-8 bg-white/20 rounded-lg flex items-center justify-center shadow-md">
                         <TrendingUp className="w-4 h-4 text-white" />
                       </div>
                       <div>
-                        <p className="font-semibold text-xs">100% Availability Maintained</p>
-                        <p className="text-xs text-teal-100">Automated reorder recommendations</p>
+                    <p className="font-bold text-sm">100% Availability Maintained</p>
+                    <p className="text-sm text-purple-100">Automated reorder recommendations</p>
                       </div>
                     </div>
                   </div>

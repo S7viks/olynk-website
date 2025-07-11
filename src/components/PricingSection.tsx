@@ -9,7 +9,7 @@ const PricingSection = () => {
   const pricingTiers = [
     {
       name: 'AI Starter',
-      description: 'Perfect for ₹1-2Cr brands getting started with AI',
+      description: 'Ideal for emerging brands ready to leverage AI intelligence',
       monthlyPrice: 10000,
       annualPrice: 96000, // 20% discount
       originalAnnualPrice: 120000,
@@ -33,7 +33,7 @@ const PricingSection = () => {
     },
     {
       name: 'AI Advisor',
-      description: 'Most popular for ₹2-5Cr brands scaling operations',
+      description: 'Trusted by growing brands to scale operations intelligently',
       monthlyPrice: 18000,
       annualPrice: 172800, // 20% discount
       originalAnnualPrice: 216000,
@@ -58,7 +58,7 @@ const PricingSection = () => {
     },
     {
       name: 'AI+ Growth',
-      description: 'Built for ₹5-10Cr brands with complex operations',
+      description: 'Enterprise-grade AI for sophisticated operations',
       monthlyPrice: 32000,
       annualPrice: 307200, // 20% discount
       originalAnnualPrice: 384000,

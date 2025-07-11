@@ -310,33 +310,7 @@ const D2CSection = () => {
           </span>
         </div>
 
-        {/* CTA Section */}
-        <div className={`bg-gradient-to-r from-red-50 via-red-25 to-red-50 dark:from-blue-900/30 dark:via-blue-800/20 dark:to-blue-900/30 rounded-2xl p-8 md:p-12 text-center border border-red-100 dark:border-blue-800/50 mt-16 transition-all duration-1000 delay-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4">
-            What If Your Operations Had a 150 IQ?
-          </h2>
-          
-          <p className="text-lg text-gray-600 dark:text-gray-400 mb-6 max-w-3xl mx-auto">
-            Imagine an AI advisor that knows your business better than you do. It predicts problems 7 days ahead, explains exactly why they'll happen, and tells you the precise steps to prevent them.
-          </p>
-          
-          <div className="bg-red-100 dark:bg-red-900/30 rounded-lg p-6 mb-8 max-w-2xl mx-auto border border-red-200 dark:border-red-800">
-            <p className="text-gray-700 dark:text-gray-300 italic font-medium">
-              "Other tools show you what happened. OLYNK tells you what's about to happen and exactly what to do about it."
-            </p>
-          </div>
-          
-          <div className="flex justify-center">
-            <Link to="/early-access-form">
-              <Button 
-                size="lg" 
-                className="bg-gradient-to-r from-red-600 to-red-700 dark:from-blue-600 dark:to-blue-700 hover:from-red-700 hover:to-red-800 dark:hover:from-blue-700 dark:hover:to-blue-800 text-white font-semibold px-8 py-4 text-lg transform hover:scale-105 transition-all duration-300"
-              >
-                Book Live AI Demo
-              </Button>
-            </Link>
-          </div>
-        </div>
+
       </div>
     </section>
   );

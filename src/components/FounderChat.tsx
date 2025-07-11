@@ -252,8 +252,8 @@ const FounderChat = () => {
                 }}
                 className={`px-3 sm:px-6 py-3 rounded-xl font-medium transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-opacity-50 ${
                   index === currentFounder
-                    ? `bg-gradient-to-r ${founder.color} text-white shadow-lg focus:ring-white`
-                    : 'text-gray-600 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 focus:ring-gray-300'
+                    ? 'bg-gradient-to-r from-red-600 to-red-700 text-white shadow-lg focus:ring-white'
+                    : 'text-gray-600 dark:text-gray-400 hover:bg-red-50 dark:hover:bg-red-900/20 hover:text-red-600 dark:hover:text-red-400 focus:ring-red-300'
                 }`}
                 aria-label={`Chat with ${founder.name}`}
                 role="tab"
@@ -382,7 +382,7 @@ const FounderChat = () => {
 
           {/* CTA */}
           <div className="text-center">
-            <div className="bg-gradient-to-r from-amber-50 to-yellow-50 dark:from-blue-900/20 dark:to-blue-800/20 rounded-2xl p-8 border border-red-200 dark:border-blue-700 shadow-lg">
+            <div className="bg-gradient-to-r from-red-50 to-red-100 dark:from-red-900/20 dark:to-red-800/20 rounded-2xl p-8 border border-red-200 dark:border-red-700 shadow-lg">
               <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">
                 Ready to Get Your Questions Answered?
               </h3>
@@ -392,14 +392,14 @@ const FounderChat = () => {
               <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
                 <Link
                   to="/early-access-form"
-                  className="inline-flex items-center bg-gradient-to-r from-red-500 to-red-600 dark:from-blue-500 dark:to-blue-600 text-white px-8 py-4 rounded-xl font-semibold text-lg hover:shadow-lg transition-all duration-200 transform hover:scale-105 focus:outline-none focus:ring-4 focus:ring-red-300 dark:focus:ring-blue-300 focus:ring-opacity-50"
+                  className="inline-flex items-center bg-gradient-to-r from-red-600 to-red-700 text-white px-8 py-4 rounded-xl font-semibold text-lg hover:from-red-700 hover:to-red-800 hover:shadow-lg transition-all duration-200 transform hover:scale-105 focus:outline-none focus:ring-4 focus:ring-red-300 focus:ring-opacity-50"
                 >
                   Start Free Trial
                   <ArrowRight className="w-4 h-4 ml-2" />
                 </Link>
                 <Link
                   to="/demo"
-                  className="inline-flex items-center bg-white dark:bg-gray-800 border-2 border-red-500 dark:border-blue-500 text-red-600 dark:text-blue-400 px-8 py-4 rounded-xl font-semibold text-lg hover:bg-red-50 dark:hover:bg-gray-700 hover:shadow-lg transition-all duration-200 transform hover:scale-105 focus:outline-none focus:ring-4 focus:ring-red-300 dark:focus:ring-blue-300 focus:ring-opacity-50"
+                  className="inline-flex items-center bg-white dark:bg-gray-800 border-2 border-red-600 text-red-600 dark:text-red-400 px-8 py-4 rounded-xl font-semibold text-lg hover:bg-red-50 dark:hover:bg-red-900/20 hover:shadow-lg transition-all duration-200 transform hover:scale-105 focus:outline-none focus:ring-4 focus:ring-red-300 focus:ring-opacity-50"
                 >
                   Book Demo
                   <MessageCircle className="w-4 h-4 ml-2" />

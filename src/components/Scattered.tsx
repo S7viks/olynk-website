@@ -153,7 +153,9 @@ const Scattered: React.FC = () => {
                 transform: 'translateY(0)'
               }}
             >
-              <div className="w-8 h-8 mx-auto mb-1 rounded-md overflow-hidden bg-gray-100 flex items-center justify-center">
+              <div className={`w-8 h-8 mx-auto mb-1 rounded-md overflow-hidden bg-gray-100 flex items-center justify-center transition-all duration-500 ${
+                isSynced && showSync ? 'animate-pulse scale-110' : 'scale-100'
+              }`}>
                 <img 
                   src={system.logo} 
                   alt={system.name}
@@ -172,9 +174,9 @@ const Scattered: React.FC = () => {
               </h3>
               <div className="text-center">
                 <div className="text-[10px] text-gray-500 dark:text-gray-400">Stock</div>
-                <div className={`text-sm font-bold ${
+                <div className={`text-sm font-bold transition-all duration-500 ${
                   isSynced ? 'text-green-600 dark:text-green-400' : 'text-red-500 dark:text-red-400'
-                } transition-all duration-500`}>
+                } ${isSynced && showSync ? 'animate-pulse scale-110' : 'scale-100'}`}>
                   {displayStock !== null ? displayStock : system.stock}
                 </div>
               </div>
@@ -196,21 +198,31 @@ const Scattered: React.FC = () => {
 
     return (
       <div className={`max-w-md mx-auto bg-white dark:bg-gray-800 rounded-lg shadow-md p-3 mb-3 transition-all duration-1000 ${
-        showOrder ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
+        showOrder ? 'opacity-100 translate-y-0 scale-100' : 'opacity-0 translate-y-4 scale-95'
       }`}>
         <div className="flex items-center justify-between">
           <div className="flex items-center">
-            <div className="bg-blue-100 dark:bg-blue-900 p-1.5 rounded-full mr-2">
+            <div className={`bg-blue-100 dark:bg-blue-900 p-1.5 rounded-full mr-2 transition-all duration-500 ${
+              showOrder ? 'animate-pulse scale-110' : 'scale-100'
+            }`}>
               <ShoppingCart size={14} className="text-blue-600 dark:text-blue-400" />
             </div>
             <div>
-              <h3 className="text-xs font-semibold text-gray-800 dark:text-gray-100">New Order</h3>
-              <p className="text-[10px] text-gray-500 dark:text-gray-400">Customer wants 40 units</p>
+              <h3 className={`text-xs font-semibold text-gray-800 dark:text-gray-100 transition-all duration-500 delay-200 ${
+                showOrder ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-2'
+              }`}>New Order</h3>
+              <p className={`text-[10px] text-gray-500 dark:text-gray-400 transition-all duration-500 delay-300 ${
+                showOrder ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-2'
+              }`}>Customer wants 40 units</p>
             </div>
           </div>
           <div>
-            <div className="text-[10px] text-gray-500 dark:text-gray-400">Available?</div>
-            <div className="text-xs font-bold text-red-500 dark:text-red-400">Conflicting</div>
+            <div className={`text-[10px] text-gray-500 dark:text-gray-400 transition-all duration-500 delay-400 ${
+              showOrder ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-2'
+            }`}>Available?</div>
+            <div className={`text-xs font-bold text-red-500 dark:text-red-400 transition-all duration-500 delay-500 ${
+              showOrder ? 'animate-pulse scale-105' : 'scale-100'
+            }`}>Conflicting</div>
           </div>
         </div>
       </div>
@@ -222,23 +234,39 @@ const Scattered: React.FC = () => {
 
     return (
       <div className={`max-w-md mx-auto bg-red-50 dark:bg-red-900/50 border border-red-200 dark:border-red-700 rounded-lg p-3 mb-3 transition-all duration-1000 ${
-        showAlert ? 'opacity-100 scale-100' : 'opacity-0 scale-95'
+        showAlert ? 'opacity-100 scale-100 translate-y-0' : 'opacity-0 scale-95 translate-y-4'
       }`}>
         <div className="flex items-start">
-          <div className="bg-red-100 dark:bg-red-800 p-1.5 rounded-full mr-2 mt-0.5">
+          <div className={`bg-red-100 dark:bg-red-800 p-1.5 rounded-full mr-2 mt-0.5 transition-all duration-700 ${
+            showAlert ? 'animate-pulse scale-110' : 'scale-100'
+          }`}>
             <AlertTriangle size={14} className="text-red-600 dark:text-red-400" />
           </div>
           <div className="flex-1">
-            <h3 className="text-xs font-semibold text-red-800 dark:text-red-300 mb-1">Overselling Alert!</h3>
-            <p className="text-[10px] text-red-700 dark:text-red-400 mb-2">Sold 40 units but only had 23</p>
-            <div className="bg-white dark:bg-gray-800 rounded-md p-2 border border-red-200 dark:border-red-700">
-              <div className="flex justify-between items-center mb-1">
+            <h3 className={`text-xs font-semibold text-red-800 dark:text-red-300 mb-1 transition-all duration-500 ${
+              showAlert ? 'animate-bounce' : ''
+            }`}>Overselling Alert!</h3>
+            <p className={`text-[10px] text-red-700 dark:text-red-400 mb-2 transition-all duration-700 delay-200 ${
+              showAlert ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-2'
+            }`}>Sold 40 units but only had 23</p>
+            <div className={`bg-white dark:bg-gray-800 rounded-md p-2 border border-red-200 dark:border-red-700 transition-all duration-700 delay-300 ${
+              showAlert ? 'opacity-100 scale-100 shadow-lg' : 'opacity-0 scale-95'
+            }`}>
+              <div className={`flex justify-between items-center mb-1 transition-all duration-500 delay-400 ${
+                showAlert ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-2'
+              }`}>
                 <span className="text-[10px] text-gray-700 dark:text-gray-300">Customer complaint</span>
-                <span className="text-[10px] text-red-600 dark:text-red-400 font-semibold">😠 Angry</span>
+                <span className={`text-[10px] text-red-600 dark:text-red-400 font-semibold transition-all duration-300 delay-500 ${
+                  showAlert ? 'animate-pulse' : ''
+                }`}>😠 Angry</span>
               </div>
-              <div className="flex justify-between items-center">
+              <div className={`flex justify-between items-center transition-all duration-500 delay-500 ${
+                showAlert ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-2'
+              }`}>
                 <span className="text-[10px] text-gray-700 dark:text-gray-300">Refund processed</span>
-                <span className="text-[10px] text-red-600 dark:text-red-400 font-bold">₹15,000</span>
+                <span className={`text-[10px] text-red-600 dark:text-red-400 font-bold transition-all duration-300 delay-600 ${
+                  showAlert ? 'animate-pulse scale-105' : ''
+                }`}>₹15,000</span>
               </div>
             </div>
           </div>
