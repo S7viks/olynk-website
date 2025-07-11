@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { ArrowRight, Heart, Mail, Phone, MapPin, ArrowUp, ExternalLink, Sparkles, Zap, Globe, Shield, Send } from 'lucide-react';
 import { contactService } from '../services/firebaseService';
 import { Link, useLocation } from 'react-router-dom';
+import Logo from './Logo';
 
 const Footer = () => {
   const location = useLocation();
@@ -338,14 +339,7 @@ const Footer = () => {
             {/* Company Info */}
             <div className="md:col-span-1">
               <div className="flex items-center space-x-2 mb-3">
-                <img
-                  src="/assets/Olynk.AI_Logo.png"
-                  alt="Olynk.ai Logo"
-                  className="h-6 w-6 object-contain"
-                  onError={(e) => {
-                    e.currentTarget.src = 'https://via.placeholder.com/24?text=O';
-                  }}
-                />
+                <Logo size="sm" />
                 <h3 className="text-lg font-bold">olynk.ai</h3>
               </div>
               <p className="text-red-100 dark:text-blue-100 text-xs mb-3">

@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Menu, X, ArrowRight } from 'lucide-react';
 import { Link, useLocation } from 'react-router-dom';
+import Logo from './Logo';
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -35,15 +36,7 @@ const Header = () => {
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
           <Link to="/" className="flex items-center space-x-2">
-            <img
-              src="/assets/Olynk.AI_Logo.png"
-              alt="Olynk.ai Logo"
-              className="h-8 w-8 object-contain"
-              onError={(e) => {
-                console.error('Failed to load logo image at /assets/Olynk.AI_Logo.png');
-                e.currentTarget.src = 'https://via.placeholder.com/32?text=Logo'; // Fallback image
-              }}
-            />
+            <Logo size="md" />
             <span className="text-2xl font-bold bg-gradient-to-r from-red-600 to-red-700 dark:from-blue-400 dark:to-blue-500 bg-clip-text text-transparent">
               olynk.ai
             </span>
