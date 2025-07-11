@@ -23,6 +23,7 @@ const Logo: React.FC<LogoProps> = ({ size = 'md', className = '' }) => {
   };
 
   const handleImageLoad = () => {
+    console.log('Logo loaded successfully');
     setImageLoaded(true);
     setImageError(false);
   };
@@ -52,7 +53,7 @@ const Logo: React.FC<LogoProps> = ({ size = 'md', className = '' }) => {
         console.warn('Logo loading timeout, using fallback');
         setImageError(true);
       }
-    }, 5000); // 5 second timeout
+    }, 3000); // 3 second timeout for smaller file
 
     return () => clearTimeout(timeout);
   }, [retryCount, imageLoaded, imageError]);
@@ -83,7 +84,7 @@ const Logo: React.FC<LogoProps> = ({ size = 'md', className = '' }) => {
 
   return (
     <img
-      src={size === 'sm' ? "/assets/Olynk.AI_Logo-small.png" : "/assets/Olynk.AI_Logo.png"}
+      src="/assets/Olynk_Logo.png"
       alt="Olynk.ai Logo"
       className={`${sizeClasses[size]} object-contain ${className} ${
         !imageLoaded ? 'opacity-0' : 'opacity-100'
