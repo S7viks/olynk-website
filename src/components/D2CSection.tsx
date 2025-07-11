@@ -326,7 +326,7 @@ const D2CSection = () => {
             </p>
           </div>
           
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+          <div className="flex justify-center">
             <Link to="/early-access-form">
               <Button 
                 size="lg" 
@@ -335,13 +335,6 @@ const D2CSection = () => {
                 Book Live AI Demo
               </Button>
             </Link>
-            <Button 
-              variant="outline" 
-              size="lg"
-              className="border-red-600 dark:border-blue-400 text-red-600 dark:text-blue-400 hover:bg-red-50 dark:hover:bg-blue-900/20 px-8 py-4 text-lg transform hover:scale-105 transition-all duration-300"
-            >
-              Get Free Ops Audit
-            </Button>
           </div>
         </div>
       </div>
