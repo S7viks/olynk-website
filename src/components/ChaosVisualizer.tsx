@@ -13,12 +13,12 @@ const chaosItems = [
 export const ChaosVisualizer = () => {
   const [animationCycle, setAnimationCycle] = useState(0);
 
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setAnimationCycle(prev => prev + 1);
-    }, 3000);
-    return () => clearInterval(interval);
-  }, []);
+  // useEffect(() => {
+  //   const interval = setInterval(() => {
+  //     setAnimationCycle(prev => prev + 1);
+  //   }, 3000);
+  //   return () => clearInterval(interval);
+  // }, []);
 
   return (
     <motion.div 

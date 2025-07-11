@@ -44,12 +44,12 @@ const demoMetrics: Metric[] = [
 export const LiveInsightWidget = () => {
   const [currentMetric, setCurrentMetric] = useState(0);
 
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentMetric((prev) => (prev + 1) % demoMetrics.length);
-    }, 2000);
-    return () => clearInterval(interval);
-  }, []);
+  // useEffect(() => {
+  //   const interval = setInterval(() => {
+  //     setCurrentMetric((prev) => (prev + 1) % demoMetrics.length);
+  //   }, 2000);
+  //   return () => clearInterval(interval);
+  // }, []);
 
   return (
     <motion.div 

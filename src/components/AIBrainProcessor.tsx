@@ -13,14 +13,8 @@ export const AIBrainProcessor = () => {
       <div className="relative">
         <motion.div 
           className="w-32 h-32 bg-gradient-to-r from-red-500 via-red-600 to-red-700 dark:from-blue-500 dark:via-blue-600 dark:to-blue-700 rounded-full flex items-center justify-center relative overflow-hidden"
-          animate={{ 
-            rotate: [0, 360],
-          }}
           style={{
             filter: "drop-shadow(0px 0px 20px rgba(59, 130, 246, 0.5))"
-          }}
-          transition={{ 
-            rotate: { duration: 8, repeat: Infinity, ease: "linear" },
           }}
         >
           <Brain className="w-16 h-16 text-white" />

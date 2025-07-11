@@ -61,12 +61,12 @@ export const LiveInsightTicker = ({ category }: LiveInsightTickerProps) => {
 
   const personalizedInsights = getPersonalizedInsights(category);
 
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentInsight((prev) => (prev + 1) % personalizedInsights.length);
-    }, 3000);
-    return () => clearInterval(interval);
-  }, [personalizedInsights.length]);
+  // useEffect(() => {
+  //   const interval = setInterval(() => {
+  //     setCurrentInsight((prev) => (prev + 1) % personalizedInsights.length);
+  //   }, 3000);
+  //   return () => clearInterval(interval);
+  // }, [personalizedInsights.length]);
 
   const currentItem = personalizedInsights[currentInsight];
   const IconComponent = currentItem.icon;
