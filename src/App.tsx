@@ -6,6 +6,10 @@ import Hero from './components/Hero';
 import Footer from './components/Footer';
 import ProblemSection from './components/D2CSection';
 import EarlyAccessForm from './components/EarlyAccessForm';
+import ContactForm from './components/ContactForm';
+import ContactFormDashboard from './components/ContactFormDashboard';
+import AdminDashboard from './components/AdminDashboard';
+import DatabaseChecker from './components/DatabaseChecker';
 import PricingSection from './components/PricingSection';
 import FounderChat from './components/FounderChat';
 import FinalCTASection from './components/FinalCTASection';
@@ -66,6 +70,10 @@ const App: React.FC = () => {
               <Route path="/about" element={<AboutPage />} />
               <Route path="/pricing" element={<PricingPage />} />
               <Route path="/early-access-form" element={<EarlyAccessForm />} />
+              <Route path="/contact" element={<ContactForm />} />
+              <Route path="/admin/contact-dashboard" element={<ContactFormDashboard />} />
+              <Route path="/admin/dashboard" element={<AdminDashboard />} />
+              <Route path="/admin/database" element={<DatabaseChecker />} />
             </Routes>
             <Footer />
           </div>

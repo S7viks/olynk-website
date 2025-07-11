@@ -1,9 +1,44 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { ArrowRight, Heart, Mail, Phone, MapPin, ArrowUp, ExternalLink, Sparkles, Zap, Globe, Shield, Send } from 'lucide-react';
+import { contactService } from '../services/firebaseService';
 import { Link, useLocation } from 'react-router-dom';
 
 const Footer = () => {
   const location = useLocation();
+  
+  const [contactForm, setContactForm] = useState({
+    name: '',
+    email: '',
+    subject: '',
+    message: ''
+  });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
+
+  const handleContactSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+    setSubmitStatus('idle');
+
+    try {
+      await contactService.submitContactForm(contactForm);
+      setSubmitStatus('success');
+      setContactForm({ name: '', email: '', subject: '', message: '' });
+    } catch (error) {
+      console.error('Error submitting contact form:', error);
+      setSubmitStatus('error');
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
+  const handleContactChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    const { name, value } = e.target;
+    setContactForm(prev => ({
+      ...prev,
+      [name]: value
+    }));
+  };
 
   interface SmoothScrollEvent extends React.MouseEvent<HTMLAnchorElement, MouseEvent> {}
 
@@ -127,45 +162,83 @@ const Footer = () => {
             
             {/* Contact Form */}
             <div className="lg:col-span-2 space-y-4">
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              {submitStatus === 'success' && (
+                <div className="p-4 bg-green-50 dark:bg-green-900/20 border border-green-200 dark:border-green-800 rounded-lg">
+                  <p className="text-green-700 dark:text-green-300 text-sm">
+                    Message sent successfully! We'll get back to you soon.
+                  </p>
+                </div>
+              )}
+
+              {submitStatus === 'error' && (
+                <div className="p-4 bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800 rounded-lg">
+                  <p className="text-red-700 dark:text-red-300 text-sm">
+                    Failed to send message. Please try again.
+                  </p>
+                </div>
+              )}
+
+              <form onSubmit={handleContactSubmit} className="space-y-4">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  <div>
+                    <input
+                      type="text"
+                      name="name"
+                      value={contactForm.name}
+                      onChange={handleContactChange}
+                      placeholder="Name"
+                      required
+                      className="w-full px-3 py-3 bg-gray-100 dark:bg-gray-700 border-0 rounded-lg text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400 focus:ring-2 focus:ring-red-500 dark:focus:ring-blue-500 focus:outline-none transition-all"
+                    />
+                  </div>
+                  <div>
+                    <input
+                      type="email"
+                      name="email"
+                      value={contactForm.email}
+                      onChange={handleContactChange}
+                      placeholder="Email"
+                      required
+                      className="w-full px-3 py-3 bg-gray-100 dark:bg-gray-700 border-0 rounded-lg text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400 focus:ring-2 focus:ring-red-500 dark:focus:ring-blue-500 focus:outline-none transition-all"
+                    />
+                  </div>
+                </div>
+                
                 <div>
                   <input
                     type="text"
-                    placeholder="Name"
+                    name="subject"
+                    value={contactForm.subject}
+                    onChange={handleContactChange}
+                    placeholder="Subject"
+                    required
                     className="w-full px-3 py-3 bg-gray-100 dark:bg-gray-700 border-0 rounded-lg text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400 focus:ring-2 focus:ring-red-500 dark:focus:ring-blue-500 focus:outline-none transition-all"
                   />
                 </div>
+                
                 <div>
-                  <input
-                    type="email"
-                    placeholder="Email"
-                    className="w-full px-3 py-3 bg-gray-100 dark:bg-gray-700 border-0 rounded-lg text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400 focus:ring-2 focus:ring-red-500 dark:focus:ring-blue-500 focus:outline-none transition-all"
-                  />
+                  <textarea
+                    name="message"
+                    value={contactForm.message}
+                    onChange={handleContactChange}
+                    rows={4}
+                    placeholder="Message"
+                    required
+                    className="w-full px-3 py-3 bg-gray-100 dark:bg-gray-700 border-0 rounded-lg text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400 focus:ring-2 focus:ring-red-500 dark:focus:ring-blue-500 focus:outline-none transition-all resize-none"
+                  ></textarea>
                 </div>
-              </div>
-              
-              <div>
-                <input
-                  type="text"
-                  placeholder="Subject"
-                  className="w-full px-3 py-3 bg-gray-100 dark:bg-gray-700 border-0 rounded-lg text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400 focus:ring-2 focus:ring-red-500 dark:focus:ring-blue-500 focus:outline-none transition-all"
-                />
-              </div>
-              
-              <div>
-                <textarea
-                  rows={4}
-                  placeholder="Message"
-                  className="w-full px-3 py-3 bg-gray-100 dark:bg-gray-700 border-0 rounded-lg text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400 focus:ring-2 focus:ring-red-500 dark:focus:ring-blue-500 focus:outline-none transition-all resize-none"
-                ></textarea>
-              </div>
-              
-              <div>
-                <button className="bg-gradient-to-r from-red-600 to-red-700 dark:from-blue-600 dark:to-blue-700 text-white px-6 py-3 rounded-lg font-semibold hover:shadow-xl hover:shadow-red-500/25 dark:hover:shadow-blue-500/25 transition-all duration-300 flex items-center space-x-2">
-                  <span>Send Message</span>
-                  <Send className="h-4 w-4" />
-                </button>
-              </div>
+                
+                <div>
+                  <button 
+                    type="submit"
+                    disabled={isSubmitting}
+                    className="bg-gradient-to-r from-red-600 to-red-700 dark:from-blue-600 dark:to-blue-700 text-white px-6 py-3 rounded-lg font-semibold hover:shadow-xl hover:shadow-red-500/25 dark:hover:shadow-blue-500/25 transition-all duration-300 flex items-center space-x-2 disabled:opacity-50 disabled:cursor-not-allowed"
+                  >
+                    <span>{isSubmitting ? 'Sending...' : 'Send Message'}</span>
+                    <Send className="h-4 w-4" />
+                  </button>
+                </div>
+              </form>
             </div>
 
             {/* Newsletter Signup */}

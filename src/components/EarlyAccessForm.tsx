@@ -1,560 +1,336 @@
-import React, { useState, useRef, useEffect } from 'react';
-import { useNavigate, useLocation } from 'react-router-dom';
-import { User, Mail, Phone, Building2, MapPin, Citrus as Industry, Users, IndianRupee, CheckCircle2, AlertCircle, Send, Sparkles } from 'lucide-react';
-import { db } from '../firebase'; // Adjust path based on your Firebase setup
-import { collection, addDoc } from 'firebase/firestore';
-import { useTheme } from '../contexts/ThemeContext';
+import React, { useState } from 'react';
+import { earlyAccessService } from '../services/firebaseService';
 
-interface FormData {
-  fullName: string;
+interface EarlyAccessData {
+  name: string;
   email: string;
-  phone: string;
+  company: string;
   role: string;
-  companyName: string;
-  companyLocation: string;
   industry: string;
-  companySize: string;
-  annualRevenue: string;
-  interestedFeatures: string[];
+  currentChallenges: string;
+  expectedBenefits: string;
+  timeline: string;
   additionalInfo: string;
 }
 
-interface FormErrors {
-  [key: string]: string;
-}
-
 const EarlyAccessForm: React.FC = () => {
-  const { isDark } = useTheme();
-  const [formData, setFormData] = useState<FormData>({
-    fullName: '',
+  const [formData, setFormData] = useState<EarlyAccessData>({
+    name: '',
     email: '',
-    phone: '',
+    company: '',
     role: '',
-    companyName: '',
-    companyLocation: '',
     industry: '',
-    companySize: '',
-    annualRevenue: '',
-    interestedFeatures: [],
+    currentChallenges: '',
+    expectedBenefits: '',
+    timeline: '',
     additionalInfo: ''
   });
 
-  const [errors, setErrors] = useState<FormErrors>({});
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [isSubmitted, setIsSubmitted] = useState(false);
-  const navigate = useNavigate();
-  const location = useLocation();
-  const formRef = useRef<HTMLDivElement>(null); // Ref for the form container
+  const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
+  const [errorMessage, setErrorMessage] = useState('');
 
-  // Scroll to top of form when navigating to this page
-  useEffect(() => {
-    if (location.pathname === '/early-access-form' && formRef.current) {
-      const headerOffset = 60; // Adjust based on your header height
-      const elementPosition = formRef.current.getBoundingClientRect().top + window.scrollY;
-      window.scrollTo({
-        top: elementPosition - headerOffset,
-        behavior: 'smooth',
-      });
-    }
-  }, [location.pathname]);
-
-  const industries = [
-    'Technology',
-    'Healthcare',
-    'Finance',
-    'E-commerce',
-    'Manufacturing',
-    'Education',
-    'Real Estate',
-    'Consulting',
-    'Marketing & Advertising',
-    'Other'
-  ];
-
-  const companySizes = [
-    '1-10 employees',
-    '11-50 employees',
-    '51-200 employees',
-    '201-500 employees',
-    '501-1000 employees',
-    '1000+ employees'
-  ];
-
-  const revenueRanges = [
-    'Below 10 lakhs',
-    '10 - 30 lakhs',
-    '30 - 50 lakhs',
-    '50 - 70 lakhs',
-    '70 lakhs - 1 cr',
-    '1 cr - 10 cr',
-    '10 cr - 50 cr',
-    '50 cr above'
-  ];
-
-  const features = [
-    { id: 'ai-analytics', label: 'AI-Powered Analytics', description: 'Advanced machine learning insights' },
-    { id: 'realtime-dashboards', label: 'Real-time Dashboards', description: 'Live data visualization' },
-    { id: 'data-integration', label: 'Data Integration', description: 'Connect all your data sources' },
-    { id: 'predictive-insights', label: 'Predictive Insights', description: 'Forecast future trends' },
-    { id: 'team-collaboration', label: 'Team Collaboration', description: 'Share insights across teams' },
-    { id: 'custom-reports', label: 'Custom Reports', description: 'Build tailored reports' },
-    { id: 'mobile-access', label: 'Mobile Access', description: 'Access insights on the go' }
-  ];
-
-  const validateForm = (): boolean => {
-    const newErrors: FormErrors = {};
-
-    if (!formData.fullName.trim()) newErrors.fullName = 'Full name is required';
-    if (!formData.email.trim()) {
-      newErrors.email = 'Email is required';
-    } else if (!/\S+@\S+\.\S+/.test(formData.email)) {
-      newErrors.email = 'Please enter a valid email address';
-    }
-    if (!formData.phone.trim()) newErrors.phone = 'Phone number is required';
-    if (!formData.role.trim()) newErrors.role = 'Role is required';
-    if (!formData.companyName.trim()) newErrors.companyName = 'Company name is required';
-    if (!formData.companyLocation.trim()) newErrors.companyLocation = 'Company location is required';
-    if (!formData.industry) newErrors.industry = 'Please select an industry';
-    if (!formData.companySize) newErrors.companySize = 'Please select company size';
-    if (!formData.annualRevenue) newErrors.annualRevenue = 'Please select revenue range';
-    if (formData.interestedFeatures.length === 0) {
-      newErrors.interestedFeatures = 'Please select at least one feature';
-    }
-
-    setErrors(newErrors);
-    return Object.keys(newErrors).length === 0;
-  };
-
-  const handleInputChange = (field: keyof FormData, value: string) => {
-    setFormData(prev => ({ ...prev, [field]: value }));
-    if (errors[field]) {
-      setErrors(prev => ({ ...prev, [field]: '' }));
-    }
-  };
-
-  const handleFeatureToggle = (featureId: string) => {
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
+    const { name, value } = e.target;
     setFormData(prev => ({
       ...prev,
-      interestedFeatures: prev.interestedFeatures.includes(featureId)
-        ? prev.interestedFeatures.filter(id => id !== featureId)
-        : [...prev.interestedFeatures, featureId]
+      [name]: value
     }));
-    if (errors.interestedFeatures) {
-      setErrors(prev => ({ ...prev, interestedFeatures: '' }));
-    }
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-
-    if (!validateForm()) return;
-
     setIsSubmitting(true);
+    setSubmitStatus('idle');
+    setErrorMessage('');
 
     try {
-      await addDoc(collection(db, 'earlyAccessSubmissions'), {
-        ...formData,
-        submissionDate: new Date().toISOString()
-      });
+      // Store in Firebase
+      await earlyAccessService.submitApplication(formData);
 
-      setIsSubmitting(false);
-      setIsSubmitted(true);
+      setSubmitStatus('success');
+      setFormData({
+        name: '',
+        email: '',
+        company: '',
+        role: '',
+        industry: '',
+        currentChallenges: '',
+        expectedBenefits: '',
+        timeline: '',
+        additionalInfo: ''
+      });
     } catch (error) {
-      console.error('Error submitting form to Firestore:', error);
-      setErrors(prev => ({
-        ...prev,
-        submit: 'Failed to submit form. Please try again.'
-      }));
+      console.error('Error submitting early access request:', error);
+      setSubmitStatus('error');
+      setErrorMessage('Failed to submit request. Please try again.');
+    } finally {
       setIsSubmitting(false);
     }
   };
 
-  if (isSubmitted) {
     return (
-      <div className={`min-h-screen ${isDark ? 'bg-gradient-to-br from-gray-900 via-gray-800 to-teal-900' : 'bg-gradient-to-br from-teal-50 via-white to-emerald-50'} flex items-center justify-center p-4`}>
-        <div className="max-w-md w-full text-center">
-          <div className={`${isDark ? 'bg-gray-800 border-teal-700' : 'bg-white border-teal-100'} rounded-2xl shadow-xl p-8 border`}>
-            <div className={`w-16 h-16 bg-gradient-to-r from-teal-500 to-emerald-500 rounded-full flex items-center justify-center mx-auto mb-6`}>
-              <CheckCircle2 className="w-8 h-8 text-white" />
-            </div>
-            <h2 className={`text-2xl font-bold ${isDark ? 'text-white' : 'text-gray-900'} mb-4`}>Welcome to Olynk!</h2>
-            <p className={`${isDark ? 'text-gray-300' : 'text-gray-600'} mb-6`}>
-              Thank you for joining our early access program. We'll be in touch soon with next steps.
-            </p>
-            <button
-              onClick={() => {
-                setIsSubmitted(false);
-                setFormData({
-                  fullName: '',
-                  email: '',
-                  phone: '',
-                  role: '',
-                  companyName: '',
-                  companyLocation: '',
-                  industry: '',
-                  companySize: '',
-                  annualRevenue: '',
-                  interestedFeatures: [],
-                  additionalInfo: ''
-                });
-              }}
-              className={`${isDark ? 'text-teal-400 hover:text-teal-300' : 'text-teal-600 hover:text-teal-700'} font-medium transition-colors`}
-            >
-              Submit another form
-            </button>
-          </div>
-        </div>
-      </div>
-    );
-  }
-
-  return (
-    <div ref={formRef} className={`min-h-screen ${isDark ? 'bg-gradient-to-br from-gray-900 via-gray-800 to-teal-900' : 'bg-gradient-to-br from-teal-50 via-white to-emerald-50'}`}>
-      <div className="container mx-auto px-4 py-12">
-        <div className="max-w-2xl mx-auto">
+    <div className="min-h-screen bg-gradient-to-br from-gray-50 to-gray-100 dark:from-gray-900 dark:to-gray-800 py-12 px-4 sm:px-6 lg:px-8">
+      <div className="max-w-2xl mx-auto">
+        <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-xl p-8">
           {/* Header */}
-          <div className="text-center mb-12">
-            <div className="flex items-center justify-center mb-6">
-              <div className={`w-12 h-12 bg-gradient-to-r from-teal-500 to-emerald-500 rounded-xl flex items-center justify-center`}>
-                <Sparkles className="w-6 h-6 text-white" />
-              </div>
-              <span className={`ml-3 text-2xl font-bold bg-gradient-to-r from-teal-600 to-emerald-600 bg-clip-text text-transparent`}>
-                Olynk
-              </span>
-            </div>
-            <h1 className={`text-4xl font-bold ${isDark ? 'text-white' : 'text-gray-900'} mb-4`}>Join Early Access</h1>
-            <p className={`text-lg ${isDark ? 'text-gray-300' : 'text-gray-600'}`}>
-              Be among the first to experience Oridyn's revolutionary business insights platform.
+          <div className="text-center mb-8">
+            <h1 className="text-3xl font-bold text-gray-900 dark:text-white mb-4">
+              Early Access Application
+            </h1>
+            <p className="text-lg text-gray-600 dark:text-gray-300">
+              Be among the first to experience Olynk's AI-powered operations platform
             </p>
           </div>
+
+          {/* Success Message */}
+          {submitStatus === 'success' && (
+            <div className="mb-8 p-6 bg-green-50 dark:bg-green-900/20 border border-green-200 dark:border-green-800 rounded-xl">
+              <div className="flex items-center">
+                <div className="flex-shrink-0">
+                  <svg className="h-6 w-6 text-green-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                  </svg>
+        </div>
+                <div className="ml-3">
+                  <h3 className="text-lg font-medium text-green-800 dark:text-green-200">
+                    Application Submitted Successfully!
+                  </h3>
+                  <p className="mt-1 text-green-700 dark:text-green-300">
+                    Thank you for your interest! We'll review your application and contact you within 48 hours.
+                  </p>
+      </div>
+              </div>
+            </div>
+          )}
+
+          {/* Error Message */}
+          {submitStatus === 'error' && (
+            <div className="mb-8 p-6 bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800 rounded-xl">
+              <div className="flex items-center">
+                <div className="flex-shrink-0">
+                  <svg className="h-6 w-6 text-red-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-2.5L13.732 4c-.77-.833-1.964-.833-2.732 0L3.732 16.5c-.77.833.192 2.5 1.732 2.5z" />
+                  </svg>
+                </div>
+                <div className="ml-3">
+                  <h3 className="text-lg font-medium text-red-800 dark:text-red-200">
+                    Submission Failed
+                  </h3>
+                  <p className="mt-1 text-red-700 dark:text-red-300">
+                    {errorMessage}
+            </p>
+          </div>
+              </div>
+            </div>
+          )}
 
           {/* Form */}
-          <div className={`${isDark ? 'bg-gray-800 border-teal-700' : 'bg-white border-teal-100'} rounded-2xl shadow-xl border overflow-hidden`}>
-            <form onSubmit={handleSubmit} className="p-8 space-y-8">
+          <form onSubmit={handleSubmit} className="space-y-6">
               {/* Personal Information */}
-              <div>
-                <h3 className={`text-xl font-semibold ${isDark ? 'text-white' : 'text-gray-900'} mb-6 flex items-center`}>
-                  <User className={`w-5 h-5 ${isDark ? 'text-teal-400' : 'text-teal-600'} mr-2`} />
+            <div className="space-y-4">
+              <h3 className="text-lg font-semibold text-gray-900 dark:text-white border-b border-gray-200 dark:border-gray-700 pb-2">
                   Personal Information
                 </h3>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   <div>
-                    <label className={`block text-sm font-medium ${isDark ? 'text-gray-300' : 'text-gray-700'} mb-2`}>
+                  <label htmlFor="name" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
                       Full Name *
                     </label>
                     <input
                       type="text"
-                      value={formData.fullName}
-                      onChange={(e) => handleInputChange('fullName', e.target.value)}
-                      className={`w-full px-4 py-3 border rounded-xl focus:ring-2 focus:ring-teal-500 focus:border-transparent transition-all ${
-                        errors.fullName ? 'border-red-500 bg-red-50' : isDark ? 'border-gray-600 bg-gray-700 text-white hover:border-teal-400' : 'border-gray-300 hover:border-teal-300'
-                      }`}
-                      placeholder="John Doe"
-                    />
-                    {errors.fullName && (
-                      <p className="mt-1 text-sm text-red-600 flex items-center">
-                        <AlertCircle className="w-4 h-4 mr-1" />
-                        {errors.fullName}
-                      </p>
-                    )}
+                    id="name"
+                    name="name"
+                    value={formData.name}
+                    onChange={handleInputChange}
+                    required
+                    className="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-red-500 dark:focus:ring-blue-500 focus:border-red-500 dark:focus:border-blue-500 dark:bg-gray-700 dark:text-white transition-colors"
+                    placeholder="Enter your full name"
+                  />
                   </div>
 
                   <div>
-                    <label className={`block text-sm font-medium ${isDark ? 'text-gray-300' : 'text-gray-700'} mb-2`}>
-                      Email *
+                  <label htmlFor="email" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
+                    Email Address *
                     </label>
-                    <div className="relative">
                       <input
                         type="email"
+                    id="email"
+                    name="email"
                         value={formData.email}
-                        onChange={(e) => handleInputChange('email', e.target.value)}
-                        className={`w-full px-4 py-3 pl-10 border rounded-xl focus:ring-2 focus:ring-teal-500 focus:border-transparent transition-all ${
-                          errors.email ? 'border-red-500 bg-red-50' : isDark ? 'border-gray-600 bg-gray-700 text-white hover:border-teal-400' : 'border-gray-300 hover:border-teal-300'
-                        }`}
-                        placeholder="john@example.com"
-                      />
-                      <Mail className={`w-4 h-4 ${isDark ? 'text-gray-400' : 'text-gray-400'} absolute left-3 top-1/2 transform -translate-y-1/2`} />
-                    </div>
-                    {errors.email && (
-                      <p className="mt-1 text-sm text-red-600 flex items-center">
-                        <AlertCircle className="w-4 h-4 mr-1" />
-                        {errors.email}
-                      </p>
-                    )}
-                  </div>
-
-                  <div>
-                    <label className={`block text-sm font-medium ${isDark ? 'text-gray-300' : 'text-gray-700'} mb-2`}>
-                      Phone Number *
-                    </label>
-                    <div className="relative">
-                      <input
-                        type="tel"
-                        value={formData.phone}
-                        onChange={(e) => handleInputChange('phone', e.target.value)}
-                        className={`w-full px-4 py-3 pl-10 border rounded-xl focus:ring-2 focus:ring-teal-500 focus:border-transparent transition-all ${
-                          errors.phone ? 'border-red-500 bg-red-50' : isDark ? 'border-gray-600 bg-gray-700 text-white hover:border-teal-400' : 'border-gray-300 hover:border-teal-300'
-                        }`}
-                        placeholder="+1 (555) 123-4567"
-                      />
-                      <Phone className={`w-4 h-4 ${isDark ? 'text-gray-400' : 'text-gray-400'} absolute left-3 top-1/2 transform -translate-y-1/2`} />
-                    </div>
-                    {errors.phone && (
-                      <p className="mt-1 text-sm text-red-600 flex items-center">
-                        <AlertCircle className="w-4 h-4 mr-1" />
-                        {errors.phone}
-                      </p>
-                    )}
-                  </div>
-
-                  <div>
-                    <label className={`block text-sm font-medium ${isDark ? 'text-gray-300' : 'text-gray-700'} mb-2`}>
-                      Role *
-                    </label>
-                    <input
-                      type="text"
-                      value={formData.role}
-                      onChange={(e) => handleInputChange('role', e.target.value)}
-                      className={`w-full px-4 py-3 border rounded-xl focus:ring-2 focus:ring-teal-500 focus:border-transparent transition-all ${
-                        errors.role ? 'border-red-500 bg-red-50' : isDark ? 'border-gray-600 bg-gray-700 text-white hover:border-teal-400' : 'border-gray-300 hover:border-teal-300'
-                      }`}
-                      placeholder="CEO"
-                    />
-                    {errors.role && (
-                      <p className="mt-1 text-sm text-red-600 flex items-center">
-                        <AlertCircle className="w-4 h-4 mr-1" />
-                        {errors.role}
-                      </p>
-                    )}
-                  </div>
-                </div>
-              </div>
-
-              {/* Company Information */}
-              <div>
-                <h3 className={`text-xl font-semibold ${isDark ? 'text-white' : 'text-gray-900'} mb-6 flex items-center`}>
-                  <Building2 className={`w-5 h-5 ${isDark ? 'text-teal-400' : 'text-teal-600'} mr-2`} />
-                  Company Information
-                </h3>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                  <div className="md:col-span-2">
-                    <label className={`block text-sm font-medium ${isDark ? 'text-gray-300' : 'text-gray-700'} mb-2`}>
-                      Company Name *
-                    </label>
-                    <input
-                      type="text"
-                      value={formData.companyName}
-                      onChange={(e) => handleInputChange('companyName', e.target.value)}
-                      className={`w-full px-4 py-3 border rounded-xl focus:ring-2 focus:ring-teal-500 focus:border-transparent transition-all ${
-                        errors.companyName ? 'border-red-500 bg-red-50' : isDark ? 'border-gray-600 bg-gray-700 text-white hover:border-teal-400' : 'border-gray-300 hover:border-teal-300'
-                      }`}
-                      placeholder="Acme Inc."
-                    />
-                    {errors.companyName && (
-                      <p className="mt-1 text-sm text-red-600 flex items-center">
-                        <AlertCircle className="w-4 h-4 mr-1" />
-                        {errors.companyName}
-                      </p>
-                    )}
-                  </div>
-
-                  <div>
-                    <label className={`block text-sm font-medium ${isDark ? 'text-gray-300' : 'text-gray-700'} mb-2`}>
-                      Company Location *
-                    </label>
-                    <div className="relative">
-                      <input
-                        type="text"
-                        value={formData.companyLocation}
-                        onChange={(e) => handleInputChange('companyLocation', e.target.value)}
-                        className={`w-full px-4 py-3 pl-10 border rounded-xl focus:ring-2 focus:ring-teal-500 focus:border-transparent transition-all ${
-                          errors.companyLocation ? 'border-red-500 bg-red-50' : isDark ? 'border-gray-600 bg-gray-700 text-white hover:border-teal-400' : 'border-gray-300 hover:border-teal-300'
-                        }`}
-                        placeholder="San Francisco, CA"
-                      />
-                      <MapPin className={`w-4 h-4 ${isDark ? 'text-gray-400' : 'text-gray-400'} absolute left-3 top-1/2 transform -translate-y-1/2`} />
-                    </div>
-                    {errors.companyLocation && (
-                      <p className="mt-1 text-sm text-red-600 flex items-center">
-                        <AlertCircle className="w-4 h-4 mr-1" />
-                        {errors.companyLocation}
-                      </p>
-                    )}
-                  </div>
-
-                  <div>
-                    <label className={`block text-sm font-medium ${isDark ? 'text-gray-300' : 'text-gray-700'} mb-2`}>
-                      Industry *
-                    </label>
-                    <div className="relative">
-                      <select
-                        value={formData.industry}
-                        onChange={(e) => handleInputChange('industry', e.target.value)}
-                        className={`w-full px-4 py-3 pl-10 border rounded-xl focus:ring-2 focus:ring-teal-500 focus:border-transparent transition-all appearance-none ${
-                          errors.industry ? 'border-red-500 bg-red-50' : isDark ? 'border-gray-600 bg-gray-700 text-white hover:border-teal-400' : 'border-gray-300 hover:border-teal-300 bg-white'
-                        }`}
-                      >
-                        <option value="">Select industry</option>
-                        {industries.map(industry => (
-                          <option key={industry} value={industry}>{industry}</option>
-                        ))}
-                      </select>
-                      <Industry className={`w-4 h-4 ${isDark ? 'text-gray-400' : 'text-gray-400'} absolute left-3 top-1/2 transform -translate-y-1/2`} />
-                    </div>
-                    {errors.industry && (
-                      <p className="mt-1 text-sm text-red-600 flex items-center">
-                        <AlertCircle className="w-4 h-4 mr-1" />
-                        {errors.industry}
-                      </p>
-                    )}
-                  </div>
-
-                  <div>
-                    <label className={`block text-sm font-medium ${isDark ? 'text-gray-300' : 'text-gray-700'} mb-2`}>
-                      Company Size *
-                    </label>
-                    <div className="relative">
-                      <select
-                        value={formData.companySize}
-                        onChange={(e) => handleInputChange('companySize', e.target.value)}
-                        className={`w-full px-4 py-3 pl-10 border rounded-xl focus:ring-2 focus:ring-teal-500 focus:border-transparent transition-all appearance-none ${
-                          errors.companySize ? 'border-red-500 bg-red-50' : isDark ? 'border-gray-600 bg-gray-700 text-white hover:border-teal-400' : 'border-gray-300 hover:border-teal-300 bg-white'
-                        }`}
-                      >
-                        <option value="">Select company size</option>
-                        {companySizes.map(size => (
-                          <option key={size} value={size}>{size}</option>
-                        ))}
-                      </select>
-                      <Users className={`w-4 h-4 ${isDark ? 'text-gray-400' : 'text-gray-400'} absolute left-3 top-1/2 transform -translate-y-1/2`} />
-                    </div>
-                    {errors.companySize && (
-                      <p className="mt-1 text-sm text-red-600 flex items-center">
-                        <AlertCircle className="w-4 h-4 mr-1" />
-                        {errors.companySize}
-                      </p>
-                    )}
-                  </div>
-
-                  <div>
-                    <label className={`block text-sm font-medium ${isDark ? 'text-gray-300' : 'text-gray-700'} mb-2`}>
-                      Annual Revenue *
-                    </label>
-                    <div className="relative">
-                      <select
-                        value={formData.annualRevenue}
-                        onChange={(e) => handleInputChange('annualRevenue', e.target.value)}
-                        className={`w-full px-4 py-3 pl-10 border rounded-xl focus:ring-2 focus:ring-teal-500 focus:border-transparent transition-all appearance-none ${
-                          errors.annualRevenue ? 'border-red-500 bg-red-50' : isDark ? 'border-gray-600 bg-gray-700 text-white hover:border-teal-400' : 'border-gray-300 hover:border-teal-300 bg-white'
-                        }`}
-                      >
-                        <option value="">Select revenue range</option>
-                        {revenueRanges.map(range => (
-                          <option key={range} value={range}>{range}</option>
-                        ))}
-                      </select>
-                      <IndianRupee className={`w-4 h-4 ${isDark ? 'text-gray-400' : 'text-gray-400'} absolute left-3 top-1/2 transform -translate-y-1/2`} />
-                    </div>
-                    {errors.annualRevenue && (
-                      <p className="mt-1 text-sm text-red-600 flex items-center">
-                        <AlertCircle className="w-4 h-4 mr-1" />
-                        {errors.annualRevenue}
-                      </p>
-                    )}
-                  </div>
-                </div>
-              </div>
-
-              {/* Interested Features */}
-              <div>
-                <h3 className={`text-xl font-semibold ${isDark ? 'text-white' : 'text-gray-900'} mb-2`}>Interested Features</h3>
-                <p className={`text-sm ${isDark ? 'text-gray-300' : 'text-gray-600'} mb-6`}>Select the features you're most interested in:</p>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                  {features.map(feature => (
-                    <div
-                      key={feature.id}
-                      onClick={() => handleFeatureToggle(feature.id)}
-                      className={`p-4 border rounded-xl cursor-pointer transition-all hover:shadow-md ${
-                        formData.interestedFeatures.includes(feature.id)
-                          ? isDark ? 'border-teal-400 bg-teal-900/50 shadow-sm' : 'border-teal-500 bg-teal-50 shadow-sm'
-                          : isDark ? 'border-gray-600 hover:border-teal-400' : 'border-gray-200 hover:border-teal-300'
-                      }`}
-                    >
-                      <div className="flex items-start">
-                        <div className={`w-5 h-5 border-2 rounded flex items-center justify-center mr-3 mt-0.5 transition-all ${
-                          formData.interestedFeatures.includes(feature.id)
-                            ? isDark ? 'border-teal-400 bg-teal-400' : 'border-teal-500 bg-teal-500'
-                            : isDark ? 'border-gray-600' : 'border-gray-300'
-                        }`}>
-                          {formData.interestedFeatures.includes(feature.id) && (
-                            <CheckCircle2 className="w-3 h-3 text-white" />
-                          )}
-                        </div>
-                        <div>
-                          <h4 className={`font-medium ${isDark ? 'text-white' : 'text-gray-900'}`}>{feature.label}</h4>
-                          <p className={`text-sm ${isDark ? 'text-gray-300' : 'text-gray-600'} mt-1`}>{feature.description}</p>
-                        </div>
-                      </div>
-                    </div>
-                  ))}
-                </div>
-                {errors.interestedFeatures && (
-                  <p className="mt-2 text-sm text-red-600 flex items-center">
-                    <AlertCircle className="w-4 h-4 mr-1" />
-                    {errors.interestedFeatures}
-                  </p>
-                )}
-              </div>
-
-              {/* Additional Information */}
-              <div>
-                <h3 className={`text-xl font-semibold ${isDark ? 'text-white' : 'text-gray-900'} mb-6`}>Additional Information</h3>
-                <div>
-                  <label className={`block text-sm font-medium ${isDark ? 'text-gray-300' : 'text-gray-700'} mb-2`}>
-                    Any specific requirements or questions?
-                  </label>
-                  <textarea
-                    value={formData.additionalInfo}
-                    onChange={(e) => handleInputChange('additionalInfo', e.target.value)}
-                    rows={4}
-                    className={`w-full px-4 py-3 border rounded-xl focus:ring-2 focus:ring-teal-500 focus:border-transparent transition-all hover:border-teal-300 resize-none ${
-                      isDark ? 'border-gray-600 bg-gray-700 text-white' : 'border-gray-300'
-                    }`}
-                    placeholder="Tell us about your specific needs or questions..."
+                    onChange={handleInputChange}
+                    required
+                    className="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-red-500 dark:focus:ring-blue-500 focus:border-red-500 dark:focus:border-blue-500 dark:bg-gray-700 dark:text-white transition-colors"
+                    placeholder="Enter your email address"
                   />
                 </div>
               </div>
 
-              {/* Submit Error */}
-              {errors.submit && (
-                <p className="text-sm text-red-600 flex items-center">
-                  <AlertCircle className="w-4 h-4 mr-1" />
-                  {errors.submit}
-                </p>
-              )}
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div>
+                  <label htmlFor="company" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
+                      Company Name *
+                    </label>
+                    <input
+                      type="text"
+                    id="company"
+                    name="company"
+                    value={formData.company}
+                    onChange={handleInputChange}
+                    required
+                    className="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-red-500 dark:focus:ring-blue-500 focus:border-red-500 dark:focus:border-blue-500 dark:bg-gray-700 dark:text-white transition-colors"
+                    placeholder="Enter your company name"
+                  />
+                  </div>
+
+                  <div>
+                  <label htmlFor="role" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
+                    Your Role *
+                    </label>
+                      <input
+                        type="text"
+                    id="role"
+                    name="role"
+                    value={formData.role}
+                    onChange={handleInputChange}
+                    required
+                    className="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-red-500 dark:focus:ring-blue-500 focus:border-red-500 dark:focus:border-blue-500 dark:bg-gray-700 dark:text-white transition-colors"
+                    placeholder="e.g., Operations Manager, CEO, etc."
+                  />
+                    </div>
+                  </div>
+
+                  <div>
+                <label htmlFor="industry" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
+                      Industry *
+                    </label>
+                      <select
+                  id="industry"
+                  name="industry"
+                        value={formData.industry}
+                  onChange={handleInputChange}
+                  required
+                  className="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-red-500 dark:focus:ring-blue-500 focus:border-red-500 dark:focus:border-blue-500 dark:bg-gray-700 dark:text-white transition-colors"
+                >
+                  <option value="">Select your industry</option>
+                  <option value="ecommerce">E-commerce & Retail</option>
+                  <option value="manufacturing">Manufacturing</option>
+                  <option value="logistics">Logistics & Supply Chain</option>
+                  <option value="healthcare">Healthcare</option>
+                  <option value="finance">Finance & Banking</option>
+                  <option value="technology">Technology</option>
+                  <option value="food-beverage">Food & Beverage</option>
+                  <option value="automotive">Automotive</option>
+                  <option value="pharmaceuticals">Pharmaceuticals</option>
+                  <option value="textiles">Textiles & Apparel</option>
+                  <option value="other">Other</option>
+                      </select>
+                    </div>
+                  </div>
+
+            {/* Business Information */}
+            <div className="space-y-4">
+              <h3 className="text-lg font-semibold text-gray-900 dark:text-white border-b border-gray-200 dark:border-gray-700 pb-2">
+                Business Information
+              </h3>
+
+                  <div>
+                <label htmlFor="currentChallenges" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
+                  Current Operational Challenges *
+                    </label>
+                <textarea
+                  id="currentChallenges"
+                  name="currentChallenges"
+                  value={formData.currentChallenges}
+                  onChange={handleInputChange}
+                  required
+                  rows={4}
+                  className="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-red-500 dark:focus:ring-blue-500 focus:border-red-500 dark:focus:border-blue-500 dark:bg-gray-700 dark:text-white transition-colors"
+                  placeholder="Describe the main challenges you're facing with inventory management, operations, or supply chain..."
+                />
+                  </div>
+
+                  <div>
+                <label htmlFor="expectedBenefits" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
+                  Expected Benefits from AI *
+                    </label>
+                <textarea
+                  id="expectedBenefits"
+                  name="expectedBenefits"
+                  value={formData.expectedBenefits}
+                  onChange={handleInputChange}
+                  required
+                  rows={4}
+                  className="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-red-500 dark:focus:ring-blue-500 focus:border-red-500 dark:focus:border-blue-500 dark:bg-gray-700 dark:text-white transition-colors"
+                  placeholder="What benefits do you expect to achieve with AI-powered operations management?"
+                />
+              </div>
+
+              <div>
+                <label htmlFor="timeline" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
+                  Implementation Timeline *
+                </label>
+                <select
+                  id="timeline"
+                  name="timeline"
+                  value={formData.timeline}
+                  onChange={handleInputChange}
+                  required
+                  className="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-red-500 dark:focus:ring-blue-500 focus:border-red-500 dark:focus:border-blue-500 dark:bg-gray-700 dark:text-white transition-colors"
+                >
+                  <option value="">Select timeline</option>
+                  <option value="immediate">Immediate (Within 1 month)</option>
+                  <option value="1-3-months">1-3 months</option>
+                  <option value="3-6-months">3-6 months</option>
+                  <option value="6-12-months">6-12 months</option>
+                  <option value="12-plus-months">12+ months</option>
+                  <option value="exploring">Just exploring options</option>
+                </select>
+              </div>
+
+              <div>
+                <label htmlFor="additionalInfo" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
+                  Additional Information
+                  </label>
+                  <textarea
+                  id="additionalInfo"
+                  name="additionalInfo"
+                    value={formData.additionalInfo}
+                  onChange={handleInputChange}
+                  rows={3}
+                  className="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-red-500 dark:focus:ring-blue-500 focus:border-red-500 dark:focus:border-blue-500 dark:bg-gray-700 dark:text-white transition-colors"
+                  placeholder="Any additional information you'd like to share..."
+                  />
+                </div>
+              </div>
 
               {/* Submit Button */}
               <div className="pt-6">
                 <button
                   type="submit"
                   disabled={isSubmitting}
-                  className={`w-full bg-gradient-to-r from-teal-600 to-emerald-600 text-white font-semibold py-4 px-8 rounded-xl hover:from-teal-700 hover:to-emerald-700 focus:ring-4 focus:ring-teal-200 transition-all transform hover:scale-[1.02] disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none flex items-center justify-center`}
+                className="w-full bg-gradient-to-r from-red-600 to-red-700 dark:from-blue-600 dark:to-blue-700 text-white font-semibold py-4 px-6 rounded-lg shadow-lg hover:from-red-700 hover:to-red-800 dark:hover:from-blue-700 dark:hover:to-blue-800 focus:outline-none focus:ring-2 focus:ring-red-500 dark:focus:ring-blue-500 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-200 transform hover:scale-105"
                 >
                   {isSubmitting ? (
-                    <>
-                      <div className="animate-spin rounded-full h-5 w-5 border-b-2 border-white mr-2"></div>
-                      Processing...
-                    </>
-                  ) : (
-                    <>
-                      <Send className="w-5 h-5 mr-2" />
-                      Join Early Access
-                    </>
+                  <div className="flex items-center justify-center">
+                    <svg className="animate-spin -ml-1 mr-3 h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                      <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
+                      <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                    </svg>
+                    Submitting Application...
+                  </div>
+                ) : (
+                  'Submit Early Access Application'
                   )}
                 </button>
               </div>
+
+            <p className="text-xs text-gray-500 dark:text-gray-400 text-center">
+              By submitting this form, you agree to our privacy policy and terms of service. 
+              We'll contact you within 48 hours to discuss your early access application.
+            </p>
             </form>
-          </div>
         </div>
       </div>
     </div>
