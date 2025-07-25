@@ -1,0 +1,11 @@
+graph TD
+    A["Frontend<br/>Tech: Next.js, Tailwind CSS, Nodemailer<br/>Features: PWA, Dashboard, Email Nudges"] -->|API Calls| B["API Gateway<br/>Tech: AWS API Gateway, JWT<br/>Features: Secure Access, Scalability"]
+    B -->|Routes Requests| C["Application Layer<br/>Tech: LangChain, OpenAI, Node.js, Fastify<br/>Features: AI Insights, Workflow Automation"]
+    C -->|Queries Data| D["Data Layer<br/>Tech: Supabase, Pinecone, Redis<br/>Features: Inventory Data, RAG, Caching"]
+    C -->|Syncs Data| E["Integration Layer<br/>Tech: Node.js, Redis Bull, Webhooks, SDKs<br/>Features: Shopify, Unicommerce, Tally Sync"]
+    E -->|Webhooks| C
+    F["DevOps & Security<br/>Tech: AWS, Docker, GitHub Actions, JWT, AES-256<br/>Features: CI/CD, Secure Access"] --> A
+    F --> B
+    F --> C
+    F --> D
+    F --> E 

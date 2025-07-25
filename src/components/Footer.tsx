@@ -315,12 +315,14 @@ const Footer = () => {
             Join 1,000+ D2C brands using AI to prevent losses and maximize profits. Start your transformation today.
           </p>
           <div className="flex flex-col sm:flex-row gap-3 justify-center">
-            <Link 
-              to="/early-access-form" 
+            <a 
+              href="https://forms.office.com/r/zd11g2RWDR"
+              target="_blank"
+              rel="noopener noreferrer"
               className="bg-white text-red-700 dark:text-blue-700 px-6 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-all duration-300 shadow-lg hover:shadow-xl text-sm"
             >
               Get Early Access
-            </Link>
+            </a>
             <Link 
               to="/demo" 
               className="bg-white/10 backdrop-blur text-white px-6 py-3 rounded-lg font-semibold hover:bg-white/20 transition-all duration-300 border border-white/20 text-sm"
@@ -376,7 +378,7 @@ const Footer = () => {
             <div>
               <h4 className="text-base font-semibold mb-3">Quick Links</h4>
               <ul className="space-y-1 text-xs">
-                <li><Link to="/early-access-form" className="text-red-100 dark:text-blue-100 hover:text-white transition-colors">Get Early Access</Link></li>
+                <li><a href="https://forms.office.com/r/zd11g2RWDR" target="_blank" rel="noopener noreferrer" className="text-red-100 dark:text-blue-100 hover:text-white transition-colors">Get Early Access</a></li>
                 <li><Link to="/pricing" className="text-red-100 dark:text-blue-100 hover:text-white transition-colors">Pricing</Link></li>
                 <li><Link to="/benefits" className="text-red-100 dark:text-blue-100 hover:text-white transition-colors">Benefits</Link></li>
                 <li><Link to="#" className="text-red-100 dark:text-blue-100 hover:text-white transition-colors">Support</Link></li>

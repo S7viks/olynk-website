@@ -144,13 +144,15 @@ const FAQ = () => {
 
         {/* CTA Section */}
         <div className={`text-center mt-16 transition-all duration-1000 delay-1800 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
-          <Link
-            to="/early-access-form"
+          <a
+            href="https://forms.office.com/r/zd11g2RWDR"
+            target="_blank"
+            rel="noopener noreferrer"
             className="bg-gradient-to-r from-teal-600 to-cyan-600 text-white px-8 py-4 rounded-full font-bold text-lg hover:shadow-xl hover:scale-105 transition-all duration-300 inline-block flex items-center justify-center space-x-2 group"
           >
             <span>Explore OLYNK - Book Demo</span>
             <ArrowRight className="h-5 w-5 group-hover:translate-x-1 transition-transform duration-300" />
-          </Link>
+          </a>
         </div>
       </div>
     </section>

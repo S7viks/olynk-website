@@ -64,13 +64,15 @@ const Header = () => {
 
           {/* Theme Toggle & CTA */}
           <div className="hidden md:flex items-center space-x-4">
-            <Link
-              to="/early-access-form"
+            <a
+              href="https://forms.office.com/r/zd11g2RWDR"
+              target="_blank"
+              rel="noopener noreferrer"
               className="bg-gradient-to-r from-red-600 to-red-700 text-white px-6 py-2 rounded-full font-semibold hover:shadow-lg hover:scale-105 transition-all duration-300 flex items-center space-x-2 group"
             >
               <span>Join Early Access</span>
               <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform duration-300" />
-            </Link>
+            </a>
           </div>
 
           {/* Mobile Menu Button */}
@@ -101,14 +103,16 @@ const Header = () => {
                 </Link>
               ))}
               <div className="flex items-center justify-center pt-2">
-                <Link
-                  to="/early-access-form"
+                <a
+                  href="https://forms.office.com/r/zd11g2RWDR"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="bg-gradient-to-r from-red-600 to-red-700 text-white px-6 py-2 rounded-full font-semibold hover:shadow-lg transition-all duration-300 flex items-center space-x-2"
                   onClick={() => setIsMenuOpen(false)}
                 >
                   <span>Join Early Access</span>
                   <ArrowRight className="h-4 w-4" />
-                </Link>
+                </a>
               </div>
             </div>
           </div>

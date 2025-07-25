@@ -84,7 +84,7 @@ const Logo: React.FC<LogoProps> = ({ size = 'md', className = '' }) => {
 
   return (
     <img
-      src="/assets/Olynk_Logo.png"
+      src="/assets/Logo111.png"
       alt="Olynk.ai Logo"
       className={`${sizeClasses[size]} object-contain ${className} ${
         !imageLoaded ? 'opacity-0' : 'opacity-100'

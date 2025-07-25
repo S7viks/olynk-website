@@ -101,12 +101,14 @@ const EarlyAccess = () => {
                     required
                   />
                 </div>
-                <Link
-                  to="/early-access-form"
+                <a
+                  href="https://forms.office.com/r/zd11g2RWDR"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="w-full bg-gradient-to-r from-teal-500 to-cyan-500 text-white px-6 py-3 rounded-xl font-bold hover:shadow-xl hover:scale-105 transition-all duration-300 text-center block"
                 >
                   Get Started
-                </Link>
+                </a>
               </form>
             ) : (
               <div className="text-center">

@@ -5,7 +5,6 @@ import Header from './components/Header';
 import Hero from './components/Hero';
 import Footer from './components/Footer';
 import ProblemSection from './components/D2CSection';
-import EarlyAccessForm from './components/EarlyAccessForm';
 import ContactForm from './components/ContactForm';
 import ContactFormDashboard from './components/ContactFormDashboard';
 import AdminDashboard from './components/AdminDashboard';
@@ -17,6 +16,7 @@ import FinalCTASection from './components/FinalCTASection';
 // Pages
 import AboutPage from './pages/About';
 import PricingPage from './pages/Pricing';
+import ContactPage from './pages/Contact';
 
 function HomePage() {
   const location = useLocation();
@@ -69,8 +69,7 @@ const App: React.FC = () => {
               <Route path="/" element={<HomePage />} />
               <Route path="/about" element={<AboutPage />} />
               <Route path="/pricing" element={<PricingPage />} />
-              <Route path="/early-access-form" element={<EarlyAccessForm />} />
-              <Route path="/contact" element={<ContactForm />} />
+              <Route path="/contact" element={<ContactPage />} />
               <Route path="/admin/contact-dashboard" element={<ContactFormDashboard />} />
               <Route path="/admin/dashboard" element={<AdminDashboard />} />
               <Route path="/admin/database" element={<DatabaseChecker />} />

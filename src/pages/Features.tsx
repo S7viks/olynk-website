@@ -587,12 +587,14 @@ export default function FeaturesSection() {
                 optimize, and scale their operations.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <Link
-                  to="/early-access-form"
+                <a
+                  href="https://forms.office.com/r/zd11g2RWDR"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className={`${isDark ? 'bg-gray-800 text-teal-400 hover:bg-gray-700' : 'bg-white text-teal-600 hover:bg-gray-50'} px-8 py-4 rounded-xl font-semibold transform hover:scale-105 transition-all duration-300 shadow-lg`}
                 >
                   Start Free Trial
-                </Link>
+                </a>
                 <Link
                   to="/features?scroll=top"
                   onClick={handleExploreFeaturesClick}

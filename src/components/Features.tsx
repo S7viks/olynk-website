@@ -175,13 +175,15 @@ const Features = () => {
                 <span>Experience Interactive Demos</span>
                 <ArrowRight className="h-5 w-5" />
               </Link>
-              <Link
-                to="/early-access-form"
+              <a
+                href="https://forms.office.com/r/zd11g2RWDR"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="inline-flex items-center space-x-2 border-2 border-red-600 dark:border-blue-400 text-red-600 dark:text-blue-400 px-8 py-4 rounded-full font-bold text-lg hover:bg-red-50 dark:hover:bg-blue-900/20 transition-all duration-300"
               >
                 <span>Book Live Demo</span>
                 <ArrowRight className="h-5 w-5" />
-              </Link>
+              </a>
             </div>
           </div>
         </div>

@@ -62,13 +62,15 @@ const FinalCTASection = () => {
         {/* CTA Buttons */}
         <div className="text-center mb-12">
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-            <Link
-              to="/early-access-form"
+            <a
+              href="https://forms.office.com/r/zd11g2RWDR"
+              target="_blank"
+              rel="noopener noreferrer"
               className="bg-gradient-to-r from-red-600 to-red-700 dark:from-blue-600 dark:to-blue-700 text-white px-8 py-4 rounded-xl font-semibold text-lg hover:shadow-2xl hover:scale-105 transition-all duration-300 flex items-center space-x-3 group"
             >
               <span>Book AI Demo - See Your Insights Live</span>
               <ArrowRight className="h-5 w-5 group-hover:translate-x-1 transition-transform duration-300" />
-            </Link>
+            </a>
             
             <a
               href="#ai-operations-checklist"

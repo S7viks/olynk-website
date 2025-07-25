@@ -390,13 +390,15 @@ const FounderChat = () => {
                 Join our 14-day free trial and see how OLYNK's AI solves your specific challenges
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-                <Link
-                  to="/early-access-form"
+                <a
+                  href="https://forms.office.com/r/zd11g2RWDR"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="inline-flex items-center bg-gradient-to-r from-red-600 to-red-700 text-white px-8 py-4 rounded-xl font-semibold text-lg hover:from-red-700 hover:to-red-800 hover:shadow-lg transition-all duration-200 transform hover:scale-105 focus:outline-none focus:ring-4 focus:ring-red-300 focus:ring-opacity-50"
                 >
                   Start Free Trial
                   <ArrowRight className="w-4 h-4 ml-2" />
-                </Link>
+                </a>
                 <Link
                   to="/demo"
                   className="inline-flex items-center bg-white dark:bg-gray-800 border-2 border-red-600 text-red-600 dark:text-red-400 px-8 py-4 rounded-xl font-semibold text-lg hover:bg-red-50 dark:hover:bg-red-900/20 hover:shadow-lg transition-all duration-200 transform hover:scale-105 focus:outline-none focus:ring-4 focus:ring-red-300 focus:ring-opacity-50"

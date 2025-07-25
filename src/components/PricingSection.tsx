@@ -245,8 +245,10 @@ const PricingSection = () => {
                     ))}
                   </div>
                   
-                  <Link
-                    to="/early-access-form"
+                  <a
+                    href="https://forms.office.com/r/zd11g2RWDR"
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className={`w-full py-4 px-6 rounded-xl font-semibold text-lg transition-all duration-200 transform hover:scale-105 focus:outline-none focus:ring-4 focus:ring-opacity-50 shadow-lg block text-center ${
                       tier.buttonVariant === 'primary' 
                         ? 'bg-gradient-to-r from-red-500 to-red-600 dark:from-blue-500 dark:to-blue-600 text-white focus:ring-red-300 dark:focus:ring-blue-300'
@@ -255,7 +257,7 @@ const PricingSection = () => {
                   >
                     {tier.buttonText}
                     <ArrowRight className="w-4 h-4 ml-2 inline" />
-                  </Link>
+                  </a>
                 </div>
               </div>
             );
@@ -276,13 +278,15 @@ const PricingSection = () => {
               <span className="bg-gray-700 px-3 py-1 rounded-full">24/7 Support Team</span>
               <span className="bg-gray-700 px-3 py-1 rounded-full">Custom Integrations</span>
             </div>
-            <Link
-              to="/early-access-form"
+            <a
+              href="https://forms.office.com/r/zd11g2RWDR"
+              target="_blank"
+              rel="noopener noreferrer"
               className="inline-flex items-center bg-yellow-400 text-gray-900 px-6 py-3 rounded-lg font-semibold hover:bg-yellow-300 transition-colors"
             >
               Schedule Demo
               <ArrowRight className="w-4 h-4 ml-2" />
-            </Link>
+            </a>
           </div>
         </div>
 
@@ -317,13 +321,15 @@ const PricingSection = () => {
               ))}
             </div>
 
-            <Link
-              to="/early-access-form"
+            <a
+              href="https://forms.office.com/r/zd11g2RWDR"
+              target="_blank"
+              rel="noopener noreferrer"
               className="w-full bg-gradient-to-r from-red-500 to-red-600 dark:from-blue-500 dark:to-blue-600 text-white py-4 px-6 rounded-xl font-semibold text-lg transition-all duration-200 transform hover:scale-105 focus:outline-none focus:ring-4 focus:ring-red-300 dark:focus:ring-blue-300 focus:ring-opacity-50 shadow-lg block text-center"
             >
               {setupPricing.buttonText}
               <ArrowRight className="w-4 h-4 ml-2 inline" />
-            </Link>
+            </a>
           </div>
         </div>
 
@@ -370,13 +376,15 @@ const PricingSection = () => {
               </div>
             </div>
 
-            <Link
-              to="/early-access-form"
+            <a
+              href="https://forms.office.com/r/zd11g2RWDR"
+              target="_blank"
+              rel="noopener noreferrer"
               className="inline-flex items-center bg-red-600 dark:bg-blue-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-red-700 dark:hover:bg-blue-700 transition-colors"
             >
               Estimate Your Savings
               <ArrowRight className="w-4 h-4 ml-2" />
-            </Link>
+            </a>
           </div>
         </div>
       </div>

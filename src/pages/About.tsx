@@ -347,13 +347,15 @@ export default function About() {
                   <p className="text-white/90 mb-8">
                     Join thousands of businesses already making smarter decisions with Olynk
                   </p>
-                  <Link 
-                    to="/early-access-form" 
+                  <a 
+                    href="https://forms.office.com/r/zd11g2RWDR"
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className="inline-flex items-center bg-white text-[#CD5C5C] hover:bg-gray-100 px-8 py-4 rounded-full font-bold text-lg transition-all duration-300 transform hover:scale-105 shadow-lg"
                   >
                     Get Early Access
                     <ArrowRight className="w-5 h-5 ml-2" />
-                  </Link>
+                  </a>
                 </div>
               </div>
             </div>
@@ -413,13 +415,15 @@ export default function About() {
               Be part of the business intelligence revolution. Get early access to Olynk and transform how you make decisions.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Link
-                to="/early-access-form"
+              <a
+                href="https://forms.office.com/r/zd11g2RWDR"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="bg-gradient-to-r from-[#CD5C5C] to-[#B85450] hover:from-[#B85450] hover:to-[#A84844] text-white px-8 py-4 rounded-full font-bold text-lg transition-all duration-300 transform hover:scale-105 shadow-lg flex items-center justify-center"
               >
                 <Rocket className="w-5 h-5 mr-2" />
                 Get Early Access
-              </Link>
+              </a>
               <Link
                 to="/demo"
                 className="bg-white dark:bg-gray-800 border-2 border-[#CD5C5C] dark:border-[#CD5C5C] text-[#CD5C5C] dark:text-[#CD5C5C] hover:bg-[#CD5C5C]/10 dark:hover:bg-[#CD5C5C]/20 px-8 py-4 rounded-full font-bold text-lg transition-all duration-300 transform hover:scale-105 shadow-lg flex items-center justify-center"
