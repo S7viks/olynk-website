@@ -86,12 +86,8 @@ const Logo: React.FC<LogoProps> = ({ size = 'md', className = '' }) => {
     <img
       src="/assets/Logo111.png"
       alt="Olynk.ai Logo"
-      className={`${sizeClasses[size]} object-contain ${className} ${
-        !imageLoaded ? 'opacity-0' : 'opacity-100'
-      } transition-opacity duration-300`}
-      onLoad={handleImageLoad}
-      onError={handleImageError}
-      style={{ 
+      className={`${sizeClasses[size]} object-contain ${className}`}
+      style={{
         minWidth: size === 'sm' ? '24px' : size === 'md' ? '32px' : '48px',
         minHeight: size === 'sm' ? '24px' : size === 'md' ? '32px' : '48px'
       }}
