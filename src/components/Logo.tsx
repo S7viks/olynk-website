@@ -19,7 +19,9 @@ const Logo: React.FC<LogoProps> = ({ size = 'md', className = '' }) => {
       className={`${sizeClasses[size]} object-contain ${className}`}
       style={{
         minWidth: size === 'sm' ? '24px' : size === 'md' ? '32px' : '48px',
-        minHeight: size === 'sm' ? '24px' : size === 'md' ? '32px' : '48px'
+        minHeight: size === 'sm' ? '24px' : size === 'md' ? '32px' : '48px',
+        border: '2px solid red',
+        background: 'yellow'
       }}
     />
   );
