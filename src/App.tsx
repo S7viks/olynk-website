@@ -62,11 +62,11 @@ const App: React.FC = () => {
   const [isLoading, setIsLoading] = React.useState(true);
 
   React.useEffect(() => {
-    // Check environment variables
-    checkEnvironmentVariables();
-    
-    // Test Supabase setup
-    testSupabaseSetup();
+    // Check environment variables (only once)
+    if (typeof window !== 'undefined') {
+      checkEnvironmentVariables();
+      testSupabaseSetup();
+    }
     
     // Simulate loading time for better UX
     const timer = setTimeout(() => {
