@@ -1,95 +1,144 @@
 # Vercel Deployment Troubleshooting Guide
 
-## MIME Type Error Fix
+## Issues Fixed
 
-If you're seeing this error:
-```
-Failed to load module script: Expected a JavaScript-or-Wasm module script but the server responded with a MIME type of "text/html"
-```
+### 1. Import Error
+- **Problem**: `testSupabaseSetup` was being imported but didn't exist
+- **Fix**: Removed the non-existent import from `App.tsx`
 
-### Solution Steps:
+### 2. Build Configuration
+- **Problem**: Missing TypeScript compilation step
+- **Fix**: Updated build script to include `tsc && vite build`
 
-1. **Clear Vercel Cache**
-   ```bash
-   vercel --clear-cache
-   ```
+### 3. Vercel Configuration
+- **Problem**: Missing install command and function configuration
+- **Fix**: Added `installCommand` and `functions` configuration
 
-2. **Redeploy with Force**
-   ```bash
-   vercel --prod --force
-   ```
+## Current Configuration
 
-3. **Check Build Output**
-   - Ensure `dist/index.html` exists
-   - Verify JavaScript files are in `dist/assets/`
-   - Check that all assets have proper file extensions
-
-4. **Verify Configuration Files**
-   - `vercel.json` has proper headers for JavaScript files
-   - `public/_headers` file is present for MIME type control
-   - `vite.config.ts` is configured for production
-
-### Manifest.json 401 Error Fix
-
-If you're seeing this error:
-```
-manifest.json:1 Failed to load resource: the server responded with a status of 401
+### package.json
+```json
+{
+  "scripts": {
+    "build": "tsc && vite build",
+    "type-check": "tsc --noEmit"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}
 ```
 
-### Solution Steps:
+### vercel.json
+```json
+{
+  "buildCommand": "npm run build",
+  "outputDirectory": "dist",
+  "framework": "vite",
+  "installCommand": "npm install",
+  "rewrites": [...],
+  "headers": [...],
+  "functions": {
+    "src/**/*.ts": {
+      "runtime": "nodejs18.x"
+    }
+  }
+}
+```
 
-1. **Check manifest.json exists**
-   - Ensure `public/manifest.json` is present
-   - Verify it's copied to `dist/manifest.json` after build
+### vite.config.ts
+```typescript
+export default defineConfig({
+  plugins: [react()],
+  build: {
+    target: 'esnext',
+    outDir: 'dist',
+    sourcemap: false,
+    minify: 'esbuild',
+  },
+  // ... other config
+});
+```
 
-2. **Add proper headers**
-   - `vercel.json` includes headers for manifest.json
-   - `public/_headers` includes Content-Type for manifest.json
+## Environment Variables
 
-3. **Redeploy**
-   ```bash
-   vercel --prod --force
-   ```
+Make sure these are set in your Vercel project settings:
 
-### Configuration Files Updated:
+```env
+VITE_SUPABASE_URL=https://bmfakoiiebmsgdtimwdu.supabase.co
+VITE_SUPABASE_ANON_KEY=your-anon-key
+VITE_SUPABASE_SERVICE_KEY=your-service-key
+```
 
-1. **vercel.json** - Added proper MIME type headers
-2. **public/_redirects** - Added routing rules
-3. **vite.config.ts** - Optimized for production builds
+## Deployment Steps
 
-### Manual Deployment Steps:
+1. **Push your changes** to your Git repository
+2. **Check Vercel dashboard** for build logs
+3. **Verify environment variables** are set correctly
+4. **Monitor deployment** for any new errors
 
-1. Run the deployment script:
-   ```bash
-   chmod +x deploy.sh
-   ./deploy.sh
-   ```
+## Common Issues and Solutions
 
-2. Deploy to Vercel:
-   ```bash
-   vercel --prod
-   ```
+### Build Fails with TypeScript Errors
+```bash
+# Run locally to check for TypeScript errors
+npm run type-check
+```
 
-3. If issues persist, try:
-   ```bash
-   vercel --prod --force --clear-cache
-   ```
+### Missing Dependencies
+```bash
+# Clear node_modules and reinstall
+rm -rf node_modules package-lock.json
+npm install
+```
 
-### Common Issues:
+### Environment Variables Not Available
+- Check Vercel project settings
+- Ensure variables start with `VITE_`
+- Redeploy after adding variables
 
-1. **Module Loading Error**: Usually caused by incorrect MIME types
-2. **404 Errors**: Check routing configuration
-3. **Build Failures**: Verify all dependencies are installed
+### Build Timeout
+- The build should complete within 5-10 minutes
+- If it times out, check for infinite loops or heavy operations
 
-### Debugging:
+## Local Testing
 
-1. Check Vercel deployment logs
-2. Verify build output locally: `npm run build && npm run preview`
-3. Test with different browsers/devices
+Before deploying, test locally:
 
-### Support:
+```bash
+# Install dependencies
+npm install
 
-If issues persist, check:
-- Vercel deployment logs
-- Browser developer console
-- Network tab for failed requests 
+# Type check
+npm run type-check
+
+# Build locally
+npm run build
+
+# Preview build
+npm run preview
+```
+
+## Monitoring
+
+After deployment:
+1. Check the live site for any runtime errors
+2. Monitor browser console for JavaScript errors
+3. Verify all routes work correctly
+4. Test authentication flow
+
+## Rollback Plan
+
+If deployment fails:
+1. Check the previous successful deployment
+2. Compare changes between versions
+3. Revert problematic changes
+4. Deploy again
+
+## Support
+
+If issues persist:
+1. Check Vercel build logs for specific error messages
+2. Verify all imports and exports are correct
+3. Ensure all components exist and are properly exported
+4. Test with a minimal build first 

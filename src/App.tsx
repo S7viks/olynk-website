@@ -18,7 +18,6 @@ import PricingSection from './components/PricingSection';
 import FounderChat from './components/FounderChat';
 import FinalCTASection from './components/FinalCTASection';
 import checkEnvironmentVariables from './utils/envCheck';
-import testSupabaseSetup from './utils/testSupabase';
 
 // Pages
 import AboutPage from './pages/About';
@@ -88,7 +87,6 @@ const App: React.FC = () => {
     // Check environment variables (only once)
     if (typeof window !== 'undefined') {
       checkEnvironmentVariables();
-      testSupabaseSetup();
     }
     
     // Simulate loading time for better UX
