@@ -12,14 +12,7 @@ export interface SEOProps {
   noIndex?: boolean;
 }
 
-export interface BlogPostSEO extends SEOProps {
-  author: string;
-  publishedDate: string;
-  modifiedDate?: string;
-  category: string;
-  tags: string[];
-  featuredImage?: string;
-}
+
 
 export interface BreadcrumbItem {
   label: string;
@@ -32,37 +25,7 @@ export const generateCanonicalUrl = (path: string): string => {
   return `${baseUrl}${path}`;
 };
 
-// Generate structured data for blog post
-export const generateBlogPostStructuredData = (post: BlogPostSEO) => {
-  return {
-    "@context": "https://schema.org",
-    "@type": "BlogPosting",
-    "headline": post.title,
-    "description": post.description,
-    "author": {
-      "@type": "Person",
-      "name": post.author
-    },
-    "publisher": {
-      "@type": "Organization",
-      "name": "OLYNK",
-      "logo": {
-        "@type": "ImageObject",
-        "url": "https://olynk.ai/assets/Olynk_Logo.png"
-      }
-    },
-    "datePublished": post.publishedDate,
-    "dateModified": post.modifiedDate || post.publishedDate,
-    "image": post.featuredImage || "https://olynk.ai/assets/Logo111.png",
-    "mainEntityOfPage": {
-      "@type": "WebPage",
-      "@id": post.canonical
-    },
-    "articleSection": post.category,
-    "keywords": post.keywords.join(', '),
-    "url": post.canonical
-  };
-};
+
 
 // Generate breadcrumb structured data
 export const generateBreadcrumbStructuredData = (items: BreadcrumbItem[]) => {
@@ -192,13 +155,7 @@ export const SEO_KEYWORDS = {
     "retail AI demo",
     "operations advisor contact"
   ],
-  blog: [
-    "D2C operations blog",
-    "AI retail insights",
-    "operations management tips",
-    "D2C business advice",
-    "retail automation blog"
-  ]
+
 };
 
 // Default SEO settings

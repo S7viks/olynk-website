@@ -3,7 +3,7 @@ import { useAuth } from '../contexts/AuthContext';
 import { useNavigate } from 'react-router-dom';
 import authService, { UserProfile, WaitlistUser } from '../services/authService';
 import { supabase } from '../supabase';
-import BlogManager from './BlogManager';
+
 
 interface DashboardStats {
   totalUsers: number;
@@ -470,7 +470,7 @@ const AdminDashboardEnhanced: React.FC = () => {
         )}
 
         {activeTab === 'content' && (
-          <BlogManager />
+          
         )}
 
         {activeTab === 'settings' && (

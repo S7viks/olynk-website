@@ -122,24 +122,6 @@
         -moz-osx-font-smoothing: grayscale;
       }
       
-      /* Skip to main content link for accessibility */
-      .skip-link {
-        position: absolute;
-        top: -40px;
-        left: 6px;
-        background: #dc2626;
-        color: white;
-        padding: 8px;
-        text-decoration: none;
-        border-radius: 4px;
-        z-index: 1000;
-        font-weight: 500;
-      }
-      
-      .skip-link:focus {
-        top: 6px;
-      }
-      
       /* Loading state */
       #root {
         min-height: 100vh;
@@ -171,13 +153,7 @@
     </style>
   </head>
   <body>
-    <!-- Skip to main content link for accessibility -->
-    <a href="#main-content" class="skip-link">Skip to main content</a>
-    
     <div id="root"></div>
-    
-    <!-- Main content landmark for accessibility -->
-    <main id="main-content" tabindex="-1"></main>
     
     <script type="module" src="/src/main.tsx"></script>
     

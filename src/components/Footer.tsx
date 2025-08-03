@@ -95,7 +95,7 @@ const Footer = () => {
   ];
 
   const resourceLinks = [
-    { name: 'AI Insights Blog', href: '/blog' },
+    
     { name: 'D2C Operations Guide', href: '/resources' },
     { name: 'ROI Calculator', href: '/roi-calculator' },
     { name: 'API Documentation', href: '/api-docs' },

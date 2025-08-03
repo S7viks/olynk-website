@@ -26,7 +26,6 @@ const Header = () => {
   const navigationItems = [
     { name: 'Home', href: '/home' },
     { name: 'About Us', href: '/about' },
-    { name: 'Blog', href: '/blog' },
     { name: 'Pricing', href: '/pricing' },
   ];
 
@@ -104,12 +103,6 @@ const Header = () => {
               </div>
             ) : (
               <div className="flex items-center space-x-4">
-                <Link
-                  to="/login"
-                  className="text-gray-700 dark:text-gray-300 hover:text-red-600 dark:hover:text-yellow-300 transition-colors duration-300 font-medium"
-                >
-                  Sign In
-                </Link>
                 <Link
                   to="/waitlist-funnel"
                   className="bg-gradient-to-r from-red-600 to-red-700 text-white px-4 sm:px-6 py-2 sm:py-3 rounded-full font-semibold hover:shadow-lg hover:scale-105 transition-all duration-300 flex items-center space-x-2 group min-h-[44px]"

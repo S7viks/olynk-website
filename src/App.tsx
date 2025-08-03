@@ -24,7 +24,6 @@ import testSupabaseSetup from './utils/testSupabase';
 import AboutPage from './pages/About';
 import PricingPage from './pages/Pricing';
 import ContactPage from './pages/Contact';
-import BlogPage from './pages/Blog';
 
 function HomePage() {
   const location = useLocation();
@@ -133,13 +132,6 @@ const App: React.FC = () => {
                 <Route path="/about" element={<AboutPage />} />
                 <Route path="/pricing" element={<PricingPage />} />
                 <Route path="/contact" element={<ContactPage />} />
-                <Route path="/blog" element={<BlogPage />} />
-                <Route path="/blog/:slug" element={<BlogPage />} />
-                
-                {/* Authentication Routes */}
-                <Route path="/login" element={<LoginForm mode="login" />} />
-                <Route path="/signup" element={<LoginForm mode="signup" />} />
-                <Route path="/waitlist" element={<LoginForm mode="waitlist" />} />
                 
                 {/* Dashboard Routes - Protected */}
                 <Route path="/dashboard" element={

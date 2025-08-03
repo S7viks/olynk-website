@@ -25,17 +25,25 @@ let supabaseAdminInstance: ReturnType<typeof createClient> | null = null;
 
 function getSupabaseClient() {
   if (!supabaseInstance) {
+    // Check if already initialized globally
+    if (typeof window !== 'undefined' && (window as any).__SUPABASE_CLIENT_INSTANCE__) {
+      supabaseInstance = (window as any).__SUPABASE_CLIENT_INSTANCE__;
+      return supabaseInstance;
+    }
+
     supabaseInstance = createClient(supabaseUrl, supabaseAnonKey, {
       auth: {
         autoRefreshToken: true,
         persistSession: true,
-        detectSessionInUrl: true
+        detectSessionInUrl: true,
+        storage: typeof window !== 'undefined' ? window.localStorage : undefined
       }
     });
     
     // Mark as initialized globally
     if (typeof window !== 'undefined') {
       (window as any).__SUPABASE_CLIENT_INITIALIZED__ = true;
+      (window as any).__SUPABASE_CLIENT_INSTANCE__ = supabaseInstance;
     }
   }
   return supabaseInstance;

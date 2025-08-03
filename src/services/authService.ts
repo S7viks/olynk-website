@@ -135,13 +135,27 @@ class AuthService {
       return { profile: null, error: 'No user ID provided' };
     }
 
-    const { data, error } = await supabase
-      .from('user_profiles')
-      .select('*')
-      .eq('id', targetUserId)
-      .single();
+    try {
+      const { data, error } = await supabase
+        .from('user_profiles')
+        .select('*')
+        .eq('id', targetUserId)
+        .single();
 
-    return { profile: data, error };
+      if (error) {
+        console.error('Error fetching user profile:', error);
+        // If it's a 500 error, it might be a database schema issue
+        if (error.code === '500') {
+          return { profile: null, error: 'Database schema issue. Please check if user_profiles table exists and RLS policies are set up correctly.' };
+        }
+        return { profile: null, error };
+      }
+
+      return { profile: data, error: null };
+    } catch (err: any) {
+      console.error('Exception in getUserProfile:', err);
+      return { profile: null, error: err.message || 'Failed to fetch user profile' };
+    }
   }
 
   // Update user profile
