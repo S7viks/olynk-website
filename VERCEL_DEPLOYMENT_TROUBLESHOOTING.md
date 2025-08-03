@@ -26,8 +26,30 @@ Failed to load module script: Expected a JavaScript-or-Wasm module script but th
 
 4. **Verify Configuration Files**
    - `vercel.json` has proper headers for JavaScript files
-   - `public/_redirects` handles routing correctly
+   - `public/_headers` file is present for MIME type control
    - `vite.config.ts` is configured for production
+
+### Manifest.json 401 Error Fix
+
+If you're seeing this error:
+```
+manifest.json:1 Failed to load resource: the server responded with a status of 401
+```
+
+### Solution Steps:
+
+1. **Check manifest.json exists**
+   - Ensure `public/manifest.json` is present
+   - Verify it's copied to `dist/manifest.json` after build
+
+2. **Add proper headers**
+   - `vercel.json` includes headers for manifest.json
+   - `public/_headers` includes Content-Type for manifest.json
+
+3. **Redeploy**
+   ```bash
+   vercel --prod --force
+   ```
 
 ### Configuration Files Updated:
 
