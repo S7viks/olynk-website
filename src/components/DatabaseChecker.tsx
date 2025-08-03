@@ -32,9 +32,9 @@ const DatabaseChecker: React.FC = () => {
         { data: newsletterSubscriptions }
       ] = await Promise.all([
         supabase.from('demo_requests').select('*'),
-        supabase.from('contact_submissions').select('*'),
+        supabase.from('contact_forms').select('*'),
         supabase.from('early_access_requests').select('*'),
-        supabase.from('newsletter_subscriptions').select('*')
+                 supabase.from('newsletter_signups').select('*')
       ]);
 
       setStats({

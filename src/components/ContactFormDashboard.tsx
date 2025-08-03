@@ -27,7 +27,7 @@ const ContactFormDashboard: React.FC = () => {
     try {
       setLoading(true);
       const { data, error } = await supabase
-        .from('contact_submissions')
+        .from('contact_forms')
         .select('*')
         .order('created_at', { ascending: false });
 
@@ -49,7 +49,7 @@ const ContactFormDashboard: React.FC = () => {
   const handleStatusUpdate = async (submissionId: string, newStatus: ContactSubmission['status']) => {
     try {
       const { error } = await supabase
-        .from('contact_submissions')
+        .from('contact_forms')
         .update({ status: newStatus })
         .eq('id', submissionId);
 

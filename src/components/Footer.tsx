@@ -23,7 +23,7 @@ const Footer = () => {
 
     try {
       const { error } = await supabase
-        .from('contact_submissions')
+        .from('contact_forms')
         .insert([contactForm]);
 
       if (error) throw error;
