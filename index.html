@@ -3,6 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <link rel="icon" type="image/png" href="/assets/Logo111.png" />
+    <link rel="manifest" href="/manifest.json" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0" />
     <meta name="theme-color" content="#dc2626" />
     <meta name="color-scheme" content="light dark" />
@@ -31,6 +32,7 @@
     <meta name="robots" content="index, follow" />
     <meta name="author" content="OLYNK" />
     <meta name="application-name" content="OLYNK AI Operations Advisor" />
+    <meta name="mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-status-bar-style" content="default" />
     <meta name="apple-mobile-web-app-title" content="OLYNK" />
@@ -187,7 +189,10 @@
         if ('performance' in window) {
           const perfData = performance.getEntriesByType('navigation')[0];
           if (perfData) {
-            console.log('Page load time:', perfData.loadEventEnd - perfData.loadEventStart, 'ms');
+            const loadTime = perfData.loadEventEnd - perfData.loadEventStart;
+            if (loadTime > 0) {
+              console.log('Page load time:', loadTime, 'ms');
+            }
           }
         }
       });
@@ -197,10 +202,11 @@
         window.addEventListener('load', function() {
           navigator.serviceWorker.register('/sw.js')
             .then(function(registration) {
-              console.log('SW registered: ', registration);
+              console.log('✅ Service Worker registered successfully:', registration);
             })
             .catch(function(registrationError) {
-              console.log('SW registration failed: ', registrationError);
+              console.warn('⚠️ Service Worker registration failed:', registrationError);
+              // This is not critical, so we don't throw an error
             });
         });
       }

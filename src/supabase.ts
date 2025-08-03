@@ -1,22 +1,58 @@
 import { createClient } from '@supabase/supabase-js'
 
-const supabaseUrl = 'https://bmfakoiiebmgsgdtimwdu.supabase.co'
+// Get Supabase URL and keys from environment variables
+const supabaseUrl = import.meta.env.VITE_SUPABASE_URL || 'https://your-project.supabase.co'
+const supabaseAnonKey = import.meta.env.VITE_SUPABASE_ANON_KEY || 'your-anon-key'
+const supabaseServiceKey = import.meta.env.VITE_SUPABASE_SERVICE_KEY || 'your-service-key'
 
-// Anonymous client for client-side operations
-const supabaseAnonKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImJtZmFrb2lpZWJtc2dkdGltd2R1Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTM3MjE4MDgsImV4cCI6MjA2OTI5NzgwOH0.z3sqY4qSnNXx2tYVkJu10KkQDWkXTi9cT8iilwnBB8w'
+// Validate configuration
+if (!supabaseUrl || supabaseUrl === 'https://your-project.supabase.co') {
+  console.error('❌ Supabase URL not configured. Please set VITE_SUPABASE_URL in your .env.local file');
+}
 
-// Service role key for server-side operations (keep secure)
-const supabaseServiceKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImJtZmFrb2lpZWJtc2dkdGltd2R1Iiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImlhdCI6MTc1MzcyMTgwOCwiZXhwIjoyMDY5Mjk3ODA4fQ.dkPn-RLHV-hTkZiD1OUzRofwDH1N7U4FQOX8X9DieTk'
+if (!supabaseAnonKey || supabaseAnonKey === 'your-anon-key') {
+  console.error('❌ Supabase anon key not configured. Please set VITE_SUPABASE_ANON_KEY in your .env.local file');
+}
 
-// Create Supabase client for client-side operations
-export const supabase = createClient(supabaseUrl, supabaseAnonKey)
+// Create Supabase client for client-side operations (singleton)
+let supabaseInstance: ReturnType<typeof createClient> | null = null;
+let supabaseAdminInstance: ReturnType<typeof createClient> | null = null;
+
+export const supabase = (() => {
+  if (!supabaseInstance) {
+    supabaseInstance = createClient(supabaseUrl, supabaseAnonKey, {
+      auth: {
+        autoRefreshToken: true,
+        persistSession: true,
+        detectSessionInUrl: true
+      }
+    });
+  }
+  return supabaseInstance;
+})();
 
 // Create Supabase admin client for server-side operations (use with caution)
-export const supabaseAdmin = createClient(supabaseUrl, supabaseServiceKey, {
-  auth: {
-    autoRefreshToken: false,
-    persistSession: false
+export const supabaseAdmin = (() => {
+  if (!supabaseAdminInstance) {
+    supabaseAdminInstance = createClient(supabaseUrl, supabaseServiceKey, {
+      auth: {
+        autoRefreshToken: false,
+        persistSession: false
+      }
+    });
   }
-})
+  return supabaseAdminInstance;
+})();
+
+// Test connection (only once)
+let connectionTested = false;
+if (!connectionTested) {
+  connectionTested = true;
+  supabase.from('user_profiles').select('count').limit(1).then(() => {
+    console.log('✅ Supabase connection successful');
+  }).catch((error) => {
+    console.error('❌ Supabase connection failed:', error.message);
+  });
+}
 
 export default supabase 
