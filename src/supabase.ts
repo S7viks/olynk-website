@@ -65,15 +65,20 @@ if (!connectionTested && typeof window !== 'undefined') {
     // Only test if we have valid credentials
     if (supabaseUrl && supabaseUrl !== 'https://your-project.supabase.co' && 
         supabaseAnonKey && supabaseAnonKey !== 'your-anon-key') {
+      console.log('🔧 Testing Supabase connection with configured credentials...');
       supabase.auth.getSession().then(({ data, error }) => {
         if (error) {
           console.error('❌ Supabase connection failed:', error.message);
         } else {
           console.log('✅ Supabase connection successful');
+          console.log('🔧 Supabase URL:', supabaseUrl);
+          console.log('🔧 Session data:', data);
         }
       }).catch((error) => {
         console.error('❌ Supabase connection failed:', error.message);
       });
+    } else {
+      console.warn('⚠️ Supabase credentials not configured - using default values');
     }
   } catch (error) {
     console.error('❌ Supabase initialization error:', error);

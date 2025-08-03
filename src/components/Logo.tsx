@@ -12,6 +12,23 @@ const Logo: React.FC<LogoProps> = ({ size = 'md', className = '' }) => {
     lg: 'h-12 w-12'
   };
 
+  const [imageError, setImageError] = React.useState(false);
+
+  if (imageError) {
+    // Fallback to text logo if image fails to load
+    return (
+      <div 
+        className={`${sizeClasses[size]} flex items-center justify-center bg-red-600 text-white font-bold rounded ${className}`}
+        style={{
+          minWidth: size === 'sm' ? '24px' : size === 'md' ? '32px' : '48px',
+          minHeight: size === 'sm' ? '24px' : size === 'md' ? '32px' : '48px'
+        }}
+      >
+        O
+      </div>
+    );
+  }
+
   return (
     <img
       src="/assets/LogoNavbar.png"
@@ -21,6 +38,7 @@ const Logo: React.FC<LogoProps> = ({ size = 'md', className = '' }) => {
         minWidth: size === 'sm' ? '24px' : size === 'md' ? '32px' : '48px',
         minHeight: size === 'sm' ? '24px' : size === 'md' ? '32px' : '48px'
       }}
+      onError={() => setImageError(true)}
     />
   );
 };
