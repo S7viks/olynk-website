@@ -127,8 +127,9 @@ const App: React.FC = () => {
             <div className="relative z-10">
               <Header />
               <Routes>
-                <Route path="/" element={<WaitlistFunnel />} />
+                <Route path="/" element={<HomePage />} />
                 <Route path="/home" element={<HomePage />} />
+                <Route path="/waitlist-funnel" element={<WaitlistFunnel />} />
                 <Route path="/about" element={<AboutPage />} />
                 <Route path="/pricing" element={<PricingPage />} />
                 <Route path="/contact" element={<ContactPage />} />

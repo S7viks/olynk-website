@@ -58,7 +58,7 @@ const WaitlistFunnel: React.FC = () => {
 
              // Redirect to main site after successful submission
        setTimeout(() => {
-         navigate('/home');
+         navigate('/');
        }, 2000);
     } catch (error) {
       console.error('Error submitting waitlist form:', error);
@@ -106,7 +106,7 @@ const WaitlistFunnel: React.FC = () => {
             </p>
           </div>
                      <button
-             onClick={() => navigate('/home')}
+             onClick={() => navigate('/')}
              className="w-full bg-red-600 text-white py-3 px-6 rounded-lg font-medium hover:bg-red-700 transition-colors"
            >
              Explore Our Platform
@@ -317,7 +317,7 @@ const WaitlistFunnel: React.FC = () => {
 
                              <div className="mt-6 text-center">
                  <button
-                   onClick={() => navigate('/home')}
+                   onClick={() => navigate('/')}
                    className="text-gray-600 hover:text-gray-800 text-sm"
                  >
                    Skip for now - Explore our platform

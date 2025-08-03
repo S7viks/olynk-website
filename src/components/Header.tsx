@@ -111,7 +111,7 @@ const Header = () => {
                   Sign In
                 </Link>
                 <Link
-                  to="/waitlist"
+                  to="/waitlist-funnel"
                   className="bg-gradient-to-r from-red-600 to-red-700 text-white px-4 sm:px-6 py-2 sm:py-3 rounded-full font-semibold hover:shadow-lg hover:scale-105 transition-all duration-300 flex items-center space-x-2 group min-h-[44px]"
                   aria-label="Join early access program"
                 >
@@ -159,17 +159,15 @@ const Header = () => {
                 </Link>
               ))}
               <div className="pt-2 border-t border-gray-200 dark:border-gray-700">
-                <a
-                  href="https://forms.office.com/r/zd11g2RWDR"
-                  target="_blank"
-                  rel="noopener noreferrer"
+                <Link
+                  to="/waitlist-funnel"
                   className="bg-gradient-to-r from-red-600 to-red-700 text-white px-6 py-3 rounded-full font-semibold hover:shadow-lg transition-all duration-300 flex items-center justify-center space-x-2 min-h-[44px] w-full"
                   onClick={() => setIsMenuOpen(false)}
                   aria-label="Join early access program"
                 >
                   <span>Join Early Access</span>
                   <ArrowRight className="h-4 w-4" />
-                </a>
+                </Link>
               </div>
             </div>
           </div>
