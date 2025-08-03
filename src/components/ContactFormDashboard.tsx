@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { contactService } from '../services/firebaseService';
+import { supabase } from '../supabase';
 import { Mail, User, MessageSquare, Calendar, Search, Filter } from 'lucide-react';
 
 interface ContactSubmission {
@@ -26,9 +26,15 @@ const ContactFormDashboard: React.FC = () => {
   const loadSubmissions = async () => {
     try {
       setLoading(true);
-      const data = await contactService.getContactForms();
+      const { data, error } = await supabase
+        .from('contact_submissions')
+        .select('*')
+        .order('created_at', { ascending: false });
+
+      if (error) throw error;
+      
       // Add default status if not present
-      const submissionsWithStatus = data.map(sub => ({
+      const submissionsWithStatus = (data || []).map(sub => ({
         ...sub,
         status: sub.status || 'new'
       }));
@@ -42,7 +48,13 @@ const ContactFormDashboard: React.FC = () => {
 
   const handleStatusUpdate = async (submissionId: string, newStatus: ContactSubmission['status']) => {
     try {
-      await contactService.updateSubmissionStatus(submissionId, newStatus);
+      const { error } = await supabase
+        .from('contact_submissions')
+        .update({ status: newStatus })
+        .eq('id', submissionId);
+
+      if (error) throw error;
+      
       // Update local state
       setSubmissions(prev => 
         prev.map(sub => 
@@ -77,7 +89,7 @@ const ContactFormDashboard: React.FC = () => {
 
   const formatDate = (timestamp: any) => {
     if (!timestamp) return 'N/A';
-    const date = timestamp.toDate ? timestamp.toDate() : new Date(timestamp);
+    const date = new Date(timestamp);
     return date.toLocaleDateString('en-US', {
       year: 'numeric',
       month: 'short',

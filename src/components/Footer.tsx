@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { ArrowRight, Heart, Mail, Phone, MapPin, ArrowUp, ExternalLink, Sparkles, Zap, Globe, Shield, Send } from 'lucide-react';
-import { contactService } from '../services/firebaseService';
+import { supabase } from '../supabase';
 import { Link, useLocation } from 'react-router-dom';
 import Logo from './Logo';
 
@@ -22,7 +22,12 @@ const Footer = () => {
     setSubmitStatus('idle');
 
     try {
-      await contactService.submitContactForm(contactForm);
+      const { error } = await supabase
+        .from('contact_submissions')
+        .insert([contactForm]);
+
+      if (error) throw error;
+      
       setSubmitStatus('success');
       setContactForm({ name: '', email: '', subject: '', message: '' });
     } catch (error) {
