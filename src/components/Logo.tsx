@@ -13,6 +13,7 @@ const Logo: React.FC<LogoProps> = ({ size = 'md', className = '' }) => {
   };
 
   const [imageError, setImageError] = React.useState(false);
+  const [imageLoaded, setImageLoaded] = React.useState(false);
 
   if (imageError) {
     // Fallback to text logo if image fails to load
@@ -30,16 +31,28 @@ const Logo: React.FC<LogoProps> = ({ size = 'md', className = '' }) => {
   }
 
   return (
-    <img
-      src="/assets/LogoNavbar.png"
-      alt="Olynk.ai Logo"
-      className={`${sizeClasses[size]} object-contain ${className}`}
+    <div 
+      className={`${sizeClasses[size]} ${className}`}
       style={{
         minWidth: size === 'sm' ? '24px' : size === 'md' ? '32px' : '48px',
         minHeight: size === 'sm' ? '24px' : size === 'md' ? '32px' : '48px'
       }}
-      onError={() => setImageError(true)}
-    />
+    >
+      {!imageLoaded && (
+        <div className="w-full h-full bg-gray-200 animate-pulse rounded"></div>
+      )}
+      <img
+        src="/assets/LogoNavbar.png"
+        alt="Olynk.ai Logo"
+        className={`${sizeClasses[size]} object-contain ${imageLoaded ? 'block' : 'hidden'}`}
+        style={{
+          minWidth: size === 'sm' ? '24px' : size === 'md' ? '32px' : '48px',
+          minHeight: size === 'sm' ? '24px' : size === 'md' ? '32px' : '48px'
+        }}
+        onLoad={() => setImageLoaded(true)}
+        onError={() => setImageError(true)}
+      />
+    </div>
   );
 };
 

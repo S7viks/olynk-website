@@ -1,129 +1,165 @@
-# Supabase Setup Guide
+# Supabase Setup Guide for OLYNK
 
-## 🚨 **Current Issue: Supabase Project Not Found**
+## 🚀 Quick Setup
 
-The current Supabase configuration is pointing to a project that doesn't exist or is inaccessible. Let's fix this!
+### 1. Create Supabase Project
+1. Go to [supabase.com](https://supabase.com)
+2. Create a new project
+3. Note down your project URL and API keys
 
-## 🔧 **Step 1: Create a New Supabase Project**
+### 2. Set Environment Variables in Vercel
+Add these to your Vercel project environment variables:
 
-1. **Go to [Supabase Dashboard](https://supabase.com/dashboard)**
-2. **Click "New Project"**
-3. **Fill in the details:**
-   - **Name**: `olynk-website`
-   - **Database Password**: Choose a strong password
-   - **Region**: Choose closest to your users
-4. **Click "Create new project"**
-
-## 🔑 **Step 2: Get Your Project Credentials**
-
-1. **Go to your project dashboard**
-2. **Navigate to Settings → API**
-3. **Copy these values:**
-   - **Project URL** (looks like: `https://abcdefghijklmnop.supabase.co`)
-   - **anon public** key
-   - **service_role** key (keep this secret!)
-
-## 📝 **Step 3: Create Environment File**
-
-Create a `.env.local` file in your project root:
-
-```env
-# Supabase Configuration
+```
 VITE_SUPABASE_URL=https://your-project-id.supabase.co
-VITE_SUPABASE_ANON_KEY=your-anon-key-here
-VITE_SUPABASE_SERVICE_KEY=your-service-key-here
+VITE_SUPABASE_ANON_KEY=your-anon-key
+VITE_SUPABASE_SERVICE_KEY=your-service-key
 ```
 
-**Replace the placeholder values with your actual credentials.**
+### 3. Set Up Database Schema
+1. Go to your Supabase dashboard
+2. Navigate to SQL Editor
+3. Copy and paste the contents of `database_schema.sql`
+4. Run the script
 
-## 🗄️ **Step 4: Set Up Database Schema**
+### 4. Configure Authentication
+1. Go to Authentication > Settings
+2. Add your domain to allowed redirect URLs:
+   - `https://olynk.vercel.app`
+   - `https://olynk.vercel.app/auth/callback`
+   - `http://localhost:5173` (for local development)
 
-1. **Go to your Supabase project dashboard**
-2. **Navigate to SQL Editor**
-3. **Copy and paste the contents of `database_schema.sql`**
-4. **Click "Run" to create all tables**
+### 5. Set Up Row Level Security (RLS)
+The database schema includes RLS policies, but you may need to:
+1. Go to Authentication > Policies
+2. Verify all tables have the correct policies
+3. Test with a sample user
 
-## 🔐 **Step 5: Configure Row Level Security (RLS)**
+## 📊 Database Tables
 
-After running the schema, enable RLS on all tables:
+### Core Tables
+- **demo_requests**: Demo booking requests
+- **contact_forms**: Contact form submissions
+- **newsletter_signups**: Email newsletter signups
+- **early_access_requests**: Early access applications
+- **page_views**: Analytics tracking
+- **events**: Event tracking
+- **blog_posts**: Blog content management
 
-1. **Go to Authentication → Policies**
-2. **Enable RLS on each table**
-3. **The schema already includes the necessary policies**
+### Admin Tables
+- **user_profiles**: User profile information
+- **admin_users**: Admin user permissions
+- **waitlist_users**: Waitlist user management
 
-## 🧪 **Step 6: Test the Connection**
+## 🔧 Testing the Setup
 
-1. **Restart your development server:**
-   ```bash
-   npm run dev
-   ```
+### 1. Test Database Connection
+Check the browser console for:
+```
+✅ Supabase connection successful
+🔧 Supabase URL: https://your-project.supabase.co
+```
 
-2. **Try submitting a contact form**
-3. **Check the browser console for any errors**
+### 2. Test Authentication
+1. Try signing up a new user
+2. Check if user appears in Authentication > Users
+3. Verify user profile is created
 
-## 📊 **Step 7: Verify Database Tables**
+### 3. Test Forms
+1. Submit a demo request
+2. Submit a contact form
+3. Check if data appears in respective tables
 
-Go to your Supabase dashboard → Table Editor and verify these tables exist:
+## 🛠️ Troubleshooting
 
-- ✅ `user_profiles`
-- ✅ `admin_users`
-- ✅ `waitlist_users`
-- ✅ `user_sessions`
-- ✅ `contact_submissions`
-- ✅ `demo_requests`
-- ✅ `early_access_requests`
-- ✅ `newsletter_subscriptions`
-- ✅ `blog_posts`
-- ✅ `dashboard_stats`
+### Common Issues
 
-## 🚀 **Step 8: Create Your First Admin User**
+#### 1. "Supabase connection failed"
+- Check environment variables in Vercel
+- Verify project URL and keys
+- Ensure project is not paused
 
-1. **Sign up through your website** (`/signup`)
-2. **Go to Supabase SQL Editor**
-3. **Run this SQL (replace with your email):**
+#### 2. "RLS policy violation"
+- Check RLS policies in Supabase dashboard
+- Verify user authentication status
+- Test with authenticated vs anonymous users
 
+#### 3. "Table doesn't exist"
+- Run the database schema script
+- Check table names match exactly
+- Verify schema is in 'public' schema
+
+### Debug Commands
 ```sql
--- Promote your user to admin
-UPDATE user_profiles 
-SET role = 'admin' 
-WHERE email = 'your-email@example.com';
+-- Check if tables exist
+SELECT table_name FROM information_schema.tables WHERE table_schema = 'public';
 
--- Create admin user record
-INSERT INTO admin_users (id, permissions, can_manage_users, can_manage_content, can_view_analytics, can_manage_settings)
-SELECT id, '["all"]'::jsonb, true, true, true, true
-FROM user_profiles 
-WHERE email = 'your-email@example.com';
+-- Check RLS policies
+SELECT * FROM pg_policies WHERE schemaname = 'public';
+
+-- Test insert permissions
+INSERT INTO demo_requests (name, email, company) VALUES ('Test', 'test@test.com', 'Test Co');
 ```
 
-## 🔍 **Troubleshooting**
+## 📈 Analytics Setup
 
-### **If you still get connection errors:**
+### Page Views Tracking
+The schema includes page views tracking. To implement:
+1. Add tracking to your React components
+2. Use the `page_views` table
+3. Consider privacy implications
 
-1. **Check your `.env.local` file exists**
-2. **Verify the URL format is correct**
-3. **Make sure you copied the keys correctly**
-4. **Check that your Supabase project is active**
+### Event Tracking
+Use the `events` table for custom event tracking:
+```javascript
+// Example event tracking
+supabase.from('events').insert({
+  event_name: 'button_click',
+  event_data: { button: 'cta', page: 'home' },
+  session_id: 'unique-session-id'
+});
+```
 
-### **Common Issues:**
+## 🔐 Security Considerations
 
-- **"Project not found"**: Double-check your project URL
-- **"Invalid API key"**: Verify you copied the correct key
-- **"Permission denied"**: Make sure RLS policies are set up correctly
+### 1. API Key Security
+- Never expose service keys in client code
+- Use environment variables
+- Rotate keys regularly
 
-## 📞 **Need Help?**
+### 2. RLS Policies
+- Review all RLS policies
+- Test with different user roles
+- Ensure proper data isolation
 
-1. **Check Supabase documentation**: https://supabase.com/docs
-2. **Verify your project status**: https://supabase.com/dashboard
-3. **Test connection**: Try the Supabase dashboard SQL editor
+### 3. CORS Settings
+- Configure allowed origins in Supabase
+- Include your Vercel domain
+- Add localhost for development
 
-## 🎉 **Success Indicators**
+## 🚀 Deployment Checklist
 
-Once everything is working:
+- [ ] Environment variables set in Vercel
+- [ ] Database schema executed
+- [ ] Authentication configured
+- [ ] RLS policies verified
+- [ ] CORS settings updated
+- [ ] Test user accounts created
+- [ ] Forms tested and working
+- [ ] Admin dashboard accessible
 
-- ✅ Contact forms submit successfully
-- ✅ Admin dashboard loads without errors
-- ✅ Blog posts can be created and viewed
-- ✅ User authentication works
-- ✅ No more "ERR_NAME_NOT_RESOLVED" errors
+## 📞 Support
 
-Your Olynk website will be fully functional with Supabase! 🚀 
+If you encounter issues:
+1. Check Supabase logs in dashboard
+2. Verify environment variables
+3. Test with simple queries first
+4. Check browser console for errors
+
+## 🔄 Updates
+
+Keep your schema updated by:
+1. Running migration scripts
+2. Testing in development first
+3. Backing up production data
+4. Updating RLS policies as needed 
