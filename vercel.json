@@ -10,6 +10,24 @@
   ],
   "headers": [
     {
+      "source": "/assets/(.*).js",
+      "headers": [
+        {
+          "key": "Content-Type",
+          "value": "application/javascript"
+        }
+      ]
+    },
+    {
+      "source": "/assets/(.*).css",
+      "headers": [
+        {
+          "key": "Content-Type",
+          "value": "text/css"
+        }
+      ]
+    },
+    {
       "source": "/manifest.json",
       "headers": [
         {
