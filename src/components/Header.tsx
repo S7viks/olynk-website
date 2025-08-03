@@ -1,12 +1,14 @@
 import React, { useState, useEffect } from 'react';
-import { Menu, X, ArrowRight } from 'lucide-react';
+import { Menu, X, ArrowRight, User, LogOut } from 'lucide-react';
 import { Link, useLocation } from 'react-router-dom';
+import { useAuth } from '../contexts/AuthContext';
 import Logo from './Logo';
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const location = useLocation();
+  const { user, profile, isAdmin, isWaitlistUser, signOut } = useAuth();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -72,16 +74,52 @@ const Header = () => {
 
           {/* Theme Toggle & CTA */}
           <div className="hidden md:flex items-center space-x-4">
-            <a
-              href="https://forms.office.com/r/zd11g2RWDR"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="bg-gradient-to-r from-red-600 to-red-700 text-white px-4 sm:px-6 py-2 sm:py-3 rounded-full font-semibold hover:shadow-lg hover:scale-105 transition-all duration-300 flex items-center space-x-2 group min-h-[44px]"
-              aria-label="Join early access program"
-            >
-              <span className="text-sm sm:text-base">Join Early Access</span>
-              <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform duration-300" />
-            </a>
+            {user ? (
+              <div className="flex items-center space-x-4">
+                {isAdmin && (
+                  <Link
+                    to="/admin"
+                    className="bg-gradient-to-r from-blue-600 to-blue-700 text-white px-4 py-2 rounded-full font-semibold hover:shadow-lg hover:scale-105 transition-all duration-300 flex items-center space-x-2"
+                  >
+                    <User className="h-4 w-4" />
+                    <span>Admin</span>
+                  </Link>
+                )}
+                {isWaitlistUser && (
+                  <Link
+                    to="/dashboard"
+                    className="bg-gradient-to-r from-yellow-600 to-yellow-700 text-white px-4 py-2 rounded-full font-semibold hover:shadow-lg hover:scale-105 transition-all duration-300 flex items-center space-x-2"
+                  >
+                    <User className="h-4 w-4" />
+                    <span>Dashboard</span>
+                  </Link>
+                )}
+                <button
+                  onClick={signOut}
+                  className="text-gray-700 dark:text-gray-300 hover:text-red-600 dark:hover:text-yellow-300 transition-colors duration-300 flex items-center space-x-2"
+                >
+                  <LogOut className="h-4 w-4" />
+                  <span>Sign Out</span>
+                </button>
+              </div>
+            ) : (
+              <div className="flex items-center space-x-4">
+                <Link
+                  to="/login"
+                  className="text-gray-700 dark:text-gray-300 hover:text-red-600 dark:hover:text-yellow-300 transition-colors duration-300 font-medium"
+                >
+                  Sign In
+                </Link>
+                <Link
+                  to="/waitlist"
+                  className="bg-gradient-to-r from-red-600 to-red-700 text-white px-4 sm:px-6 py-2 sm:py-3 rounded-full font-semibold hover:shadow-lg hover:scale-105 transition-all duration-300 flex items-center space-x-2 group min-h-[44px]"
+                  aria-label="Join early access program"
+                >
+                  <span className="text-sm sm:text-base">Join Early Access</span>
+                  <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform duration-300" />
+                </Link>
+              </div>
+            )}
           </div>
 
           {/* Mobile Menu Button */}
