@@ -81,7 +81,7 @@ const LoginForm: React.FC<LoginFormProps> = ({
           setSuccess('Login successful!');
           setTimeout(() => {
             onSuccess?.();
-            navigate('/dashboard');
+            navigate('/home');
           }, 1000);
         }
       } else if (mode === 'signup' || mode === 'waitlist') {
@@ -104,11 +104,7 @@ const LoginForm: React.FC<LoginFormProps> = ({
           );
           setTimeout(() => {
             onSuccess?.();
-            if (mode === 'waitlist') {
-              navigate('/waitlist');
-            } else {
-              navigate('/dashboard');
-            }
+            navigate('/home');
           }, 2000);
         }
       }

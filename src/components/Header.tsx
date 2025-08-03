@@ -24,7 +24,7 @@ const Header = () => {
   }, [location.pathname]);
 
   const navigationItems = [
-    { name: 'Home', href: '/' },
+    { name: 'Home', href: '/home' },
     { name: 'About Us', href: '/about' },
     { name: 'Blog', href: '/blog' },
     { name: 'Pricing', href: '/pricing' },

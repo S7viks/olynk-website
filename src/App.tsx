@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
-import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, useLocation, Navigate } from 'react-router-dom';
 import { ThemeProvider } from './contexts/ThemeContext';
-import { AuthProvider } from './contexts/AuthContext';
+import { AuthProvider, useAuth } from './contexts/AuthContext';
 import Header from './components/Header';
 import Hero from './components/Hero';
 import Footer from './components/Footer';
@@ -11,6 +11,7 @@ import ContactFormDashboard from './components/ContactFormDashboard';
 import AdminDashboard from './components/AdminDashboard';
 import AdminDashboardEnhanced from './components/AdminDashboardEnhanced';
 import WaitlistDashboard from './components/WaitlistDashboard';
+import WaitlistFunnel from './components/WaitlistFunnel';
 import LoginForm from './components/LoginForm';
 import DatabaseChecker from './components/DatabaseChecker';
 import PricingSection from './components/PricingSection';
@@ -58,6 +59,29 @@ function HomePage() {
   );
 }
 
+// Protected Route Component
+const ProtectedRoute = ({ children, requireAuth = false }: { children: React.ReactNode; requireAuth?: boolean }) => {
+  const { user, isLoading } = useAuth();
+  
+  if (isLoading) {
+    return (
+      <div className="min-h-screen bg-gradient-to-br from-amber-50 via-yellow-50 to-amber-100 flex items-center justify-center">
+        <div className="text-center">
+          <div className="w-16 h-16 border-4 border-red-600 border-t-transparent rounded-full animate-spin mx-auto mb-4"></div>
+          <h1 className="text-2xl font-bold text-gray-800 mb-2">OLYNK</h1>
+          <p className="text-gray-600">Loading...</p>
+        </div>
+      </div>
+    );
+  }
+
+  if (requireAuth && !user) {
+    return <Navigate to="/" replace />;
+  }
+
+  return <>{children}</>;
+};
+
 const App: React.FC = () => {
   const [isLoading, setIsLoading] = React.useState(true);
 
@@ -103,7 +127,8 @@ const App: React.FC = () => {
             <div className="relative z-10">
               <Header />
               <Routes>
-                <Route path="/" element={<HomePage />} />
+                <Route path="/" element={<WaitlistFunnel />} />
+                <Route path="/home" element={<HomePage />} />
                 <Route path="/about" element={<AboutPage />} />
                 <Route path="/pricing" element={<PricingPage />} />
                 <Route path="/contact" element={<ContactPage />} />
@@ -115,14 +140,34 @@ const App: React.FC = () => {
                 <Route path="/signup" element={<LoginForm mode="signup" />} />
                 <Route path="/waitlist" element={<LoginForm mode="waitlist" />} />
                 
-                {/* Dashboard Routes */}
-                <Route path="/dashboard" element={<WaitlistDashboard />} />
-                <Route path="/admin" element={<AdminDashboardEnhanced />} />
+                {/* Dashboard Routes - Protected */}
+                <Route path="/dashboard" element={
+                  <ProtectedRoute requireAuth={true}>
+                    <WaitlistDashboard />
+                  </ProtectedRoute>
+                } />
+                <Route path="/admin" element={
+                  <ProtectedRoute requireAuth={true}>
+                    <AdminDashboardEnhanced />
+                  </ProtectedRoute>
+                } />
                 
-                {/* Legacy Admin Routes */}
-                <Route path="/admin/contact-dashboard" element={<ContactFormDashboard />} />
-                <Route path="/admin/dashboard" element={<AdminDashboard />} />
-                <Route path="/admin/database" element={<DatabaseChecker />} />
+                {/* Legacy Admin Routes - Protected */}
+                <Route path="/admin/contact-dashboard" element={
+                  <ProtectedRoute requireAuth={true}>
+                    <ContactFormDashboard />
+                  </ProtectedRoute>
+                } />
+                <Route path="/admin/dashboard" element={
+                  <ProtectedRoute requireAuth={true}>
+                    <AdminDashboard />
+                  </ProtectedRoute>
+                } />
+                <Route path="/admin/database" element={
+                  <ProtectedRoute requireAuth={true}>
+                    <DatabaseChecker />
+                  </ProtectedRoute>
+                } />
               </Routes>
               <Footer />
             </div>
