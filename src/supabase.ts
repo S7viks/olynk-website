@@ -56,20 +56,28 @@ function getSupabaseAdminClient() {
 export const supabase = getSupabaseClient();
 export const supabaseAdmin = getSupabaseAdminClient();
 
-// Test connection (only once)
+// Test connection (only once) - with error boundary
 let connectionTested = false;
 if (!connectionTested && typeof window !== 'undefined') {
   connectionTested = true;
-  // Use a more reliable test query
-  supabase.auth.getSession().then(({ data, error }) => {
-    if (error) {
-      console.error('❌ Supabase connection failed:', error.message);
-    } else {
-      console.log('✅ Supabase connection successful');
+  // Use a more reliable test query with error boundary
+  try {
+    // Only test if we have valid credentials
+    if (supabaseUrl && supabaseUrl !== 'https://your-project.supabase.co' && 
+        supabaseAnonKey && supabaseAnonKey !== 'your-anon-key') {
+      supabase.auth.getSession().then(({ data, error }) => {
+        if (error) {
+          console.error('❌ Supabase connection failed:', error.message);
+        } else {
+          console.log('✅ Supabase connection successful');
+        }
+      }).catch((error) => {
+        console.error('❌ Supabase connection failed:', error.message);
+      });
     }
-  }).catch((error) => {
-    console.error('❌ Supabase connection failed:', error.message);
-  });
+  } catch (error) {
+    console.error('❌ Supabase initialization error:', error);
+  }
 }
 
 export default supabase 

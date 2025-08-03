@@ -3,8 +3,27 @@ import { createRoot } from 'react-dom/client';
 import App from './App.tsx';
 import './index.css';
 
-createRoot(document.getElementById('root')!).render(
-  <StrictMode>
-    <App />
-  </StrictMode>
-);
+const rootElement = document.getElementById('root');
+
+if (!rootElement) {
+  throw new Error('Root element not found');
+}
+
+try {
+  createRoot(rootElement).render(
+    <StrictMode>
+      <App />
+    </StrictMode>
+  );
+} catch (error) {
+  console.error('Failed to render app:', error);
+  rootElement.innerHTML = `
+    <div style="display: flex; justify-content: center; align-items: center; height: 100vh; font-family: Arial, sans-serif;">
+      <div style="text-align: center;">
+        <h1 style="color: #dc2626; margin-bottom: 1rem;">OLYNK</h1>
+        <p style="color: #6b7280;">AI Operations Advisor for D2C Brands</p>
+        <p style="color: #9ca3af; font-size: 0.875rem; margin-top: 2rem;">Loading...</p>
+      </div>
+    </div>
+  `;
+}
