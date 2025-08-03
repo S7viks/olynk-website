@@ -14,7 +14,7 @@ export default defineConfig({
       },
     },
     sourcemap: false,
-    minify: 'terser',
+    minify: 'esbuild',
   },
   optimizeDeps: {
     exclude: ['lucide-react'],

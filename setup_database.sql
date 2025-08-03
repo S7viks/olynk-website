@@ -64,7 +64,7 @@ CREATE TABLE IF NOT EXISTS early_access_requests (
     use_case TEXT,
     status VARCHAR(50) DEFAULT 'pending' CHECK (status IN ('pending', 'approved', 'rejected', 'contacted')),
     submitted_at TIMESTAMP WITH TIME ZONE DEFAULT NOW(),
-    updated_at TIMESTAMP WITH TIME ZONE DEFAULT NOW()
+    updated_at TIMESTAMP WITH TIME ZONE DEFAULT NOW(),
     source VARCHAR(100) DEFAULT 'early-access-form'
 );
 
