@@ -112,6 +112,187 @@ All colors MUST be HSL.
   body {
     background-color: hsl(var(--background));
     color: hsl(var(--foreground));
+    font-family: 'Inter', sans-serif;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  /* Enhanced accessibility for focus states */
+  *:focus {
+    outline: 2px solid hsl(var(--ring));
+    outline-offset: 2px;
+  }
+
+  /* Skip to main content link for accessibility */
+  .skip-link {
+    position: absolute;
+    top: -40px;
+    left: 6px;
+    background: hsl(var(--primary));
+    color: hsl(var(--primary-foreground));
+    padding: 8px;
+    text-decoration: none;
+    border-radius: 4px;
+    z-index: 1000;
+  }
+
+  .skip-link:focus {
+    top: 6px;
+  }
+
+  /* Enhanced touch targets for mobile */
+  button, a, [role="button"] {
+    min-height: 44px;
+    min-width: 44px;
+  }
+
+  /* Improved text contrast and readability */
+  h1, h2, h3, h4, h5, h6 {
+    font-weight: 700;
+    line-height: 1.2;
+    color: hsl(var(--foreground));
+  }
+
+  p {
+    line-height: 1.7;
+    color: hsl(var(--muted-foreground));
+  }
+}
+
+/* Mobile-First Responsive Design */
+@layer components {
+  /* Container with responsive padding */
+  .container-responsive {
+    @apply px-4 sm:px-6 lg:px-8;
+    max-width: 1280px;
+    margin: 0 auto;
+  }
+
+  /* Responsive text sizes */
+  .text-responsive-xl {
+    @apply text-lg sm:text-xl lg:text-2xl;
+  }
+
+  .text-responsive-2xl {
+    @apply text-xl sm:text-2xl lg:text-3xl;
+  }
+
+  .text-responsive-3xl {
+    @apply text-2xl sm:text-3xl lg:text-4xl;
+  }
+
+  .text-responsive-4xl {
+    @apply text-3xl sm:text-4xl lg:text-5xl;
+  }
+
+  /* Responsive spacing */
+  .section-padding {
+    @apply py-12 sm:py-16 lg:py-20;
+  }
+
+  .section-margin {
+    @apply mb-8 sm:mb-12 lg:mb-16;
+  }
+
+  /* Enhanced button styles with better touch targets */
+  .btn-primary {
+    @apply bg-gradient-to-r from-red-600 to-red-700 hover:from-red-700 hover:to-red-800 
+           dark:from-blue-600 dark:to-blue-700 dark:hover:from-blue-700 dark:hover:to-blue-800 
+           text-white font-semibold px-6 sm:px-8 py-3 sm:py-4 rounded-lg 
+           transition-all duration-300 flex items-center justify-center space-x-2 
+           shadow-lg hover:shadow-xl min-h-[48px] text-base sm:text-lg
+           focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2;
+  }
+
+  .btn-secondary {
+    @apply border-2 border-red-400 hover:border-red-500 text-red-700 hover:text-red-800 
+           dark:border-blue-400 dark:hover:border-blue-300 dark:text-yellow-300 
+           dark:hover:text-yellow-100 font-semibold px-6 sm:px-8 py-3 sm:py-4 rounded-lg 
+           transition-all duration-300 flex items-center justify-center space-x-2 
+           backdrop-blur-sm hover:bg-red-50/30 dark:hover:bg-blue-800/30 
+           min-h-[48px] text-base sm:text-lg
+           focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2;
+  }
+
+  /* Card styles with better mobile layout */
+  .card-responsive {
+    @apply bg-white dark:bg-gray-800 rounded-2xl p-4 sm:p-6 shadow-lg 
+           hover:shadow-2xl transition-all duration-500 border border-gray-100 
+           dark:border-gray-700;
+  }
+
+  /* Grid layouts that work well on mobile */
+  .grid-responsive-2 {
+    @apply grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6 lg:gap-8;
+  }
+
+  .grid-responsive-3 {
+    @apply grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 lg:gap-8;
+  }
+
+  /* Navigation styles */
+  .nav-link {
+    @apply transition-all duration-300 font-medium relative group px-3 py-2 rounded-md
+           text-gray-700 dark:text-gray-300 hover:text-red-600 dark:hover:text-yellow-300
+           focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2;
+  }
+
+  .nav-link-active {
+    @apply text-red-600 dark:text-yellow-300;
+  }
+
+  /* Mobile menu styles */
+  .mobile-menu {
+    @apply md:hidden absolute top-16 sm:top-18 left-0 right-0 
+           bg-white/95 dark:bg-gray-900/95 backdrop-blur-md shadow-lg 
+           rounded-b-lg border-t border-gray-200 dark:border-gray-700;
+  }
+
+  .mobile-menu-item {
+    @apply block font-medium transition-colors duration-300 px-3 py-3 rounded-md 
+           min-h-[44px] flex items-center text-gray-700 dark:text-gray-300 
+           hover:text-red-600 dark:hover:text-yellow-300 
+           hover:bg-gray-50 dark:hover:bg-gray-800/50
+           focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2;
+  }
+}
+
+/* Performance Optimizations */
+@layer utilities {
+  /* Reduce motion for users who prefer it */
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+
+  /* High contrast mode support */
+  @media (prefers-contrast: high) {
+    .btn-primary {
+      border: 2px solid currentColor;
+    }
+    
+    .card-responsive {
+      border: 2px solid currentColor;
+    }
+  }
+
+  /* Print styles */
+  @media print {
+    .no-print {
+      display: none !important;
+    }
+    
+    body {
+      background: white !important;
+      color: black !important;
+    }
   }
 }
 
@@ -748,4 +929,92 @@ html {
 
 .dark .demo-animation-container::before {
   background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+}
+
+/* Mobile-specific improvements */
+@media (max-width: 640px) {
+  /* Ensure proper spacing on mobile */
+  .container {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+  
+  /* Improve button sizing on mobile */
+  .btn-primary,
+  .btn-secondary {
+    width: 100%;
+    justify-content: center;
+  }
+  
+  /* Better text sizing for mobile */
+  h1 {
+    font-size: 2rem;
+    line-height: 2.5rem;
+  }
+  
+  h2 {
+    font-size: 1.75rem;
+    line-height: 2.25rem;
+  }
+  
+  h3 {
+    font-size: 1.5rem;
+    line-height: 2rem;
+  }
+  
+  /* Improve card spacing on mobile */
+  .card-responsive {
+    margin-bottom: 1rem;
+  }
+  
+  /* Better grid layout for mobile */
+  .grid-responsive-2,
+  .grid-responsive-3 {
+    gap: 1rem;
+  }
+}
+
+/* Tablet-specific improvements */
+@media (min-width: 641px) and (max-width: 1024px) {
+  .container {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+  
+  /* Improve button sizing on tablet */
+  .btn-primary,
+  .btn-secondary {
+    min-width: 200px;
+  }
+}
+
+/* High DPI display optimizations */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+  .text-gradient {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  .animate-bounce-slow,
+  .animate-float,
+  .animate-pulse-slow,
+  .animate-gradient,
+  .animate-fadeIn,
+  .animate-slideUp,
+  .animate-zoomIn,
+  .animate-typewriter,
+  .animate-fadeInUp,
+  .animate-fade-in,
+  .animate-drawLine {
+    animation: none !important;
+  }
+  
+  .transition-all,
+  .transition-transform,
+  .transition-colors {
+    transition: none !important;
+  }
 }

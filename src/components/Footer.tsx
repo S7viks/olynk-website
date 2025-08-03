@@ -285,9 +285,9 @@ const Footer = () => {
               <div className="bg-white/10 rounded-full w-12 h-12 flex items-center justify-center mx-auto mb-3">
                 <Mail className="h-6 w-6" />
               </div>
-              <h3 className="text-lg font-bold mb-2">hello@olynk.ai</h3>
+              <h3 className="text-lg font-bold mb-2">Contact Us</h3>
               <p className="text-gray-300 text-xs">
-                Send us an email for detailed discussions about AI solutions for your business.
+                Get in touch for detailed discussions about AI solutions for your business.
               </p>
             </div>
 
@@ -358,7 +358,7 @@ const Footer = () => {
                 </div>
                 <div className="flex items-center space-x-2">
                   <Mail className="h-3 w-3" />
-                  <span>hello@olynk.ai</span>
+                  <span>Contact Us</span>
                 </div>
               </div>
             </div>

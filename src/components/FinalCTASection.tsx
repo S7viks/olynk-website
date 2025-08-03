@@ -100,8 +100,7 @@ const FinalCTASection = () => {
         {/* Contact Information */}
         <div className="text-center mt-12 pt-8 border-t border-gray-700">
           <p className="text-gray-400 mb-4">
-            Questions? Call <a href="tel:+917993359150" className="text-red-400 dark:text-yellow-300 hover:text-red-300 dark:hover:text-yellow-100">+91-799-335-9150</a> or email{' '}
-            <a href="mailto:Sathvik.chenna@outlook.com" className="text-red-400 dark:text-yellow-300 hover:text-red-300 dark:hover:text-yellow-100">hello@olynk.ai</a>
+            Questions? Call <a href="tel:+917993359150" className="text-red-400 dark:text-yellow-300 hover:text-red-300 dark:hover:text-yellow-100">+91-799-335-9150</a>
           </p>
           <p className="text-sm text-gray-500">
             Average demo duration: 45 minutes • No technical setup required • Get insights immediately
