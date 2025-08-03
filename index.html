@@ -180,6 +180,17 @@
     <main id="main-content" tabindex="-1"></main>
     
     <script type="module" src="/src/main.tsx"></script>
+    <script>
+      // Fallback for module loading issues
+      window.addEventListener('error', function(e) {
+        if (e.message.includes('MIME type')) {
+          console.error('Module loading failed, attempting reload...');
+          setTimeout(() => {
+            window.location.reload();
+          }, 1000);
+        }
+      });
+    </script>
     
     <!-- Performance monitoring -->
     <script>
