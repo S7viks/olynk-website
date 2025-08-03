@@ -16,6 +16,8 @@ import DatabaseChecker from './components/DatabaseChecker';
 import PricingSection from './components/PricingSection';
 import FounderChat from './components/FounderChat';
 import FinalCTASection from './components/FinalCTASection';
+import checkEnvironmentVariables from './utils/envCheck';
+import testSupabaseSetup from './utils/testSupabase';
 
 // Pages
 import AboutPage from './pages/About';
@@ -60,6 +62,12 @@ const App: React.FC = () => {
   const [isLoading, setIsLoading] = React.useState(true);
 
   React.useEffect(() => {
+    // Check environment variables
+    checkEnvironmentVariables();
+    
+    // Test Supabase setup
+    testSupabaseSetup();
+    
     // Simulate loading time for better UX
     const timer = setTimeout(() => {
       setIsLoading(false);

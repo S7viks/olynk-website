@@ -8,8 +8,16 @@ export default defineConfig({
   build: {
     assetsDir: 'assets',
     copyPublicDir: true,
+    rollupOptions: {
+      output: {
+        manualChunks: undefined,
+      },
+    },
   },
   optimizeDeps: {
     exclude: ['lucide-react'],
+  },
+  server: {
+    port: 3000,
   },
 });
