@@ -124,3 +124,5 @@ src/components/ROICalculator.tsx
 
 # Nested project directory
 src/olnyk-loss-foreseer-main/
+
+.vercel
