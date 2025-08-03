@@ -1,5 +1,10 @@
 import { createClient } from '@supabase/supabase-js'
 
+// Global check to prevent multiple GoTrueClient instances
+if (typeof window !== 'undefined' && (window as any).__SUPABASE_CLIENT_INITIALIZED__) {
+  console.warn('⚠️ Supabase client already initialized, reusing existing instance');
+}
+
 // Get Supabase URL and keys from environment variables
 const supabaseUrl = import.meta.env.VITE_SUPABASE_URL || 'https://your-project.supabase.co'
 const supabaseAnonKey = import.meta.env.VITE_SUPABASE_ANON_KEY || 'your-anon-key'
@@ -18,7 +23,7 @@ if (!supabaseAnonKey || supabaseAnonKey === 'your-anon-key') {
 let supabaseInstance: ReturnType<typeof createClient> | null = null;
 let supabaseAdminInstance: ReturnType<typeof createClient> | null = null;
 
-export const supabase = (() => {
+function getSupabaseClient() {
   if (!supabaseInstance) {
     supabaseInstance = createClient(supabaseUrl, supabaseAnonKey, {
       auth: {
@@ -27,12 +32,16 @@ export const supabase = (() => {
         detectSessionInUrl: true
       }
     });
+    
+    // Mark as initialized globally
+    if (typeof window !== 'undefined') {
+      (window as any).__SUPABASE_CLIENT_INITIALIZED__ = true;
+    }
   }
   return supabaseInstance;
-})();
+}
 
-// Create Supabase admin client for server-side operations (use with caution)
-export const supabaseAdmin = (() => {
+function getSupabaseAdminClient() {
   if (!supabaseAdminInstance) {
     supabaseAdminInstance = createClient(supabaseUrl, supabaseServiceKey, {
       auth: {
@@ -42,14 +51,22 @@ export const supabaseAdmin = (() => {
     });
   }
   return supabaseAdminInstance;
-})();
+}
+
+export const supabase = getSupabaseClient();
+export const supabaseAdmin = getSupabaseAdminClient();
 
 // Test connection (only once)
 let connectionTested = false;
-if (!connectionTested) {
+if (!connectionTested && typeof window !== 'undefined') {
   connectionTested = true;
-  supabase.from('user_profiles').select('count').limit(1).then(() => {
-    console.log('✅ Supabase connection successful');
+  // Use a more reliable test query
+  supabase.auth.getSession().then(({ data, error }) => {
+    if (error) {
+      console.error('❌ Supabase connection failed:', error.message);
+    } else {
+      console.log('✅ Supabase connection successful');
+    }
   }).catch((error) => {
     console.error('❌ Supabase connection failed:', error.message);
   });

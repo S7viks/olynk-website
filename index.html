@@ -104,9 +104,9 @@
     <link rel="dns-prefetch" href="https://fonts.googleapis.com">
     <link rel="dns-prefetch" href="https://fonts.gstatic.com">
     
-    <!-- Preload logo for better performance -->
-    <link rel="preload" href="/assets/Logo111.png" as="image" type="image/png">
-    <link rel="preload" href="/assets/LogoNavbar.png" as="image" type="image/png">
+    <!-- Preload critical resources for better performance -->
+    <link rel="preload" href="/assets/Logo111.png" as="image" type="image/png" fetchpriority="high">
+    <link rel="preload" href="/assets/LogoNavbar.png" as="image" type="image/png" fetchpriority="low">
     
     <!-- Font loading optimization -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
