@@ -1,16 +1,23 @@
 import React, { useState } from 'react';
 import { Check, Star, Users, Shield, Zap, Gift } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import { earlyAccessService } from '../services/supabaseService';
 
 const EarlyAccess = () => {
   const [email, setEmail] = useState('');
   const [isSubmitted, setIsSubmitted] = useState(false);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (email) {
-      setIsSubmitted(true);
-      setEmail('');
+      try {
+        await earlyAccessService.subscribe(email);
+        setIsSubmitted(true);
+        setEmail('');
+      } catch (error) {
+        console.error('Error submitting early access request:', error);
+        // You might want to show an error message to the user
+      }
     }
   };
 

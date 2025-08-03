@@ -17,6 +17,7 @@ import FinalCTASection from './components/FinalCTASection';
 import AboutPage from './pages/About';
 import PricingPage from './pages/Pricing';
 import ContactPage from './pages/Contact';
+import BlogPage from './pages/Blog';
 
 function HomePage() {
   const location = useLocation();
@@ -70,6 +71,7 @@ const App: React.FC = () => {
               <Route path="/about" element={<AboutPage />} />
               <Route path="/pricing" element={<PricingPage />} />
               <Route path="/contact" element={<ContactPage />} />
+              <Route path="/blog" element={<BlogPage />} />
               <Route path="/admin/contact-dashboard" element={<ContactFormDashboard />} />
               <Route path="/admin/dashboard" element={<AdminDashboard />} />
               <Route path="/admin/database" element={<DatabaseChecker />} />

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { contactService } from '../services/firebaseService';
+import { contactService } from '../services/supabaseService';
 import { Send, CheckCircle, AlertCircle } from 'lucide-react';
 
 interface ContactFormData {
