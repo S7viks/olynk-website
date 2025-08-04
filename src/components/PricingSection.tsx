@@ -103,13 +103,7 @@ const PricingSection = () => {
     isFree: false,
   };
 
-  const roiStats = [
-    { value: 'Up to ₹1.5L', label: 'Monthly in prevented stockouts', color: 'text-green-600' },
-    { value: 'Up to ₹80K', label: 'Monthly in reduced overselling', color: 'text-blue-600' },
-    { value: 'Up to ₹40K', label: 'Monthly in operational efficiency', color: 'text-purple-600' },
-    { value: 'Up to ₹25K', label: 'Monthly in faster fulfillment', color: 'text-orange-600' },
-    { value: 'Up to ₹15K', label: 'Monthly in automation savings', color: 'text-red-600' },
-  ];
+
 
   return (
     <section id="pricing" className="py-20 bg-gray-50 dark:bg-gray-900">
@@ -339,60 +333,7 @@ const PricingSection = () => {
           </div>
         </div>
 
-        {/* Enhanced ROI Calculator */}
-        <div className="text-center">
-          <div className="bg-gradient-to-r from-red-50 to-red-100 dark:from-blue-900/20 dark:to-blue-800/20 rounded-2xl p-8 border border-red-200 dark:border-blue-700">
-            <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">
-              ROI Potential Calculator
-            </h3>
-            <p className="text-gray-600 dark:text-gray-300 mb-6">
-              For a ₹5Cr brand, OLYNK can potentially save*:
-            </p>
-            
-            <div className="grid md:grid-cols-5 gap-4 mb-6">
-              {roiStats.map((stat, index) => (
-                <div key={index} className="text-center">
-                  <div className={`text-2xl font-bold ${stat.color} dark:text-yellow-300`}>
-                    {stat.value}
-                  </div>
-                  <div className="text-gray-600 dark:text-gray-400 text-sm">
-                    {stat.label}
-                  </div>
-                </div>
-              ))}
-                </div>
-
-            <div className="bg-white dark:bg-gray-800 rounded-xl p-6 mb-6">
-              <div className="flex items-center justify-center space-x-8">
-                <div className="text-center">
-                  <div className="text-3xl font-bold text-gray-900 dark:text-white">Up to ₹3.4L</div>
-                  <div className="text-sm text-gray-600 dark:text-gray-400">Monthly Savings*</div>
-                </div>
-                <div className="text-center">
-                  <div className="text-3xl font-bold text-green-600">300-500%</div>
-                  <div className="text-sm text-gray-600 dark:text-gray-400">Potential Annual ROI</div>
-                </div>
-                <div className="text-center">
-                  <div className="text-3xl font-bold text-blue-600">4-6 months</div>
-                  <div className="text-sm text-gray-600 dark:text-gray-400">Typical Payback</div>
-                </div>
-              </div>
-              <div className="text-xs text-gray-500 dark:text-gray-400 text-center mt-4">
-                *Results vary by business size, complexity, and implementation. These are potential savings based on our experience with similar businesses.
-              </div>
-            </div>
-
-            <a
-              href="https://forms.office.com/r/zd11g2RWDR"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center bg-red-600 dark:bg-blue-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-red-700 dark:hover:bg-blue-700 transition-colors"
-            >
-              Estimate Your Savings
-              <ArrowRight className="w-4 h-4 ml-2" />
-            </a>
-          </div>
-        </div>
+        
       </div>
     </section>
   );
