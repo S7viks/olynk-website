@@ -65,7 +65,7 @@ const Hero = () => {
             animate={{ opacity: 1 }}
             transition={{ delay: 1 }}
           >
-            Used by ₹5Cr+ brands. 85%+ AI accuracy in 30 days. 
+            Trusted by 1000+ D2C founders. 85%+ AI accuracy in 30 days. 
             <span className="text-red-500 dark:text-blue-300 font-medium"> Limited onboarding slots.</span>
           </motion.p>
         </motion.div>

@@ -84,24 +84,24 @@ const StorybookChart: React.FC<{ scene: number; showAI: boolean; className?: str
   return (
     <div className={`relative ${className}`}>
       {/* Story Header */}
-      <div className="mb-4 text-center">
-        <div className="flex items-center justify-center gap-2 mb-2">
-          <div className={`w-8 h-8 bg-gradient-to-r ${currentStory.color} rounded-lg flex items-center justify-center shadow-lg animate-pulse`}>
-            <Icon className="w-4 h-4 text-white" />
+      <div className="mb-3 text-center">
+        <div className="flex items-center justify-center gap-2 mb-1">
+          <div className={`w-6 h-6 bg-gradient-to-r ${currentStory.color} rounded-lg flex items-center justify-center shadow-lg animate-pulse`}>
+            <Icon className="w-3 h-3 text-white" />
           </div>
-          <h3 className="text-lg font-bold text-gray-800 dark:text-white">{currentStory.title}</h3>
+          <h3 className="text-base font-bold text-gray-800 dark:text-white">{currentStory.title}</h3>
         </div>
-        <p className="text-sm text-gray-600 dark:text-gray-400">{currentStory.description}</p>
+        <p className="text-xs text-gray-600 dark:text-gray-400">{currentStory.description}</p>
       </div>
 
       {/* Animated Chart */}
-      <div className="relative h-64 bg-gradient-to-br from-gray-50 to-gray-100 dark:from-gray-800 dark:to-gray-900 rounded-lg p-4 border border-gray-200 dark:border-gray-700">
-        <div className="flex items-end justify-between h-full gap-2">
+      <div className="relative h-48 bg-gradient-to-br from-gray-50 to-gray-100 dark:from-gray-800 dark:to-gray-900 rounded-lg p-3 border border-gray-200 dark:border-gray-700">
+        <div className="flex items-end justify-between h-full gap-1">
           {animatedValues.map((value, index) => (
             <div key={index} className="flex-1 flex flex-col items-center">
-              <div className="relative w-full flex justify-center items-end h-48">
+              <div className="relative w-full flex justify-center items-end h-36">
                 <div
-                  className={`w-6 bg-gradient-to-t ${currentStory.color} rounded-t-lg shadow-md transition-all duration-1000 ease-out ${
+                  className={`w-4 bg-gradient-to-t ${currentStory.color} rounded-t-lg shadow-md transition-all duration-1000 ease-out ${
                     isAnimating ? 'animate-bounce' : ''
                   }`}
                   style={{
@@ -110,10 +110,10 @@ const StorybookChart: React.FC<{ scene: number; showAI: boolean; className?: str
                   }}
                 />
                 {showAI && scene >= 1 && index >= 4 && (
-                  <div className="absolute -top-2 -right-2 w-3 h-3 bg-green-400 rounded-full border-2 border-white shadow-lg animate-ping" />
+                  <div className="absolute -top-1 -right-1 w-2 h-2 bg-green-400 rounded-full border border-white shadow-lg animate-ping" />
                 )}
               </div>
-              <div className="text-xs text-gray-600 dark:text-gray-400 mt-2">
+              <div className="text-xs text-gray-600 dark:text-gray-400 mt-1">
                 Day {index + 1}
               </div>
             </div>
@@ -166,43 +166,43 @@ const SmartInventory: React.FC<{ scene: number; showAI: boolean }> = ({ scene, s
   const status = getStatus();
 
   return (
-    <div className="space-y-3">
+    <div className="space-y-2">
       {/* Main Display */}
       <div className="text-center">
-        <div className={`text-2xl font-bold ${status.color} mb-1 ${isAnimating ? 'animate-pulse' : ''}`}>
+        <div className={`text-xl font-bold ${status.color} mb-1 ${isAnimating ? 'animate-pulse' : ''}`}>
           {inventory.toLocaleString()}
         </div>
-        <div className="text-sm text-gray-600 dark:text-gray-400">Units Available</div>
+        <div className="text-xs text-gray-600 dark:text-gray-400">Units Available</div>
       </div>
 
       {/* Progress Bar */}
-      <div className="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-3">
+      <div className="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-1.5 overflow-hidden">
         <div 
-          className={`h-3 rounded-full transition-all duration-1000 ease-out ${
-            showAI ? 'bg-gradient-to-r from-green-400 to-green-500' :
-            inventory === 0 ? 'bg-gradient-to-r from-red-400 to-red-500' :
-            inventory < 300 ? 'bg-gradient-to-r from-orange-400 to-orange-500' :
-            'bg-gradient-to-r from-blue-400 to-blue-500'
+          className={`h-1.5 rounded-full transition-all duration-1000 ease-out ${
+            showAI ? 'bg-green-500' :
+            inventory === 0 ? 'bg-red-500' :
+            inventory < 300 ? 'bg-orange-500' :
+            'bg-blue-500'
           }`}
-          style={{ width: `${(inventory / 1200) * 100}%` }}
+          style={{ width: `${Math.min((inventory / 1200) * 100, 100)}%` }}
         />
       </div>
 
       {/* Status Card */}
-      <div className={`p-3 rounded-lg border ${status.bg} ${status.border} transition-all duration-300 ${
+      <div className={`p-2 rounded-lg border ${status.bg} ${status.border} transition-all duration-300 ${
         isAnimating ? 'animate-pulse' : ''
       }`}>
         <div className="flex items-center gap-2">
           {showAI ? (
-            <Brain className="w-4 h-4 text-green-600 animate-pulse" />
+            <Brain className="w-3 h-3 text-green-600 animate-pulse" />
           ) : inventory === 0 ? (
-            <AlertTriangle className="w-4 h-4 text-red-600 animate-bounce" />
+            <AlertTriangle className="w-3 h-3 text-red-600 animate-bounce" />
           ) : inventory < 300 ? (
-            <Clock className="w-4 h-4 text-orange-600 animate-pulse" />
+            <Clock className="w-3 h-3 text-orange-600 animate-pulse" />
           ) : (
-            <CheckCircle className="w-4 h-4 text-green-600" />
+            <CheckCircle className="w-3 h-3 text-green-600" />
           )}
-          <span className={`font-semibold text-sm ${status.color}`}>
+          <span className={`font-semibold text-xs ${status.color}`}>
             {status.text}
           </span>
         </div>
@@ -210,13 +210,13 @@ const SmartInventory: React.FC<{ scene: number; showAI: boolean }> = ({ scene, s
 
       {/* AI Insights */}
       {showAI && (
-        <div className="bg-gradient-to-r from-green-50 to-blue-50 border border-green-200 rounded-lg p-3 animate-fade-in">
-          <div className="flex items-center gap-2 mb-2">
-            <Brain className="w-4 h-4 text-green-600 animate-pulse" />
-            <span className="font-semibold text-sm text-green-700">AI Insights</span>
+        <div className="bg-gradient-to-r from-green-50 to-blue-50 border border-green-200 rounded-lg p-2 animate-fade-in">
+          <div className="flex items-center gap-1 mb-1">
+            <Brain className="w-3 h-3 text-green-600 animate-pulse" />
+            <span className="font-semibold text-xs text-green-700">AI Insights</span>
           </div>
           <p className="text-xs text-green-600">
-            Proactive restocking scheduled • 7-day advance warning • Zero stockout risk
+            Proactive restocking • 7-day warning • Zero stockout risk
           </p>
         </div>
       )}
@@ -263,32 +263,32 @@ const FinancialImpact: React.FC<{ scene: number; showAI: boolean }> = ({ scene, 
   };
 
   return (
-    <div className="space-y-3">
+    <div className="space-y-2">
       {/* Main Display */}
       <div className="text-center">
-        <div className={`text-2xl font-bold ${getImpactColor()} mb-1 ${isAnimating ? 'animate-pulse' : ''}`}>
+        <div className={`text-xl font-bold ${getImpactColor()} mb-1 ${isAnimating ? 'animate-pulse' : ''}`}>
           {formatCurrency(displayAmount)}
         </div>
-        <div className="text-sm text-gray-600 dark:text-gray-400">
+        <div className="text-xs text-gray-600 dark:text-gray-400">
           {showAI ? 'Loss Prevented' : 'Revenue Loss'}
         </div>
       </div>
 
       {/* Impact Bar */}
-      <div className="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-3">
+      <div className="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-1.5 overflow-hidden">
         <div 
-          className={`h-3 rounded-full transition-all duration-1000 ease-out ${
-            showAI ? 'bg-gradient-to-r from-green-400 to-green-500' :
-            displayAmount === 0 ? 'bg-gradient-to-r from-gray-400 to-gray-500' :
-            displayAmount < 50000 ? 'bg-gradient-to-r from-orange-400 to-orange-500' :
-            'bg-gradient-to-r from-red-400 to-red-500'
+          className={`h-1.5 rounded-full transition-all duration-1000 ease-out ${
+            showAI ? 'bg-green-500' :
+            displayAmount === 0 ? 'bg-gray-500' :
+            displayAmount < 50000 ? 'bg-orange-500' :
+            'bg-red-500'
           }`}
           style={{ width: `${Math.min((displayAmount / 230000) * 100, 100)}%` }}
         />
       </div>
 
       {/* Status Card */}
-      <div className={`p-3 rounded-lg border transition-all duration-300 ${
+      <div className={`p-2 rounded-lg border transition-all duration-300 ${
         showAI ? 'bg-green-50 border-green-200' :
         displayAmount === 0 ? 'bg-gray-50 border-gray-200' :
         displayAmount < 50000 ? 'bg-orange-50 border-orange-200' :
@@ -296,15 +296,15 @@ const FinancialImpact: React.FC<{ scene: number; showAI: boolean }> = ({ scene, 
       } ${isAnimating ? 'animate-pulse' : ''}`}>
         <div className="flex items-center gap-2">
           {showAI ? (
-            <Shield className="w-4 h-4 text-green-600 animate-pulse" />
+            <Shield className="w-3 h-3 text-green-600 animate-pulse" />
           ) : displayAmount === 0 ? (
-            <CheckCircle className="w-4 h-4 text-gray-600" />
+            <CheckCircle className="w-3 h-3 text-gray-600" />
           ) : displayAmount < 50000 ? (
-            <AlertCircle className="w-4 h-4 text-orange-600 animate-pulse" />
+            <AlertCircle className="w-3 h-3 text-orange-600 animate-pulse" />
           ) : (
-            <AlertTriangle className="w-4 h-4 text-red-600 animate-bounce" />
+            <AlertTriangle className="w-3 h-3 text-red-600 animate-bounce" />
           )}
-          <span className={`font-semibold text-sm ${
+          <span className={`font-semibold text-xs ${
             showAI ? 'text-green-600' :
             displayAmount === 0 ? 'text-gray-600' :
             displayAmount < 50000 ? 'text-orange-600' :
@@ -322,23 +322,23 @@ const FinancialImpact: React.FC<{ scene: number; showAI: boolean }> = ({ scene, 
 const AIProtector: React.FC = () => {
   return (
     <div className="text-center">
-      <div className="flex items-center justify-center gap-2 mb-3">
-        <div className="w-8 h-8 bg-white/20 rounded-lg flex items-center justify-center shadow-md animate-pulse">
-          <Brain className="w-4 h-4 text-white" />
+      <div className="flex items-center justify-center gap-2 mb-2">
+        <div className="w-6 h-6 bg-white/20 rounded-lg flex items-center justify-center shadow-md animate-pulse">
+          <Brain className="w-3 h-3 text-white" />
         </div>
-        <h3 className="text-lg font-bold text-white">AI Protection Active</h3>
+        <h3 className="text-sm font-bold text-white">AI Protection Active</h3>
       </div>
-      <div className="space-y-2 text-sm">
-        <div className="flex items-center gap-2">
-          <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse" />
+      <div className="space-y-1 text-xs">
+        <div className="flex items-center gap-1">
+          <div className="w-1.5 h-1.5 bg-green-400 rounded-full animate-pulse" />
           <span className="text-purple-100">Demand spike detected 7 days ago</span>
         </div>
-        <div className="flex items-center gap-2">
-          <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse" />
+        <div className="flex items-center gap-1">
+          <div className="w-1.5 h-1.5 bg-green-400 rounded-full animate-pulse" />
           <span className="text-purple-100">Restocking order placed automatically</span>
         </div>
-        <div className="flex items-center gap-2">
-          <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse" />
+        <div className="flex items-center gap-1">
+          <div className="w-1.5 h-1.5 bg-green-400 rounded-full animate-pulse" />
           <span className="text-purple-100">Zero stockout risk maintained</span>
         </div>
       </div>
@@ -365,16 +365,16 @@ const StoryControls: React.FC<{
   onSceneChange
 }) => {
   return (
-    <div className="space-y-4">
+    <div className="space-y-3">
       {/* Scene Selector */}
       <div className="flex items-center justify-between">
-        <h3 className="text-lg font-bold text-slate-800 dark:text-white">Story Progress</h3>
-        <div className="flex gap-2">
+        <h3 className="text-base font-bold text-slate-800 dark:text-white">Story Progress</h3>
+        <div className="flex gap-1">
           {['0', '1', '2', '3'].map((scene) => (
             <button
               key={scene}
               onClick={() => onSceneChange(scene)}
-              className={`w-8 h-8 rounded-full text-sm font-semibold transition-all duration-300 ${
+              className={`w-6 h-6 rounded-full text-xs font-semibold transition-all duration-300 ${
                 currentScene === scene
                   ? 'bg-blue-600 text-white shadow-lg'
                   : 'bg-gray-200 dark:bg-gray-700 text-gray-600 dark:text-gray-400 hover:bg-gray-300 dark:hover:bg-gray-600'
@@ -387,37 +387,37 @@ const StoryControls: React.FC<{
       </div>
 
       {/* Control Buttons */}
-      <div className="flex gap-3">
+      <div className="flex gap-2">
         <button
           onClick={onPlay}
           disabled={isPlaying}
-          className={`flex-1 flex items-center justify-center gap-2 px-4 py-2 rounded-lg font-semibold transition-all duration-300 ${
+          className={`flex-1 flex items-center justify-center gap-1 px-3 py-2 rounded-lg text-sm font-semibold transition-all duration-300 ${
             isPlaying
               ? 'bg-gray-300 dark:bg-gray-600 text-gray-500 dark:text-gray-400 cursor-not-allowed'
               : 'bg-blue-600 hover:bg-blue-700 text-white shadow-lg hover:shadow-xl'
           }`}
         >
-          <Play className="w-4 h-4" />
+          <Play className="w-3 h-3" />
           {isPlaying ? 'Playing...' : 'Play Story'}
         </button>
 
         <button
           onClick={onAIDemo}
-          className={`flex-1 flex items-center justify-center gap-2 px-4 py-2 rounded-lg font-semibold transition-all duration-300 ${
+          className={`flex-1 flex items-center justify-center gap-1 px-3 py-2 rounded-lg text-sm font-semibold transition-all duration-300 ${
             showAI
               ? 'bg-purple-600 hover:bg-purple-700 text-white shadow-lg hover:shadow-xl'
               : 'bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 text-gray-700 dark:text-gray-300'
           }`}
         >
-          <Brain className="w-4 h-4" />
+          <Brain className="w-3 h-3" />
           {showAI ? 'AI Active' : 'Show AI'}
         </button>
 
         <button
           onClick={onReset}
-          className="px-4 py-2 bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 text-gray-700 dark:text-gray-300 rounded-lg font-semibold transition-all duration-300"
+          className="px-3 py-2 bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 text-gray-700 dark:text-gray-300 rounded-lg text-sm font-semibold transition-all duration-300"
         >
-          <RotateCcw className="w-4 h-4" />
+          <RotateCcw className="w-3 h-3" />
         </button>
       </div>
     </div>
@@ -510,63 +510,63 @@ const Stock: React.FC<StockProps> = ({ isLoaded, onClose }) => {
       </header>
 
       {/* Main Content */}
-      <main className="px-4 py-4 relative z-10">
+      <main className="px-4 py-4 relative z-10 overflow-y-auto max-h-[calc(100vh-200px)]">
         {/* Title Section */}
-        <div className="text-center mb-6">
-          <h2 className="text-2xl font-bold text-slate-800 dark:text-white mb-2 bg-gradient-to-r from-blue-600 to-indigo-600 dark:from-blue-400 dark:to-indigo-400 bg-clip-text text-transparent">
+        <div className="text-center mb-4">
+          <h2 className="text-xl font-bold text-slate-800 dark:text-white mb-2 bg-gradient-to-r from-blue-600 to-indigo-600 dark:from-blue-400 dark:to-indigo-400 bg-clip-text text-transparent">
             The Invisible Stockout
           </h2>
-          <div className="w-16 h-1 bg-gradient-to-r from-blue-500 to-indigo-500 dark:from-blue-400 dark:to-indigo-400 mx-auto rounded-full mb-3" />
-          <p className="text-base text-slate-600 dark:text-slate-400 max-w-md mx-auto">
+          <div className="w-16 h-1 bg-gradient-to-r from-blue-500 to-indigo-500 dark:from-blue-400 dark:to-indigo-400 mx-auto rounded-full mb-2" />
+          <p className="text-sm text-slate-600 dark:text-slate-400 max-w-md mx-auto">
             Watch how sales spikes lead to stockouts, and see how AI prevents losses.
           </p>
         </div>
 
         {/* Visualization Area */}
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 mb-6">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 mb-4">
           {/* Main Chart */}
           <div className="lg:col-span-2">
-            <div className="bg-white/90 dark:bg-slate-800/90 backdrop-blur-sm rounded-lg shadow-md p-4 h-[350px] md:h-[400px] relative overflow-hidden border border-slate-200 dark:border-slate-700">
+            <div className="bg-white/90 dark:bg-slate-800/90 backdrop-blur-sm rounded-lg shadow-md p-4 min-h-[300px] relative overflow-hidden border border-slate-200 dark:border-slate-700">
               <div className="flex items-center justify-between mb-3">
-                <h3 className="text-lg font-bold text-slate-800 dark:text-white">Storybook Chart</h3>
+                <h3 className="text-base font-bold text-slate-800 dark:text-white">Storybook Chart</h3>
                 <FestivalIndicator scene={parseInt(currentScene)} />
               </div>
               
               <StorybookChart 
                 scene={parseInt(currentScene)} 
                 showAI={showAI}
-                className="h-[280px] md:h-[330px]"
+                className="min-h-[200px]"
               />
             </div>
           </div>
 
           {/* Side Panels */}
-          <div className="space-y-4">
+          <div className="space-y-3">
             {/* Inventory Counter */}
-            <div className="bg-white/90 dark:bg-slate-800/90 backdrop-blur-sm rounded-lg shadow-md p-4 border border-slate-200 dark:border-slate-700">
-              <div className="flex items-center gap-2 mb-3">
-                <div className="w-8 h-8 bg-gradient-to-r from-blue-600 to-indigo-600 dark:from-blue-400 dark:to-indigo-400 rounded-lg flex items-center justify-center shadow-md">
-                  <Package className="w-4 h-4 text-white" />
+            <div className="bg-white/90 dark:bg-slate-800/90 backdrop-blur-sm rounded-lg shadow-md p-3 border border-slate-200 dark:border-slate-700">
+              <div className="flex items-center gap-2 mb-2">
+                <div className="w-6 h-6 bg-gradient-to-r from-blue-600 to-indigo-600 dark:from-blue-400 dark:to-indigo-400 rounded-lg flex items-center justify-center shadow-md">
+                  <Package className="w-3 h-3 text-white" />
                 </div>
-                <h3 className="text-base font-bold text-slate-800 dark:text-white">Inventory Level</h3>
+                <h3 className="text-sm font-bold text-slate-800 dark:text-white">Inventory Level</h3>
               </div>
               <SmartInventory scene={parseInt(currentScene)} showAI={showAI} />
             </div>
 
             {/* Loss Counter */}
-            <div className="bg-white/90 dark:bg-slate-800/90 backdrop-blur-sm rounded-lg shadow-md p-4 border border-slate-200 dark:border-slate-700">
-              <div className="flex items-center gap-2 mb-3">
-                <div className="w-8 h-8 bg-gradient-to-r from-red-500 to-red-600 dark:from-red-400 dark:to-red-500 rounded-lg flex items-center justify-center shadow-md">
-                  <DollarSign className="w-4 h-4 text-white" />
+            <div className="bg-white/90 dark:bg-slate-800/90 backdrop-blur-sm rounded-lg shadow-md p-3 border border-slate-200 dark:border-slate-700">
+              <div className="flex items-center gap-2 mb-2">
+                <div className="w-6 h-6 bg-gradient-to-r from-red-500 to-red-600 dark:from-red-400 dark:to-red-500 rounded-lg flex items-center justify-center shadow-md">
+                  <DollarSign className="w-3 h-3 text-white" />
                 </div>
-                <h3 className="text-base font-bold text-slate-800 dark:text-white">Financial Impact</h3>
+                <h3 className="text-sm font-bold text-slate-800 dark:text-white">Financial Impact</h3>
               </div>
               <FinancialImpact scene={parseInt(currentScene)} showAI={showAI} />
             </div>
 
             {/* AI Predictor */}
             {showAI && (
-              <div className="bg-gradient-to-r from-purple-600 to-blue-600 dark:from-purple-500 dark:to-blue-500 rounded-lg p-4 text-white shadow-md border border-purple-400/30 dark:border-blue-400/30 animate-fade-in">
+              <div className="bg-gradient-to-r from-purple-600 to-blue-600 dark:from-purple-500 dark:to-blue-500 rounded-lg p-3 text-white shadow-md border border-purple-400/30 dark:border-blue-400/30 animate-fade-in">
                 <AIProtector />
               </div>
             )}
@@ -574,7 +574,7 @@ const Stock: React.FC<StockProps> = ({ isLoaded, onClose }) => {
         </div>
 
         {/* Controls */}
-        <div className="bg-white/90 dark:bg-slate-800/90 backdrop-blur-sm rounded-lg shadow-md p-4 mb-6 border border-slate-200 dark:border-slate-700">
+        <div className="bg-white/90 dark:bg-slate-800/90 backdrop-blur-sm rounded-lg shadow-md p-3 mb-4 border border-slate-200 dark:border-slate-700">
           <StoryControls 
             currentScene={currentScene}
             isPlaying={isPlaying}
@@ -588,60 +588,60 @@ const Stock: React.FC<StockProps> = ({ isLoaded, onClose }) => {
 
         {/* Impact Summary */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-          <div className="bg-white/90 dark:bg-slate-800/90 backdrop-blur-sm rounded-lg shadow-md p-4 border border-slate-200 dark:border-slate-700">
-            <h3 className="text-lg font-bold text-slate-800 dark:text-white mb-4 flex items-center gap-2">
-              <div className="w-6 h-6 bg-gradient-to-r from-red-500 to-red-600 dark:from-red-400 dark:to-red-500 rounded-lg flex items-center justify-center shadow-md">
-                <AlertTriangle className="w-3 h-3 text-white" />
+          <div className="bg-white/90 dark:bg-slate-800/90 backdrop-blur-sm rounded-lg shadow-md p-3 border border-slate-200 dark:border-slate-700">
+            <h3 className="text-base font-bold text-slate-800 dark:text-white mb-3 flex items-center gap-2">
+              <div className="w-5 h-5 bg-gradient-to-r from-red-500 to-red-600 dark:from-red-400 dark:to-red-500 rounded-lg flex items-center justify-center shadow-md">
+                <AlertTriangle className="w-2.5 h-2.5 text-white" />
               </div>
               Without AI Prediction
             </h3>
-            <div className="space-y-3">
-              <div className="flex items-center gap-3 p-3 bg-red-50 dark:bg-red-900/20 rounded-lg border border-red-200 dark:border-red-800">
-                <div className="w-8 h-8 bg-gradient-to-r from-red-500 to-red-600 dark:from-red-400 dark:to-red-500 rounded-lg flex items-center justify-center shadow-md">
-                  <AlertTriangle className="w-4 h-4 text-white" />
+            <div className="space-y-2">
+              <div className="flex items-center gap-2 p-2 bg-red-50 dark:bg-red-900/20 rounded-lg border border-red-200 dark:border-red-800">
+                <div className="w-6 h-6 bg-gradient-to-r from-red-500 to-red-600 dark:from-red-400 dark:to-red-500 rounded-lg flex items-center justify-center shadow-md">
+                  <AlertTriangle className="w-3 h-3 text-white" />
                 </div>
                 <div>
-                  <p className="font-bold text-slate-800 dark:text-white text-sm">₹2.3L Revenue Loss</p>
-                  <p className="text-sm text-slate-600 dark:text-slate-400">Due to stockout during peak demand</p>
+                  <p className="font-bold text-slate-800 dark:text-white text-xs">₹2.3L Revenue Loss</p>
+                  <p className="text-xs text-slate-600 dark:text-slate-400">Due to stockout during peak demand</p>
                 </div>
               </div>
-              <div className="flex items-center gap-3 p-3 bg-orange-50 dark:bg-orange-900/20 rounded-lg border border-orange-200 dark:border-orange-800">
-                <div className="w-8 h-8 bg-gradient-to-r from-orange-500 to-red-600 dark:from-orange-400 dark:to-red-500 rounded-lg flex items-center justify-center shadow-md">
-                  <Calendar className="w-4 h-4 text-white" />
+              <div className="flex items-center gap-2 p-2 bg-orange-50 dark:bg-orange-900/20 rounded-lg border border-orange-200 dark:border-orange-800">
+                <div className="w-6 h-6 bg-gradient-to-r from-orange-500 to-red-600 dark:from-orange-400 dark:to-red-500 rounded-lg flex items-center justify-center shadow-md">
+                  <Calendar className="w-3 h-3 text-white" />
                 </div>
                 <div>
-                  <p className="font-bold text-slate-800 dark:text-white text-sm">5 Days Recovery Time</p>
-                  <p className="text-sm text-slate-600 dark:text-slate-400">To restock and restore availability</p>
+                  <p className="font-bold text-slate-800 dark:text-white text-xs">5 Days Recovery Time</p>
+                  <p className="text-xs text-slate-600 dark:text-slate-400">To restock and restore availability</p>
                 </div>
               </div>
             </div>
           </div>
 
-          <div className="bg-gradient-to-r from-purple-600 to-blue-600 dark:from-purple-500 dark:to-blue-500 rounded-lg shadow-md p-4 text-white relative overflow-hidden border border-purple-400/30 dark:border-blue-400/30">
+          <div className="bg-gradient-to-r from-purple-600 to-blue-600 dark:from-purple-500 dark:to-blue-500 rounded-lg shadow-md p-3 text-white relative overflow-hidden border border-purple-400/30 dark:border-blue-400/30">
             <div className="relative z-10">
-              <h3 className="text-lg font-bold mb-4 flex items-center gap-2">
-                <div className="w-6 h-6 bg-white/20 rounded-lg flex items-center justify-center shadow-md">
-                  <Brain className="w-3 h-3 text-white" />
+              <h3 className="text-base font-bold mb-3 flex items-center gap-2">
+                <div className="w-5 h-5 bg-white/20 rounded-lg flex items-center justify-center shadow-md">
+                  <Brain className="w-2.5 h-2.5 text-white" />
                 </div>
                 With AI Prediction
               </h3>
-              <div className="space-y-3">
-                <div className="flex items-center gap-3 p-3 bg-white/10 rounded-lg border border-white/20">
-                  <div className="w-8 h-8 bg-white/20 rounded-lg flex items-center justify-center shadow-md">
-                    <Brain className="w-4 h-4 text-white" />
+              <div className="space-y-2">
+                <div className="flex items-center gap-2 p-2 bg-white/10 rounded-lg border border-white/20">
+                  <div className="w-6 h-6 bg-white/20 rounded-lg flex items-center justify-center shadow-md">
+                    <Brain className="w-3 h-3 text-white" />
                   </div>
                   <div>
-                    <p className="font-bold text-sm">7-Day Advance Warning</p>
-                    <p className="text-sm text-purple-100">Predict demand spikes before they happen</p>
+                    <p className="font-bold text-xs">7-Day Advance Warning</p>
+                    <p className="text-xs text-purple-100">Predict demand spikes before they happen</p>
                   </div>
                 </div>
-                <div className="flex items-center gap-3 p-3 bg-white/10 rounded-lg border border-white/20">
-                  <div className="w-8 h-8 bg-white/20 rounded-lg flex items-center justify-center shadow-md">
-                    <TrendingUp className="w-4 h-4 text-white" />
+                <div className="flex items-center gap-2 p-2 bg-white/10 rounded-lg border border-white/20">
+                  <div className="w-6 h-6 bg-white/20 rounded-lg flex items-center justify-center shadow-md">
+                    <TrendingUp className="w-3 h-3 text-white" />
                   </div>
                   <div>
-                    <p className="font-bold text-sm">100% Availability Maintained</p>
-                    <p className="text-sm text-purple-100">Automated reorder recommendations</p>
+                    <p className="font-bold text-xs">100% Availability Maintained</p>
+                    <p className="text-xs text-purple-100">Automated reorder recommendations</p>
                   </div>
                 </div>
               </div>

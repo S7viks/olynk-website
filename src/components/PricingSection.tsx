@@ -14,7 +14,7 @@ const PricingSection = () => {
       annualPrice: 96000, // 20% discount
       originalAnnualPrice: 120000,
       orderLimit: '500 orders/month',
-      revenueRange: '₹1-2Cr',
+      potentialSavings: '₹2-3L/month',
       features: [
         { name: 'Core 5 AI modules included', included: true },
         { name: 'Weekly insights and recommendations', included: true },
@@ -38,7 +38,7 @@ const PricingSection = () => {
       annualPrice: 172800, // 20% discount
       originalAnnualPrice: 216000,
       orderLimit: '1,000 orders/month',
-      revenueRange: '₹2-5Cr',
+      potentialSavings: '₹4-6L/month',
       features: [
         { name: 'All 7 AI modules included', included: true },
         { name: 'Daily insights and recommendations', included: true },
