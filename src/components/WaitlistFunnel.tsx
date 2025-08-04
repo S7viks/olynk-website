@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { ArrowRight, CheckCircle, Sparkles, Zap, Users, TrendingUp } from 'lucide-react';
+import { ArrowRight, CheckCircle, Sparkles, Zap, Users, TrendingUp, Shield, Brain, Target, BarChart3 } from 'lucide-react';
 import { supabase } from '../supabase';
 
 const WaitlistFunnel: React.FC = () => {
@@ -56,10 +56,10 @@ const WaitlistFunnel: React.FC = () => {
         useCase: ''
       });
 
-             // Redirect to main site after successful submission
-       setTimeout(() => {
-         navigate('/');
-       }, 2000);
+      // Redirect to main site after successful submission
+      setTimeout(() => {
+        navigate('/');
+      }, 2000);
     } catch (error) {
       console.error('Error submitting waitlist form:', error);
       setSubmitStatus('error');
@@ -68,26 +68,26 @@ const WaitlistFunnel: React.FC = () => {
     }
   };
 
-  const benefits = [
+  const solutions = [
     {
-      icon: <Zap className="h-6 w-6 text-red-500" />,
-      title: "AI-Powered Inventory Management",
-      description: "Intelligent forecasting and demand prediction"
+      icon: <Brain className="h-6 w-6 text-red-500" />,
+      title: "AI Forecast Engine",
+      description: "Learns from historical sales, seasonal trends, and external triggers to prevent stockouts and oversells"
     },
     {
-      icon: <TrendingUp className="h-6 w-6 text-blue-500" />,
-      title: "Real-time Analytics",
-      description: "Live insights and performance tracking"
+      icon: <BarChart3 className="h-6 w-6 text-blue-500" />,
+      title: "Omnichannel Inventory Manager",
+      description: "Unified dashboard syncing Shopify, marketplaces, ERPs, and 3PLs in real-time"
     },
     {
-      icon: <Users className="h-6 w-6 text-green-500" />,
-      title: "Team Collaboration",
-      description: "Seamless coordination across departments"
+      icon: <Target className="h-6 w-6 text-green-500" />,
+      title: "RTO Prediction Model",
+      description: "Scores orders on COD risk and size-fit likelihood before dispatch to reduce returns"
     },
     {
-      icon: <Sparkles className="h-6 w-6 text-purple-500" />,
+      icon: <Shield className="h-6 w-6 text-purple-500" />,
       title: "Smart Automation",
-      description: "Automated workflows and decision support"
+      description: "Automated workflows and decision support to eliminate manual operations overhead"
     }
   ];
 
@@ -105,12 +105,12 @@ const WaitlistFunnel: React.FC = () => {
               🎉 You're one of the first to experience the future of inventory management!
             </p>
           </div>
-                     <button
-             onClick={() => navigate('/')}
-             className="w-full bg-red-600 text-white py-3 px-6 rounded-lg font-medium hover:bg-red-700 transition-colors"
-           >
-             Explore Our Platform
-           </button>
+          <button
+            onClick={() => navigate('/')}
+            className="w-full bg-red-600 text-white py-3 px-6 rounded-lg font-medium hover:bg-red-700 transition-colors"
+          >
+            Explore Our Platform
+          </button>
         </div>
       </div>
     );
@@ -135,39 +135,41 @@ const WaitlistFunnel: React.FC = () => {
               </div>
             </div>
             <h1 className="text-5xl md:text-6xl font-bold text-gray-900 mb-6">
-              Join the Future of
-              <span className="text-red-600 block">Inventory Management</span>
+              End Inventory Chaos with
+              <span className="text-red-600 block">AI-Powered D2C Operations</span>
             </h1>
-            <p className="text-xl text-gray-600 max-w-2xl mx-auto mb-8">
-              Be among the first to experience OLYNK's AI-powered platform that revolutionizes how businesses manage their inventory and operations.
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto mb-8">
+              D2C brands are facing inventory chaos, RTO losses, and manual operations drag. 
+              OLYNK's AI-powered platform solves these problems through intelligent forecasting, 
+              omnichannel visibility, and automated workflows.
             </p>
           </div>
 
           <div className="grid lg:grid-cols-2 gap-12 items-start">
-            {/* Benefits Section */}
+            {/* Solutions Section */}
             <div className="space-y-6">
               <h2 className="text-2xl font-bold text-gray-900 mb-6">
-                What You'll Get
+                How OLYNK Solves Your Problems
               </h2>
               <div className="space-y-4">
-                {benefits.map((benefit, index) => (
+                {solutions.map((solution, index) => (
                   <div key={index} className="flex items-start space-x-4">
                     <div className="flex-shrink-0 mt-1">
-                      {benefit.icon}
+                      {solution.icon}
                     </div>
                     <div>
-                      <h3 className="font-semibold text-gray-900">{benefit.title}</h3>
-                      <p className="text-gray-600 text-sm">{benefit.description}</p>
+                      <h3 className="font-semibold text-gray-900">{solution.title}</h3>
+                      <p className="text-gray-600 text-sm">{solution.description}</p>
                     </div>
                   </div>
                 ))}
               </div>
               
               <div className="bg-blue-50 rounded-lg p-6 mt-8">
-                <h3 className="font-semibold text-blue-900 mb-2">🎯 Limited Time Offer</h3>
+                <h3 className="font-semibold text-blue-900 mb-2">🎯 Perfect for D2C Brands</h3>
                 <p className="text-blue-700 text-sm">
-                  Early access members get exclusive pricing and priority support. 
-                  Join now before we open to the public!
+                  Designed for ₹2–20 Cr brands managing 500+ SKUs across Shopify, Amazon, 
+                  Zepto, and retail. Modular AI with explainable recommendations.
                 </p>
               </div>
             </div>
@@ -190,7 +192,8 @@ const WaitlistFunnel: React.FC = () => {
                       value={formData.firstName}
                       onChange={handleInputChange}
                       required
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-red-500"
+                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-red-500 text-black placeholder-gray-500 bg-white"
+                      placeholder="Enter first name"
                     />
                   </div>
                   <div>
@@ -203,7 +206,8 @@ const WaitlistFunnel: React.FC = () => {
                       value={formData.lastName}
                       onChange={handleInputChange}
                       required
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-red-500"
+                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-red-500 text-black placeholder-gray-500 bg-white"
+                      placeholder="Enter last name"
                     />
                   </div>
                 </div>
@@ -218,7 +222,8 @@ const WaitlistFunnel: React.FC = () => {
                     value={formData.email}
                     onChange={handleInputChange}
                     required
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-red-500"
+                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-red-500 text-black placeholder-gray-500 bg-white"
+                    placeholder="Enter email address"
                   />
                 </div>
 
@@ -231,7 +236,8 @@ const WaitlistFunnel: React.FC = () => {
                     name="company"
                     value={formData.company}
                     onChange={handleInputChange}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-red-500"
+                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-red-500 text-black placeholder-gray-500 bg-white"
+                    placeholder="Enter company name"
                   />
                 </div>
 
@@ -244,15 +250,15 @@ const WaitlistFunnel: React.FC = () => {
                       name="industry"
                       value={formData.industry}
                       onChange={handleInputChange}
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-red-500"
+                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-red-500 text-black bg-white"
                     >
                       <option value="">Select Industry</option>
-                      <option value="ecommerce">E-commerce</option>
-                      <option value="manufacturing">Manufacturing</option>
-                      <option value="retail">Retail</option>
-                      <option value="healthcare">Healthcare</option>
-                      <option value="logistics">Logistics</option>
+                      <option value="fashion">Fashion & Apparel</option>
+                      <option value="beauty">Beauty & Personal Care</option>
                       <option value="food">Food & Beverage</option>
+                      <option value="health">Health & Wellness</option>
+                      <option value="electronics">Electronics</option>
+                      <option value="home">Home & Lifestyle</option>
                       <option value="other">Other</option>
                     </select>
                   </div>
@@ -264,7 +270,7 @@ const WaitlistFunnel: React.FC = () => {
                       name="companySize"
                       value={formData.companySize}
                       onChange={handleInputChange}
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-red-500"
+                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-red-500 text-black bg-white"
                     >
                       <option value="">Select Size</option>
                       <option value="1-10">1-10 employees</option>
@@ -278,15 +284,15 @@ const WaitlistFunnel: React.FC = () => {
 
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-1">
-                    Primary Use Case
+                    Primary Challenge
                   </label>
                   <textarea
                     name="useCase"
                     value={formData.useCase}
                     onChange={handleInputChange}
                     rows={3}
-                    placeholder="Tell us about your inventory management challenges..."
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-red-500"
+                    placeholder="Tell us about your inventory management challenges (stockouts, RTOs, manual processes, etc.)..."
+                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-red-500 text-black placeholder-gray-500 bg-white"
                   />
                 </div>
 
@@ -308,21 +314,12 @@ const WaitlistFunnel: React.FC = () => {
                     </>
                   ) : (
                     <>
-                      Join Waitlist
+                      Join Early Access
                       <ArrowRight className="ml-2 h-5 w-5" />
                     </>
                   )}
                 </button>
               </form>
-
-                             <div className="mt-6 text-center">
-                 <button
-                   onClick={() => navigate('/')}
-                   className="text-gray-600 hover:text-gray-800 text-sm"
-                 >
-                   Skip for now - Explore our platform
-                 </button>
-               </div>
             </div>
           </div>
         </div>

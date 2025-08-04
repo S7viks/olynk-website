@@ -24,6 +24,18 @@ import AboutPage from './pages/About';
 import PricingPage from './pages/Pricing';
 import ContactPage from './pages/Contact';
 
+// Conditional Footer Component
+const ConditionalFooter: React.FC = () => {
+  const location = useLocation();
+  
+  // Don't render footer on waitlist-funnel page
+  if (location.pathname === '/waitlist-funnel') {
+    return null;
+  }
+  
+  return <Footer />;
+};
+
 function HomePage() {
   const location = useLocation();
 
@@ -160,7 +172,7 @@ const App: React.FC = () => {
                   </ProtectedRoute>
                 } />
               </Routes>
-              <Footer />
+              <ConditionalFooter />
             </div>
           </div>
         </Router>
