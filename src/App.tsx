@@ -28,12 +28,12 @@ import ContactPage from './pages/Contact';
 const ConditionalFooter: React.FC = () => {
   const location = useLocation();
   
-  // Don't render footer on waitlist-funnel page
+  // Render footer on all pages, but with different content for waitlist-funnel
   if (location.pathname === '/waitlist-funnel') {
-    return null;
+    return <Footer hideContactUs={true} />;
   }
   
-  return <Footer />;
+  return <Footer hideContactUs={false} />;
 };
 
 function HomePage() {

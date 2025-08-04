@@ -22,8 +22,8 @@ const FinalCTASection = () => {
             <div className="w-12 h-12 bg-gradient-to-r from-red-500 to-red-600 dark:from-blue-500 dark:to-blue-600 rounded-lg flex items-center justify-center mb-4">
               <CheckCircle className="h-6 w-6 text-white" />
             </div>
-            <h3 className="text-lg font-semibold mb-2">Live AI Analysis</h3>
-            <p className="text-gray-400 text-sm">
+            <h3 className="text-lg font-semibold mb-2 text-white">Live AI Analysis</h3>
+            <p className="text-gray-200 text-sm">
               We'll analyze your business patterns in real-time during the demo
             </p>
           </div>
@@ -32,8 +32,8 @@ const FinalCTASection = () => {
             <div className="w-12 h-12 bg-gradient-to-r from-red-500 to-red-600 dark:from-blue-500 dark:to-blue-600 rounded-lg flex items-center justify-center mb-4">
               <Users className="h-6 w-6 text-white" />
             </div>
-            <h3 className="text-lg font-semibold mb-2">Custom Insights</h3>
-            <p className="text-gray-400 text-sm">
+            <h3 className="text-lg font-semibold mb-2 text-white">Custom Insights</h3>
+            <p className="text-gray-200 text-sm">
               See AI predictions specific to your products and customers
             </p>
           </div>
@@ -42,8 +42,8 @@ const FinalCTASection = () => {
             <div className="w-12 h-12 bg-gradient-to-r from-red-500 to-red-600 dark:from-blue-500 dark:to-blue-600 rounded-lg flex items-center justify-center mb-4">
               <CheckCircle className="h-6 w-6 text-white" />
             </div>
-            <h3 className="text-lg font-semibold mb-2">ROI Projection</h3>
-            <p className="text-gray-400 text-sm">
+            <h3 className="text-lg font-semibold mb-2 text-white">ROI Projection</h3>
+            <p className="text-gray-200 text-sm">
               Calculate exact savings potential for your business
             </p>
           </div>
@@ -52,8 +52,8 @@ const FinalCTASection = () => {
             <div className="w-12 h-12 bg-gradient-to-r from-red-500 to-red-600 dark:from-blue-500 dark:to-blue-600 rounded-lg flex items-center justify-center mb-4">
               <Download className="h-6 w-6 text-white" />
             </div>
-            <h3 className="text-lg font-semibold mb-2">Free Operations Audit</h3>
-            <p className="text-gray-400 text-sm">
+            <h3 className="text-lg font-semibold mb-2 text-white">Free Operations Audit</h3>
+            <p className="text-gray-200 text-sm">
               Get actionable recommendations even if you don't buy
             </p>
           </div>

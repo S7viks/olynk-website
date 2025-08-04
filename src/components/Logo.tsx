@@ -42,7 +42,7 @@ const Logo: React.FC<LogoProps> = ({ size = 'md', className = '' }) => {
         <div className="w-full h-full bg-gray-200 animate-pulse rounded"></div>
       )}
       <img
-        src="/assets/LogoNavbar.png"
+        src="/assets/Untitled design.svg"
         alt="Olynk.ai Logo"
         className={`${sizeClasses[size]} object-contain ${imageLoaded ? 'block' : 'hidden'}`}
         style={{

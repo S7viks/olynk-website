@@ -312,7 +312,7 @@ const FounderChat = () => {
               <div className="flex items-start space-x-3">
                 <div className="text-2xl">{currentFounderData.avatar}</div>
                 <div className={`bg-gradient-to-r ${currentFounderData.color} rounded-2xl p-4 max-w-xl text-white`}>
-                  <p className="text-lg font-medium">
+                  <p className="text-lg font-medium text-white">
                     {currentQuestionData.question}
                   </p>
                   {isTyping && (

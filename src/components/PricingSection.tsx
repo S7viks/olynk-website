@@ -268,7 +268,7 @@ const PricingSection = () => {
         <div className="text-center mb-16">
           <div className="bg-gradient-to-r from-gray-900 to-gray-800 dark:from-gray-800 dark:to-gray-900 rounded-2xl p-8 text-white">
             <Crown className="w-12 h-12 mx-auto mb-4 text-yellow-400" />
-            <h3 className="text-2xl font-bold mb-4">Enterprise Solution</h3>
+            <h3 className="text-2xl font-bold mb-4 text-white">Enterprise Solution</h3>
             <p className="text-gray-300 mb-6 max-w-2xl mx-auto">
               For ₹10Cr+ brands with complex multi-channel operations requiring custom AI solutions and dedicated support.
             </p>

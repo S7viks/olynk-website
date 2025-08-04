@@ -3,9 +3,11 @@ import {
   Users, Target, Award, Globe, Heart, Lightbulb, 
   TrendingUp, Brain, Zap, Shield, Rocket, Star,
   CheckCircle, ArrowRight, Sparkles, Database,
-  BarChart3, Cpu, Network, Eye, Lock
+  BarChart3, Cpu, Network, Eye, Lock, Compass,
+  Target as TargetIcon, Scale, BookOpen, RefreshCw
 } from 'lucide-react';
 import { Link, useLocation } from 'react-router-dom';
+import EarlyAccess from '../components/EarlyAccess';
 
 export default function About() {
   const [isVisible, setIsVisible] = useState(false);
@@ -348,9 +350,7 @@ export default function About() {
                     Join thousands of businesses already making smarter decisions with Olynk
                   </p>
                   <a 
-                    href="https://forms.office.com/r/zd11g2RWDR"
-                    target="_blank"
-                    rel="noopener noreferrer"
+                    href="#early-access"
                     className="inline-flex items-center bg-white text-[#CD5C5C] hover:bg-gray-100 px-8 py-4 rounded-full font-bold text-lg transition-all duration-300 transform hover:scale-105 shadow-lg"
                   >
                     Get Early Access
@@ -416,9 +416,7 @@ export default function About() {
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <a
-                href="https://forms.office.com/r/zd11g2RWDR"
-                target="_blank"
-                rel="noopener noreferrer"
+                href="#early-access"
                 className="bg-gradient-to-r from-[#CD5C5C] to-[#B85450] hover:from-[#B85450] hover:to-[#A84844] text-white px-8 py-4 rounded-full font-bold text-lg transition-all duration-300 transform hover:scale-105 shadow-lg flex items-center justify-center"
               >
                 <Rocket className="w-5 h-5 mr-2" />
@@ -433,6 +431,190 @@ export default function About() {
               </Link>
             </div>
           </div>
+        </div>
+      </section>
+
+      {/* Vision Statement Section */}
+      <section className="py-20 px-4 sm:px-6 lg:px-8 relative z-10">
+        <div className="max-w-6xl mx-auto">
+          <div className="bg-gradient-to-r from-white/80 dark:from-gray-800/80 to-amber-50/80 dark:to-blue-700/80 backdrop-blur-lg rounded-3xl p-12 border border-[#CD5C5C]/50 dark:border-blue-700/50 hover:border-[#CD5C5C]/50 dark:hover:border-blue-600/50 transition-all duration-500 animate-bounce-unique shadow-xl">
+            <div className="text-center mb-12">
+              <div className="inline-flex items-center bg-gradient-to-r from-[#CD5C5C]/20 dark:from-blue-700/20 to-[#D16B6B]/20 dark:to-blue-600/20 backdrop-blur-sm border border-[#CD5C5C]/30 dark:border-blue-600/30 rounded-full px-6 py-3 mb-6 animate-bounce-unique">
+                <Compass className="w-5 h-5 text-[#CD5C5C] dark:text-[#CD5C5C] mr-2" />
+                <span className="text-[#B85450] dark:text-[#CD5C5C] font-medium">Our Vision</span>
+              </div>
+              <h2 className="text-5xl font-bold text-slate-800 dark:text-gray-100 mb-6 animate-fade-in">
+                <span className="bg-gradient-to-r from-[#CD5C5C] to-[#B85450] bg-clip-text text-transparent">
+                  Vision Statement
+                </span>
+              </h2>
+            </div>
+            
+            <div className="space-y-8">
+              <div className="bg-gradient-to-r from-[#CD5C5C]/20 dark:from-blue-800 to-[#D16B6B]/20 dark:to-blue-700 backdrop-blur-sm rounded-2xl p-8 border border-[#CD5C5C]/50 dark:border-[#CD5C5C]/50 hover:border-[#CD5C5C]/50 dark:hover:border-[#CD5C5C]/50 transition-all duration-300 animate-bounce-gentle">
+                <h3 className="text-2xl font-bold text-slate-800 dark:text-gray-200 mb-4 flex items-center">
+                  <TargetIcon className="w-6 h-6 text-[#CD5C5C] dark:text-[#CD5C5C] mr-3" />
+                  India's Digital Commerce Nervous System
+                </h3>
+                <p className="text-lg text-slate-600 dark:text-slate-300 leading-relaxed">
+                  To become the intelligent nervous system of India's digital commerce ecosystem, where every operational decision is data-driven, every workflow is optimized, and every brand can scale without operational complexity. We envision a future where D2C brands can focus entirely on innovation and customer experience while their operations run autonomously through AI.
+                </p>
+              </div>
+              
+              <div className="bg-gradient-to-r from-[#D16B6B]/20 dark:from-blue-800 to-[#CD5C5C]/20 dark:to-blue-700 backdrop-blur-sm rounded-2xl p-8 border border-[#CD5C5C]/50 dark:border-[#CD5C5C]/50 hover:border-[#CD5C5C]/50 dark:hover:border-[#CD5C5C]/50 transition-all duration-300 animate-bounce-gentle">
+                <h3 className="text-2xl font-bold text-slate-800 dark:text-gray-200 mb-4 flex items-center">
+                  <Globe className="w-6 h-6 text-[#CD5C5C] dark:text-[#CD5C5C] mr-3" />
+                  Global Standard for AI-Native Operations
+                </h3>
+                <p className="text-lg text-slate-600 dark:text-slate-300 leading-relaxed">
+                  Our vision extends beyond India – we aim to establish the global standard for AI-native operations platforms, starting with emerging markets where operational efficiency can unlock massive economic potential.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Enhanced Mission Statement Section */}
+      <section className="py-20 px-4 sm:px-6 lg:px-8 relative z-10">
+        <div className="max-w-6xl mx-auto">
+          <div className="bg-gradient-to-r from-white/80 dark:from-gray-800/80 to-amber-50/80 dark:to-blue-700/80 backdrop-blur-lg rounded-3xl p-12 border border-[#CD5C5C]/50 dark:border-blue-700/50 hover:border-[#CD5C5C]/50 dark:hover:border-blue-600/50 transition-all duration-500 animate-bounce-unique shadow-xl">
+            <div className="text-center mb-12">
+              <div className="inline-flex items-center bg-gradient-to-r from-[#CD5C5C]/20 dark:from-blue-700/20 to-[#D16B6B]/20 dark:to-blue-600/20 backdrop-blur-sm border border-[#CD5C5C]/30 dark:border-blue-600/30 rounded-full px-6 py-3 mb-6 animate-bounce-unique">
+                <Rocket className="w-5 h-5 text-[#CD5C5C] dark:text-[#CD5C5C] mr-2" />
+                <span className="text-[#B85450] dark:text-[#CD5C5C] font-medium">Our Mission</span>
+              </div>
+              <h2 className="text-5xl font-bold text-slate-800 dark:text-gray-100 mb-6 animate-fade-in">
+                <span className="bg-gradient-to-r from-[#CD5C5C] to-[#B85450] bg-clip-text text-transparent">
+                  Mission Statement
+                </span>
+              </h2>
+              <p className="text-xl text-slate-600 dark:text-slate-300 leading-relaxed max-w-4xl mx-auto mb-8">
+                We eliminate operational chaos for Indian D2C brands by providing an AI-powered Virtual COO that predicts, prevents, and optimizes across the entire operations stack.
+              </p>
+            </div>
+            
+            <div className="grid md:grid-cols-3 gap-8">
+              <div className="bg-gradient-to-r from-[#CD5C5C]/20 dark:from-blue-800 to-[#D16B6B]/20 dark:to-blue-700 backdrop-blur-sm rounded-2xl p-6 border border-[#CD5C5C]/50 dark:border-[#CD5C5C]/50 hover:border-[#CD5C5C]/50 dark:hover:border-[#CD5C5C]/50 transition-all duration-300 animate-bounce-gentle">
+                <h3 className="text-xl font-bold text-slate-800 dark:text-gray-200 mb-4 flex items-center">
+                  <TrendingUp className="w-6 h-6 text-[#CD5C5C] dark:text-[#CD5C5C] mr-3" />
+                  Operational Excellence
+                </h3>
+                <p className="text-slate-600 dark:text-slate-300">
+                  Transform reactive operations into proactive intelligence
+                </p>
+              </div>
+              
+              <div className="bg-gradient-to-r from-[#D16B6B]/20 dark:from-blue-800 to-[#CD5C5C]/20 dark:to-blue-700 backdrop-blur-sm rounded-2xl p-6 border border-[#CD5C5C]/50 dark:border-[#CD5C5C]/50 hover:border-[#CD5C5C]/50 dark:hover:border-[#CD5C5C]/50 transition-all duration-300 animate-bounce-gentle">
+                <h3 className="text-xl font-bold text-slate-800 dark:text-gray-200 mb-4 flex items-center">
+                  <Rocket className="w-6 h-6 text-[#CD5C5C] dark:text-[#CD5C5C] mr-3" />
+                  Growth Enablement
+                </h3>
+                <p className="text-slate-600 dark:text-slate-300">
+                  Free founders from operational constraints to focus on strategic growth
+                </p>
+              </div>
+              
+              <div className="bg-gradient-to-r from-[#CD5C5C]/20 dark:from-blue-800 to-[#D16B6B]/20 dark:to-blue-700 backdrop-blur-sm rounded-2xl p-6 border border-[#CD5C5C]/50 dark:border-[#CD5C5C]/50 hover:border-[#CD5C5C]/50 dark:hover:border-[#CD5C5C]/50 transition-all duration-300 animate-bounce-gentle">
+                <h3 className="text-xl font-bold text-slate-800 dark:text-gray-200 mb-4 flex items-center">
+                  <Scale className="w-6 h-6 text-[#CD5C5C] dark:text-[#CD5C5C] mr-3" />
+                  Market Democratization
+                </h3>
+                <p className="text-slate-600 dark:text-slate-300">
+                  Make enterprise-grade operational intelligence accessible to growing brands
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Core Values Section */}
+      <section className="py-20 px-4 sm:px-6 lg:px-8 relative z-10">
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-16">
+            <div className="inline-flex items-center bg-gradient-to-r from-[#CD5C5C]/20 dark:from-blue-700/20 to-[#D16B6B]/20 dark:to-blue-600/20 backdrop-blur-sm border border-[#CD5C5C]/30 dark:border-blue-600/30 rounded-full px-6 py-3 mb-6 animate-bounce-unique">
+              <Heart className="w-5 h-5 text-[#CD5C5C] dark:text-[#CD5C5C] mr-2" />
+              <span className="text-[#B85450] dark:text-[#CD5C5C] font-medium">Our Values</span>
+            </div>
+            <h2 className="text-5xl font-bold text-slate-800 dark:text-gray-100 mb-6">
+              <span className="bg-gradient-to-r from-[#CD5C5C] to-[#B85450] bg-clip-text text-transparent">
+                Core Values & Principles
+              </span>
+            </h2>
+            <p className="text-xl text-slate-600 dark:text-slate-300 max-w-3xl mx-auto">
+              The principles that guide every decision we make
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {[
+              {
+                icon: Brain,
+                title: 'Intelligence First',
+                description: 'Every feature begins with AI-driven insights. We don\'t build dashboards; we build decision-making partners.',
+                color: 'from-[#CD5C5C] to-[#B85450]',
+                bgColor: 'from-[#CD5C5C]/20 to-[#B85450]/20'
+              },
+              {
+                icon: Globe,
+                title: 'India-Centric Design',
+                description: 'Built specifically for Indian business practices, regulatory requirements, payment systems, and communication preferences.',
+                color: 'from-[#D16B6B] to-[#CD5C5C]',
+                bgColor: 'from-[#D16B6B]/20 to-[#CD5C5C]/20'
+              },
+              {
+                icon: Zap,
+                title: 'Radical Simplicity',
+                description: 'Complex backend, simple frontend. Operational sophistication shouldn\'t require technical expertise.',
+                color: 'from-[#CD5C5C] to-[#C24C4C]',
+                bgColor: 'from-[#CD5C5C]/20 to-[#C24C4C]/20'
+              },
+              {
+                icon: Target,
+                title: 'Outcome Obsession',
+                description: 'We measure success by customer ROI, not feature adoption or user engagement metrics.',
+                color: 'from-[#B85450] to-[#CD5C5C]',
+                bgColor: 'from-[#B85450]/20 to-[#CD5C5C]/20'
+              },
+              {
+                icon: Shield,
+                title: 'Transparency',
+                description: 'Open pricing, clear value propositions, and honest communication about capabilities and limitations.',
+                color: 'from-[#CD5C5C] to-[#B85450]',
+                bgColor: 'from-[#CD5C5C]/20 to-[#B85450]/20'
+              },
+              {
+                icon: RefreshCw,
+                title: 'Continuous Learning',
+                description: 'Our AI improves with every customer interaction, creating network effects that benefit all users.',
+                color: 'from-[#D16B6B] to-[#CD5C5C]',
+                bgColor: 'from-[#D16B6B]/20 to-[#CD5C5C]/20'
+              }
+            ].map((value, index) => (
+              <div
+                key={index}
+                className={`bg-gradient-to-r ${value.bgColor} dark:from-blue-800/80 dark:to-blue-700/80 backdrop-blur-lg rounded-2xl p-8 border border-[#CD5C5C]/30 dark:border-blue-700/30 hover:border-[#CD5C5C]/50 dark:hover:border-blue-600/50 transition-all duration-500 transform hover:scale-105 shadow-xl hover:shadow-2xl animate-bounce-gentle`}
+              >
+                <div className={`bg-gradient-to-r ${value.color} w-16 h-16 rounded-xl flex items-center justify-center mb-6 shadow-lg`}>
+                  <value.icon className="w-8 h-8 text-white" />
+                </div>
+                <h3 className="text-xl font-bold text-slate-800 dark:text-gray-200 mb-3">
+                  {value.title}
+                </h3>
+                <p className="text-slate-600 dark:text-slate-300">
+                  {value.description}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Early Access Section */}
+      <section id="early-access" className="py-20 px-4 sm:px-6 lg:px-8 relative z-10">
+        <div className="max-w-4xl mx-auto">
+          <EarlyAccess />
         </div>
       </section>
     </div>

@@ -4,7 +4,11 @@ import { supabase } from '../supabase';
 import { Link, useLocation } from 'react-router-dom';
 import Logo from './Logo';
 
-const Footer = () => {
+interface FooterProps {
+  hideContactUs?: boolean;
+}
+
+const Footer: React.FC<FooterProps> = ({ hideContactUs = false }) => {
   const location = useLocation();
   
   const [contactForm, setContactForm] = useState({
@@ -279,8 +283,8 @@ const Footer = () => {
               <div className="bg-white/10 rounded-full w-12 h-12 flex items-center justify-center mx-auto mb-3">
                 <Phone className="h-6 w-6" />
               </div>
-              <h3 className="text-lg font-bold mb-2">+91 799 335 9150</h3>
-              <p className="text-red-100 dark:text-blue-100 text-xs">
+              <h3 className="text-lg font-bold mb-2 text-white">+91 799 335 9150</h3>
+              <p className="text-white text-xs">
                 Ready to discuss your D2C challenges? Give us a call for immediate assistance.
               </p>
             </div>
@@ -290,8 +294,8 @@ const Footer = () => {
               <div className="bg-white/10 rounded-full w-12 h-12 flex items-center justify-center mx-auto mb-3">
                 <Mail className="h-6 w-6" />
               </div>
-              <h3 className="text-lg font-bold mb-2">Contact Us</h3>
-              <p className="text-gray-300 text-xs">
+              <h3 className="text-lg font-bold mb-2 text-white">Contact Us</h3>
+              <p className="text-white text-xs">
                 Get in touch for detailed discussions about AI solutions for your business.
               </p>
             </div>
@@ -301,8 +305,8 @@ const Footer = () => {
               <div className="bg-white/10 rounded-full w-12 h-12 flex items-center justify-center mx-auto mb-3">
                 <MapPin className="h-6 w-6" />
               </div>
-              <h3 className="text-lg font-bold mb-2">Hyderabad, India</h3>
-              <p className="text-gray-300 text-xs">
+              <h3 className="text-lg font-bold mb-2 text-white">Hyderabad, India</h3>
+              <p className="text-white text-xs">
                 Based in the heart of India's tech hub, serving D2C brands globally.
               </p>
             </div>
@@ -316,7 +320,7 @@ const Footer = () => {
           <h2 className="text-xl md:text-2xl font-bold text-white mb-3">
             Ready to Transform Your D2C Operations?
           </h2>
-          <p className="text-red-100 dark:text-blue-100 text-sm mb-6 max-w-xl mx-auto">
+          <p className="text-white text-sm mb-6 max-w-xl mx-auto">
             Join 1,000+ D2C brands using AI to prevent losses and maximize profits. Start your transformation today.
           </p>
           <div className="flex flex-col sm:flex-row gap-3 justify-center">
@@ -345,59 +349,61 @@ const Footer = () => {
             
             {/* Company Info */}
             <div className="md:col-span-1">
-              <div className="flex items-center space-x-2 mb-3">
-                <Logo size="sm" />
-                <h3 className="text-lg font-bold">olynk.ai</h3>
-              </div>
-              <p className="text-red-100 dark:text-blue-100 text-xs mb-3">
+                          <div className="flex items-center space-x-2 mb-3">
+              <Logo size="sm" />
+              <h3 className="text-lg font-bold text-white">olynk.ai</h3>
+            </div>
+              <p className="text-white text-xs mb-3">
                 Transforming D2C brands from reactive to proactive with cutting-edge AI solutions.
               </p>
               <div className="space-y-1 text-xs">
                 <div className="flex items-center space-x-2">
-                  <MapPin className="h-3 w-3" />
-                  <span>Hyderabad, Telangana, India</span>
+                  <MapPin className="h-3 w-3 text-white" />
+                  <span className="text-white">Hyderabad, Telangana, India</span>
                 </div>
                 <div className="flex items-center space-x-2">
-                  <Phone className="h-3 w-3" />
-                  <span>+91 799 335 9150</span>
+                  <Phone className="h-3 w-3 text-white" />
+                  <span className="text-white">+91 799 335 9150</span>
                 </div>
-                <div className="flex items-center space-x-2">
-                  <Mail className="h-3 w-3" />
-                  <span>Contact Us</span>
-                </div>
+                {!hideContactUs && (
+                  <div className="flex items-center space-x-2">
+                    <Mail className="h-3 w-3 text-white" />
+                    <span className="text-white">Contact Us</span>
+                  </div>
+                )}
               </div>
             </div>
 
             {/* Navigation */}
             <div>
-              <h4 className="text-base font-semibold mb-3">Navigation</h4>
+              <h4 className="text-base font-semibold mb-3 text-white">Navigation</h4>
               <ul className="space-y-1 text-xs">
-                <li><Link to="/" className="text-red-100 dark:text-blue-100 hover:text-white transition-colors">Home</Link></li>
-                <li><Link to="/about" className="text-red-100 dark:text-blue-100 hover:text-white transition-colors">About Us</Link></li>
-                <li><Link to="/demo" className="text-red-100 dark:text-blue-100 hover:text-white transition-colors">Demo</Link></li>
-                <li><Link to="/features" className="text-red-100 dark:text-blue-100 hover:text-white transition-colors">Features</Link></li>
+                <li><Link to="/" className="text-white hover:text-gray-200 transition-colors">Home</Link></li>
+                <li><Link to="/about" className="text-white hover:text-gray-200 transition-colors">About Us</Link></li>
+                <li><Link to="/demo" className="text-white hover:text-gray-200 transition-colors">Demo</Link></li>
+                <li><Link to="/features" className="text-white hover:text-gray-200 transition-colors">Features</Link></li>
               </ul>
             </div>
 
             {/* Quick Links */}
             <div>
-              <h4 className="text-base font-semibold mb-3">Quick Links</h4>
+              <h4 className="text-base font-semibold mb-3 text-white">Quick Links</h4>
               <ul className="space-y-1 text-xs">
-                <li><a href="https://forms.office.com/r/zd11g2RWDR" target="_blank" rel="noopener noreferrer" className="text-red-100 dark:text-blue-100 hover:text-white transition-colors">Get Early Access</a></li>
-                <li><Link to="/pricing" className="text-red-100 dark:text-blue-100 hover:text-white transition-colors">Pricing</Link></li>
-                <li><Link to="/benefits" className="text-red-100 dark:text-blue-100 hover:text-white transition-colors">Benefits</Link></li>
-                <li><Link to="#" className="text-red-100 dark:text-blue-100 hover:text-white transition-colors">Support</Link></li>
+                <li><a href="https://forms.office.com/r/zd11g2RWDR" target="_blank" rel="noopener noreferrer" className="text-white hover:text-gray-200 transition-colors">Get Early Access</a></li>
+                <li><Link to="/pricing" className="text-white hover:text-gray-200 transition-colors">Pricing</Link></li>
+                <li><Link to="/benefits" className="text-white hover:text-gray-200 transition-colors">Benefits</Link></li>
+                <li><Link to="#" className="text-white hover:text-gray-200 transition-colors">Support</Link></li>
               </ul>
             </div>
 
             {/* AI Solutions */}
             <div>
-              <h4 className="text-base font-semibold mb-3">AI Solutions</h4>
+              <h4 className="text-base font-semibold mb-3 text-white">AI Solutions</h4>
               <ul className="space-y-1 text-xs">
-                <li><span className="text-red-100 dark:text-blue-100">Data Unification</span></li>
-                <li><span className="text-red-100 dark:text-blue-100">Smart Integration</span></li>
-                <li><span className="text-red-100 dark:text-blue-100">Inventory Intelligence</span></li>
-                <li><span className="text-red-100 dark:text-blue-100">Order Orchestration</span></li>
+                <li><span className="text-white">Data Unification</span></li>
+                <li><span className="text-white">Smart Integration</span></li>
+                <li><span className="text-white">Inventory Intelligence</span></li>
+                <li><span className="text-white">Order Orchestration</span></li>
               </ul>
             </div>
           </div>
@@ -409,8 +415,8 @@ const Footer = () => {
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col md:flex-row justify-between items-center">
             <div className="flex items-center space-x-2 text-sm">
-              <Heart className="h-4 w-4 text-red-300 dark:text-blue-300 animate-pulse" />
-              <span>© 2024 Olynk.ai - Crafted with AI for D2C success</span>
+              <Heart className="h-4 w-4 text-white animate-pulse" />
+              <span className="text-white">© 2024 Olynk.ai - Crafted with AI for D2C success</span>
             </div>
             <div className="flex items-center space-x-4 mt-2 md:mt-0">
               <button
