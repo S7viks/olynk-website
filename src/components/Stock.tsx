@@ -35,28 +35,28 @@ const StorybookChart: React.FC<{ scene: number; showAI: boolean; className?: str
       title: "Peaceful Operations",
       description: "Normal sales patterns, steady inventory flow",
       data: [120, 135, 110, 125, 130, 140, 115],
-      color: "from-blue-400 to-blue-500",
+      color: "blue",
       icon: TrendingUp
     },
     {
       title: "Rising Tension",
       description: "First signs of increased demand",
       data: [120, 135, 150, 180, 200, 220, 240],
-      color: "from-yellow-400 to-orange-500",
+      color: "orange",
       icon: Clock
     },
     {
       title: "Critical Phase",
       description: "Demand skyrockets, inventory depleting fast",
       data: [240, 280, 320, 380, 420, 450, 480],
-      color: "from-orange-400 to-red-500",
+      color: "red",
       icon: AlertTriangle
     },
     {
       title: "Crisis Point",
       description: "Complete stockout, revenue loss begins",
       data: [480, 520, 0, 0, 0, 0, 0],
-      color: "from-red-400 to-red-600",
+      color: "red",
       icon: AlertTriangle
     }
   ];
@@ -86,7 +86,7 @@ const StorybookChart: React.FC<{ scene: number; showAI: boolean; className?: str
       {/* Story Header */}
       <div className="mb-3 text-center">
         <div className="flex items-center justify-center gap-2 mb-1">
-          <div className={`w-6 h-6 bg-gradient-to-r ${currentStory.color} rounded-lg flex items-center justify-center shadow-lg animate-pulse`}>
+          <div className={`w-6 h-6 bg-${currentStory.color}-500 rounded-lg flex items-center justify-center shadow-sm animate-pulse`}>
             <Icon className="w-3 h-3 text-white" />
           </div>
           <h3 className="text-base font-bold text-gray-800 dark:text-white">{currentStory.title}</h3>
@@ -95,22 +95,22 @@ const StorybookChart: React.FC<{ scene: number; showAI: boolean; className?: str
       </div>
 
       {/* Animated Chart */}
-      <div className="relative h-48 bg-gradient-to-br from-gray-50 to-gray-100 dark:from-gray-800 dark:to-gray-900 rounded-lg p-3 border border-gray-200 dark:border-gray-700">
+      <div className="relative h-48 bg-gray-50 dark:bg-gray-800 rounded-lg p-3 border border-gray-200 dark:border-gray-700">
         <div className="flex items-end justify-between h-full gap-1">
           {animatedValues.map((value, index) => (
             <div key={index} className="flex-1 flex flex-col items-center">
               <div className="relative w-full flex justify-center items-end h-36">
                 <div
-                  className={`w-4 bg-gradient-to-t ${currentStory.color} rounded-t-lg shadow-md transition-all duration-1000 ease-out ${
+                  className={`w-4 bg-blue-500 rounded-t-lg shadow-sm transition-all duration-1000 ease-out ${
                     isAnimating ? 'animate-bounce' : ''
                   }`}
                   style={{
-                    height: `${(value / 500) * 100}%`,
+                    height: `${Math.min((value / 500) * 100, 100)}%`,
                     animationDelay: `${index * 150}ms`
                   }}
                 />
                 {showAI && scene >= 1 && index >= 4 && (
-                  <div className="absolute -top-1 -right-1 w-2 h-2 bg-green-400 rounded-full border border-white shadow-lg animate-ping" />
+                  <div className="absolute -top-1 -right-1 w-2 h-2 bg-green-500 rounded-full border border-white shadow-sm animate-ping" />
                 )}
               </div>
               <div className="text-xs text-gray-600 dark:text-gray-400 mt-1">
@@ -123,7 +123,7 @@ const StorybookChart: React.FC<{ scene: number; showAI: boolean; className?: str
         {/* AI Prediction Overlay */}
         {showAI && scene >= 1 && (
           <div
-            className="absolute inset-0 bg-gradient-to-r from-green-400/20 to-blue-400/20 rounded-lg animate-pulse"
+            className="absolute inset-0 bg-green-500/10 rounded-lg animate-pulse"
             style={{ animationDelay: '1s' }}
           />
         )}
@@ -210,7 +210,7 @@ const SmartInventory: React.FC<{ scene: number; showAI: boolean }> = ({ scene, s
 
       {/* AI Insights */}
       {showAI && (
-        <div className="bg-gradient-to-r from-green-50 to-blue-50 border border-green-200 rounded-lg p-2 animate-fade-in">
+        <div className="bg-green-50 border border-green-200 rounded-lg p-2 animate-fade-in">
           <div className="flex items-center gap-1 mb-1">
             <Brain className="w-3 h-3 text-green-600 animate-pulse" />
             <span className="font-semibold text-xs text-green-700">AI Insights</span>
@@ -331,15 +331,15 @@ const AIProtector: React.FC = () => {
       <div className="space-y-1 text-xs">
         <div className="flex items-center gap-1">
           <div className="w-1.5 h-1.5 bg-green-400 rounded-full animate-pulse" />
-          <span className="text-purple-100">Demand spike detected 7 days ago</span>
+          <span className="text-blue-100">Demand spike detected 7 days ago</span>
         </div>
         <div className="flex items-center gap-1">
           <div className="w-1.5 h-1.5 bg-green-400 rounded-full animate-pulse" />
-          <span className="text-purple-100">Restocking order placed automatically</span>
+          <span className="text-blue-100">Restocking order placed automatically</span>
         </div>
         <div className="flex items-center gap-1">
           <div className="w-1.5 h-1.5 bg-green-400 rounded-full animate-pulse" />
-          <span className="text-purple-100">Zero stockout risk maintained</span>
+          <span className="text-blue-100">Zero stockout risk maintained</span>
         </div>
       </div>
     </div>
@@ -566,9 +566,9 @@ const Stock: React.FC<StockProps> = ({ isLoaded, onClose }) => {
 
             {/* AI Predictor */}
             {showAI && (
-              <div className="bg-gradient-to-r from-purple-600 to-blue-600 dark:from-purple-500 dark:to-blue-500 rounded-lg p-3 text-white shadow-md border border-purple-400/30 dark:border-blue-400/30 animate-fade-in">
-                <AIProtector />
-              </div>
+                          <div className="bg-blue-600 dark:bg-blue-500 rounded-lg p-3 text-white shadow-md border border-blue-400/30 animate-fade-in">
+              <AIProtector />
+            </div>
             )}
           </div>
         </div>
@@ -617,31 +617,31 @@ const Stock: React.FC<StockProps> = ({ isLoaded, onClose }) => {
             </div>
           </div>
 
-          <div className="bg-gradient-to-r from-purple-600 to-blue-600 dark:from-purple-500 dark:to-blue-500 rounded-lg shadow-md p-3 text-white relative overflow-hidden border border-purple-400/30 dark:border-blue-400/30">
+          <div className="bg-blue-600 dark:bg-blue-500 rounded-lg shadow-md p-3 text-white relative overflow-hidden border border-blue-400/30">
             <div className="relative z-10">
               <h3 className="text-base font-bold mb-3 flex items-center gap-2">
-                <div className="w-5 h-5 bg-white/20 rounded-lg flex items-center justify-center shadow-md">
+                <div className="w-5 h-5 bg-white/20 rounded-lg flex items-center justify-center shadow-sm">
                   <Brain className="w-2.5 h-2.5 text-white" />
                 </div>
                 With AI Prediction
               </h3>
               <div className="space-y-2">
                 <div className="flex items-center gap-2 p-2 bg-white/10 rounded-lg border border-white/20">
-                  <div className="w-6 h-6 bg-white/20 rounded-lg flex items-center justify-center shadow-md">
+                  <div className="w-6 h-6 bg-white/20 rounded-lg flex items-center justify-center shadow-sm">
                     <Brain className="w-3 h-3 text-white" />
                   </div>
                   <div>
                     <p className="font-bold text-xs">7-Day Advance Warning</p>
-                    <p className="text-xs text-purple-100">Predict demand spikes before they happen</p>
+                    <p className="text-xs text-blue-100">Predict demand spikes before they happen</p>
                   </div>
                 </div>
                 <div className="flex items-center gap-2 p-2 bg-white/10 rounded-lg border border-white/20">
-                  <div className="w-6 h-6 bg-white/20 rounded-lg flex items-center justify-center shadow-md">
+                  <div className="w-6 h-6 bg-white/20 rounded-lg flex items-center justify-center shadow-sm">
                     <TrendingUp className="w-3 h-3 text-white" />
                   </div>
                   <div>
                     <p className="font-bold text-xs">100% Availability Maintained</p>
-                    <p className="text-xs text-purple-100">Automated reorder recommendations</p>
+                    <p className="text-xs text-blue-100">Automated reorder recommendations</p>
                   </div>
                 </div>
               </div>

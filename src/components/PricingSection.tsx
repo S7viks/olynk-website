@@ -63,7 +63,7 @@ const PricingSection = () => {
       annualPrice: 307200, // 20% discount
       originalAnnualPrice: 384000,
       orderLimit: '5,000 orders/month',
-      revenueRange: '₹5-10Cr',
+      potentialSavings: '₹8-12L/month',
       features: [
         { name: 'Everything in AI Advisor', included: true },
         { name: 'Advanced predictive analytics', included: true },
@@ -120,7 +120,7 @@ const PricingSection = () => {
             AI-Powered Pricing That Scales With Your Success
           </h2>
           <p className="text-xl text-gray-600 dark:text-gray-300 mb-8 max-w-3xl mx-auto">
-            Choose the plan that matches your business size. All plans include our complete AI operations advisor with proven ROI.
+            Choose the plan that matches your potential savings. All plans include our complete AI operations advisor with proven ROI.
           </p>
           
           {/* Risk Reversal Elements */}
@@ -219,7 +219,7 @@ const PricingSection = () => {
                   <div className="flex items-center space-x-4 mb-6 text-sm">
                     <div className="flex items-center space-x-2">
                       <div className="w-2 h-2 bg-green-500 rounded-full"></div>
-                      <span className="text-gray-600 dark:text-gray-300">{tier.revenueRange}</span>
+                      <span className="text-gray-600 dark:text-gray-300">{tier.potentialSavings}</span>
                     </div>
                     <div className="flex items-center space-x-2">
                       <div className="w-2 h-2 bg-blue-500 rounded-full"></div>
