@@ -184,7 +184,7 @@ const SmartInventory: React.FC<{ scene: number; showAI: boolean }> = ({ scene, s
             inventory < 300 ? 'bg-orange-500' :
             'bg-blue-500'
           }`}
-          style={{ width: `${Math.min((inventory / 1200) * 100, 100)}%` }}
+          style={{ width: `${Math.min((inventory / 1200) * 85, 85)}%` }}
         />
       </div>
 
@@ -283,7 +283,7 @@ const FinancialImpact: React.FC<{ scene: number; showAI: boolean }> = ({ scene, 
             displayAmount < 50000 ? 'bg-orange-500' :
             'bg-red-500'
           }`}
-          style={{ width: `${Math.min((displayAmount / 230000) * 100, 100)}%` }}
+          style={{ width: `${Math.min((displayAmount / 230000) * 85, 85)}%` }}
         />
       </div>
 

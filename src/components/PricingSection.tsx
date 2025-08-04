@@ -13,8 +13,8 @@ const PricingSection = () => {
       monthlyPrice: 10000,
       annualPrice: 96000, // 20% discount
       originalAnnualPrice: 120000,
-      orderLimit: '500 orders/month',
-      potentialSavings: '₹2-3L/month',
+      orderLimit: 'Up to 500 orders',
+      potentialSavings: '₹2-3 Lakhs saved',
       features: [
         { name: 'Core 5 AI modules included', included: true },
         { name: 'Weekly insights and recommendations', included: true },
@@ -37,8 +37,8 @@ const PricingSection = () => {
       monthlyPrice: 18000,
       annualPrice: 172800, // 20% discount
       originalAnnualPrice: 216000,
-      orderLimit: '1,000 orders/month',
-      potentialSavings: '₹4-6L/month',
+      orderLimit: 'Up to 1,000 orders',
+      potentialSavings: '₹4-6 Lakhs saved',
       features: [
         { name: 'All 7 AI modules included', included: true },
         { name: 'Daily insights and recommendations', included: true },
@@ -62,8 +62,8 @@ const PricingSection = () => {
       monthlyPrice: 32000,
       annualPrice: 307200, // 20% discount
       originalAnnualPrice: 384000,
-      orderLimit: '5,000 orders/month',
-      potentialSavings: '₹8-12L/month',
+      orderLimit: 'Up to 5,000 orders',
+      potentialSavings: '₹8-12 Lakhs saved',
       features: [
         { name: 'Everything in AI Advisor', included: true },
         { name: 'Advanced predictive analytics', included: true },
@@ -216,14 +216,20 @@ const PricingSection = () => {
                     )}
                   </div>
 
-                  <div className="flex items-center space-x-4 mb-6 text-sm">
-                    <div className="flex items-center space-x-2">
-                      <div className="w-2 h-2 bg-green-500 rounded-full"></div>
-                      <span className="text-gray-600 dark:text-gray-300">{tier.potentialSavings}</span>
+                  <div className="space-y-3 mb-6">
+                    <div className="flex items-center justify-between p-3 bg-green-50 dark:bg-green-900/20 rounded-lg border border-green-200 dark:border-green-800">
+                      <div className="flex items-center space-x-2">
+                        <div className="w-3 h-3 bg-green-500 rounded-full"></div>
+                        <span className="text-sm font-medium text-green-700 dark:text-green-300">Potential Savings</span>
+                      </div>
+                      <span className="text-sm font-bold text-green-700 dark:text-green-300">{tier.potentialSavings}</span>
                     </div>
-                    <div className="flex items-center space-x-2">
-                      <div className="w-2 h-2 bg-blue-500 rounded-full"></div>
-                      <span className="text-gray-600 dark:text-gray-300">{tier.orderLimit}</span>
+                    <div className="flex items-center justify-between p-3 bg-blue-50 dark:bg-blue-900/20 rounded-lg border border-blue-200 dark:border-blue-800">
+                      <div className="flex items-center space-x-2">
+                        <div className="w-3 h-3 bg-blue-500 rounded-full"></div>
+                        <span className="text-sm font-medium text-blue-700 dark:text-blue-300">Order Capacity</span>
+                      </div>
+                      <span className="text-sm font-bold text-blue-700 dark:text-blue-300">{tier.orderLimit}</span>
                     </div>
                   </div>
 
