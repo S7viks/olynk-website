@@ -192,24 +192,7 @@ const PricingSection = () => {
             )}
           </div>
           
-          {/* Debug State Display */}
-          <div className="text-center mb-4 text-sm text-gray-500">
-            Current State: {isAnnual ? 'Annual' : 'Monthly'} | 
-            Starter Price: ₹{isAnnual ? (10000 * 0.8).toFixed(0) : 10000}/month
-          </div>
-          
-          {/* Test Button */}
-          <div className="text-center mb-4">
-            <button 
-              onClick={() => {
-                alert(`Current state: ${isAnnual ? 'Annual' : 'Monthly'}`);
-                setIsAnnual(!isAnnual);
-              }}
-              className="bg-blue-500 text-white px-4 py-2 rounded"
-            >
-              Test Toggle (Current: {isAnnual ? 'Annual' : 'Monthly'})
-            </button>
-          </div>
+
         </div>
 
         {/* Quick Comparison Table */}
