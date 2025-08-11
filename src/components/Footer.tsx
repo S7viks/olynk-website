@@ -342,71 +342,7 @@ const Footer: React.FC<FooterProps> = ({ hideContactUs = false }) => {
         </div>
       </div>
 
-      {/* Founder Information */}
-      <div className="relative z-10 bg-white/90 dark:bg-gray-800/90 backdrop-blur-sm py-8 border-b border-gray-200 dark:border-gray-700">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-6">
-            <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-2">
-              Meet Our Founder
-            </h3>
-            <div className="w-16 h-1 bg-gradient-to-r from-red-500 to-red-600 dark:from-blue-400 dark:to-blue-500 mx-auto"></div>
-          </div>
-          
-          <div className="bg-gradient-to-br from-red-50 to-red-100 dark:from-blue-900/20 dark:to-blue-800/20 rounded-xl p-6 border border-red-200 dark:border-blue-800">
-            <div className="text-center">
-              <div className="w-20 h-20 bg-gradient-to-br from-red-500 to-red-600 dark:from-blue-500 dark:to-blue-600 rounded-full flex items-center justify-center mx-auto mb-4">
-                <span className="text-2xl font-bold text-white">SC</span>
-              </div>
-              <h4 className="text-lg font-bold text-gray-900 dark:text-white mb-1">
-                Chennapragada Sathvik
-              </h4>
-              <p className="text-red-600 dark:text-blue-400 font-medium mb-3">Founder & CEO</p>
-              
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 max-w-2xl mx-auto">
-                <div className="space-y-2">
-                  <div className="flex items-center justify-center space-x-2">
-                    <Mail className="h-4 w-4 text-gray-600 dark:text-gray-400" />
-                    <a href="mailto:sathvik.chenna@gmail.com" className="text-gray-700 dark:text-gray-300 hover:text-red-600 dark:hover:text-blue-400 transition-colors text-sm">
-                      sathvik.chenna@gmail.com
-                    </a>
-                  </div>
-                  <div className="flex items-center justify-center space-x-2">
-                    <Phone className="h-4 w-4 text-gray-600 dark:text-gray-400" />
-                    <a href="tel:+917993359150" className="text-gray-700 dark:text-gray-300 hover:text-red-600 dark:hover:text-blue-400 transition-colors text-sm">
-                      +91 7993359150
-                    </a>
-                  </div>
-                </div>
-                
-                <div className="space-y-2">
-                  <div className="flex items-center justify-center space-x-2">
-                    <ExternalLink className="h-4 w-4 text-gray-600 dark:text-gray-400" />
-                    <a href="https://linkedin.com/in/chennapragada-sathvik/" target="_blank" rel="noopener noreferrer" className="text-gray-700 dark:text-gray-300 hover:text-red-600 dark:hover:text-blue-400 transition-colors text-sm">
-                      LinkedIn Profile
-                    </a>
-                  </div>
-                  <div className="flex items-center justify-center space-x-2">
-                    <Globe className="h-4 w-4 text-gray-600 dark:text-gray-400" />
-                    <a href="https://olynkai.vercel.app" target="_blank" rel="noopener noreferrer" className="text-gray-700 dark:text-gray-300 hover:text-red-600 dark:hover:text-blue-400 transition-colors text-sm">
-                      olynkai.vercel.app
-                    </a>
-                  </div>
-                </div>
-              </div>
-              
-              <div className="mt-4 pt-4 border-t border-red-200 dark:border-blue-800">
-                <div className="flex justify-center space-x-4 text-sm">
-                  <a href="https://linkedin.com/company/olynkai" target="_blank" rel="noopener noreferrer" className="text-gray-600 dark:text-gray-400 hover:text-red-600 dark:hover:text-blue-400 transition-colors">
-                    Company LinkedIn
-                  </a>
-                  <span className="text-gray-400">•</span>
-                  <span className="text-gray-600 dark:text-gray-400">Instagram: @olynk.ai</span>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+
 
       {/* Footer Navigation */}
       <div className="relative z-10 bg-gradient-to-r from-red-600 to-red-700 dark:from-blue-600 dark:to-blue-700 text-white py-8">
