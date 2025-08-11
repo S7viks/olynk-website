@@ -6,6 +6,8 @@ import { Check, Star, Zap, Crown, ArrowRight, Users, Database, Brain, BarChart3,
 const PricingSection = () => {
   const [isAnnual, setIsAnnual] = useState(false);
 
+
+
   const pricingTiers = [
     {
       name: 'AI Starter',
@@ -189,6 +191,25 @@ const PricingSection = () => {
               </span>
             )}
           </div>
+          
+          {/* Debug State Display */}
+          <div className="text-center mb-4 text-sm text-gray-500">
+            Current State: {isAnnual ? 'Annual' : 'Monthly'} | 
+            Starter Price: ₹{isAnnual ? (10000 * 0.8).toFixed(0) : 10000}/month
+          </div>
+          
+          {/* Test Button */}
+          <div className="text-center mb-4">
+            <button 
+              onClick={() => {
+                alert(`Current state: ${isAnnual ? 'Annual' : 'Monthly'}`);
+                setIsAnnual(!isAnnual);
+              }}
+              className="bg-blue-500 text-white px-4 py-2 rounded"
+            >
+              Test Toggle (Current: {isAnnual ? 'Annual' : 'Monthly'})
+            </button>
+          </div>
         </div>
 
         {/* Quick Comparison Table */}
@@ -200,72 +221,72 @@ const PricingSection = () => {
             <table className="w-full bg-white dark:bg-gray-800 rounded-lg shadow-lg">
               <thead>
                 <tr className="border-b border-gray-200 dark:border-gray-700">
-                  <th className="px-6 py-4 text-left text-sm font-semibold text-gray-900 dark:text-white">Feature/Capability</th>
-                  <th className="px-6 py-4 text-center text-sm font-semibold text-gray-900 dark:text-white">Starter (₹10k/mo)</th>
-                  <th className="px-6 py-4 text-center text-sm font-semibold text-gray-900 dark:text-white">Growth (₹18k/mo)</th>
-                  <th className="px-6 py-4 text-center text-sm font-semibold text-gray-900 dark:text-white">Scale (₹32k/mo)</th>
+                  <th className="px-6 py-4 text-left text-base font-semibold text-gray-900 dark:text-white">Feature/Capability</th>
+                  <th className="px-6 py-4 text-center text-base font-semibold text-gray-900 dark:text-white">Starter (₹10k/mo)</th>
+                  <th className="px-6 py-4 text-center text-base font-semibold text-gray-900 dark:text-white">Growth (₹18k/mo)</th>
+                  <th className="px-6 py-4 text-center text-base font-semibold text-gray-900 dark:text-white">Scale (₹32k/mo)</th>
                 </tr>
               </thead>
               <tbody className="divide-y divide-gray-200 dark:divide-gray-700">
                 <tr className="hover:bg-gray-50 dark:hover:bg-gray-700">
-                  <td className="px-6 py-4 text-sm font-medium text-gray-900 dark:text-white">Included Seats</td>
-                  <td className="px-6 py-4 text-sm text-center text-gray-600 dark:text-gray-300">2</td>
-                  <td className="px-6 py-4 text-sm text-center text-gray-600 dark:text-gray-300">5</td>
-                  <td className="px-6 py-4 text-sm text-center text-gray-600 dark:text-gray-300">10</td>
+                  <td className="px-6 py-4 text-base font-medium text-gray-900 dark:text-white">Included Seats</td>
+                  <td className="px-6 py-4 text-base text-center text-gray-600 dark:text-gray-300">2</td>
+                  <td className="px-6 py-4 text-base text-center text-gray-600 dark:text-gray-300">5</td>
+                  <td className="px-6 py-4 text-base text-center text-gray-600 dark:text-gray-300">10</td>
                 </tr>
                 <tr className="hover:bg-gray-50 dark:hover:bg-gray-700">
-                  <td className="px-6 py-4 text-sm font-medium text-gray-900 dark:text-white">Standard Connectors</td>
-                  <td className="px-6 py-4 text-sm text-center text-gray-600 dark:text-gray-300">1 (Shopify/WooCommerce)</td>
-                  <td className="px-6 py-4 text-sm text-center text-gray-600 dark:text-gray-300">3 (eCommerce, ERP, Ads)</td>
-                  <td className="px-6 py-4 text-sm text-center text-gray-600 dark:text-gray-300">Unlimited (standard set)</td>
+                  <td className="px-6 py-4 text-base font-medium text-gray-900 dark:text-white">Standard Connectors</td>
+                  <td className="px-6 py-4 text-base text-center text-gray-600 dark:text-gray-300">1 (Shopify/WooCommerce)</td>
+                  <td className="px-6 py-4 text-base text-center text-gray-600 dark:text-gray-300">3 (eCommerce, ERP, Ads)</td>
+                  <td className="px-6 py-4 text-base text-center text-gray-600 dark:text-gray-300">Unlimited (standard set)</td>
                 </tr>
                 <tr className="hover:bg-gray-50 dark:hover:bg-gray-700">
-                  <td className="px-6 py-4 text-sm font-medium text-gray-900 dark:text-white">AI Credits/Month</td>
-                  <td className="px-6 py-4 text-sm text-center text-gray-600 dark:text-gray-300">2,000</td>
-                  <td className="px-6 py-4 text-sm text-center text-gray-600 dark:text-gray-300">7,000</td>
-                  <td className="px-6 py-4 text-sm text-center text-gray-600 dark:text-gray-300">25,000</td>
+                  <td className="px-6 py-4 text-base font-medium text-gray-900 dark:text-white">AI Credits/Month</td>
+                  <td className="px-6 py-4 text-base text-center text-gray-600 dark:text-gray-300">2,000</td>
+                  <td className="px-6 py-4 text-base text-center text-gray-600 dark:text-gray-300">7,000</td>
+                  <td className="px-6 py-4 text-base text-center text-gray-600 dark:text-gray-300">25,000</td>
                 </tr>
                 <tr className="hover:bg-gray-50 dark:hover:bg-gray-700">
-                  <td className="px-6 py-4 text-sm font-medium text-gray-900 dark:text-white">Dashboards</td>
-                  <td className="px-6 py-4 text-sm text-center text-gray-600 dark:text-gray-300">Pre-built operations dashboard</td>
-                  <td className="px-6 py-4 text-sm text-center text-gray-600 dark:text-gray-300">Custom widgets + saved views</td>
-                  <td className="px-6 py-4 text-sm text-center text-gray-600 dark:text-gray-300">Fully custom + exports</td>
+                  <td className="px-6 py-4 text-base font-medium text-gray-900 dark:text-white">Dashboards</td>
+                  <td className="px-6 py-4 text-base text-center text-gray-600 dark:text-gray-300">Pre-built operations dashboard</td>
+                  <td className="px-6 py-4 text-base text-center text-gray-600 dark:text-gray-300">Custom widgets + saved views</td>
+                  <td className="px-6 py-4 text-base text-center text-gray-600 dark:text-gray-300">Fully custom + exports</td>
                 </tr>
                 <tr className="hover:bg-gray-50 dark:hover:bg-gray-700">
-                  <td className="px-6 py-4 text-sm font-medium text-gray-900 dark:text-white">Forecasting</td>
-                  <td className="px-6 py-4 text-sm text-center text-gray-600 dark:text-gray-300">Basic (7-14 days)</td>
-                  <td className="px-6 py-4 text-sm text-center text-gray-600 dark:text-gray-300">Multi-week, multi-warehouse</td>
-                  <td className="px-6 py-4 text-sm text-center text-gray-600 dark:text-gray-300">Full horizon + scenarios</td>
+                  <td className="px-6 py-4 text-base font-medium text-gray-900 dark:text-white">Forecasting</td>
+                  <td className="px-6 py-4 text-base text-center text-gray-600 dark:text-gray-300">Basic (7-14 days)</td>
+                  <td className="px-6 py-4 text-base text-center text-gray-600 dark:text-gray-300">Multi-week, multi-warehouse</td>
+                  <td className="px-6 py-4 text-base text-center text-gray-600 dark:text-gray-300">Full horizon + scenarios</td>
                 </tr>
                 <tr className="hover:bg-gray-50 dark:hover:bg-gray-700">
-                  <td className="px-6 py-4 text-sm font-medium text-gray-900 dark:text-white">Automations</td>
-                  <td className="px-6 py-4 text-sm text-center text-gray-600 dark:text-gray-300">3 templates</td>
-                  <td className="px-6 py-4 text-sm text-center text-gray-600 dark:text-gray-300">Full automation builder</td>
-                  <td className="px-6 py-4 text-sm text-center text-gray-600 dark:text-gray-300">Full + bespoke automations</td>
+                  <td className="px-6 py-4 text-base font-medium text-gray-900 dark:text-white">Automations</td>
+                  <td className="px-6 py-4 text-base text-center text-gray-600 dark:text-gray-300">3 templates</td>
+                  <td className="px-6 py-4 text-base text-center text-gray-600 dark:text-gray-300">Full automation builder</td>
+                  <td className="px-6 py-4 text-base text-center text-gray-600 dark:text-gray-300">Full + bespoke automations</td>
                 </tr>
                 <tr className="hover:bg-gray-50 dark:hover:bg-gray-700">
-                  <td className="px-6 py-4 text-sm font-medium text-gray-900 dark:text-white">Support SLA</td>
-                  <td className="px-6 py-4 text-sm text-center text-gray-600 dark:text-gray-300">48-72 hrs (email)</td>
-                  <td className="px-6 py-4 text-sm text-center text-gray-600 dark:text-gray-300">24-48 hrs (email + chat)</td>
-                  <td className="px-6 py-4 text-sm text-center text-gray-600 dark:text-gray-300">4-8 hrs (phone + priority)</td>
+                  <td className="px-6 py-4 text-base font-medium text-gray-900 dark:text-white">Support SLA</td>
+                  <td className="px-6 py-4 text-base text-center text-gray-600 dark:text-gray-300">48-72 hrs (email)</td>
+                  <td className="px-6 py-4 text-base text-center text-gray-600 dark:text-gray-300">24-48 hrs (email + chat)</td>
+                  <td className="px-6 py-4 text-base text-center text-gray-600 dark:text-gray-300">4-8 hrs (phone + priority)</td>
                 </tr>
                 <tr className="hover:bg-gray-50 dark:hover:bg-gray-700">
-                  <td className="px-6 py-4 text-sm font-medium text-gray-900 dark:text-white">Onboarding</td>
-                  <td className="px-6 py-4 text-sm text-center text-gray-600 dark:text-gray-300">₹20k one-time fee</td>
-                  <td className="px-6 py-4 text-sm text-center text-gray-600 dark:text-gray-300">₹12k or included</td>
-                  <td className="px-6 py-4 text-sm text-center text-gray-600 dark:text-gray-300">Included (priority)</td>
+                  <td className="px-6 py-4 text-base font-medium text-gray-900 dark:text-white">Onboarding</td>
+                  <td className="px-6 py-4 text-base text-center text-gray-600 dark:text-gray-300">₹20k one-time fee</td>
+                  <td className="px-6 py-4 text-base text-center text-gray-600 dark:text-gray-300">₹12k or included</td>
+                  <td className="px-6 py-4 text-base text-center text-gray-600 dark:text-gray-300">Included (priority)</td>
                 </tr>
                 <tr className="hover:bg-gray-50 dark:hover:bg-gray-700">
-                  <td className="px-6 py-4 text-sm font-medium text-gray-900 dark:text-white">API Access</td>
-                  <td className="px-6 py-4 text-sm text-center text-gray-600 dark:text-gray-300">Read-only/limited</td>
-                  <td className="px-6 py-4 text-sm text-center text-gray-600 dark:text-gray-300">Full API</td>
-                  <td className="px-6 py-4 text-sm text-center text-gray-600 dark:text-gray-300">Full API + priority</td>
+                  <td className="px-6 py-4 text-base font-medium text-gray-900 dark:text-white">API Access</td>
+                  <td className="px-6 py-4 text-base text-center text-gray-600 dark:text-gray-300">Read-only/limited</td>
+                  <td className="px-6 py-4 text-base text-center text-gray-600 dark:text-gray-300">Full API</td>
+                  <td className="px-6 py-4 text-base text-center text-gray-600 dark:text-gray-300">Full API + priority</td>
                 </tr>
                 <tr className="hover:bg-gray-50 dark:hover:bg-gray-700">
-                  <td className="px-6 py-4 text-sm font-medium text-gray-900 dark:text-white">SLA Uptime</td>
-                  <td className="px-6 py-4 text-sm text-center text-gray-600 dark:text-gray-300">Best-effort</td>
-                  <td className="px-6 py-4 text-sm text-center text-gray-600 dark:text-gray-300">99.5%</td>
-                  <td className="px-6 py-4 text-sm text-center text-gray-600 dark:text-gray-300">99.9% + credits</td>
+                  <td className="px-6 py-4 text-base font-medium text-gray-900 dark:text-white">SLA Uptime</td>
+                  <td className="px-6 py-4 text-base text-center text-gray-600 dark:text-gray-300">Best-effort</td>
+                  <td className="px-6 py-4 text-base text-center text-gray-600 dark:text-gray-300">99.5%</td>
+                  <td className="px-6 py-4 text-base text-center text-gray-600 dark:text-gray-300">99.9% + credits</td>
                 </tr>
               </tbody>
             </table>
@@ -313,6 +334,7 @@ const PricingSection = () => {
                       </span>
                       <span className="text-gray-500 dark:text-gray-400">/month</span>
                     </div>
+
                     {isAnnual && (
                       <div className="flex items-center space-x-2 mt-2">
                         <span className="text-sm text-gray-500 line-through">
