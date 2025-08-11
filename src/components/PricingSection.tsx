@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { PricingCard } from './PricingCard';
 import { Link } from 'react-router-dom';
-import { Check, Star, Zap, Crown, ArrowRight } from 'lucide-react';
+import { Check, Star, Zap, Crown, ArrowRight, Users, Database, Brain, BarChart3, Zap as ZapIcon, Shield, Clock, Phone, Mail, MessageSquare } from 'lucide-react';
 
 const PricingSection = () => {
   const [isAnnual, setIsAnnual] = useState(false);
@@ -9,78 +9,110 @@ const PricingSection = () => {
   const pricingTiers = [
     {
       name: 'AI Starter',
-      description: 'Ideal for emerging brands ready to leverage AI intelligence',
+      description: 'Small D2C brands piloting AI operations',
       monthlyPrice: 10000,
       annualPrice: 96000, // 20% discount
       originalAnnualPrice: 120000,
-      orderLimit: 'Up to 500 orders',
-      potentialSavings: '₹2-3 Lakhs saved',
       features: [
-        { name: 'Core 5 AI modules included', included: true },
-        { name: 'Weekly insights and recommendations', included: true },
-        { name: 'Basic WhatsApp automation', included: true },
-        { name: 'Essential pattern detection', included: true },
-        { name: 'Email support', included: true },
-        { name: 'Real-time inventory sync', included: true },
-        { name: 'Basic demand forecasting', included: true },
-        { name: 'Single warehouse optimization', included: true },
+        { name: '2 dashboard user accounts', included: true },
+        { name: '1 standard connector (Shopify recommended)', included: true },
+        { name: '2,000 monthly AI credits', included: true },
+        { name: 'Pre-built operations dashboard', included: true },
+        { name: 'Basic SKU-level forecasts (7-14 days)', included: true },
+        { name: 'Email alerts for stockouts and low stock', included: true },
+        { name: '3 pre-built automation templates', included: true },
+        { name: 'Email support (48-72 hour response)', included: true },
+      ],
+      exclusions: [
+        'Custom integrations',
+        'Dedicated sandbox',
+        'SSO',
+        'Custom SLAs',
+        'Monthly business reviews',
+        'Advanced workflow automations'
       ],
       buttonText: 'Start Free Trial',
       buttonVariant: 'secondary' as const,
       isPopular: false,
       icon: Zap,
-      roiMultiplier: '200-300%',
+      salesPitch: 'Get AI-led visibility and simple forecasts that stop stockouts and save manual hours — live in a week.',
+      setupFee: '₹20k one-time fee',
+      sla: 'Best-effort',
+      onboarding: '₹20k one-time fee'
     },
     {
-      name: 'AI Advisor',
-      description: 'Trusted by growing brands to scale operations intelligently',
+      name: 'AI Growth',
+      description: 'Growing D2C brands needing automation and stronger SLAs',
       monthlyPrice: 18000,
       annualPrice: 172800, // 20% discount
       originalAnnualPrice: 216000,
-      orderLimit: 'Up to 1,000 orders',
-      potentialSavings: '₹4-6 Lakhs saved',
       features: [
-        { name: 'All 7 AI modules included', included: true },
-        { name: 'Daily insights and recommendations', included: true },
-        { name: 'Advanced WhatsApp automation', included: true },
-        { name: 'Smart pattern detection', included: true },
-        { name: 'Priority email support', included: true },
-        { name: 'Real-time inventory sync', included: true },
-        { name: 'Advanced demand forecasting', included: true },
-        { name: 'Multi-warehouse optimization', included: true },
-        { name: 'Custom alerts & notifications', included: true },
+        { name: '5 dashboard user accounts', included: true },
+        { name: 'Up to 3 standard connectors', included: true },
+        { name: '7,000 monthly AI credits', included: true },
+        { name: 'Custom widgets, saved views, CSV export', included: true },
+        { name: 'Multi-week forecasts with lead-time awareness', included: true },
+        { name: 'Advanced alert rules (Slack/email/phone routing)', included: true },
+        { name: 'Full automation builder (no-code) + webhooks', included: true },
+        { name: 'Priority chat + email support (24-48 hours)', included: true },
+        { name: 'Shared sandbox environment', included: true },
+      ],
+      exclusions: [
+        'Dedicated CSM (unless purchased)',
+        'SSO (available as add-on only)',
+        'Custom models (quoted separately)'
       ],
       buttonText: 'Start Free Trial',
       buttonVariant: 'primary' as const,
       isPopular: true,
       icon: Star,
-      roiMultiplier: '300-400%',
+      salesPitch: 'Automate repeatable ops, reduce working capital with smarter forecasts, and scale with reliable integrations.',
+      setupFee: '₹12k or included',
+      sla: '99.5%',
+      onboarding: '₹12k or included'
     },
     {
-      name: 'AI+ Growth',
-      description: 'Enterprise-grade AI for sophisticated operations',
+      name: 'AI Scale',
+      description: 'High-volume/omnichannel brands needing full AI operations support',
       monthlyPrice: 32000,
       annualPrice: 307200, // 20% discount
       originalAnnualPrice: 384000,
-      orderLimit: 'Up to 5,000 orders',
-      potentialSavings: '₹8-12 Lakhs saved',
       features: [
-        { name: 'Everything in AI Advisor', included: true },
-        { name: 'Advanced predictive analytics', included: true },
-        { name: 'Multi-channel optimization', included: true },
-        { name: 'Custom AI training for your business', included: true },
-        { name: '24/7 priority phone support', included: true },
-        { name: 'Advanced analytics dashboard', included: true },
-        { name: 'Custom integrations & API access', included: true },
-        { name: 'Dedicated success manager', included: true },
-        { name: 'White-label reporting', included: true },
+        { name: '10 dashboard user accounts', included: true },
+        { name: 'Unlimited standard connectors', included: true },
+        { name: '25,000 monthly AI credits', included: true },
+        { name: 'Fully custom dashboards with role-based views', included: true },
+        { name: 'Full-horizon forecasting + scenario simulations', included: true },
+        { name: 'Enterprise rules engine with SLA-based escalation', included: true },
+        { name: 'One complex integration included', included: true },
+        { name: 'Priority phone + chat + email (4-8 hour SLA)', included: true },
+        { name: 'Dedicated sandbox environment', included: true },
+        { name: 'Monthly business reviews included', included: true },
+        { name: 'SSO option, SOC2-readiness review', included: true },
+      ],
+      exclusions: [
+        'Custom models and deep product engineering beyond included integration (quoted separately)'
       ],
       buttonText: 'Start Free Trial',
       buttonVariant: 'secondary' as const,
       isPopular: false,
       icon: Crown,
-      roiMultiplier: '400-600%',
+      salesPitch: 'Enterprise-grade AI operations — shrink working capital, reduce stockouts, and get proactive prescriptive actions with CSM and priority SLA.',
+      setupFee: 'Included',
+      sla: '99.9% + credits',
+      onboarding: 'Included (priority)'
     },
+  ];
+
+  const standardConnectors = [
+    { category: 'eCommerce', items: ['Shopify', 'WooCommerce', 'BigCommerce'] },
+    { category: 'Marketplaces', items: ['Amazon Seller API', 'Flipkart (planned)'] },
+    { category: 'Payments', items: ['Razorpay', 'Stripe India', 'PayU'] },
+    { category: 'Logistics', items: ['Shiprocket API', '3PL CSV imports'] },
+    { category: 'Advertising', items: ['Meta Ads', 'Google Ads'] },
+    { category: 'Analytics', items: ['Google Analytics/GA4'] },
+    { category: 'Accounting', items: ['Tally', 'QuickBooks', 'Zoho Books (read-only)'] },
+    { category: 'Generic', items: ['CSV upload', 'webhook ingestion', 'Zapier connector'] },
   ];
 
   const setupPricing = {
@@ -102,8 +134,6 @@ const PricingSection = () => {
     buttonVariant: 'secondary' as const,
     isFree: false,
   };
-
-
 
   return (
     <section id="pricing" className="py-20 bg-gray-50 dark:bg-gray-900">
@@ -159,8 +189,87 @@ const PricingSection = () => {
               </span>
             )}
           </div>
+        </div>
 
-
+        {/* Quick Comparison Table */}
+        <div className="mb-16">
+          <h3 className="text-2xl font-bold text-center mb-8 text-gray-900 dark:text-white">
+            Quick Comparison Table
+          </h3>
+          <div className="overflow-x-auto">
+            <table className="w-full bg-white dark:bg-gray-800 rounded-lg shadow-lg">
+              <thead>
+                <tr className="border-b border-gray-200 dark:border-gray-700">
+                  <th className="px-6 py-4 text-left text-sm font-semibold text-gray-900 dark:text-white">Feature/Capability</th>
+                  <th className="px-6 py-4 text-center text-sm font-semibold text-gray-900 dark:text-white">Starter (₹10k/mo)</th>
+                  <th className="px-6 py-4 text-center text-sm font-semibold text-gray-900 dark:text-white">Growth (₹18k/mo)</th>
+                  <th className="px-6 py-4 text-center text-sm font-semibold text-gray-900 dark:text-white">Scale (₹32k/mo)</th>
+                </tr>
+              </thead>
+              <tbody className="divide-y divide-gray-200 dark:divide-gray-700">
+                <tr className="hover:bg-gray-50 dark:hover:bg-gray-700">
+                  <td className="px-6 py-4 text-sm font-medium text-gray-900 dark:text-white">Included Seats</td>
+                  <td className="px-6 py-4 text-sm text-center text-gray-600 dark:text-gray-300">2</td>
+                  <td className="px-6 py-4 text-sm text-center text-gray-600 dark:text-gray-300">5</td>
+                  <td className="px-6 py-4 text-sm text-center text-gray-600 dark:text-gray-300">10</td>
+                </tr>
+                <tr className="hover:bg-gray-50 dark:hover:bg-gray-700">
+                  <td className="px-6 py-4 text-sm font-medium text-gray-900 dark:text-white">Standard Connectors</td>
+                  <td className="px-6 py-4 text-sm text-center text-gray-600 dark:text-gray-300">1 (Shopify/WooCommerce)</td>
+                  <td className="px-6 py-4 text-sm text-center text-gray-600 dark:text-gray-300">3 (eCommerce, ERP, Ads)</td>
+                  <td className="px-6 py-4 text-sm text-center text-gray-600 dark:text-gray-300">Unlimited (standard set)</td>
+                </tr>
+                <tr className="hover:bg-gray-50 dark:hover:bg-gray-700">
+                  <td className="px-6 py-4 text-sm font-medium text-gray-900 dark:text-white">AI Credits/Month</td>
+                  <td className="px-6 py-4 text-sm text-center text-gray-600 dark:text-gray-300">2,000</td>
+                  <td className="px-6 py-4 text-sm text-center text-gray-600 dark:text-gray-300">7,000</td>
+                  <td className="px-6 py-4 text-sm text-center text-gray-600 dark:text-gray-300">25,000</td>
+                </tr>
+                <tr className="hover:bg-gray-50 dark:hover:bg-gray-700">
+                  <td className="px-6 py-4 text-sm font-medium text-gray-900 dark:text-white">Dashboards</td>
+                  <td className="px-6 py-4 text-sm text-center text-gray-600 dark:text-gray-300">Pre-built operations dashboard</td>
+                  <td className="px-6 py-4 text-sm text-center text-gray-600 dark:text-gray-300">Custom widgets + saved views</td>
+                  <td className="px-6 py-4 text-sm text-center text-gray-600 dark:text-gray-300">Fully custom + exports</td>
+                </tr>
+                <tr className="hover:bg-gray-50 dark:hover:bg-gray-700">
+                  <td className="px-6 py-4 text-sm font-medium text-gray-900 dark:text-white">Forecasting</td>
+                  <td className="px-6 py-4 text-sm text-center text-gray-600 dark:text-gray-300">Basic (7-14 days)</td>
+                  <td className="px-6 py-4 text-sm text-center text-gray-600 dark:text-gray-300">Multi-week, multi-warehouse</td>
+                  <td className="px-6 py-4 text-sm text-center text-gray-600 dark:text-gray-300">Full horizon + scenarios</td>
+                </tr>
+                <tr className="hover:bg-gray-50 dark:hover:bg-gray-700">
+                  <td className="px-6 py-4 text-sm font-medium text-gray-900 dark:text-white">Automations</td>
+                  <td className="px-6 py-4 text-sm text-center text-gray-600 dark:text-gray-300">3 templates</td>
+                  <td className="px-6 py-4 text-sm text-center text-gray-600 dark:text-gray-300">Full automation builder</td>
+                  <td className="px-6 py-4 text-sm text-center text-gray-600 dark:text-gray-300">Full + bespoke automations</td>
+                </tr>
+                <tr className="hover:bg-gray-50 dark:hover:bg-gray-700">
+                  <td className="px-6 py-4 text-sm font-medium text-gray-900 dark:text-white">Support SLA</td>
+                  <td className="px-6 py-4 text-sm text-center text-gray-600 dark:text-gray-300">48-72 hrs (email)</td>
+                  <td className="px-6 py-4 text-sm text-center text-gray-600 dark:text-gray-300">24-48 hrs (email + chat)</td>
+                  <td className="px-6 py-4 text-sm text-center text-gray-600 dark:text-gray-300">4-8 hrs (phone + priority)</td>
+                </tr>
+                <tr className="hover:bg-gray-50 dark:hover:bg-gray-700">
+                  <td className="px-6 py-4 text-sm font-medium text-gray-900 dark:text-white">Onboarding</td>
+                  <td className="px-6 py-4 text-sm text-center text-gray-600 dark:text-gray-300">₹20k one-time fee</td>
+                  <td className="px-6 py-4 text-sm text-center text-gray-600 dark:text-gray-300">₹12k or included</td>
+                  <td className="px-6 py-4 text-sm text-center text-gray-600 dark:text-gray-300">Included (priority)</td>
+                </tr>
+                <tr className="hover:bg-gray-50 dark:hover:bg-gray-700">
+                  <td className="px-6 py-4 text-sm font-medium text-gray-900 dark:text-white">API Access</td>
+                  <td className="px-6 py-4 text-sm text-center text-gray-600 dark:text-gray-300">Read-only/limited</td>
+                  <td className="px-6 py-4 text-sm text-center text-gray-600 dark:text-gray-300">Full API</td>
+                  <td className="px-6 py-4 text-sm text-center text-gray-600 dark:text-gray-300">Full API + priority</td>
+                </tr>
+                <tr className="hover:bg-gray-50 dark:hover:bg-gray-700">
+                  <td className="px-6 py-4 text-sm font-medium text-gray-900 dark:text-white">SLA Uptime</td>
+                  <td className="px-6 py-4 text-sm text-center text-gray-600 dark:text-gray-300">Best-effort</td>
+                  <td className="px-6 py-4 text-sm text-center text-gray-600 dark:text-gray-300">99.5%</td>
+                  <td className="px-6 py-4 text-sm text-center text-gray-600 dark:text-gray-300">99.9% + credits</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
         </div>
 
         {/* Pricing Cards */}
@@ -187,9 +296,15 @@ const PricingSection = () => {
                     </h3>
                   </div>
                   
-                  <p className="text-gray-600 dark:text-gray-300 text-sm mb-6">
+                  <p className="text-gray-600 dark:text-gray-300 text-sm mb-4">
                     {tier.description}
                   </p>
+
+                  <div className="mb-4 p-3 bg-blue-50 dark:bg-blue-900/20 rounded-lg border border-blue-200 dark:border-blue-800">
+                    <p className="text-sm text-blue-700 dark:text-blue-300 italic">
+                      "{tier.salesPitch}"
+                    </p>
+                  </div>
                   
                   <div className="mb-6">
                     <div className="flex items-baseline space-x-2">
@@ -214,29 +329,21 @@ const PricingSection = () => {
                     <div className="flex items-center justify-between p-3 bg-green-50 dark:bg-green-900/20 rounded-lg border border-green-200 dark:border-green-800">
                       <div className="flex items-center space-x-2">
                         <div className="w-3 h-3 bg-green-500 rounded-full"></div>
-                        <span className="text-sm font-medium text-green-700 dark:text-green-300">Potential Savings</span>
+                        <span className="text-sm font-medium text-green-700 dark:text-green-300">Setup Fee</span>
                       </div>
-                      <span className="text-sm font-bold text-green-700 dark:text-green-300">{tier.potentialSavings}</span>
+                      <span className="text-sm font-bold text-green-700 dark:text-green-300">{tier.setupFee}</span>
                     </div>
                     <div className="flex items-center justify-between p-3 bg-blue-50 dark:bg-blue-900/20 rounded-lg border border-blue-200 dark:border-blue-800">
                       <div className="flex items-center space-x-2">
                         <div className="w-3 h-3 bg-blue-500 rounded-full"></div>
-                        <span className="text-sm font-medium text-blue-700 dark:text-blue-300">Order Capacity</span>
+                        <span className="text-sm font-medium text-blue-700 dark:text-blue-300">Uptime SLA</span>
                       </div>
-                      <span className="text-sm font-bold text-blue-700 dark:text-blue-300">{tier.orderLimit}</span>
-                    </div>
-                  </div>
-
-                  <div className="mb-6">
-                    <div className="text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
-                      Expected ROI: {tier.roiMultiplier} in first year
-                    </div>
-                    <div className="h-2 bg-gray-200 dark:bg-gray-700 rounded-full overflow-hidden">
-                      <div className="h-full bg-gradient-to-r from-green-500 to-green-600 rounded-full" style={{ width: '85%' }}></div>
+                      <span className="text-sm font-bold text-blue-700 dark:text-blue-300">{tier.sla}</span>
                     </div>
                   </div>
                   
                   <div className="space-y-3 mb-8">
+                    <h4 className="font-semibold text-gray-900 dark:text-white mb-3">What's Included:</h4>
                     {tier.features.map((feature, featureIndex) => (
                       <div key={featureIndex} className="flex items-start space-x-3">
                         <Check className="w-5 h-5 text-green-500 flex-shrink-0 mt-0.5" />
@@ -244,6 +351,18 @@ const PricingSection = () => {
                       </div>
                     ))}
                   </div>
+
+                  {tier.exclusions && tier.exclusions.length > 0 && (
+                    <div className="space-y-3 mb-8">
+                      <h4 className="font-semibold text-gray-900 dark:text-white mb-3">What's NOT Included:</h4>
+                      {tier.exclusions.map((exclusion, exclusionIndex) => (
+                        <div key={exclusionIndex} className="flex items-start space-x-3">
+                          <div className="w-5 h-5 text-red-500 flex-shrink-0 mt-0.5 text-center">✕</div>
+                          <span className="text-gray-700 dark:text-gray-300 text-sm">{exclusion}</span>
+                        </div>
+                      ))}
+                    </div>
+                  )}
                   
                   <a
                     href="https://forms.office.com/r/zd11g2RWDR"
@@ -262,6 +381,70 @@ const PricingSection = () => {
               </div>
             );
           })}
+        </div>
+
+        {/* Standard Connectors Section */}
+        <div className="mb-16">
+          <h3 className="text-2xl font-bold text-center mb-8 text-gray-900 dark:text-white">
+            Standard Connectors List
+          </h3>
+          <p className="text-center text-gray-600 dark:text-gray-300 mb-8">
+            Included in "Standard Set" across all plans
+          </p>
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {standardConnectors.map((category, index) => (
+              <div key={index} className="bg-white dark:bg-gray-800 rounded-lg p-6 shadow-lg border border-gray-200 dark:border-gray-700">
+                <h4 className="font-semibold text-gray-900 dark:text-white mb-3 text-center">
+                  {category.category}
+                </h4>
+                <ul className="space-y-2">
+                  {category.items.map((item, itemIndex) => (
+                    <li key={itemIndex} className="text-sm text-gray-600 dark:text-gray-300 text-center">
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Seat Management Section */}
+        <div className="mb-16">
+          <h3 className="text-2xl font-bold text-center mb-8 text-gray-900 dark:text-white">
+            Seat Management
+          </h3>
+          <div className="grid md:grid-cols-2 gap-8">
+            <div className="bg-white dark:bg-gray-800 rounded-lg p-6 shadow-lg border border-gray-200 dark:border-gray-700">
+              <h4 className="font-semibold text-gray-900 dark:text-white mb-4 flex items-center">
+                <Users className="w-5 h-5 mr-2 text-blue-500" />
+                What is a Seat?
+              </h4>
+              <ul className="space-y-2 text-sm text-gray-600 dark:text-gray-300">
+                <li>• Unique user account with dashboard access</li>
+                <li>• Permanent licensed user (not concurrent sessions)</li>
+                <li>• Each seat = one email/login</li>
+              </ul>
+            </div>
+            <div className="bg-white dark:bg-gray-800 rounded-lg p-6 shadow-lg border border-gray-200 dark:border-gray-700">
+              <h4 className="font-semibold text-gray-900 dark:text-white mb-4 flex items-center">
+                <Shield className="w-5 h-5 mr-2 text-green-500" />
+                Role Types
+              </h4>
+              <ul className="space-y-2 text-sm text-gray-600 dark:text-gray-300">
+                <li><strong>Admin:</strong> Full access, billing, user management, configuration</li>
+                <li><strong>Editor:</strong> Create/modify automations, forecasts, reports</li>
+                <li><strong>Viewer:</strong> Read-only access to dashboards and reports</li>
+              </ul>
+            </div>
+          </div>
+          <div className="mt-6 text-center">
+            <div className="bg-blue-50 dark:bg-blue-900/20 rounded-lg p-4 inline-block">
+              <p className="text-sm text-blue-700 dark:text-blue-300">
+                <strong>Additional seats:</strong> ₹700/seat/month (prorated) • Reassignment allowed at no charge
+              </p>
+            </div>
+          </div>
         </div>
 
         {/* Enterprise Section */}
