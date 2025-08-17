@@ -10,7 +10,7 @@ export const CTAButtons = () => {
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.8, delay: 0.6 }}
     >
-      {/* Primary CTA - Book Demo */}
+      {/* Primary CTA - Research and Feedback */}
       <motion.a
         href="https://forms.office.com/r/zd11g2RWDR"
         target="_blank"
@@ -18,10 +18,10 @@ export const CTAButtons = () => {
         className="group bg-gradient-to-r from-red-600 to-red-700 hover:from-red-700 hover:to-red-800 dark:from-blue-600 dark:to-blue-700 dark:hover:from-blue-700 dark:hover:to-blue-800 text-white font-semibold px-6 sm:px-8 py-4 sm:py-4 rounded-lg transition-all duration-300 flex items-center justify-center space-x-2 shadow-lg hover:shadow-xl w-full sm:w-auto min-h-[48px] text-base sm:text-lg"
         whileHover={{ scale: 1.02 }}
         whileTap={{ scale: 0.98 }}
-        aria-label="Book a demo to see AI in action"
+        aria-label="Share your feedback and help us improve"
       >
         <Play className="w-5 h-5 group-hover:scale-110 transition-transform" />
-        <span>See AI in Action – Book Demo</span>
+        <span>Research & Feedback Form</span>
         <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
       </motion.a>
 
