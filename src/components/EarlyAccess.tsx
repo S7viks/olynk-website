@@ -3,21 +3,64 @@ import { Check, Star, Users, Shield, Zap, Gift } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { earlyAccessService } from '../services/supabaseService';
 
+interface EarlyAccessFormData {
+  name: string;
+  email: string;
+  company: string;
+  phone: string;
+  industry: string;
+  companySize: string;
+}
+
 const EarlyAccess = () => {
-  const [email, setEmail] = useState('');
+  const [formData, setFormData] = useState<EarlyAccessFormData>({
+    name: '',
+    email: '',
+    company: '',
+    phone: '',
+    industry: '',
+    companySize: ''
+  });
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [error, setError] = useState('');
+
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
+    const { name, value } = e.target;
+    setFormData(prev => ({
+      ...prev,
+      [name]: value
+    }));
+  };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (email) {
-      try {
-        await earlyAccessService.subscribe(email);
-        setIsSubmitted(true);
-        setEmail('');
-      } catch (error) {
-        console.error('Error submitting early access request:', error);
-        // You might want to show an error message to the user
-      }
+    setIsSubmitting(true);
+    setError('');
+    
+    try {
+      await earlyAccessService.submitApplication({
+        name: formData.name,
+        email: formData.email,
+        company: formData.company,
+        phone: formData.phone,
+        industry: formData.industry,
+        company_size: formData.companySize
+      });
+      setIsSubmitted(true);
+      setFormData({
+        name: '',
+        email: '',
+        company: '',
+        phone: '',
+        industry: '',
+        companySize: ''
+      });
+    } catch (error) {
+      console.error('Error submitting early access request:', error);
+      setError('Failed to submit. Please try again.');
+    } finally {
+      setIsSubmitting(false);
     }
   };
 
@@ -86,36 +129,149 @@ const EarlyAccess = () => {
           </div>
 
           {/* Signup Form */}
-          <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-8 max-w-md mx-auto">
+          <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-8 max-w-2xl mx-auto">
             <h3 className="text-2xl font-bold text-white mb-6">Get Early Access</h3>
             <p className="text-gray-300 mb-6">
-              Join our exclusive early access program and be the first to experience olynk.ai.
+              Join our exclusive early access program and be the first to experience olynk.ai's revolutionary AI-powered platform.
             </p>
 
             {!isSubmitted ? (
               <form onSubmit={handleSubmit} className="space-y-4">
-                <div>
-                  <label htmlFor="email" className="block text-sm font-medium text-gray-300 mb-2">
-                    Email Address
-                  </label>
-                  <input
-                    type="email"
-                    id="email"
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
-                    placeholder="you@company.com"
-                    className="w-full px-4 py-3 rounded-xl bg-white/20 border border-white/30 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-teal-400 focus:border-transparent transition-all duration-300"
-                    required
-                  />
+                {error && (
+                  <div className="p-4 bg-red-500/20 border border-red-500/50 rounded-lg">
+                    <p className="text-red-200 text-sm">{error}</p>
+                  </div>
+                )}
+
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  <div>
+                    <label htmlFor="name" className="block text-sm font-medium text-gray-300 mb-2">
+                      Full Name *
+                    </label>
+                    <input
+                      type="text"
+                      id="name"
+                      name="name"
+                      value={formData.name}
+                      onChange={handleInputChange}
+                      placeholder="John Doe"
+                      className="w-full px-4 py-3 rounded-xl bg-white/20 border border-white/30 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-teal-400 focus:border-transparent transition-all duration-300"
+                      required
+                    />
+                  </div>
+
+                  <div>
+                    <label htmlFor="email" className="block text-sm font-medium text-gray-300 mb-2">
+                      Email Address *
+                    </label>
+                    <input
+                      type="email"
+                      id="email"
+                      name="email"
+                      value={formData.email}
+                      onChange={handleInputChange}
+                      placeholder="you@company.com"
+                      className="w-full px-4 py-3 rounded-xl bg-white/20 border border-white/30 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-teal-400 focus:border-transparent transition-all duration-300"
+                      required
+                    />
+                  </div>
                 </div>
-                <a
-                  href="https://forms.office.com/r/zd11g2RWDR"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="w-full bg-gradient-to-r from-teal-500 to-cyan-500 text-white px-6 py-3 rounded-xl font-bold hover:shadow-xl hover:scale-105 transition-all duration-300 text-center block"
+
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  <div>
+                    <label htmlFor="company" className="block text-sm font-medium text-gray-300 mb-2">
+                      Company Name *
+                    </label>
+                    <input
+                      type="text"
+                      id="company"
+                      name="company"
+                      value={formData.company}
+                      onChange={handleInputChange}
+                      placeholder="Your Company"
+                      className="w-full px-4 py-3 rounded-xl bg-white/20 border border-white/30 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-teal-400 focus:border-transparent transition-all duration-300"
+                      required
+                    />
+                  </div>
+
+                  <div>
+                    <label htmlFor="phone" className="block text-sm font-medium text-gray-300 mb-2">
+                      Phone Number *
+                    </label>
+                    <input
+                      type="tel"
+                      id="phone"
+                      name="phone"
+                      value={formData.phone}
+                      onChange={handleInputChange}
+                      placeholder="+1 (555) 000-0000"
+                      className="w-full px-4 py-3 rounded-xl bg-white/20 border border-white/30 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-teal-400 focus:border-transparent transition-all duration-300"
+                      required
+                    />
+                  </div>
+                </div>
+
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  <div>
+                    <label htmlFor="industry" className="block text-sm font-medium text-gray-300 mb-2">
+                      Industry *
+                    </label>
+                    <select
+                      id="industry"
+                      name="industry"
+                      value={formData.industry}
+                      onChange={handleInputChange}
+                      className="w-full px-4 py-3 rounded-xl bg-white/20 border border-white/30 text-white focus:outline-none focus:ring-2 focus:ring-teal-400 focus:border-transparent transition-all duration-300"
+                      required
+                    >
+                      <option value="" className="bg-gray-800">Select Industry</option>
+                      <option value="D2C E-commerce" className="bg-gray-800">D2C E-commerce</option>
+                      <option value="Retail" className="bg-gray-800">Retail</option>
+                      <option value="Fashion & Apparel" className="bg-gray-800">Fashion & Apparel</option>
+                      <option value="Food & Beverage" className="bg-gray-800">Food & Beverage</option>
+                      <option value="Beauty & Cosmetics" className="bg-gray-800">Beauty & Cosmetics</option>
+                      <option value="Electronics" className="bg-gray-800">Electronics</option>
+                      <option value="Home & Lifestyle" className="bg-gray-800">Home & Lifestyle</option>
+                      <option value="Other" className="bg-gray-800">Other</option>
+                    </select>
+                  </div>
+
+                  <div>
+                    <label htmlFor="companySize" className="block text-sm font-medium text-gray-300 mb-2">
+                      Company Size *
+                    </label>
+                    <select
+                      id="companySize"
+                      name="companySize"
+                      value={formData.companySize}
+                      onChange={handleInputChange}
+                      className="w-full px-4 py-3 rounded-xl bg-white/20 border border-white/30 text-white focus:outline-none focus:ring-2 focus:ring-teal-400 focus:border-transparent transition-all duration-300"
+                      required
+                    >
+                      <option value="" className="bg-gray-800">Select Size</option>
+                      <option value="1-10" className="bg-gray-800">1-10 employees</option>
+                      <option value="11-50" className="bg-gray-800">11-50 employees</option>
+                      <option value="51-200" className="bg-gray-800">51-200 employees</option>
+                      <option value="201-500" className="bg-gray-800">201-500 employees</option>
+                      <option value="500+" className="bg-gray-800">500+ employees</option>
+                    </select>
+                  </div>
+                </div>
+
+                <button
+                  type="submit"
+                  disabled={isSubmitting}
+                  className="w-full bg-gradient-to-r from-teal-500 to-cyan-500 text-white px-6 py-4 rounded-xl font-bold hover:shadow-xl hover:scale-105 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100 flex items-center justify-center space-x-2"
                 >
-                  Get Started
-                </a>
+                  {isSubmitting ? (
+                    <>
+                      <div className="animate-spin rounded-full h-5 w-5 border-b-2 border-white"></div>
+                      <span>Submitting...</span>
+                    </>
+                  ) : (
+                    <span>Get Started</span>
+                  )}
+                </button>
               </form>
             ) : (
               <div className="text-center">
@@ -123,11 +279,11 @@ const EarlyAccess = () => {
                   <Check className="h-8 w-8 text-white" />
                 </div>
                 <h4 className="text-xl font-bold text-white mb-2">Welcome to the Future!</h4>
-                <p className="text-gray-300">Check your email for next steps.</p>
+                <p className="text-gray-300">Thank you for joining! We'll be in touch soon with next steps.</p>
               </div>
             )}
 
-            <p className="text-sm text-gray-400 mt-4 text-center">
+            <p className="text-sm text-gray-400 mt-6 text-center">
               By signing up, you agree to our Terms of Service and Privacy Policy
             </p>
           </div>

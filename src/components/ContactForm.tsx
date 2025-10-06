@@ -5,6 +5,8 @@ import { Send, CheckCircle, AlertCircle } from 'lucide-react';
 interface ContactFormData {
   name: string;
   email: string;
+  company?: string;
+  phone?: string;
   subject: string;
   message: string;
 }
@@ -13,6 +15,8 @@ const ContactForm: React.FC = () => {
   const [formData, setFormData] = useState<ContactFormData>({
     name: '',
     email: '',
+    company: '',
+    phone: '',
     subject: '',
     message: ''
   });
@@ -21,7 +25,7 @@ const ContactForm: React.FC = () => {
   const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
   const [errorMessage, setErrorMessage] = useState('');
 
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     const { name, value } = e.target;
     setFormData(prev => ({
       ...prev,
@@ -41,6 +45,8 @@ const ContactForm: React.FC = () => {
       setFormData({
         name: '',
         email: '',
+        company: '',
+        phone: '',
         subject: '',
         message: ''
       });
@@ -139,20 +145,58 @@ const ContactForm: React.FC = () => {
           </div>
         </div>
 
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div>
+            <label htmlFor="company" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
+              Company Name
+            </label>
+            <input
+              type="text"
+              id="company"
+              name="company"
+              value={formData.company}
+              onChange={handleInputChange}
+              className="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-red-500 dark:focus:ring-blue-500 focus:border-red-500 dark:focus:border-blue-500 dark:bg-gray-700 dark:text-white transition-colors"
+              placeholder="Your company name"
+            />
+          </div>
+
+          <div>
+            <label htmlFor="phone" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
+              Phone Number
+            </label>
+            <input
+              type="tel"
+              id="phone"
+              name="phone"
+              value={formData.phone}
+              onChange={handleInputChange}
+              className="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-red-500 dark:focus:ring-blue-500 focus:border-red-500 dark:focus:border-blue-500 dark:bg-gray-700 dark:text-white transition-colors"
+              placeholder="Your phone number"
+            />
+          </div>
+        </div>
+
         <div>
           <label htmlFor="subject" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
             Subject *
           </label>
-          <input
-            type="text"
+          <select
             id="subject"
             name="subject"
             value={formData.subject}
             onChange={handleInputChange}
             required
             className="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-red-500 dark:focus:ring-blue-500 focus:border-red-500 dark:focus:border-blue-500 dark:bg-gray-700 dark:text-white transition-colors"
-            placeholder="What is this regarding?"
-          />
+          >
+            <option value="">Select a topic</option>
+            <option value="General Inquiry">General Inquiry</option>
+            <option value="Demo Request">Demo Request</option>
+            <option value="Pricing Information">Pricing Information</option>
+            <option value="Technical Support">Technical Support</option>
+            <option value="Partnership Opportunity">Partnership Opportunity</option>
+            <option value="Other">Other</option>
+          </select>
         </div>
 
         <div>

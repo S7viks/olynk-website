@@ -14,6 +14,8 @@ const Footer: React.FC<FooterProps> = ({ hideContactUs = false }) => {
   const [contactForm, setContactForm] = useState({
     name: '',
     email: '',
+    company: '',
+    phone: '',
     subject: '',
     message: ''
   });
@@ -33,7 +35,7 @@ const Footer: React.FC<FooterProps> = ({ hideContactUs = false }) => {
       if (error) throw error;
       
       setSubmitStatus('success');
-      setContactForm({ name: '', email: '', subject: '', message: '' });
+      setContactForm({ name: '', email: '', company: '', phone: '', subject: '', message: '' });
     } catch (error) {
       console.error('Error submitting contact form:', error);
       setSubmitStatus('error');
@@ -42,7 +44,7 @@ const Footer: React.FC<FooterProps> = ({ hideContactUs = false }) => {
     }
   };
 
-  const handleContactChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+  const handleContactChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     const { name, value } = e.target;
     setContactForm(prev => ({
       ...prev,
@@ -168,107 +170,116 @@ const Footer: React.FC<FooterProps> = ({ hideContactUs = false }) => {
       {/* Main Contact Section */}
       <div className="relative z-10 bg-white/90 dark:bg-gray-800/90 backdrop-blur-sm py-8">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+          <div className="max-w-4xl mx-auto">
             
-            {/* Contact Form */}
-            <div className="lg:col-span-2 space-y-4">
-              {submitStatus === 'success' && (
-                <div className="p-4 bg-green-50 dark:bg-green-900/20 border border-green-200 dark:border-green-800 rounded-lg">
-                  <p className="text-green-700 dark:text-green-300 text-sm">
-                    Message sent successfully! We'll get back to you soon.
-                  </p>
-                </div>
-              )}
+            {/* Status Messages */}
+            {submitStatus === 'success' && (
+              <div className="p-4 bg-green-50 dark:bg-green-900/20 border border-green-200 dark:border-green-800 rounded-lg mb-6">
+                <p className="text-green-700 dark:text-green-300 text-sm">
+                  Message sent successfully! We'll get back to you soon.
+                </p>
+              </div>
+            )}
 
-              {submitStatus === 'error' && (
-                <div className="p-4 bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800 rounded-lg">
-                  <p className="text-red-700 dark:text-red-300 text-sm">
-                    Failed to send message. Please try again.
-                  </p>
-                </div>
-              )}
+            {submitStatus === 'error' && (
+              <div className="p-4 bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800 rounded-lg mb-6">
+                <p className="text-red-700 dark:text-red-300 text-sm">
+                  Failed to send message. Please try again.
+                </p>
+              </div>
+            )}
 
-              <form onSubmit={handleContactSubmit} className="space-y-4">
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                  <div>
-                    <input
-                      type="text"
-                      name="name"
-                      value={contactForm.name}
-                      onChange={handleContactChange}
-                      placeholder="Name"
-                      required
-                      className="w-full px-3 py-3 bg-gray-100 dark:bg-gray-700 border-0 rounded-lg text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400 focus:ring-2 focus:ring-red-500 dark:focus:ring-blue-500 focus:outline-none transition-all"
-                    />
-                  </div>
-                  <div>
-                    <input
-                      type="email"
-                      name="email"
-                      value={contactForm.email}
-                      onChange={handleContactChange}
-                      placeholder="Email"
-                      required
-                      className="w-full px-3 py-3 bg-gray-100 dark:bg-gray-700 border-0 rounded-lg text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400 focus:ring-2 focus:ring-red-500 dark:focus:ring-blue-500 focus:outline-none transition-all"
-                    />
-                  </div>
-                </div>
-                
+            {/* Enhanced Contact Form */}
+            <form onSubmit={handleContactSubmit} className="space-y-4">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <div>
                   <input
                     type="text"
-                    name="subject"
-                    value={contactForm.subject}
+                    name="name"
+                    value={contactForm.name}
                     onChange={handleContactChange}
-                    placeholder="Subject"
+                    placeholder="Full Name *"
                     required
-                    className="w-full px-3 py-3 bg-gray-100 dark:bg-gray-700 border-0 rounded-lg text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400 focus:ring-2 focus:ring-red-500 dark:focus:ring-blue-500 focus:outline-none transition-all"
+                    className="w-full px-4 py-3 bg-gray-100 dark:bg-gray-700 border-0 rounded-lg text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400 focus:ring-2 focus:ring-red-500 dark:focus:ring-blue-500 focus:outline-none transition-all"
                   />
                 </div>
-                
                 <div>
-                  <textarea
-                    name="message"
-                    value={contactForm.message}
+                  <input
+                    type="email"
+                    name="email"
+                    value={contactForm.email}
                     onChange={handleContactChange}
-                    rows={4}
-                    placeholder="Message"
+                    placeholder="Email Address *"
                     required
-                    className="w-full px-3 py-3 bg-gray-100 dark:bg-gray-700 border-0 rounded-lg text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400 focus:ring-2 focus:ring-red-500 dark:focus:ring-blue-500 focus:outline-none transition-all resize-none"
-                  ></textarea>
+                    className="w-full px-4 py-3 bg-gray-100 dark:bg-gray-700 border-0 rounded-lg text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400 focus:ring-2 focus:ring-red-500 dark:focus:ring-blue-500 focus:outline-none transition-all"
+                  />
                 </div>
-                
-                <div>
-                  <button 
-                    type="submit"
-                    disabled={isSubmitting}
-                    className="bg-gradient-to-r from-red-600 to-red-700 dark:from-blue-600 dark:to-blue-700 text-white px-6 py-3 rounded-lg font-semibold hover:shadow-xl hover:shadow-red-500/25 dark:hover:shadow-blue-500/25 transition-all duration-300 flex items-center space-x-2 disabled:opacity-50 disabled:cursor-not-allowed"
-                  >
-                    <span>{isSubmitting ? 'Sending...' : 'Send Message'}</span>
-                    <Send className="h-4 w-4" />
-                  </button>
-                </div>
-              </form>
-            </div>
+              </div>
 
-            {/* Newsletter Signup */}
-            <div className="bg-gradient-to-br from-red-600 to-red-700 dark:from-blue-600 dark:to-blue-700 rounded-xl p-6 text-white shadow-xl">
-              <h3 className="text-lg font-bold mb-3">AI Insights Newsletter</h3>
-              <p className="text-red-100 dark:text-blue-100 mb-4 text-sm leading-relaxed">
-                Get cutting-edge D2C operational strategies and AI insights delivered directly to your inbox. Join 10K+ industry leaders.
-              </p>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div>
+                  <input
+                    type="text"
+                    name="company"
+                    value={contactForm.company}
+                    onChange={handleContactChange}
+                    placeholder="Company Name"
+                    className="w-full px-4 py-3 bg-gray-100 dark:bg-gray-700 border-0 rounded-lg text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400 focus:ring-2 focus:ring-red-500 dark:focus:ring-blue-500 focus:outline-none transition-all"
+                  />
+                </div>
+                <div>
+                  <input
+                    type="tel"
+                    name="phone"
+                    value={contactForm.phone}
+                    onChange={handleContactChange}
+                    placeholder="Phone Number"
+                    className="w-full px-4 py-3 bg-gray-100 dark:bg-gray-700 border-0 rounded-lg text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400 focus:ring-2 focus:ring-red-500 dark:focus:ring-blue-500 focus:outline-none transition-all"
+                  />
+                </div>
+              </div>
               
-              <div className="space-y-3">
-                <input
-                  type="email"
-                  placeholder="Your email address"
-                  className="w-full px-3 py-2 bg-white/10 backdrop-blur border border-white/20 rounded-lg text-white placeholder-white/70 focus:ring-2 focus:ring-white/30 focus:outline-none transition-all text-sm"
-                />
-                <button className="w-full bg-white text-red-700 dark:text-blue-700 px-4 py-2 rounded-lg font-semibold hover:bg-gray-100 transition-all duration-300 text-sm">
-                  Subscribe Now
+              <div>
+                <select
+                  name="subject"
+                  value={contactForm.subject}
+                  onChange={handleContactChange}
+                  required
+                  className="w-full px-4 py-3 bg-gray-100 dark:bg-gray-700 border-0 rounded-lg text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400 focus:ring-2 focus:ring-red-500 dark:focus:ring-blue-500 focus:outline-none transition-all"
+                >
+                  <option value="">Select a Topic *</option>
+                  <option value="General Inquiry">General Inquiry</option>
+                  <option value="Demo Request">Demo Request</option>
+                  <option value="Pricing Information">Pricing Information</option>
+                  <option value="Technical Support">Technical Support</option>
+                  <option value="Partnership Opportunity">Partnership Opportunity</option>
+                  <option value="Other">Other</option>
+                </select>
+              </div>
+              
+              <div>
+                <textarea
+                  name="message"
+                  value={contactForm.message}
+                  onChange={handleContactChange}
+                  rows={5}
+                  placeholder="Your Message *"
+                  required
+                  className="w-full px-4 py-3 bg-gray-100 dark:bg-gray-700 border-0 rounded-lg text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400 focus:ring-2 focus:ring-red-500 dark:focus:ring-blue-500 focus:outline-none transition-all resize-none"
+                ></textarea>
+              </div>
+              
+              <div className="flex justify-center">
+                <button 
+                  type="submit"
+                  disabled={isSubmitting}
+                  className="bg-gradient-to-r from-red-600 to-red-700 dark:from-blue-600 dark:to-blue-700 text-white px-8 py-4 rounded-lg font-semibold hover:shadow-xl hover:shadow-red-500/25 dark:hover:shadow-blue-500/25 transition-all duration-300 flex items-center space-x-2 disabled:opacity-50 disabled:cursor-not-allowed transform hover:scale-105"
+                >
+                  <span>{isSubmitting ? 'Sending...' : 'Send Message'}</span>
+                  <Send className="h-5 w-5" />
                 </button>
               </div>
-            </div>
+            </form>
           </div>
         </div>
       </div>

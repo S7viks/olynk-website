@@ -171,6 +171,8 @@ const App: React.FC = () => {
                     <DatabaseChecker />
                   </ProtectedRoute>
                 } />
+                
+
               </Routes>
               <ConditionalFooter />
             </div>
