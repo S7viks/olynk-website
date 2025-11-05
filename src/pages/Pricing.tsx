@@ -1,5 +1,7 @@
 import React, { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
+import SEO from '../components/SEO';
+import { getPageSEO } from '../utils/seo';
 
 function Pricing() {
   const navigate = useNavigate();
@@ -9,8 +11,8 @@ function Pricing() {
     navigate('/#pricing', { replace: true });
   }, [navigate]);
 
-  // This component will redirect, so we don't need to render anything
-  return null;
+  // This component will redirect, but we still need SEO tags
+  return <SEO {...getPageSEO('pricing')} />;
 }
 
 export default Pricing;

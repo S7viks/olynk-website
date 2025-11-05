@@ -8,6 +8,8 @@ import {
 } from 'lucide-react';
 import { Link, useLocation } from 'react-router-dom';
 import EarlyAccess from '../components/EarlyAccess';
+import SEO from '../components/SEO';
+import { getPageSEO } from '../utils/seo';
 
 export default function About() {
   const [isVisible, setIsVisible] = useState(false);
@@ -98,7 +100,9 @@ export default function About() {
   ];
 
   return (
-    <div ref={aboutRef} className="min-h-screen bg-gradient-to-br from-amber-50 via-yellow-50 to-amber-100 dark:from-blue-900 dark:via-blue-800 dark:to-blue-900 transition-colors duration-300 relative overflow-hidden">
+    <>
+      <SEO {...getPageSEO('about')} />
+      <div ref={aboutRef} className="min-h-screen bg-gradient-to-br from-amber-50 via-yellow-50 to-amber-100 dark:from-blue-900 dark:via-blue-800 dark:to-blue-900 transition-colors duration-300 relative overflow-hidden">
       {/* Background Pattern */}
       <div className="fixed inset-0 bg-[linear-gradient(to_right,#CD5C5C_1px,transparent_1px),linear-gradient(to_bottom,#CD5C5C_1px,transparent_1px)] dark:bg-[linear-gradient(to_right,#0D3B66_1px,transparent_1px),linear-gradient(to_bottom,#0D3B66_1px,transparent_1px)] bg-[size:4rem_4rem] opacity-20 pointer-events-none" />
       
@@ -618,5 +622,6 @@ export default function About() {
         </div>
       </section>
     </div>
+    </>
   );
 }

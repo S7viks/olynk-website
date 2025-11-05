@@ -1,12 +1,16 @@
 import React, { useState } from 'react';
 import ContactForm from '../components/ContactForm';
 import MicrosoftForm from '../components/MicrosoftForm';
+import SEO from '../components/SEO';
+import { getPageSEO } from '../utils/seo';
 
 const ContactPage: React.FC = () => {
   const [activeTab, setActiveTab] = useState<'custom' | 'microsoft'>('custom');
 
   return (
-    <div className="min-h-screen py-12 px-4 sm:px-6 lg:px-8">
+    <>
+      <SEO {...getPageSEO('contact')} />
+      <div className="min-h-screen py-12 px-4 sm:px-6 lg:px-8">
       <div className="max-w-7xl mx-auto">
         {/* Page Header */}
         <div className="text-center mb-12">
@@ -59,6 +63,7 @@ const ContactPage: React.FC = () => {
         </div>
       </div>
     </div>
+    </>
   );
 };
 

@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route, useLocation, Navigate } from 'react-router-dom';
+import { HelmetProvider } from 'react-helmet-async';
 import { ThemeProvider } from './contexts/ThemeContext';
 import { AuthProvider, useAuth } from './contexts/AuthContext';
 import Header from './components/Header';
@@ -23,6 +24,8 @@ import checkEnvironmentVariables from './utils/envCheck';
 import AboutPage from './pages/About';
 import PricingPage from './pages/Pricing';
 import ContactPage from './pages/Contact';
+import SEO from './components/SEO';
+import { getPageSEO } from './utils/seo';
 
 // Conditional Footer Component
 const ConditionalFooter: React.FC = () => {
@@ -60,6 +63,7 @@ function HomePage() {
 
   return (
     <>
+      <SEO {...getPageSEO('home')} />
       <Hero />
       <ProblemSection />
       <PricingSection />
@@ -122,9 +126,10 @@ const App: React.FC = () => {
   }
 
   return (
-    <ThemeProvider>
-      <AuthProvider>
-        <Router>
+    <HelmetProvider>
+      <ThemeProvider>
+        <AuthProvider>
+          <Router>
           <div className="min-h-screen bg-gradient-to-br from-amber-50 via-yellow-50 to-amber-100 dark:from-blue-900 dark:via-blue-800 dark:to-blue-900 transition-colors duration-300 relative">
             {/* Background Pattern */}
             <div className="fixed inset-0 bg-[linear-gradient(to_right,#CD5C5C_1px,transparent_1px),linear-gradient(to_bottom,#CD5C5C_1px,transparent_1px)] dark:bg-[linear-gradient(to_right,#0D3B66_1px,transparent_1px),linear-gradient(to_bottom,#0D3B66_1px,transparent_1px)] bg-[size:4rem_4rem] opacity-20 pointer-events-none" />
@@ -177,9 +182,10 @@ const App: React.FC = () => {
               <ConditionalFooter />
             </div>
           </div>
-        </Router>
-      </AuthProvider>
-    </ThemeProvider>
+          </Router>
+        </AuthProvider>
+      </ThemeProvider>
+    </HelmetProvider>
   );
 };
 

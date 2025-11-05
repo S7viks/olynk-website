@@ -155,7 +155,88 @@ export const SEO_KEYWORDS = {
     "retail AI demo",
     "operations advisor contact"
   ],
+  promo: [
+    "OLYNK promo",
+    "OLYNK discount",
+    "special offer",
+    "limited time offer",
+    "AI operations promo"
+  ]
+};
 
+// Page-specific SEO configurations
+export const PAGE_SEO: Record<string, SEOProps> = {
+  home: {
+    title: "OLYNK - AI Operations Advisor for D2C Brands | Predict Problems Before They Happen",
+    description: "Stop losing ₹2-5L monthly to stockouts and operational chaos. OLYNK's AI advisor predicts what's about to go wrong and tells you exactly how to fix it. Book demo today.",
+    keywords: SEO_KEYWORDS.home,
+    canonical: "https://olynk.ai",
+    ogImage: "https://olynk.ai/assets/Logo111.png",
+    ogType: "website",
+    twitterCard: "summary_large_image",
+    structuredData: generateOrganizationStructuredData()
+  },
+  about: {
+    title: "About OLYNK - AI Operations Advisor | Our Mission & Vision",
+    description: "Learn about OLYNK's mission to revolutionize D2C operations with AI. We turn scattered data into smart decisions and help brands scale without complexity.",
+    keywords: SEO_KEYWORDS.about,
+    canonical: "https://olynk.ai/about",
+    ogImage: "https://olynk.ai/assets/Logo111.png",
+    ogType: "website",
+    twitterCard: "summary_large_image"
+  },
+  pricing: {
+    title: "OLYNK Pricing - AI Operations Advisor Plans & Pricing | Start Free Trial",
+    description: "Choose the right OLYNK plan for your D2C brand. Flexible pricing from ₹10k/month. AI Starter, Growth, and Enterprise plans available. Start your free trial today.",
+    keywords: SEO_KEYWORDS.pricing,
+    canonical: "https://olynk.ai/pricing",
+    ogImage: "https://olynk.ai/assets/Logo111.png",
+    ogType: "website",
+    twitterCard: "summary_large_image"
+  },
+  contact: {
+    title: "Contact OLYNK - Get in Touch | Book a Demo | AI Operations Support",
+    description: "Contact OLYNK for AI operations support, D2C consultation, or to book a demo. We're here to help you transform your retail operations.",
+    keywords: SEO_KEYWORDS.contact,
+    canonical: "https://olynk.ai/contact",
+    ogImage: "https://olynk.ai/assets/Logo111.png",
+    ogType: "website",
+    twitterCard: "summary_large_image"
+  },
+  waitlist: {
+    title: "Join OLYNK Waitlist - Early Access to AI Operations Advisor",
+    description: "Join the OLYNK waitlist for early access to our AI operations advisor. Be among the first to transform your D2C operations with predictive AI.",
+    keywords: SEO_KEYWORDS.home,
+    canonical: "https://olynk.ai/waitlist-funnel",
+    ogImage: "https://olynk.ai/assets/Logo111.png",
+    ogType: "website",
+    twitterCard: "summary_large_image"
+  }
+};
+
+// Helper function to create promo-specific SEO
+export const createPromoSEO = (
+  promoTitle: string,
+  promoDescription: string,
+  promoUrl: string,
+  promoImage?: string,
+  customKeywords?: string[]
+): SEOProps => {
+  return {
+    title: promoTitle,
+    description: promoDescription,
+    keywords: customKeywords || SEO_KEYWORDS.promo,
+    canonical: promoUrl,
+    ogImage: promoImage || "https://olynk.ai/assets/Logo111.png",
+    ogType: "website",
+    twitterCard: "summary_large_image"
+  };
+};
+
+// Get SEO config for a specific page
+export const getPageSEO = (pageName: string, customSEO?: Partial<SEOProps>): SEOProps => {
+  const pageSEO = PAGE_SEO[pageName] || DEFAULT_SEO;
+  return { ...pageSEO, ...customSEO };
 };
 
 // Default SEO settings

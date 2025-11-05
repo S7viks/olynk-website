@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { ArrowRight, CheckCircle, Sparkles, Zap, Users, TrendingUp, Shield, Brain, Target, BarChart3 } from 'lucide-react';
 import { supabase } from '../supabase';
+import SEO from './SEO';
+import { getPageSEO } from '../utils/seo';
 
 const WaitlistFunnel: React.FC = () => {
   const navigate = useNavigate();
@@ -93,7 +95,9 @@ const WaitlistFunnel: React.FC = () => {
 
   if (submitStatus === 'success') {
     return (
-      <div className="min-h-screen bg-gradient-to-br from-amber-50 via-yellow-50 to-amber-100 flex items-center justify-center p-4">
+      <>
+        <SEO {...getPageSEO('waitlist')} />
+        <div className="min-h-screen bg-gradient-to-br from-amber-50 via-yellow-50 to-amber-100 flex items-center justify-center p-4">
         <div className="max-w-md w-full bg-white rounded-2xl shadow-xl p-8 text-center">
           <CheckCircle className="h-16 w-16 text-green-500 mx-auto mb-4" />
           <h2 className="text-2xl font-bold text-gray-900 mb-2">Welcome to OLYNK!</h2>
@@ -113,11 +117,14 @@ const WaitlistFunnel: React.FC = () => {
           </button>
         </div>
       </div>
+      </>
     );
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-amber-50 via-yellow-50 to-amber-100">
+    <>
+      <SEO {...getPageSEO('waitlist')} />
+      <div className="min-h-screen bg-gradient-to-br from-amber-50 via-yellow-50 to-amber-100">
       {/* Background Pattern */}
       <div className="fixed inset-0 bg-[linear-gradient(to_right,#CD5C5C_1px,transparent_1px),linear-gradient(to_bottom,#CD5C5C_1px,transparent_1px)] dark:bg-[linear-gradient(to_right,#0D3B66_1px,transparent_1px),linear-gradient(to_bottom,#0D3B66_1px,transparent_1px)] bg-[size:4rem_4rem] opacity-20 pointer-events-none" />
       
@@ -320,6 +327,7 @@ const WaitlistFunnel: React.FC = () => {
         </div>
       </div>
     </div>
+    </>
   );
 };
 
