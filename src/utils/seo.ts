@@ -6,6 +6,7 @@ export interface SEOProps {
   keywords: string[];
   canonical?: string;
   ogImage?: string;
+  ogImageAlt?: string; // Recommended by Open Graph protocol: "If the page specifies an og:image it should specify og:image:alt"
   ogType?: string;
   twitterCard?: string;
   structuredData?: object;
@@ -220,6 +221,7 @@ export const createPromoSEO = (
   promoDescription: string,
   promoUrl: string,
   promoImage?: string,
+  promoImageAlt?: string,
   customKeywords?: string[]
 ): SEOProps => {
   return {
@@ -228,6 +230,7 @@ export const createPromoSEO = (
     keywords: customKeywords || SEO_KEYWORDS.promo,
     canonical: promoUrl,
     ogImage: promoImage || "https://olynk.ai/assets/Logo111.png",
+    ogImageAlt: promoImageAlt || promoDescription,
     ogType: "website",
     twitterCard: "summary_large_image"
   };

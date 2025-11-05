@@ -13,6 +13,7 @@ const SEO: React.FC<SEOComponentProps> = (props) => {
     keywords,
     canonical,
     ogImage,
+    ogImageAlt,
     ogType,
     twitterCard,
     structuredData,
@@ -35,33 +36,57 @@ const SEO: React.FC<SEOComponentProps> = (props) => {
     ? generateStructuredData({ ...props, structuredData })
     : generateStructuredData(props);
 
+  // Ensure absolute URLs for images (Open Graph protocol requires absolute URLs)
+  const absoluteOgImage = ogImage 
+    ? (ogImage.startsWith('http') ? ogImage : `https://olynk.ai${ogImage.startsWith('/') ? ogImage : '/' + ogImage}`)
+    : 'https://olynk.ai/assets/Logo111.png';
+  
+  // Ensure canonical URL is absolute (Open Graph protocol requires absolute URLs)
+  const absoluteCanonical = canonical 
+    ? (canonical.startsWith('http') ? canonical : `https://olynk.ai${canonical.startsWith('/') ? canonical : '/' + canonical}`)
+    : 'https://olynk.ai';
+  
+  // Default image alt text if not provided (Open Graph protocol recommends og:image:alt)
+  const imageAlt = ogImageAlt || description || `${title} - OLYNK AI Operations Advisor`;
+
   return (
     <>
       <Helmet>
+        {/* Open Graph Protocol HTML prefix - Recommended by https://ogp.me/ */}
+        <html prefix="og: https://ogp.me/ns#" />
+        
         {/* Basic meta tags */}
         <title>{title}</title>
         <meta name="description" content={description} />
         <meta name="keywords" content={keywords.join(', ')} />
         <meta name="robots" content={noIndex ? 'noindex, nofollow' : 'index, follow'} />
         
-        {/* Open Graph tags */}
+        {/* Open Graph Protocol - Required Properties */}
+        {/* Reference: https://ogp.me/ */}
         <meta property="og:title" content={title} />
-        <meta property="og:description" content={description} />
         <meta property="og:type" content={ogType || 'website'} />
-        {canonical && <meta property="og:url" content={canonical} />}
-        {ogImage && <meta property="og:image" content={ogImage} />}
-        {ogImage && <meta property="og:image:width" content="1200" />}
-        {ogImage && <meta property="og:image:height" content="630" />}
+        <meta property="og:url" content={absoluteCanonical} />
+        <meta property="og:image" content={absoluteOgImage} />
+        
+        {/* Open Graph Protocol - Recommended Optional Properties */}
+        <meta property="og:description" content={description} />
         <meta property="og:site_name" content="OLYNK" />
         
-        {/* Twitter Card tags */}
+        {/* Open Graph Protocol - Structured Properties for og:image */}
+        {/* Per spec: "If the page specifies an og:image it should specify og:image:alt" */}
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
+        <meta property="og:image:alt" content={imageAlt} />
+        <meta property="og:image:secure_url" content={absoluteOgImage.replace('http://', 'https://')} />
+        
+        {/* Twitter Card tags - All required tags */}
         <meta name="twitter:card" content={twitterCard || 'summary_large_image'} />
         <meta name="twitter:title" content={title} />
         <meta name="twitter:description" content={description} />
-        {ogImage && <meta name="twitter:image" content={ogImage} />}
+        <meta name="twitter:image" content={absoluteOgImage} />
         
         {/* Canonical URL */}
-        {canonical && <link rel="canonical" href={canonical} />}
+        <link rel="canonical" href={absoluteCanonical} />
         
         {/* Structured Data */}
         <script type="application/ld+json">
