@@ -1,11 +1,18 @@
-import React, { useState, useEffect } from 'react';
-import { Menu, X, ArrowRight } from 'lucide-react';
+/**
+ * Header Component - Multi-Page Navigation
+ * 
+ * Navigation order follows logical evaluation flow:
+ * Platform → How It Works → Solutions → Company → Request Demo
+ */
+
+import { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
+import { Menu, X } from 'lucide-react';
 import Logo from './Logo';
 
 const Header = () => {
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const location = useLocation();
 
   useEffect(() => {
@@ -16,109 +23,96 @@ const Header = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const navigationItems = [
-    { name: 'Home', href: '/' },
-    { name: 'About Us', href: '/about' },
-    { name: 'Pricing', href: '/pricing' },
+  // Close mobile menu on route change
+  useEffect(() => {
+    setIsMobileMenuOpen(false);
+  }, [location]);
+
+  const navigation = [
+    { name: 'Platform', path: '/platform' },
+    { name: 'How It Works', path: '/how-it-works' },
+    { name: 'Solutions', path: '/solutions' },
+    { name: 'Company', path: '/company' },
   ];
 
-  const isActive = (path: string) => location.pathname === path || location.pathname.startsWith(path + '/');
+  const isActive = (path: string) => location.pathname === path;
 
   return (
-    <header 
-      className={`fixed top-0 w-full z-50 transition-all duration-300 ${
-        isScrolled 
-          ? 'bg-white/95 dark:bg-gray-900/95 backdrop-blur-md shadow-lg' 
-          : 'bg-transparent'
-      }`}
+    <header
+      className={`fixed top-0 left-0 right-0 z-50 transition-all ${isScrolled
+        ? 'bg-white/95 backdrop-blur-sm shadow py-3'
+        : 'bg-white py-6'
+        }`}
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-16">
+      <div className="container-custom">
+        <div className="flex items-center justify-between">
           {/* Logo */}
-          <Link to="/" className="flex items-center space-x-2">
-            <Logo size="md" />
-            <span className="text-2xl font-bold bg-gradient-to-r from-red-600 to-red-700 dark:from-blue-400 dark:to-blue-500 bg-clip-text text-transparent">
-              olynk.ai
-            </span>
+          <Link to="/" className="flex items-center group">
+            <Logo size="md" className="transition-all duration-300 group-hover:scale-105" />
           </Link>
 
           {/* Desktop Navigation */}
-          <nav className="hidden md:flex items-center space-x-8">
-            {navigationItems.map((item) => (
+          <nav className="hidden md:flex items-center gap-10">
+            {navigation.map((item) => (
               <Link
-                key={item.name}
-                to={item.href}
-                className={`transition-all duration-300 font-medium relative group ${
-                  isActive(item.href)
-                    ? 'text-red-600 dark:text-yellow-300'
-                    : 'text-gray-700 dark:text-gray-300 hover:text-red-600 dark:hover:text-yellow-300'
-                }`}
+                key={item.path}
+                to={item.path}
+                className={`text-[11px] font-black uppercase tracking-widest transition-all duration-300 ${isActive(item.path)
+                  ? 'text-navy underline underline-offset-8 decoration-2'
+                  : 'text-navy/40 hover:text-navy'
+                  }`}
               >
                 {item.name}
-                <span className={`absolute -bottom-1 left-0 h-0.5 bg-gradient-to-r from-red-500 to-red-600 dark:from-blue-400 dark:to-blue-500 transition-all duration-300 ${
-                  isActive(item.href) ? 'w-full' : 'w-0 group-hover:w-full'
-                }`}></span>
               </Link>
             ))}
+
+            <Link
+              to="/request-demo"
+              className="bg-navy text-white px-8 py-3 rounded-full text-[11px] font-black uppercase tracking-widest hover:bg-navy/90 transition-all duration-300 shadow-xl shadow-navy/10 active:scale-95"
+            >
+              Request Demo
+            </Link>
           </nav>
 
-          {/* Theme Toggle & CTA */}
-          <div className="hidden md:flex items-center space-x-4">
-            <a
-              href="https://forms.office.com/r/zd11g2RWDR"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="bg-gradient-to-r from-red-600 to-red-700 text-white px-6 py-2 rounded-full font-semibold hover:shadow-lg hover:scale-105 transition-all duration-300 flex items-center space-x-2 group"
-            >
-              <span>Join Early Access</span>
-              <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform duration-300" />
-            </a>
-          </div>
-
           {/* Mobile Menu Button */}
-                      <button
-              onClick={() => setIsMenuOpen(!isMenuOpen)}
-              className="md:hidden p-2 rounded-md text-gray-700 dark:text-gray-300 hover:text-red-600 dark:hover:text-yellow-300 transition-colors duration-300"
-            >
-            {isMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+          <button
+            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+            className="md:hidden p-2 text-navy hover:scale-110 transition-all duration-300"
+            aria-label="Toggle menu"
+          >
+            {isMobileMenuOpen ? (
+              <X className="h-6 w-6" />
+            ) : (
+              <Menu className="h-6 w-6" />
+            )}
           </button>
         </div>
 
         {/* Mobile Menu */}
-        {isMenuOpen && (
-          <div className="md:hidden absolute top-16 left-0 right-0 bg-white/95 dark:bg-gray-900/95 backdrop-blur-md shadow-lg rounded-b-lg">
-            <div className="px-4 py-4 space-y-3">
-              {navigationItems.map((item) => (
-                <Link
-                  key={item.name}
-                  to={item.href}
-                  className={`block font-medium transition-colors duration-300 ${
-                    isActive(item.href)
-                      ? 'text-red-600 dark:text-yellow-300'
-                      : 'text-gray-700 dark:text-gray-300 hover:text-red-600 dark:hover:text-yellow-300'
+        {isMobileMenuOpen && (
+          <div className="md:hidden pt-8 pb-10 space-y-6 border-t border-beige/40 mt-6 animate-in slide-in-from-top-4 duration-500">
+            {navigation.map((item) => (
+              <Link
+                key={item.path}
+                to={item.path}
+                className={`block text-[14px] font-black uppercase tracking-widest ${isActive(item.path)
+                  ? 'text-navy'
+                  : 'text-navy/40'
                   }`}
-                  onClick={() => setIsMenuOpen(false)}
-                >
-                  {item.name}
-                </Link>
-              ))}
-              <div className="flex items-center justify-center pt-2">
-                <a
-                  href="https://forms.office.com/r/zd11g2RWDR"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="bg-gradient-to-r from-red-600 to-red-700 text-white px-6 py-2 rounded-full font-semibold hover:shadow-lg transition-all duration-300 flex items-center space-x-2"
-                  onClick={() => setIsMenuOpen(false)}
-                >
-                  <span>Join Early Access</span>
-                  <ArrowRight className="h-4 w-4" />
-                </a>
-              </div>
-            </div>
+              >
+                {item.name}
+              </Link>
+            ))}
+            <Link
+              to="/request-demo"
+              className="block bg-navy text-white px-8 py-4 rounded-full text-[12px] font-black uppercase tracking-widest text-center shadow-2xl shadow-navy/20"
+            >
+              Request Demo
+            </Link>
           </div>
         )}
       </div>
-    </header>
+    </header >
   );
 };
 

@@ -7,20 +7,16 @@ interface LogoProps {
 
 const Logo: React.FC<LogoProps> = ({ size = 'md', className = '' }) => {
   const sizeClasses = {
-    sm: 'h-6 w-6',
-    md: 'h-8 w-8',
-    lg: 'h-12 w-12'
+    sm: 'h-8 w-auto',
+    md: 'h-10 w-auto',
+    lg: 'h-16 w-auto'
   };
 
   return (
     <img
-      src="/assets/LogoNavbar.png"
+      src="/assets/Olynk_Logo.png"
       alt="Olynk.ai Logo"
       className={`${sizeClasses[size]} object-contain ${className}`}
-      style={{
-        minWidth: size === 'sm' ? '24px' : size === 'md' ? '32px' : '48px',
-        minHeight: size === 'sm' ? '24px' : size === 'md' ? '32px' : '48px'
-      }}
     />
   );
 };

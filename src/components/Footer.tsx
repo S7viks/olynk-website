@@ -1,431 +1,135 @@
-import React, { useState } from 'react';
-import { ArrowRight, Heart, Mail, Phone, MapPin, ArrowUp, ExternalLink, Sparkles, Zap, Globe, Shield, Send } from 'lucide-react';
-import { contactService } from '../services/firebaseService';
-import { Link, useLocation } from 'react-router-dom';
+/**
+ * Footer Component - Site Map & Links
+ */
+
+import { Link } from 'react-router-dom';
 import Logo from './Logo';
 
 const Footer = () => {
-  const location = useLocation();
-  
-  const [contactForm, setContactForm] = useState({
-    name: '',
-    email: '',
-    subject: '',
-    message: ''
-  });
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
-
-  const handleContactSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    setIsSubmitting(true);
-    setSubmitStatus('idle');
-
-    try {
-      await contactService.submitContactForm(contactForm);
-      setSubmitStatus('success');
-      setContactForm({ name: '', email: '', subject: '', message: '' });
-    } catch (error) {
-      console.error('Error submitting contact form:', error);
-      setSubmitStatus('error');
-    } finally {
-      setIsSubmitting(false);
-    }
-  };
-
-  const handleContactChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    const { name, value } = e.target;
-    setContactForm(prev => ({
-      ...prev,
-      [name]: value
-    }));
-  };
-
-  interface SmoothScrollEvent extends React.MouseEvent<HTMLAnchorElement, MouseEvent> {}
-
-  interface HandleSmoothScroll {
-    (e: SmoothScrollEvent, href: string): void;
-  }
-
-  const handleSmoothScroll: HandleSmoothScroll = (e, href) => {
-    e.preventDefault();
-    const targetId = href.replace('#', '');
-    const targetElement = document.getElementById(targetId);
-
-    if (targetElement) {
-      window.scrollTo({
-        top: targetElement.offsetTop - 64,
-        behavior: 'smooth',
-      });
-    } else if (location.pathname !== '/') {
-      window.location.href = `/#${targetId}`;
-    }
-  };
-
-  const scrollToTop = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
-    e.preventDefault();
-    window.scrollTo({
-      top: 0,
-      behavior: 'smooth',
-    });
-  };
-
-  const productLinks = [
-    'AI Data Unification Engine',
-    'Smart Integration Orchestration', 
-    'AI Inventory Intelligence',
-    'Smart Order Orchestration',
-    'AI Communication Engine',
-    'Operations Command Center',
-    'Learning & Memory System'
-  ];
-
-  const companyLinks = [
-    { name: 'About OLYNK', href: '/about' },
-    { name: 'AI Technology', href: '/about' },
-    { name: 'Customer Success', href: '/about' },
-    { name: 'Careers', href: '/about' },
-    { name: 'Press Kit', href: '/about' },
-    { name: 'Contact', href: '/about' }
-  ];
-
-  const resourceLinks = [
-    { name: 'AI Insights Blog', href: '/blog' },
-    { name: 'D2C Operations Guide', href: '/resources' },
-    { name: 'ROI Calculator', href: '/roi-calculator' },
-    { name: 'API Documentation', href: '/api-docs' },
-    { name: 'Help Center', href: '/help' },
-    { name: 'System Status', href: '/status' }
-  ];
-
-  const legalLinks = [
-    { name: 'Privacy Policy', href: '#privacy-policy' },
-    { name: 'Terms of Service', href: '#terms-of-service' },
-    { name: 'Data Processing Agreement', href: '#dpa' },
-    { name: 'SOC2 Compliance', href: '#soc2' },
-    { name: 'Security Practices', href: '#security' }
-  ];
-
-  const contacts = [
-    { type: 'email', value: 'Sathvik.chenna@outlook.com', href: 'mailto:Sathvik.chenna@outlook.com' },
-    { type: 'phone', value: '+91 799 335 9150', href: 'tel:+917993359150' },
-    { type: 'email', value: 'chtarun911@gmail.com', href: 'mailto:chtarun911@gmail.com' },
-    { type: 'phone', value: '+91 628 138 8424', href: 'tel:+916281388424' },
-    { type: 'email', value: 'aryakrishnakumar971@gmail.com', href: 'mailto:aryakrishnakumar971@gmail.com' },
-    { type: 'phone', value: '+91 970 415 0704', href: 'tel:+919704150704' }
-  ];
+  const currentYear = new Date().getFullYear();
 
   return (
-    <footer 
-      className="relative overflow-hidden transition-colors duration-300"
-      style={{
-        background: `
-          linear-gradient(to right, #CD5C5C 1px, transparent 1px),
-          linear-gradient(to bottom, #CD5C5C 1px, transparent 1px)
-        `,
-        backgroundSize: '4rem 4rem, 4rem 4rem',
-        backgroundAttachment: 'fixed, fixed'
-      }}
-    >
-      {/* Gradient Overlays */}
-      <div className="absolute -top-48 -left-48 w-96 h-96 bg-red-500/10 dark:bg-blue-500/10 rounded-full blur-3xl pointer-events-none" />
-      <div className="absolute -bottom-48 -right-48 w-96 h-96 bg-red-400/10 dark:bg-blue-400/10 rounded-full blur-3xl pointer-events-none" />
-
-      {/* Header Section */}
-      <div className="relative z-10 bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm py-8 border-b border-gray-200 dark:border-gray-700">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-2xl md:text-3xl font-bold text-gray-900 dark:text-white mb-2">
-            Contact Us
-          </h2>
-          <div className="w-16 h-1 bg-gradient-to-r from-red-500 to-red-600 dark:from-blue-400 dark:to-blue-500 mx-auto mb-3"></div>
-          <p className="text-base text-gray-600 dark:text-gray-400 max-w-xl mx-auto">
-            Ready to transform your D2C operations with AI? Let's discuss how Olynk can solve your biggest challenges.
-          </p>
-        </div>
+    <footer className="bg-cream border-t border-beige pt-24 pb-12 relative overflow-hidden">
+      {/* Background Subtle Label - Static for Footer */}
+      <div className="absolute bottom-0 left-0 right-0 p-20 opacity-[0.05] select-none pointer-events-none flex justify-center z-0">
+        <span className="text-[180px] font-black text-tan leading-none tracking-tighter">OLYNK_OS</span>
       </div>
 
-      {/* Brand Logos Section */}
-      <div className="relative z-10 bg-white/90 dark:bg-gray-800/90 backdrop-blur-sm py-4 border-b border-gray-200 dark:border-gray-700">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-center items-center space-x-8 opacity-60">
-            <div className="text-gray-400 font-medium text-sm">AI Partners</div>
-            <div className="text-gray-400 font-medium text-sm">D2C Leaders</div>
-            <div className="text-gray-400 font-medium text-sm">Tech Stack</div>
-            <div className="text-gray-400 font-medium text-sm">Integration</div>
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div className="grid md:grid-cols-4 gap-16 mb-20">
+          {/* Column 1: Logo + Description */}
+          <div className="space-y-6">
+            <Link to="/" className="inline-block group">
+              <Logo size="sm" className="opacity-100 group-hover:scale-105 transition-all" />
+            </Link>
+            <p className="text-steel text-sm font-medium leading-relaxed max-w-xs">
+              The intelligence operating system for autonomous commerce. Sit on top of your existing tools and execute decisions in real-time.
+            </p>
+          </div>
+
+          {/* Column 2: Product */}
+          <div>
+            <h3 className="text-[11px] font-black text-navy uppercase tracking-[0.2em] mb-8">Platform</h3>
+            <ul className="space-y-4 text-[13px] font-bold">
+              <li>
+                <Link to="/platform" className="text-steel hover:text-navy transition-all duration-300">
+                  Overview
+                </Link>
+              </li>
+              <li>
+                <Link to="/how-it-works" className="text-steel hover:text-navy transition-all duration-300">
+                  How it Works
+                </Link>
+              </li>
+              <li>
+                <Link to="/solutions" className="text-steel hover:text-navy transition-all duration-300">
+                  Our Solutions
+                </Link>
+              </li>
+              <li>
+                <Link to="/request-demo" className="text-steel hover:text-navy transition-all duration-300">
+                  Get a Demo
+                </Link>
+              </li>
+            </ul>
+          </div>
+
+          {/* Column 3: Company */}
+          <div>
+            <h3 className="text-[11px] font-black text-navy uppercase tracking-[0.2em] mb-8">Company</h3>
+            <ul className="space-y-4 text-[13px] font-bold">
+              <li>
+                <Link to="/company" className="text-steel hover:text-navy transition-all duration-300">
+                  About Us
+                </Link>
+              </li>
+              <li>
+                <a href="mailto:contact@olynk.ai" className="text-steel hover:text-navy transition-all duration-300">
+                  Contact Support
+                </a>
+              </li>
+              <li>
+                <a href="mailto:careers@olynk.ai" className="text-steel hover:text-navy transition-all duration-300">
+                  Careers
+                </a>
+              </li>
+            </ul>
+          </div>
+
+          {/* Column 4: Legal */}
+          <div>
+            <h3 className="text-[11px] font-black text-navy uppercase tracking-[0.2em] mb-8">Legal</h3>
+            <ul className="space-y-4 text-[13px] font-bold">
+              <li>
+                <a href="#" className="text-steel hover:text-navy transition-all duration-300">
+                  Privacy Policy
+                </a>
+              </li>
+              <li>
+                <a href="#" className="text-steel hover:text-navy transition-all duration-300">
+                  Terms of Service
+                </a>
+              </li>
+              <li>
+                <a href="#" className="text-steel hover:text-navy transition-all duration-300">
+                  Security
+                </a>
+              </li>
+            </ul>
           </div>
         </div>
-      </div>
 
-      {/* Main Contact Section */}
-      <div className="relative z-10 bg-white/90 dark:bg-gray-800/90 backdrop-blur-sm py-8">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-            
-            {/* Contact Form */}
-            <div className="lg:col-span-2 space-y-4">
-              {submitStatus === 'success' && (
-                <div className="p-4 bg-green-50 dark:bg-green-900/20 border border-green-200 dark:border-green-800 rounded-lg">
-                  <p className="text-green-700 dark:text-green-300 text-sm">
-                    Message sent successfully! We'll get back to you soon.
-                  </p>
-                </div>
-              )}
-
-              {submitStatus === 'error' && (
-                <div className="p-4 bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800 rounded-lg">
-                  <p className="text-red-700 dark:text-red-300 text-sm">
-                    Failed to send message. Please try again.
-                  </p>
-                </div>
-              )}
-
-              <form onSubmit={handleContactSubmit} className="space-y-4">
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                  <div>
-                    <input
-                      type="text"
-                      name="name"
-                      value={contactForm.name}
-                      onChange={handleContactChange}
-                      placeholder="Name"
-                      required
-                      className="w-full px-3 py-3 bg-gray-100 dark:bg-gray-700 border-0 rounded-lg text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400 focus:ring-2 focus:ring-red-500 dark:focus:ring-blue-500 focus:outline-none transition-all"
-                    />
-                  </div>
-                  <div>
-                    <input
-                      type="email"
-                      name="email"
-                      value={contactForm.email}
-                      onChange={handleContactChange}
-                      placeholder="Email"
-                      required
-                      className="w-full px-3 py-3 bg-gray-100 dark:bg-gray-700 border-0 rounded-lg text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400 focus:ring-2 focus:ring-red-500 dark:focus:ring-blue-500 focus:outline-none transition-all"
-                    />
-                  </div>
-                </div>
-                
-                <div>
-                  <input
-                    type="text"
-                    name="subject"
-                    value={contactForm.subject}
-                    onChange={handleContactChange}
-                    placeholder="Subject"
-                    required
-                    className="w-full px-3 py-3 bg-gray-100 dark:bg-gray-700 border-0 rounded-lg text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400 focus:ring-2 focus:ring-red-500 dark:focus:ring-blue-500 focus:outline-none transition-all"
-                  />
-                </div>
-                
-                <div>
-                  <textarea
-                    name="message"
-                    value={contactForm.message}
-                    onChange={handleContactChange}
-                    rows={4}
-                    placeholder="Message"
-                    required
-                    className="w-full px-3 py-3 bg-gray-100 dark:bg-gray-700 border-0 rounded-lg text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400 focus:ring-2 focus:ring-red-500 dark:focus:ring-blue-500 focus:outline-none transition-all resize-none"
-                  ></textarea>
-                </div>
-                
-                <div>
-                  <button 
-                    type="submit"
-                    disabled={isSubmitting}
-                    className="bg-gradient-to-r from-red-600 to-red-700 dark:from-blue-600 dark:to-blue-700 text-white px-6 py-3 rounded-lg font-semibold hover:shadow-xl hover:shadow-red-500/25 dark:hover:shadow-blue-500/25 transition-all duration-300 flex items-center space-x-2 disabled:opacity-50 disabled:cursor-not-allowed"
-                  >
-                    <span>{isSubmitting ? 'Sending...' : 'Send Message'}</span>
-                    <Send className="h-4 w-4" />
-                  </button>
-                </div>
-              </form>
-            </div>
-
-            {/* Newsletter Signup */}
-            <div className="bg-gradient-to-br from-red-600 to-red-700 dark:from-blue-600 dark:to-blue-700 rounded-xl p-6 text-white shadow-xl">
-              <h3 className="text-lg font-bold mb-3">AI Insights Newsletter</h3>
-              <p className="text-red-100 dark:text-blue-100 mb-4 text-sm leading-relaxed">
-                Get cutting-edge D2C operational strategies and AI insights delivered directly to your inbox. Join 10K+ industry leaders.
-              </p>
-              
-              <div className="space-y-3">
-                <input
-                  type="email"
-                  placeholder="Your email address"
-                  className="w-full px-3 py-2 bg-white/10 backdrop-blur border border-white/20 rounded-lg text-white placeholder-white/70 focus:ring-2 focus:ring-white/30 focus:outline-none transition-all text-sm"
-                />
-                <button className="w-full bg-white text-red-700 dark:text-blue-700 px-4 py-2 rounded-lg font-semibold hover:bg-gray-100 transition-all duration-300 text-sm">
-                  Subscribe Now
-                </button>
-              </div>
-            </div>
+        {/* Bottom Bar */}
+        <div className="border-t border-beige pt-10 flex flex-col md:flex-row justify-between items-center gap-8">
+          <div className="flex items-center gap-4">
+            <p className="text-[11px] font-black text-tan uppercase tracking-widest">
+              © {currentYear} OLYNK_AI. SYSTEM_RUNNING
+            </p>
           </div>
-        </div>
-      </div>
 
-      {/* Contact Information Cards */}
-      <div className="relative z-10 py-8">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            
-            {/* Phone */}
-            <div className="bg-gradient-to-br from-red-500 to-red-600 dark:from-blue-500 dark:to-blue-600 rounded-xl p-6 text-white text-center shadow-xl">
-              <div className="bg-white/10 rounded-full w-12 h-12 flex items-center justify-center mx-auto mb-3">
-                <Phone className="h-6 w-6" />
-              </div>
-              <h3 className="text-lg font-bold mb-2">+91 799 335 9150</h3>
-              <p className="text-red-100 dark:text-blue-100 text-xs">
-                Ready to discuss your D2C challenges? Give us a call for immediate assistance.
-              </p>
-            </div>
-
-            {/* Email */}
-            <div className="bg-gradient-to-br from-gray-600 to-gray-700 dark:from-gray-700 dark:to-gray-800 rounded-xl p-6 text-white text-center shadow-xl">
-              <div className="bg-white/10 rounded-full w-12 h-12 flex items-center justify-center mx-auto mb-3">
-                <Mail className="h-6 w-6" />
-              </div>
-              <h3 className="text-lg font-bold mb-2">hello@olynk.ai</h3>
-              <p className="text-gray-300 text-xs">
-                Send us an email for detailed discussions about AI solutions for your business.
-              </p>
-            </div>
-
-            {/* Location */}
-            <div className="bg-gradient-to-br from-gray-600 to-gray-700 dark:from-gray-700 dark:to-gray-800 rounded-xl p-6 text-white text-center shadow-xl">
-              <div className="bg-white/10 rounded-full w-12 h-12 flex items-center justify-center mx-auto mb-3">
-                <MapPin className="h-6 w-6" />
-              </div>
-              <h3 className="text-lg font-bold mb-2">Hyderabad, India</h3>
-              <p className="text-gray-300 text-xs">
-                Based in the heart of India's tech hub, serving D2C brands globally.
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      {/* CTA Section */}
-      <div className="relative z-10 bg-gradient-to-r from-red-600 to-red-700 dark:from-blue-600 dark:to-blue-700 py-8">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-xl md:text-2xl font-bold text-white mb-3">
-            Ready to Transform Your D2C Operations?
-          </h2>
-          <p className="text-red-100 dark:text-blue-100 text-sm mb-6 max-w-xl mx-auto">
-            Join 1,000+ D2C brands using AI to prevent losses and maximize profits. Start your transformation today.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-3 justify-center">
-            <a 
-              href="https://forms.office.com/r/zd11g2RWDR"
+          <div className="flex gap-8">
+            <a
+              href="https://linkedin.com"
               target="_blank"
               rel="noopener noreferrer"
-              className="bg-white text-red-700 dark:text-blue-700 px-6 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-all duration-300 shadow-lg hover:shadow-xl text-sm"
+              className="text-tan hover:text-navy transition-all duration-300"
+              aria-label="LinkedIn"
             >
-              Get Early Access
+              <svg className="h-5 w-5" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
+              </svg>
             </a>
-            <Link 
-              to="/demo" 
-              className="bg-white/10 backdrop-blur text-white px-6 py-3 rounded-lg font-semibold hover:bg-white/20 transition-all duration-300 border border-white/20 text-sm"
+            <a
+              href="https://twitter.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-tan hover:text-navy transition-all duration-300"
+              aria-label="Twitter"
             >
-              View Demo
-            </Link>
-          </div>
-        </div>
-      </div>
-
-      {/* Footer Navigation */}
-      <div className="relative z-10 bg-gradient-to-r from-red-600 to-red-700 dark:from-blue-600 dark:to-blue-700 text-white py-8">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
-            
-            {/* Company Info */}
-            <div className="md:col-span-1">
-              <div className="flex items-center space-x-2 mb-3">
-                <Logo size="sm" />
-                <h3 className="text-lg font-bold">olynk.ai</h3>
-              </div>
-              <p className="text-red-100 dark:text-blue-100 text-xs mb-3">
-                Transforming D2C brands from reactive to proactive with cutting-edge AI solutions.
-              </p>
-              <div className="space-y-1 text-xs">
-                <div className="flex items-center space-x-2">
-                  <MapPin className="h-3 w-3" />
-                  <span>Hyderabad, Telangana, India</span>
-                </div>
-                <div className="flex items-center space-x-2">
-                  <Phone className="h-3 w-3" />
-                  <span>+91 799 335 9150</span>
-                </div>
-                <div className="flex items-center space-x-2">
-                  <Mail className="h-3 w-3" />
-                  <span>hello@olynk.ai</span>
-                </div>
-              </div>
-            </div>
-
-            {/* Navigation */}
-            <div>
-              <h4 className="text-base font-semibold mb-3">Navigation</h4>
-              <ul className="space-y-1 text-xs">
-                <li><Link to="/" className="text-red-100 dark:text-blue-100 hover:text-white transition-colors">Home</Link></li>
-                <li><Link to="/about" className="text-red-100 dark:text-blue-100 hover:text-white transition-colors">About Us</Link></li>
-                <li><Link to="/demo" className="text-red-100 dark:text-blue-100 hover:text-white transition-colors">Demo</Link></li>
-                <li><Link to="/features" className="text-red-100 dark:text-blue-100 hover:text-white transition-colors">Features</Link></li>
-              </ul>
-            </div>
-
-            {/* Quick Links */}
-            <div>
-              <h4 className="text-base font-semibold mb-3">Quick Links</h4>
-              <ul className="space-y-1 text-xs">
-                <li><a href="https://forms.office.com/r/zd11g2RWDR" target="_blank" rel="noopener noreferrer" className="text-red-100 dark:text-blue-100 hover:text-white transition-colors">Get Early Access</a></li>
-                <li><Link to="/pricing" className="text-red-100 dark:text-blue-100 hover:text-white transition-colors">Pricing</Link></li>
-                <li><Link to="/benefits" className="text-red-100 dark:text-blue-100 hover:text-white transition-colors">Benefits</Link></li>
-                <li><Link to="#" className="text-red-100 dark:text-blue-100 hover:text-white transition-colors">Support</Link></li>
-              </ul>
-            </div>
-
-            {/* AI Solutions */}
-            <div>
-              <h4 className="text-base font-semibold mb-3">AI Solutions</h4>
-              <ul className="space-y-1 text-xs">
-                <li><span className="text-red-100 dark:text-blue-100">Data Unification</span></li>
-                <li><span className="text-red-100 dark:text-blue-100">Smart Integration</span></li>
-                <li><span className="text-red-100 dark:text-blue-100">Inventory Intelligence</span></li>
-                <li><span className="text-red-100 dark:text-blue-100">Order Orchestration</span></li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      {/* Copyright Bar */}
-      <div className="relative z-10 bg-red-700 dark:bg-blue-800 text-white py-4">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex flex-col md:flex-row justify-between items-center">
-            <div className="flex items-center space-x-2 text-sm">
-              <Heart className="h-4 w-4 text-red-300 dark:text-blue-300 animate-pulse" />
-              <span>© 2024 Olynk.ai - Crafted with AI for D2C success</span>
-            </div>
-            <div className="flex items-center space-x-4 mt-2 md:mt-0">
-              <button
-                onClick={scrollToTop}
-                className="p-2 bg-white/10 hover:bg-white/20 rounded-lg transition-colors"
-              >
-                <ArrowUp className="h-4 w-4" />
-              </button>
-              <div className="flex space-x-3">
-                <div className="w-8 h-8 bg-white/10 hover:bg-white/20 rounded-lg flex items-center justify-center cursor-pointer transition-colors">
-                  <span className="text-xs font-bold">f</span>
-                </div>
-                <div className="w-8 h-8 bg-white/10 hover:bg-white/20 rounded-lg flex items-center justify-center cursor-pointer transition-colors">
-                  <span className="text-xs font-bold">t</span>
-                </div>
-                <div className="w-8 h-8 bg-white/10 hover:bg-white/20 rounded-lg flex items-center justify-center cursor-pointer transition-colors">
-                  <span className="text-xs font-bold">in</span>
-                </div>
-              </div>
-            </div>
+              <svg className="h-5 w-5" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+              </svg>
+            </a>
           </div>
         </div>
       </div>

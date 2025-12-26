@@ -65,8 +65,8 @@ const EarlyAccess = () => {
             {benefits.map((benefit, index) => {
               const Icon = benefit.icon;
               return (
-                <div 
-                  key={index} 
+                <div
+                  key={index}
                   className="flex items-center space-x-4 bg-white/10 backdrop-blur-sm rounded-xl p-4 hover:bg-white/20 transition-all duration-300 hover:scale-105"
                 >
                   <div className="w-10 h-10 rounded-full bg-gradient-to-r from-teal-400 to-cyan-400 flex items-center justify-center flex-shrink-0">
@@ -87,28 +87,23 @@ const EarlyAccess = () => {
 
             {!isSubmitted ? (
               <form onSubmit={handleSubmit} className="space-y-4">
-                <div>
-                  <label htmlFor="email" className="block text-sm font-medium text-gray-300 mb-2">
-                    Email Address
-                  </label>
+                <div className="relative">
                   <input
                     type="email"
                     id="email"
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
-                    placeholder="you@company.com"
-                    className="w-full px-4 py-3 rounded-xl bg-white/20 border border-white/30 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-teal-400 focus:border-transparent transition-all duration-300"
+                    placeholder="Enter your email"
+                    className="w-full px-6 py-4 rounded-xl bg-white/20 border border-white/30 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-teal-400 focus:border-transparent transition-all duration-300"
                     required
                   />
+                  <button
+                    type="submit"
+                    className="absolute right-2 top-2 bottom-2 bg-gradient-to-r from-teal-500 to-cyan-500 text-white px-6 rounded-lg font-bold hover:shadow-xl transition-all duration-300"
+                  >
+                    Join
+                  </button>
                 </div>
-                <a
-                  href="https://forms.office.com/r/zd11g2RWDR"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="w-full bg-gradient-to-r from-teal-500 to-cyan-500 text-white px-6 py-3 rounded-xl font-bold hover:shadow-xl hover:scale-105 transition-all duration-300 text-center block"
-                >
-                  Get Started
-                </a>
               </form>
             ) : (
               <div className="text-center">
