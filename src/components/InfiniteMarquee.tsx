@@ -46,7 +46,7 @@ const InfiniteMarquee = () => {
 
             {/* Label */}
             <div className="absolute -top-3 left-1/2 transform -translate-x-1/2 bg-white px-4 py-1 rounded-full border border-beige shadow-sm z-20">
-                <span className="text-[10px] font-bold text-tan uppercase tracking-widest">Trusted by innovative D2C brands</span>
+                <span className="text-[10px] font-bold text-tan uppercase tracking-widest">Trusted by innovative commerce leaders</span>
             </div>
         </div>
     );

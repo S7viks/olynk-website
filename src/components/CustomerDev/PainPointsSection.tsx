@@ -113,8 +113,8 @@ const PainPointsSection = () => {
                     transition={{ duration: 0.6 }}
                     className="text-center mb-16"
                 >
-                    <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
-                        The <span className="text-red-600">₹5L Question</span> Every D2C Founder Asks
+                    <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6 font-black tracking-tightest">
+                        The <span className="text-olynk">₹5L Question</span> Every Commerce Leader Asks
                     </h2>
                     <p className="text-2xl text-gray-700 font-medium mb-4">
                         "What's About to Go Wrong That I Don't Know About Yet?"

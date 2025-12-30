@@ -92,11 +92,11 @@ const DemoSection = () => {
                     transition={{ duration: 0.6 }}
                     className="text-center mb-12"
                 >
-                    <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
-                        The <span className="text-red-600">"Holy Shit"</span> Moment
+                    <h2 className="text-4xl md:text-5xl font-black text-navy mb-4 tracking-tightest">
+                        The <span className="text-olynk">"Operational Clarity"</span> Moment
                     </h2>
-                    <p className="text-xl text-gray-700">
-                        Founders don't believe AI claims. They believe their eyes.
+                    <p className="text-xl text-steel font-bold">
+                        Commerce leaders don't believe AI claims. They believe verified logic.
                     </p>
                 </motion.div>
 

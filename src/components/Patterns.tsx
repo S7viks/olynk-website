@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { BarChart3, AlertTriangle, DollarSign, Bot, TrendingUp, CheckCircle, Zap, Target, Eye } from 'lucide-react';
 
 const Patterns = () => {
@@ -110,7 +110,7 @@ const Patterns = () => {
             <div className="mt-1 text-center">
               <span className="bg-slate-100 px-1 py-0.5 rounded-full text-xs text-slate-600 inline-flex items-center space-x-1 hover:bg-slate-200 transition-colors duration-200">
                 <span>👤</span>
-                <span className="font-medium">Founder: "Looks fine."</span>
+                <span className="font-medium uppercase tracking-widest font-mono">Executive: "Looks fine."</span>
               </span>
             </div>
           </div>

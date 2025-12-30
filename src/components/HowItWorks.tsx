@@ -45,7 +45,7 @@ const HowItWorks = () => {
     const pathLength = useTransform(scrollYProgress, [0.2, 0.6], [0, 1]);
 
     return (
-        <section ref={containerRef} className="group py-24 lg:py-40 bg-transparent relative overflow-hidden border-t border-beige">
+        <section ref={containerRef} className="relative group py-24 lg:py-40 bg-transparent overflow-hidden border-t border-beige">
             {/* 1. Technical Background Layer */}
             <div className="absolute inset-0 overflow-hidden pointer-events-none">
                 {/* Dynamic Blur Blobs */}

@@ -52,7 +52,7 @@ const Company = () => {
                   </div>
                   <h3 className="text-xl font-black text-navy tracking-tight">Focus</h3>
                   <p className="text-sm text-steel font-medium leading-relaxed">
-                    Eliminating operacional noise so founders can focus on creation.
+                    Eliminating operational noise so leaders can focus on creation.
                   </p>
                 </div>
                 <div className="space-y-4">
@@ -61,7 +61,7 @@ const Company = () => {
                   </div>
                   <h3 className="text-xl font-black text-navy tracking-tight">Scale</h3>
                   <p className="text-sm text-steel font-medium leading-relaxed">
-                    Enabling brands to reach global markets without adding global overhead.
+                    Enabling high-growth enterprises to reach global markets without adding global overhead.
                   </p>
                 </div>
               </div>
@@ -134,9 +134,12 @@ const Company = () => {
             We are a distributed team of engineers, operations experts, and AI researchers
             reimagining the future of commerce.
           </p>
-          <button className="px-12 py-6 bg-white text-navy rounded-2xl font-black text-xl hover:shadow-2xl hover:-translate-y-1 transition-all">
+          <a
+            href="mailto:careers@olynk.ai?subject=Interested in Open Positions"
+            className="inline-block px-12 py-6 bg-white text-navy rounded-2xl font-black text-xl hover:shadow-2xl hover:-translate-y-1 transition-all"
+          >
             View Open Deployments
-          </button>
+          </a>
           <p className="mt-8 text-white/20 font-mono text-[10px] uppercase tracking-widest">
             NODE_STATUS: RECRUITING // LOCATION: DISTRIBUTED
           </p>

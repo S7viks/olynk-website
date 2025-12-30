@@ -23,7 +23,7 @@ const Solutions = () => {
             </h1>
             <p className="text-xl lg:text-2xl text-steel max-w-3xl mx-auto leading-relaxed font-medium">
               If operational complexity is your biggest bottleneck, OLynk is your unfair advantage.
-              Built for brands that have outgrown spreadsheets.
+              Built for enterprises that have outgrown spreadsheets.
             </p>
           </motion.div>
         </div>
@@ -66,7 +66,7 @@ const Solutions = () => {
               <h3 className="text-2xl font-black text-white tracking-tight relative z-10">Industries We Scale</h3>
               <div className="space-y-2 relative z-10">
                 {[
-                  "Direct-to-Consumer (D2C)",
+                  "Digital-First Commerce",
                   "Multi-channel Retail",
                   "B2B Distribution",
                   "Marketplace Conglomerates",
@@ -87,7 +87,7 @@ const Solutions = () => {
               <h3 className="text-2xl font-black text-navy tracking-tight">Built for Leaders</h3>
               <div className="grid grid-cols-1 gap-4">
                 {[
-                  { role: "Founders", impact: "Zero Firefighting" },
+                  { role: "Executives", impact: "Zero Firefighting" },
                   { role: "COOs", impact: "Operational Clarity" },
                   { role: "CFOs", impact: "Capital Efficiency" },
                   { role: "Ops Managers", impact: "Total Automation" }
@@ -189,7 +189,7 @@ const Solutions = () => {
           </h2>
           <div className="flex flex-col sm:flex-row gap-6 justify-center">
             <Link
-              to="/request-demo"
+              to="/waitlist"
               className="px-12 py-6 bg-white text-navy rounded-2xl font-black text-xl hover:shadow-2xl hover:-translate-y-1 transition-all flex items-center justify-center gap-4"
             >
               Request Access Protocol

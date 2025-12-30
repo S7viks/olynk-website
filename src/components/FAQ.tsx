@@ -37,7 +37,7 @@ const FAQ_CATEGORIES: Record<FAQCategory, { label: string; icon: any; questions:
       },
       {
         q: "How long does integration setup take?",
-        a: "Most businesses are fully connected within 48-72 hours. We handle all technical setup while you focus on your business. Our team has integrated with virtually every tool D2C brands use."
+        a: "Most businesses are fully connected within 48-72 hours. We handle all technical setup while you focus on your business. Our team has integrated with virtually every tool modern commerce enterprises use."
       },
       {
         q: "What happens if integration breaks?",
@@ -159,7 +159,7 @@ const FAQ = () => {
             </div>
             <h2 className="text-4xl lg:text-5xl font-black text-navy tracking-tightest leading-tight mb-6">
               Questions from <br />
-              <span className="text-olynk">smart D2C founders.</span>
+              <span className="text-olynk">modern commerce leaders.</span>
             </h2>
             <p className="text-lg lg:text-xl text-steel font-medium leading-relaxed max-w-2xl">
               Everything you need to know about integrating Olynk OS into your <span className="text-navy font-bold">existing operations</span>.

@@ -27,9 +27,8 @@ import HowItWorks from '../components/HowItWorks';
 import InteractiveBackground from '../components/InteractiveBackground';
 import TestimonialsGrid from '../components/TestimonialsGrid';
 import FAQ from '../components/FAQ';
-
-
 const Home = () => {
+
   return (
     <div className="min-h-screen bg-cream">
       <Navbar />
@@ -59,7 +58,7 @@ const Home = () => {
             {/* CTA Buttons */}
             <div className="flex flex-col sm:flex-row gap-4 pt-4 justify-center">
               <Link
-                to="/request-demo"
+                to="/waitlist"
                 className="px-8 py-4 bg-olynk text-white rounded-lg font-semibold hover:bg-olynk-dark transition-all shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 inline-flex items-center justify-center btn-shine text-lg min-w-[180px]"
               >
                 Request Demo
@@ -88,7 +87,13 @@ const Home = () => {
 
           {/* 2. Command Center Visual */}
           <div className="w-full max-w-full mx-auto relative px-4 lg:px-6">
-            <OlynkDashboard />
+            <motion.div
+              initial={{ opacity: 0, scale: 0.95 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.4 }}
+            >
+              <OlynkDashboard />
+            </motion.div>
           </div>
 
         </div>
@@ -108,7 +113,7 @@ const Home = () => {
       </section>
 
       {/* SECTION 3: The Diagnostic Matrix (Refined Clinical) */}
-      <section className="group py-20 lg:py-32 px-4 sm:px-6 lg:px-8 bg-cream border-t border-beige relative overflow-hidden">
+      <section className="group py-16 lg:py-24 px-4 sm:px-6 lg:px-8 bg-cream border-t border-beige relative overflow-hidden">
         {/* 1. Dynamic Background Layer (Blur Blobs) */}
         <div className="absolute inset-0 overflow-hidden pointer-events-none z-0">
           <motion.div
@@ -162,7 +167,8 @@ const Home = () => {
                 ],
                 intervention: "Get one master view",
                 solution: "No more checking 12 tools. Just one screen that shows you exactly how much money you’re making.",
-                accent: "navy"
+                accent: "navy",
+                link: "/platform/fabric"
               },
               {
                 id: "02",
@@ -177,7 +183,8 @@ const Home = () => {
                 ],
                 intervention: "Prevent losses automatically",
                 solution: "See problems 30 days before they hit. We fix them while you’re asleep.",
-                accent: "olynk"
+                accent: "olynk",
+                link: "/platform/insight"
               },
               {
                 id: '03',
@@ -191,8 +198,9 @@ const Home = () => {
                   { label: "Human Error", val: "Frequent", color: "text-red-500" }
                 ],
                 intervention: "AI handles the paperwork",
-                solution: "Olynk handles the boring admin work so you can focus on growing your brand.",
-                accent: "navy"
+                solution: "Olynk handles the boring admin work so you can focus on growing your enterprise.",
+                accent: "navy",
+                link: "/platform/core"
               }
             ].map((pattern, idx) => (
               <motion.div
@@ -204,7 +212,7 @@ const Home = () => {
                 className="group/item relative grid grid-cols-1 lg:grid-cols-12 gap-0 rounded-[32px] overflow-hidden border border-beige shadow-sm bg-white/60 backdrop-blur-xl"
               >
                 {/* Side A: The Symptom (Clinical Pain) */}
-                <div className="lg:col-span-7 p-8 lg:p-12 border-b lg:border-b-0 lg:border-r border-beige">
+                <div className="lg:col-span-7 p-6 lg:p-10 border-b lg:border-b-0 lg:border-r border-beige">
                   <div className="flex items-start gap-6 mb-8">
                     <div className="w-10 h-10 rounded-lg bg-cream flex items-center justify-center shrink-0 border border-beige/60">
                       <pattern.icon className="w-4 h-4 text-navy opacity-40" />
@@ -240,7 +248,7 @@ const Home = () => {
                 </div>
 
                 {/* Side B: The Intervention (The Olynk Shift) */}
-                <div className="lg:col-span-5 p-8 lg:p-12 bg-white flex flex-col justify-center relative border-l border-beige/40">
+                <div className="lg:col-span-5 p-6 lg:p-10 bg-white flex flex-col justify-center relative border-l border-beige/40">
                   <div className="relative z-10 space-y-8">
                     <div className="flex items-center gap-4">
                       <div className="p-1 rounded-full bg-olynk/5">
@@ -255,10 +263,13 @@ const Home = () => {
                         {pattern.solution}
                       </p>
                     </div>
-                    <button className="flex items-center gap-3 group/btn text-navy font-black text-[12px] uppercase tracking-widest pt-4 border-b border-navy/20 hover:border-navy w-fit pb-1 hover:gap-5 transition-all">
+                    <Link
+                      to={pattern.link}
+                      className="flex items-center gap-3 group/btn text-navy font-black text-[12px] uppercase tracking-widest pt-4 border-b border-navy/20 hover:border-navy w-fit pb-1 hover:gap-5 transition-all"
+                    >
                       Review Fix Mechanism
                       <ArrowRight className="w-4 h-4 transition-transform" />
-                    </button>
+                    </Link>
                   </div>
                 </div>
               </motion.div>
@@ -281,64 +292,36 @@ const Home = () => {
       <FAQ />
 
       {/* SECTION 7: NEXT STEPS */}
-      <section className="group py-20 lg:py-32 px-4 bg-transparent border-t border-beige relative overflow-hidden">
-        {/* Background Subtle Label */}
-        <div className="absolute bottom-0 left-0 p-10 opacity-[0.02] group-hover:opacity-[0.1] transition-opacity duration-700 select-none pointer-events-none">
-          <span className="text-[120px] font-black font-mono text-navy leading-none tracking-tighter uppercase">INITIATE_DEPLOYMENT</span>
-        </div>
+      {/* SECTION 7: FINAL CTA (Experience the Intelligence Gap) */}
+      <section className="py-24 lg:py-40 px-4 border-t border-beige text-center bg-cream/30 relative overflow-hidden">
+        <div className="absolute inset-0 opacity-[0.03] pointer-events-none"
+          style={{ backgroundImage: 'radial-gradient(circle at 2px 2px, #001B3D 1px, transparent 0)', backgroundSize: '24px 24px' }} />
 
-        <div className="max-w-7xl mx-auto relative z-10">
-          {/* Section Header */}
-          <div className="max-w-3xl mb-24">
-            <h2 className="text-4xl lg:text-5xl font-black text-navy tracking-tighter leading-[0.95] mb-8">
-              Ready to <span className="text-navy/20 underline decoration-navy/5 decoration-8 underline-offset-8">Take Control?</span>
-            </h2>
+        <div className="max-w-4xl mx-auto space-y-12 relative z-10">
+          <div className="w-20 h-20 rounded-full bg-navy flex items-center justify-center mx-auto mb-8 shadow-xl">
+            <ArrowDown className="w-8 h-8 text-white animate-bounce" />
           </div>
-
-          <div className="grid md:grid-cols-3 gap-12">
+          <h2 className="text-5xl lg:text-7xl font-black text-navy tracking-tightest leading-[0.95]">
+            Experience the<br />
+            <span className="text-olynk">Intelligence Gap.</span>
+          </h2>
+          <p className="text-xl text-steel font-medium max-w-2xl mx-auto leading-relaxed">
+            See how your business operates when every system is connected by a singular,
+            thinking layer.
+          </p>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link
-              to="/platform"
-              className="group bg-white p-12 rounded-[40px] border border-beige/60 hover:border-navy transition-all duration-500 shadow-[0_24px_48px_-12px_rgba(0,0,0,0.08)] hover:shadow-2xl hover:-translate-y-2"
+              to="/waitlist"
+              className="px-10 py-5 bg-olynk text-white rounded-2xl font-black text-lg hover:shadow-2xl hover:-translate-y-1 transition-all flex items-center justify-center gap-3"
             >
-              <span className="text-[10px] font-black text-navy/30 uppercase tracking-widest mb-6 block font-mono">Node_01: Capability_Scan</span>
-              <h3 className="text-lg lg:text-2xl font-black text-navy mb-4 tracking-tightest">Explore the Platform</h3>
-              <p className="text-navy/60 font-medium mb-12 text-base leading-relaxed">
-                See how Olynk runs your operations from one central place.
-              </p>
-              <div className="inline-flex items-center text-navy font-black text-xs uppercase tracking-widest group-hover:gap-4 transition-all">
-                Learn_More <ArrowRight className="ml-3 h-5 w-5" />
-              </div>
+              Start Live Pilot
+              <ArrowRight className="w-5 h-5" />
             </Link>
-
             <Link
-              to="/how-it-works"
-              className="group bg-white p-12 rounded-[40px] border border-beige/60 hover:border-navy transition-all duration-500 shadow-[0_24px_48px_-12px_rgba(0,0,0,0.08)] hover:shadow-2xl hover:-translate-y-2"
+              to="/solutions"
+              className="px-10 py-5 bg-white border-2 border-beige text-navy rounded-2xl font-black text-lg hover:border-navy transition-all flex items-center justify-center"
             >
-              <span className="text-[10px] font-black text-navy/30 uppercase tracking-widest mb-6 block font-mono">Node_02: Implementation_Log</span>
-              <h3 className="text-lg lg:text-2xl font-black text-navy mb-4 tracking-tightest">How to get started</h3>
-              <p className="text-navy/60 font-medium mb-12 text-base leading-relaxed">
-                Go from manual spreadsheets to automated action in 15 minutes.
-              </p>
-              <div className="inline-flex items-center text-navy font-black text-xs uppercase tracking-widest group-hover:gap-4 transition-all">
-                View_Protocol <ArrowRight className="ml-3 h-5 w-5" />
-              </div>
-            </Link>
-
-            <Link
-              to="/request-demo"
-              className="group bg-navy p-12 rounded-[40px] border border-navy hover:bg-navy-light transition-all duration-500 shadow-2xl hover:-translate-y-2 relative overflow-hidden"
-            >
-              <div className="absolute -top-10 -right-10 opacity-10 transition-transform duration-700 group-hover:scale-150">
-                <Zap className="w-44 h-44 text-white" />
-              </div>
-              <span className="text-[10px] font-black text-white/40 uppercase tracking-widest mb-6 block font-mono relative z-10">Node_03: Live_Operation</span>
-              <h3 className="text-2xl font-black text-white mb-4 tracking-tight relative z-10">See it in action</h3>
-              <p className="text-white/60 font-medium mb-12 leading-relaxed relative z-10">
-                Talk to us and see Olynk running with your own data.
-              </p>
-              <div className="inline-flex items-center text-emerald-400 font-black text-xs uppercase tracking-widest group-hover:gap-4 transition-all relative z-10">
-                Book_Live_Deployment <ArrowRight className="ml-3 h-5 w-5" />
-              </div>
+              View Sector Solutions
             </Link>
           </div>
         </div>

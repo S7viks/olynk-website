@@ -30,9 +30,9 @@ export const HEADLINES = {
     },
     // Version D: Relatable
     D: {
-        main: "Running a D2C brand shouldn't feel like",
+        main: "Modern commerce operations shouldn't feel like",
         emphasis: "fighting fires 24/7",
-        subheadline: "OLynk watches your Shopify, inventory, shipping, and ads 24/7. When something's about to go wrong, it tells you—or just fixes it. Stop reacting. Start preventing."
+        subheadline: "OLynk watches your commerce stack, inventory, shipping, and ads 24/7. When something's about to go wrong, it tells you—or just fixes it. Stop reacting. Start preventing."
     }
 };
 
@@ -44,8 +44,8 @@ export const ACTIVE_HEADLINE = 'B';
 // ============================================================================
 
 export const TRUST_MICROCOPY = {
-    primary: "Built for D2C founders tired of 12 tabs and reactive ops",
-    pilots: "Currently working with pilot brands to validate this approach",
+    primary: "Built for high-velocity commerce operations",
+    pilots: "Currently working with pilot enterprises to validate this approach",
     timeline: "See results in 7-10 days, not months"
 };
 
@@ -65,7 +65,7 @@ export const PAIN_POINTS = [
         id: 2,
         title: "The RTO Black Hole",
         story: "You're losing 15-30% of every month's revenue to COD returns. Bad addresses. Failed deliveries. Repeat offenders. You know it's happening. You just can't predict which orders will fail.",
-        impact: "Average loss: ₹3-8L monthly for ₹50L revenue brands",
+        impact: "Average loss: ₹3-8L monthly for ₹50L revenue operations",
         quote: "Every RTO costs you 2X—once for shipping, again for lost sale and customer."
     },
     {
@@ -79,7 +79,7 @@ export const PAIN_POINTS = [
         id: 4,
         title: "The Dashboard Circus",
         story: "Shopify says you did ₹45L. Razorpay says ₹47L. Your accounting says ₹44L. You spend 2 hours every day just reconciling numbers across 10 tools.",
-        impact: "Time cost: 15-20 hours weekly = ₹80K+ in founder time",
+        impact: "Time cost: 15-20 hours weekly = ₹80K+ in leadership time",
         quote: "I have 12 tabs open just to understand what happened yesterday. Forget about predicting tomorrow."
     }
 ];
@@ -97,7 +97,7 @@ export const CAPABILITIES = [
             "Tells you \"SKU X will stockout in 10 days\"",
             "Creates the PO automatically (if you want)"
         ],
-        realExample: "Prevented 3 stockouts in first 2 weeks for pilot brand A"
+        realExample: "Prevented 3 stockouts in first 2 weeks for pilot enterprise A"
     },
     {
         id: 2,
@@ -107,7 +107,7 @@ export const CAPABILITIES = [
             "\"This order has an 85% chance of failing delivery\"",
             "You decide: verify address, switch to prepaid, or don't ship"
         ],
-        realExample: "Flagged ₹2.1L in high-risk RTO orders for pilot brand B"
+        realExample: "Flagged ₹2.1L in high-risk RTO orders for pilot enterprise B"
     },
     {
         id: 3,
@@ -117,7 +117,7 @@ export const CAPABILITIES = [
             "\"Campaign Y dropped from 3.2X to 1.8X ROAS—pausing now\"",
             "Reallocates budget to what's working"
         ],
-        realExample: "Caught a ROAS bleed before it cost ₹5L for pilot brand C"
+        realExample: "Caught a ROAS bleed before it cost ₹5L for pilot enterprise C"
     }
 ];
 
@@ -148,7 +148,7 @@ export const FAQ_ITEMS = [
     },
     {
         question: "What does this actually cost?",
-        answer: "Right now, we're working with pilot brands to validate pricing. If you're doing ₹5-50Cr annually and this sounds like your problem, let's talk."
+        answer: "Right now, we're working with pilot enterprises to validate pricing. If you're doing ₹5-50Cr annually and this sounds like your problem, let's talk."
     }
 ];
 
@@ -158,18 +158,18 @@ export const FAQ_ITEMS = [
 
 export const SOCIAL_PROOF = {
     approach: "pilot", // "pilot" | "testimonials"
-    pilotMessage: "We're working with pilot brands to validate this. Here's what they're seeing so far:",
+    pilotMessage: "We're working with pilot enterprises to validate this. Here's what they're seeing so far:",
     pilotResults: [
-        "Brand A: Prevented 3 stockouts in the first 2 weeks",
-        "Brand B: Flagged ₹2.1L in high-risk RTO orders",
-        "Brand C: Caught a ROAS bleed before it cost them ₹5L"
+        "Operation A: Prevented 3 stockouts in the first 2 weeks",
+        "Operation B: Flagged ₹2.1L in high-risk RTO orders",
+        "Operation C: Caught a ROAS bleed before it cost them ₹5L"
     ],
     testimonials: [
         // Will populate as real testimonials come in
         // {
         //   quote: "This thing predicted a stockout 12 days before it happened. I didn't believe it at first. Then it happened exactly when OLynk said it would. That's when I knew this wasn't bullshit.",
         //   author: "Priya",
-        //   brand: "Brand Name",
+        //   organization: "Organization Name",
         //   verified: true
         // }
     ]
@@ -236,7 +236,7 @@ export const DEMO_CONFIG = {
             "Real Shopify data flowing in",
             "OLynk detecting a stockout risk 10 days out",
             "Auto-creating a PO in real-time",
-            "Founder getting a Slack notification: \"Stockout prevented for Blue T-Shirt (M)\""
+            "Operations team getting a Slack notification: \"Stockout prevented for Blue T-Shirt (M)\""
         ]
     },
     video: {
@@ -262,6 +262,6 @@ export const CONTACT_INFO = {
 
 export const PAGE_METADATA = {
     title: "Stop Discovering Stockouts When Your Customers Do | OLynk",
-    description: "OLynk predicts operational problems 10 days before they happen. Stop losing ₹2-5L monthly to stockouts, RTO failures, and ad waste. Built for D2C founders.",
-    keywords: "D2C operations, stockout prediction, RTO prevention, ROAS monitoring, inventory management, D2C India"
+    description: "OLynk predicts operational problems 10 days before they happen. Stop losing ₹2-5L monthly to stockouts, RTO failures, and ad waste. Built for modern commerce.",
+    keywords: "Commerce operations, stockout prediction, RTO prevention, ROAS monitoring, inventory management, Retail AI India"
 };

@@ -5,7 +5,7 @@ import { CTA_CONFIG, CONTACT_INFO } from '../../config/landingPageContent';
  * Final CTA Section - Customer Development Landing Page
  * 
  * Conversation-focused, not conversion-focused.
- * Primary goal: Get founders on a call to learn if this is their problem.
+ * Primary goal: Get leaders on a call to learn if this is their problem.
  */
 
 const CTASection = () => {
@@ -37,7 +37,7 @@ const CTASection = () => {
     return (
         <section
             id="cta"
-            className="py-20 px-4 bg-gradient-to-br from-red-600 to-red-700 text-white"
+            className="py-20 px-4 bg-gradient-to-br from-navy to-olynk text-white"
             data-section="final-cta"
         >
             <div className="max-w-4xl mx-auto text-center">
@@ -53,7 +53,7 @@ const CTASection = () => {
                             ? "See How This Actually Works"
                             : "Ready to Stop the Bleeding?"}
                     </h2>
-                    <p className="text-xl md:text-2xl mb-12 text-red-100 leading-relaxed max-w-3xl mx-auto">
+                    <p className="text-xl md:text-2xl mb-12 text-white/80 leading-relaxed max-w-3xl mx-auto font-medium">
                         {ctaContent.belowText}
                     </p>
                 </motion.div>
@@ -68,7 +68,7 @@ const CTASection = () => {
                 >
                     <button
                         onClick={handlePrimaryCTA}
-                        className="bg-white text-red-600 px-10 py-5 rounded-lg text-xl font-bold hover:bg-gray-100 transition-all duration-200 shadow-xl hover:shadow-2xl hover:scale-105"
+                        className="bg-white text-navy px-10 py-5 rounded-lg text-xl font-black hover:bg-cream transition-all duration-200 shadow-xl hover:shadow-2xl hover:scale-105 uppercase tracking-widest font-mono"
                     >
                         {ctaContent.buttonText}
                     </button>
@@ -82,13 +82,13 @@ const CTASection = () => {
                     transition={{ duration: 0.6, delay: 0.4 }}
                     className="space-y-3"
                 >
-                    <p className="text-red-100 text-sm">
+                    <p className="text-white/60 text-xs font-black uppercase tracking-widest">
                         Or reach out directly:
                     </p>
-                    <div className="flex flex-col sm:flex-row items-center justify-center gap-4 text-sm">
+                    <div className="flex flex-col sm:flex-row items-center justify-center gap-4 text-sm font-mono">
                         <a
                             href={`mailto:${CONTACT_INFO.email}`}
-                            className="text-white hover:text-red-100 transition-colors underline"
+                            className="text-white hover:text-olynk transition-colors underline"
                             onClick={() => {
                                 if (window.gtag) {
                                     window.gtag('event', 'contact_method', {
@@ -100,10 +100,10 @@ const CTASection = () => {
                         >
                             {CONTACT_INFO.email}
                         </a>
-                        <span className="hidden sm:inline text-red-300">•</span>
+                        <span className="hidden sm:inline text-white/20">•</span>
                         <a
                             href={`tel:${CONTACT_INFO.phone}`}
-                            className="text-white hover:text-red-100 transition-colors underline"
+                            className="text-white hover:text-olynk transition-colors underline"
                             onClick={() => {
                                 if (window.gtag) {
                                     window.gtag('event', 'contact_method', {
@@ -124,9 +124,9 @@ const CTASection = () => {
                     whileInView={{ opacity: 1 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.6, delay: 0.6 }}
-                    className="mt-12 pt-8 border-t border-red-500"
+                    className="mt-12 pt-8 border-t border-white/10"
                 >
-                    <p className="text-red-100 text-sm max-w-2xl mx-auto">
+                    <p className="text-white/40 text-[10px] uppercase tracking-widest max-w-2xl mx-auto font-mono">
                         This isn't a sales call. It's a conversation to see if OLynk solves problems you actually have.
                         If it's not a fit, I'll tell you in the first 5 minutes.
                     </p>

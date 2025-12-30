@@ -32,11 +32,11 @@ const StatsSection = () => {
             <div className="container-custom">
                 {/* Section Header */}
                 <div className="text-center mb-16">
-                    <h2 className="text-balance mb-4">
-                        Proven Results for D2C Brands
+                    <h2 className="text-balance mb-4 text-navy font-black">
+                        Proven Operational Excellence
                     </h2>
-                    <p className="text-xl max-w-2xl mx-auto">
-                        Real numbers from pilot brands using OLynk
+                    <p className="text-xl max-w-2xl mx-auto text-steel font-medium">
+                        Verified results from modern commerce enterprises using Olynk
                     </p>
                 </div>
 
@@ -52,12 +52,12 @@ const StatsSection = () => {
                             className="text-center"
                         >
                             {/* Number */}
-                            <div className="text-4xl font-bold text-red-600 mb-2">
+                            <div className="text-4xl lg:text-5xl font-black text-olynk mb-2">
                                 {stat.number}
                             </div>
 
                             {/* Label */}
-                            <div className="text-sm text-gray-600">
+                            <div className="text-sm font-bold text-steel uppercase tracking-widest">
                                 {stat.label}
                             </div>
                         </motion.div>

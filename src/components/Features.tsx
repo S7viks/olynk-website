@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowRight, Play, Database, Zap, TrendingUp, Truck, MessageSquare, LayoutDashboard, Brain } from 'lucide-react';
 
@@ -99,7 +99,7 @@ const Features = () => {
             </span>
           </h2>
           <p className="text-xl text-gray-600 dark:text-gray-400 max-w-3xl mx-auto mb-8">
-            Meet Your New AI Operations Advisor. Explore how OLYNK transforms your operations with intelligent, actionable insights tailored for ₹2-10Cr D2C brands in India.
+            Meet Your New AI Operations Advisor. Explore how OLYNK transforms your operations with intelligent, actionable insights tailored for high-growth commerce enterprises.
           </p>
           <div className="bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm border border-gray-200 dark:border-gray-700 rounded-2xl p-6 max-w-4xl mx-auto">
             <p className="text-lg text-gray-700 dark:text-gray-300 font-medium mb-4">
@@ -123,9 +123,8 @@ const Features = () => {
             return (
               <div
                 key={index}
-                className={`group bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 border border-gray-100 dark:border-gray-700 ${
-                  isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
-                }`}
+                className={`group bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 border border-gray-100 dark:border-gray-700 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+                  }`}
                 style={{ transitionDelay: feature.delay }}
               >
                 <div className={`w-14 h-14 rounded-xl bg-gradient-to-r ${feature.gradient} flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300`}>

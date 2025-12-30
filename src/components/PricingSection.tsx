@@ -1,6 +1,4 @@
-import React, { useState } from 'react';
-import { PricingCard } from './PricingCard';
-import { Link } from 'react-router-dom';
+import { useState } from 'react';
 import { Check, Star, Zap, Crown, ArrowRight } from 'lucide-react';
 
 const PricingSection = () => {
@@ -9,7 +7,7 @@ const PricingSection = () => {
   const pricingTiers = [
     {
       name: 'AI Starter',
-      description: 'Ideal for emerging brands ready to leverage AI intelligence',
+      description: 'Ideal for emerging enterprises ready to leverage AI intelligence',
       monthlyPrice: 10000,
       annualPrice: 96000, // 20% discount
       originalAnnualPrice: 120000,
@@ -33,7 +31,7 @@ const PricingSection = () => {
     },
     {
       name: 'AI Advisor',
-      description: 'Trusted by growing brands to scale operations intelligently',
+      description: 'Trusted by growing enterprises to scale operations intelligently',
       monthlyPrice: 18000,
       annualPrice: 172800, // 20% discount
       originalAnnualPrice: 216000,
@@ -116,13 +114,13 @@ const PricingSection = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-red-600 to-red-700 dark:from-blue-400 dark:to-blue-500 bg-clip-text text-transparent">
+          <h2 className="text-4xl md:text-5xl font-black text-navy mb-6 tracking-tightest">
             AI-Powered Pricing That Scales With Your Success
           </h2>
-          <p className="text-xl text-gray-600 dark:text-gray-300 mb-8 max-w-3xl mx-auto">
-            Choose the plan that matches your business size. All plans include our complete AI operations advisor with proven ROI.
+          <p className="text-xl text-steel mb-8 max-w-3xl mx-auto font-medium">
+            Choose the level that matches your operational scale. All plans include our complete AI operations advisor with proven ROI.
           </p>
-          
+
           {/* Risk Reversal Elements */}
           <div className="flex flex-wrap justify-center gap-4 mb-8">
             <div className="flex items-center space-x-2 bg-green-50 dark:bg-green-900/20 px-4 py-2 rounded-full">
@@ -138,7 +136,7 @@ const PricingSection = () => {
               <span className="text-purple-700 dark:text-purple-300 text-sm font-medium">No setup fees until results</span>
             </div>
           </div>
-          
+
           {/* Billing Toggle */}
           <div className="flex items-center justify-center space-x-4 mb-8">
             <span className={`text-sm font-medium ${!isAnnual ? 'text-gray-900 dark:text-white' : 'text-gray-500'}`}>
@@ -146,14 +144,12 @@ const PricingSection = () => {
             </span>
             <button
               onClick={() => setIsAnnual(!isAnnual)}
-              className={`relative inline-flex h-6 w-11 items-center rounded-full transition-colors focus:outline-none focus:ring-2 focus:ring-red-500 dark:focus:ring-blue-500 focus:ring-offset-2 ${
-                isAnnual ? 'bg-red-600 dark:bg-blue-600' : 'bg-gray-200'
-              }`}
+              className={`relative inline-flex h-6 w-11 items-center rounded-full transition-colors focus:outline-none focus:ring-2 focus:ring-olynk focus:ring-offset-2 ${isAnnual ? 'bg-olynk' : 'bg-beige'
+                }`}
             >
               <span
-                className={`inline-block h-4 w-4 transform rounded-full bg-white transition-transform ${
-                  isAnnual ? 'translate-x-6' : 'translate-x-1'
-                }`}
+                className={`inline-block h-4 w-4 transform rounded-full bg-white transition-transform ${isAnnual ? 'translate-x-6' : 'translate-x-1'
+                  }`}
               />
             </button>
             <span className={`text-sm font-medium ${isAnnual ? 'text-gray-900 dark:text-white' : 'text-gray-500'}`}>
@@ -182,21 +178,20 @@ const PricingSection = () => {
                     </span>
                   </div>
                 )}
-                
-                <div className={`h-full bg-white dark:bg-gray-800 rounded-2xl shadow-lg border-2 p-8 transition-all duration-300 hover:shadow-xl ${
-                  tier.isPopular ? 'border-red-500 dark:border-blue-500' : 'border-gray-200 dark:border-gray-700'
-                }`}>
+
+                <div className={`h-full bg-white dark:bg-gray-800 rounded-2xl shadow-lg border-2 p-8 transition-all duration-300 hover:shadow-xl ${tier.isPopular ? 'border-red-500 dark:border-blue-500' : 'border-gray-200 dark:border-gray-700'
+                  }`}>
                   <div className="flex items-center space-x-3 mb-4">
                     <IconComponent className={`w-8 h-8 ${tier.isPopular ? 'text-red-500' : 'text-gray-600'}`} />
                     <h3 className="text-2xl font-bold text-gray-900 dark:text-white">
                       {tier.name}
                     </h3>
                   </div>
-                  
+
                   <p className="text-gray-600 dark:text-gray-300 text-sm mb-6">
                     {tier.description}
                   </p>
-                  
+
                   <div className="mb-6">
                     <div className="flex items-baseline space-x-2">
                       <span className="text-4xl font-bold text-gray-900 dark:text-white">
@@ -235,7 +230,7 @@ const PricingSection = () => {
                       <div className="h-full bg-gradient-to-r from-green-500 to-green-600 rounded-full" style={{ width: '85%' }}></div>
                     </div>
                   </div>
-                  
+
                   <div className="space-y-3 mb-8">
                     {tier.features.map((feature, featureIndex) => (
                       <div key={featureIndex} className="flex items-start space-x-3">
@@ -244,16 +239,15 @@ const PricingSection = () => {
                       </div>
                     ))}
                   </div>
-                  
+
                   <a
                     href="https://forms.office.com/r/zd11g2RWDR"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className={`w-full py-4 px-6 rounded-xl font-semibold text-lg transition-all duration-200 transform hover:scale-105 focus:outline-none focus:ring-4 focus:ring-opacity-50 shadow-lg block text-center ${
-                      tier.buttonVariant === 'primary' 
-                        ? 'bg-gradient-to-r from-red-500 to-red-600 dark:from-blue-500 dark:to-blue-600 text-white focus:ring-red-300 dark:focus:ring-blue-300'
-                        : 'bg-white border-2 border-gray-300 text-gray-700 hover:border-red-500 dark:bg-gray-700 dark:border-gray-600 dark:text-white dark:hover:border-blue-500'
-                    }`}
+                    className={`w-full py-4 px-6 rounded-xl font-semibold text-lg transition-all duration-200 transform hover:scale-105 focus:outline-none focus:ring-4 focus:ring-opacity-50 shadow-lg block text-center ${tier.buttonVariant === 'primary'
+                      ? 'bg-gradient-to-r from-red-500 to-red-600 dark:from-blue-500 dark:to-blue-600 text-white focus:ring-red-300 dark:focus:ring-blue-300'
+                      : 'bg-white border-2 border-gray-300 text-gray-700 hover:border-red-500 dark:bg-gray-700 dark:border-gray-600 dark:text-white dark:hover:border-blue-500'
+                      }`}
                   >
                     {tier.buttonText}
                     <ArrowRight className="w-4 h-4 ml-2 inline" />
@@ -268,9 +262,9 @@ const PricingSection = () => {
         <div className="text-center mb-16">
           <div className="bg-gradient-to-r from-gray-900 to-gray-800 dark:from-gray-800 dark:to-gray-900 rounded-2xl p-8 text-white">
             <Crown className="w-12 h-12 mx-auto mb-4 text-yellow-400" />
-            <h3 className="text-2xl font-bold mb-4">Enterprise Solution</h3>
-            <p className="text-gray-300 mb-6 max-w-2xl mx-auto">
-              For ₹10Cr+ brands with complex multi-channel operations requiring custom AI solutions and dedicated support.
+            <h3 className="text-2xl font-black mb-4">Enterprise Solution</h3>
+            <p className="text-white/80 mb-6 max-w-2xl mx-auto font-medium">
+              For high-scale enterprises with complex multi-channel operations requiring custom AI solutions and dedicated support.
             </p>
             <div className="flex flex-wrap justify-center gap-4 mb-6 text-sm">
               <span className="bg-gray-700 px-3 py-1 rounded-full">Custom AI Models</span>
@@ -301,7 +295,7 @@ const PricingSection = () => {
                 {setupPricing.description}
               </p>
             </div>
-            
+
             <div className="text-center mb-6">
               <div className="text-3xl font-bold text-gray-900 dark:text-white">
                 ₹{setupPricing.monthlyPrice.toLocaleString('en-IN')}
@@ -339,10 +333,10 @@ const PricingSection = () => {
             <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">
               ROI Potential Calculator
             </h3>
-            <p className="text-gray-600 dark:text-gray-300 mb-6">
-              For a ₹5Cr brand, OLYNK can potentially save*:
+            <p className="text-steel mb-6 font-bold">
+              For a high-growth enterprise, Olynk can potentially save*:
             </p>
-            
+
             <div className="grid md:grid-cols-5 gap-4 mb-6">
               {roiStats.map((stat, index) => (
                 <div key={index} className="text-center">
@@ -354,7 +348,7 @@ const PricingSection = () => {
                   </div>
                 </div>
               ))}
-                </div>
+            </div>
 
             <div className="bg-white dark:bg-gray-800 rounded-xl p-6 mb-6">
               <div className="flex items-center justify-center space-x-8">

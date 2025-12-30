@@ -35,8 +35,8 @@ const PilotApproach = () => {
                 </div>
 
                 <div className="mt-8 pt-6 border-t border-gray-200">
-                    <p className="text-gray-600 text-sm italic">
-                        These are real results from pilot brands. Not polished testimonials. Not marketing speak. Just what's actually happening.
+                    <p className="text-gray-600 text-sm italic font-medium">
+                        These are real results from pilot enterprises. Not polished testimonials. Not marketing speak. Just what's actually happening.
                     </p>
                 </div>
             </motion.div>
@@ -63,7 +63,7 @@ const TestimonialsApproach = () => {
                         <div className="flex items-center gap-2">
                             <div className="flex-1">
                                 <p className="font-semibold text-gray-900">{testimonial.author}</p>
-                                <p className="text-sm text-gray-600">{testimonial.brand}</p>
+                                <p className="text-sm text-gray-600">{testimonial.organization}</p>
                             </div>
                             {testimonial.verified && (
                                 <div className="flex-shrink-0">
@@ -96,11 +96,11 @@ const SocialProofSection = () => {
                     transition={{ duration: 0.6 }}
                     className="text-center mb-12"
                 >
-                    <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+                    <h2 className="text-4xl md:text-5xl font-black text-navy mb-4 tracking-tightest">
                         What's Actually Happening
                     </h2>
-                    <p className="text-gray-600 text-lg">
-                        No polished marketing testimonials. Just real results.
+                    <p className="text-steel text-lg font-medium">
+                        No polished marketing testimonials. Just verified operational shifts.
                     </p>
                 </motion.div>
 

@@ -1,5 +1,4 @@
 import { motion } from "framer-motion";
-import { useState } from "react";
 import { ChaosVisualizer } from "./ChaosVisualizer";
 import { AIBrainProcessor } from "./AIBrainProcessor";
 import { ClarityOutput } from "./ClarityOutput";
@@ -12,7 +11,7 @@ import { LiveInsightTicker } from "./LiveInsightTicker";
 import { TrustBadges } from "./TrustBadges";
 
 const Hero = () => {
-  const [selectedCategory, setSelectedCategory] = useState('skincare');
+  const selectedCategory = 'skincare';
 
   return (
     <section id="home" className="min-h-screen relative overflow-hidden">
@@ -20,32 +19,32 @@ const Hero = () => {
 
 
         {/* Header Text */}
-        <motion.div 
+        <motion.div
           className="text-center mb-16"
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
         >
-          <motion.h1 
-            className="text-5xl md:text-7xl font-bold text-red-800 dark:text-yellow-100 mb-6 leading-tight"
+          <motion.h1
+            className="text-5xl md:text-7xl font-black text-navy mb-6 leading-[1.05] tracking-tightest"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
           >
-            Your Business Operations
-            <span className="block text-transparent bg-clip-text bg-gradient-to-r from-red-600 via-red-500 to-red-700 dark:from-blue-400 dark:via-blue-300 dark:to-blue-500">
-                Just Got an AI Brain
-              </span>
+            Your Commerce Operations
+            <span className="block text-gradient">
+              Just Got an AI Brain
+            </span>
           </motion.h1>
-          
-          <motion.p 
-                         className="text-xl md:text-2xl text-red-700 dark:text-yellow-200 max-w-4xl mx-auto mb-8 leading-relaxed"
+
+          <motion.p
+            className="text-xl md:text-2xl text-steel max-w-4xl mx-auto mb-8 leading-relaxed font-medium"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
           >
-            OLYNK predicts operational issues before they happen — and tells you exactly how to fix them. 
-            <span className="text-red-600 dark:text-red-400 font-semibold"> Stop losing ₹2–5L monthly</span> to stockouts, delays, and data chaos.
+            Olynk predicts operational friction before it happens — and tells you exactly how to fix it.
+            <span className="text-navy font-black"> Stop losing millions</span> to inventory drift, shipping delays, and data fragmentation.
           </motion.p>
 
           {/* Live Insight Ticker */}
@@ -56,14 +55,14 @@ const Hero = () => {
           </div>
 
           {/* Trust microcopy */}
-          <motion.p 
-                         className="text-red-600 dark:text-yellow-300 text-sm mt-6"
+          <motion.p
+            className="text-tan text-xs font-black uppercase tracking-widest mt-6"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 1 }}
           >
-            Used by ₹5Cr+ brands. 85%+ AI accuracy in 30 days. 
-                         <span className="text-red-500 dark:text-blue-300 font-medium"> Limited onboarding slots.</span>
+            Verified by high-velocity commerce operations. 85%+ accuracy in 30 days.
+            <span className="text-olynk ml-2"> Operational Protocol Active.</span>
           </motion.p>
         </motion.div>
 
@@ -72,16 +71,16 @@ const Hero = () => {
           <ChaosVisualizer />
           <AIBrainProcessor />
           <ClarityOutput category={selectedCategory} />
-            </div>
+        </div>
 
-        
+
 
         {/* Trust Badges */}
         <div className="mb-16">
           <TrustBadges />
         </div>
 
-        
+
 
         {/* Live Insight Widget */}
         <LiveInsightWidget />

@@ -12,7 +12,7 @@ import karanImg from '../assets/testimonials/karan.png';
 const TESTIMONIALS_ROW_1 = [
     {
         id: 1,
-        content: "Honestly, @olynk is the only tool that actually helps me track my D2C margins accurately. No more spreadsheet hell.",
+        content: "Honestly, @olynk is the only tool that actually helps me track my commerce margins accurately. No more spreadsheet hell.",
         author: "Arjun Mehta",
         handle: "@arjun_m",
         avatar: arjunImg,
@@ -24,7 +24,7 @@ const TESTIMONIALS_ROW_1 = [
     },
     {
         id: 2,
-        content: "The stockout alerts on @olynk saved us during the festive season. Highly recommended for any e-commerce founder.",
+        content: "The stockout alerts on @olynk saved us during the festive season. Highly recommended for any commerce executive.",
         author: "Priya Sharma",
         handle: "@priya_ecommerce",
         avatar: priyaImg,
@@ -63,7 +63,7 @@ const TESTIMONIALS_ROW_1 = [
 const TESTIMONIALS_ROW_2 = [
     {
         id: 5,
-        content: "Managing 3 brands was a nightmare until @olynk. The unified view is exactly what we needed.",
+        content: "Managing 3 commerce operations was a nightmare until @olynk. The unified view is exactly what we needed.",
         author: "Rahul Kapoor",
         handle: "@rahul_k",
         avatar: rahulImg,
@@ -214,7 +214,7 @@ const TestimonialsGrid = () => {
                 {/* Header */}
                 <div className="text-center mb-20 space-y-6 px-4">
                     <h2 className="text-4xl lg:text-5xl font-black text-navy tracking-tighter leading-tight max-w-4xl mx-auto">
-                        Trusted by founders running <br />
+                        Trusted by leaders running <br />
                         <span className="text-olynk">high-scale operations.</span>
                     </h2>
                 </div>

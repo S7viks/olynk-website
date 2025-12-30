@@ -88,11 +88,11 @@ const FAQSection = () => {
                     transition={{ duration: 0.6 }}
                     className="text-center mb-12"
                 >
-                    <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+                    <h2 className="text-4xl md:text-5xl font-black text-navy mb-4 tracking-tightest">
                         Questions You're Probably Asking
                     </h2>
                     <p className="text-gray-600 text-lg">
-                        Real objections from founders like you
+                        Real objections from leaders like you
                     </p>
                 </motion.div>
 
@@ -127,7 +127,7 @@ const FAQSection = () => {
                                 });
                             }
                         }}
-                        className="text-red-600 font-semibold hover:text-red-700 transition-colors underline"
+                        className="text-olynk font-black hover:text-navy transition-colors underline uppercase tracking-widest text-xs font-mono"
                     >
                         Book a call to discuss your specific situation
                     </button>

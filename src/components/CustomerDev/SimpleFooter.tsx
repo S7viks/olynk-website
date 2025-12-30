@@ -17,7 +17,7 @@ const SimpleFooter = () => {
                     <div>
                         <h3 className="text-2xl font-bold mb-2">OLynk</h3>
                         <p className="text-gray-400 text-sm">
-                            Predictive operations intelligence for D2C brands
+                            Predictive operations intelligence for high-growth commerce
                         </p>
                     </div>
 
@@ -60,7 +60,7 @@ const SimpleFooter = () => {
                 {/* Bottom */}
                 <div className="pt-8 border-t border-gray-800 text-center">
                     <p className="text-gray-500 text-sm">
-                        © {currentYear} OLynk. Built for D2C founders who are tired of reactive ops.
+                        © {currentYear} OLynk. Built for commerce leaders who are tired of reactive ops.
                     </p>
                 </div>
             </div>

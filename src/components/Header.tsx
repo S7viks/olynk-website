@@ -67,7 +67,7 @@ const Header = () => {
             ))}
 
             <Link
-              to="/request-demo"
+              to="/waitlist"
               className="bg-navy text-white px-8 py-3 rounded-full text-[11px] font-black uppercase tracking-widest hover:bg-navy/90 transition-all duration-300 shadow-xl shadow-navy/10 active:scale-95"
             >
               Request Demo
@@ -104,7 +104,7 @@ const Header = () => {
               </Link>
             ))}
             <Link
-              to="/request-demo"
+              to="/waitlist"
               className="block bg-navy text-white px-8 py-4 rounded-full text-[12px] font-black uppercase tracking-widest text-center shadow-2xl shadow-navy/20"
             >
               Request Demo

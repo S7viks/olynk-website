@@ -46,6 +46,13 @@ const ALL_TOOLS = [
     { name: "Tally", domain: "tallysolutions.com" },
 ];
 
+// Domains that consistently fail with favicon APIs - use ui-avatars directly
+const PROBLEMATIC_DOMAINS = new Set([
+    'meesho.com', 'myntra.com', 'analytics.google.com', 'ecomexpress.in',
+    'porter.in', 'dtdc.in', 'dunzo.com', 'bluedart.com'
+]);
+
+
 const HorizontalMarquee = ({ tools, reverse = false }: { tools: typeof ALL_TOOLS, reverse?: boolean }) => (
     <div className="flex overflow-hidden select-none group relative">
         <motion.div
@@ -64,19 +71,20 @@ const HorizontalMarquee = ({ tools, reverse = false }: { tools: typeof ALL_TOOLS
                     className="flex items-center gap-3 bg-white border border-beige/60 px-6 py-3 rounded-full shadow-sm whitespace-nowrap transition-all"
                 >
                     <img
-                        src={tool.logo || `https://www.google.com/s2/favicons?domain=${tool.domain}&sz=128`}
+                        src={
+                            tool.logo
+                                ? tool.logo
+                                : PROBLEMATIC_DOMAINS.has(tool.domain)
+                                    ? `https://ui-avatars.com/api/?name=${encodeURIComponent(tool.name)}&background=random&color=fff&size=64`
+                                    : `https://icons.duckduckgo.com/ip3/${tool.domain}.ico`
+                        }
                         alt={tool.name}
                         className="w-5 h-5 object-contain filter-none opacity-100 transition-all duration-300"
                         onError={(e) => {
                             const target = e.target as HTMLImageElement;
-                            const googleUrl = `https://www.google.com/s2/favicons?domain=${tool.domain}&sz=128`;
-                            const ddgUrl = `https://icons.duckduckgo.com/ip3/${tool.domain}.ico`;
 
-                            if (target.src === googleUrl) {
-                                target.src = ddgUrl;
-                            } else if (target.src === tool.logo) {
-                                target.src = googleUrl;
-                            } else {
+                            // Silently fallback to ui-avatars without additional network requests
+                            if (!target.src.includes('ui-avatars')) {
                                 target.onerror = null;
                                 target.src = `https://ui-avatars.com/api/?name=${encodeURIComponent(tool.name)}&background=random&color=fff&size=64`;
                             }

@@ -129,10 +129,10 @@ const OlynkDashboard = () => {
                                 </div>
                                 <div className="space-y-4">
                                     <div className="flex items-center gap-2">
-                                        <span className="text-[10px] font-black text-red-600 uppercase tracking-[0.3em] font-mono bg-red-50 px-2 py-0.5 rounded border border-red-100">Fix Needed</span>
+                                        <span className="text-[10px] font-black text-navy uppercase tracking-[0.3em] font-mono bg-cream px-2 py-0.5 rounded border border-beige">Action Required</span>
                                     </div>
-                                    <h2 className="text-2xl lg:text-3xl font-black text-navy leading-tight tracking-tight">
-                                        SKU-214 will run out of stock in <span className="text-red-500 italic font-serif">6 days.</span>
+                                    <h2 className="text-2xl lg:text-3xl font-black text-navy leading-tight tracking-tightest">
+                                        SKU-214 will run out of stock in <span className="text-olynk italic font-serif">6 days.</span>
                                     </h2>
                                     <div className="flex items-center gap-2.5">
                                         <div className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
@@ -227,7 +227,7 @@ const OlynkDashboard = () => {
                                 </div>
                                 <div className="space-y-3 font-mono text-[10px] border border-beige/40 p-4 rounded-xl bg-white shadow-sm">
                                     {[
-                                        { label: 'Wait', val: '-14.2%', color: 'text-red-600', opacity: 'opacity-30' },
+                                        { label: 'Wait', val: '-14.2%', color: 'text-navy', opacity: 'opacity-30' },
                                         { label: 'Reactive', val: 'CAP_LMT', color: 'text-amber-500', opacity: 'opacity-30' },
                                         { label: 'Optimal', val: '+6.4%', color: 'text-emerald-600', opacity: 'opacity-100' }
                                     ].map((item, i) => (
@@ -303,7 +303,7 @@ const OlynkDashboard = () => {
                         <div className="space-y-1.5 flex flex-col">
                             <span className="text-[10px] font-black text-white/30 uppercase tracking-[0.3em] font-mono">Impact_Rescued</span>
                             <div className="flex items-baseline gap-2">
-                                <span className="text-3xl font-black text-emerald-400 font-mono tracking-tighter">₹8,42,100</span>
+                                <span className="text-3xl font-black text-emerald-400 font-mono tracking-tighter">₹8.4L</span>
                                 <ArrowUpRight className="w-4 h-4 text-emerald-400 opacity-40" />
                             </div>
                         </div>

@@ -9,14 +9,14 @@ const Footer = () => {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="bg-cream border-t border-beige pt-24 pb-12 relative overflow-hidden">
+    <footer className="bg-cream border-t border-beige pt-16 pb-8 relative overflow-hidden">
       {/* Background Subtle Label - Static for Footer */}
       <div className="absolute bottom-0 left-0 right-0 p-20 opacity-[0.05] select-none pointer-events-none flex justify-center z-0">
         <span className="text-[180px] font-black text-tan leading-none tracking-tighter">OLYNK_OS</span>
       </div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="grid md:grid-cols-4 gap-16 mb-20">
+        <div className="grid md:grid-cols-5 gap-12 mb-16">
           {/* Column 1: Logo + Description */}
           <div className="space-y-6">
             <Link to="/" className="inline-block group">
@@ -27,7 +27,7 @@ const Footer = () => {
             </p>
           </div>
 
-          {/* Column 2: Product */}
+          {/* Column 2: Platform */}
           <div>
             <h3 className="text-[11px] font-black text-navy uppercase tracking-[0.2em] mb-8">Platform</h3>
             <ul className="space-y-4 text-[13px] font-bold">
@@ -47,14 +47,41 @@ const Footer = () => {
                 </Link>
               </li>
               <li>
-                <Link to="/request-demo" className="text-steel hover:text-navy transition-all duration-300">
-                  Get a Demo
+                <Link to="/documentation" className="text-steel hover:text-navy transition-all duration-300">
+                  Documentation
                 </Link>
               </li>
             </ul>
           </div>
 
-          {/* Column 3: Company */}
+          {/* Column 3: Industries */}
+          <div>
+            <h3 className="text-[11px] font-black text-navy uppercase tracking-[0.2em] mb-8">Industries</h3>
+            <ul className="space-y-4 text-[13px] font-bold">
+              <li>
+                <Link to="/industries/commerce" className="text-steel hover:text-navy transition-all duration-300">
+                  Commerce
+                </Link>
+              </li>
+              <li>
+                <Link to="/industries/manufacturing" className="text-steel hover:text-navy transition-all duration-300">
+                  Manufacturing
+                </Link>
+              </li>
+              <li>
+                <Link to="/industries/healthcare" className="text-steel hover:text-navy transition-all duration-300">
+                  Healthcare
+                </Link>
+              </li>
+              <li>
+                <Link to="/industries/edtech" className="text-steel hover:text-navy transition-all duration-300">
+                  EdTech
+                </Link>
+              </li>
+            </ul>
+          </div>
+
+          {/* Column 4: Company */}
           <div>
             <h3 className="text-[11px] font-black text-navy uppercase tracking-[0.2em] mb-8">Company</h3>
             <ul className="space-y-4 text-[13px] font-bold">
@@ -64,36 +91,46 @@ const Footer = () => {
                 </Link>
               </li>
               <li>
-                <a href="mailto:contact@olynk.ai" className="text-steel hover:text-navy transition-all duration-300">
-                  Contact Support
-                </a>
+                <Link to="/careers" className="text-steel hover:text-navy transition-all duration-300">
+                  Careers
+                </Link>
               </li>
               <li>
-                <a href="mailto:careers@olynk.ai" className="text-steel hover:text-navy transition-all duration-300">
-                  Careers
-                </a>
+                <Link to="/newsroom" className="text-steel hover:text-navy transition-all duration-300">
+                  Newsroom
+                </Link>
+              </li>
+              <li>
+                <Link to="/support" className="text-steel hover:text-navy transition-all duration-300">
+                  Contact Support
+                </Link>
               </li>
             </ul>
           </div>
 
-          {/* Column 4: Legal */}
+          {/* Column 5: Resources */}
           <div>
-            <h3 className="text-[11px] font-black text-navy uppercase tracking-[0.2em] mb-8">Legal</h3>
+            <h3 className="text-[11px] font-black text-navy uppercase tracking-[0.2em] mb-8">Resources</h3>
             <ul className="space-y-4 text-[13px] font-bold">
               <li>
-                <a href="#" className="text-steel hover:text-navy transition-all duration-300">
+                <Link to="/resources/impact-studies" className="text-steel hover:text-navy transition-all duration-300">
+                  Impact Studies
+                </Link>
+              </li>
+              <li>
+                <Link to="/resources/explained" className="text-steel hover:text-navy transition-all duration-300">
+                  Olynk Explained
+                </Link>
+              </li>
+              <li>
+                <Link to="/privacy" className="text-steel hover:text-navy transition-all duration-300">
                   Privacy Policy
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="#" className="text-steel hover:text-navy transition-all duration-300">
+                <Link to="/terms" className="text-steel hover:text-navy transition-all duration-300">
                   Terms of Service
-                </a>
-              </li>
-              <li>
-                <a href="#" className="text-steel hover:text-navy transition-all duration-300">
-                  Security
-                </a>
+                </Link>
               </li>
             </ul>
           </div>

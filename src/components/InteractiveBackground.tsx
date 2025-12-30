@@ -154,7 +154,7 @@ const InteractiveBackground = () => {
         // FIXED POSITION: Stays put relative to viewport
         // INSET-0: Covers entire screen
         // POINTER-EVENTS-NONE: Allows clicking through to content
-        <div className="fixed inset-0 bg-beige overflow-hidden pointer-events-none z-0">
+        <div className="fixed inset-0 bg-cream overflow-hidden pointer-events-none z-0">
             {/* Base Gradient */}
             <div className="absolute inset-0 bg-gradient-to-tr from-beige via-transparent to-[rgba(43,82,136,0.03)]" />
 
