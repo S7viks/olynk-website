@@ -453,8 +453,6 @@ const Platform = () => {
                     </div>
                 </div>
             </section>
-                </div>
-            </section>
 
             {/* SECTION 7: STACK POSITIONING */}
             <section className="py-16 px-4 bg-cream border-t border-beige">
