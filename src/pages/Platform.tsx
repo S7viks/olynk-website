@@ -265,8 +265,6 @@ const Platform = () => {
                     </div>
                 </div>
             </section>
-                </div>
-            </section>
 
             {/* SECTION 5: CORE (Deep Dive) */}
             <section id="core" className="py-16 lg:py-24 px-4 border-t border-beige relative overflow-hidden">
