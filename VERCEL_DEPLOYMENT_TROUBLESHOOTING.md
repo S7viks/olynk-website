@@ -65,8 +65,11 @@ export default defineConfig({
 Make sure these are set in your Vercel project settings:
 
 ```env
-VITE_SUPABASE_URL=https://bmfakoiiebmsgdtimwdu.supabase.co
+VITE_SUPABASE_URL=https://your-project-id.supabase.co
 VITE_SUPABASE_ANON_KEY=your-anon-key
+```
+
+**⚠️ Get your actual credentials from your Supabase dashboard**
 VITE_SUPABASE_SERVICE_KEY=your-service-key
 ```
 

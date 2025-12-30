@@ -6,17 +6,26 @@ if (typeof window !== 'undefined' && (window as any).__SUPABASE_CLIENT_INITIALIZ
 }
 
 // Get Supabase URL and keys from environment variables
-const supabaseUrl = import.meta.env.VITE_SUPABASE_URL || 'https://bmfakoiiebmsgdtimwdu.supabase.co'
-const supabaseAnonKey = import.meta.env.VITE_SUPABASE_ANON_KEY || 'sb_publishable_MNFxxlp3Imwbj_yVEI7TGw_iOuFQOBL'
-const supabaseServiceKey = import.meta.env.VITE_SUPABASE_SERVICE_KEY || 'your-service-key'
+// SECURITY: Never hardcode credentials - they will be exposed in client-side code
+const supabaseUrl = import.meta.env.VITE_SUPABASE_URL
+const supabaseAnonKey = import.meta.env.VITE_SUPABASE_ANON_KEY
+const supabaseServiceKey = import.meta.env.VITE_SUPABASE_SERVICE_KEY
 
-// Validate configuration
-if (!supabaseUrl || supabaseUrl === 'https://bmfakoiiebmsgdtimwdu.supabase.co') {
-  console.error('❌ Supabase URL not configured. Please set VITE_SUPABASE_URL in your .env.local file');
+// Validate configuration - fail fast if required variables are missing
+if (!supabaseUrl) {
+  const error = '❌ CRITICAL: VITE_SUPABASE_URL is not configured. Please set it in your .env.local file'
+  console.error(error)
+  if (typeof window !== 'undefined') {
+    throw new Error(error)
+  }
 }
 
-if (!supabaseAnonKey || supabaseAnonKey === 'sb_publishable_MNFxxlp3Imwbj_yVEI7TGw_iOuFQOBL') {
-  console.error('❌ Supabase anon key not configured. Please set VITE_SUPABASE_ANON_KEY in your .env.local file');
+if (!supabaseAnonKey) {
+  const error = '❌ CRITICAL: VITE_SUPABASE_ANON_KEY is not configured. Please set it in your .env.local file'
+  console.error(error)
+  if (typeof window !== 'undefined') {
+    throw new Error(error)
+  }
 }
 
 // Create Supabase client for client-side operations (singleton)
@@ -70,23 +79,18 @@ if (!connectionTested && typeof window !== 'undefined') {
   connectionTested = true;
   // Use a more reliable test query with error boundary
   try {
-    // Only test if we have valid credentials
-    if (supabaseUrl && supabaseUrl !== 'https://your-project.supabase.co' && 
-        supabaseAnonKey && supabaseAnonKey !== 'your-anon-key') {
-      console.log('🔧 Testing Supabase connection with configured credentials...');
+    // Test connection if credentials are configured
+    if (supabaseUrl && supabaseAnonKey) {
+      console.log('🔧 Testing Supabase connection...');
       supabase.auth.getSession().then(({ data, error }) => {
         if (error) {
           console.error('❌ Supabase connection failed:', error.message);
         } else {
           console.log('✅ Supabase connection successful');
-          console.log('🔧 Supabase URL:', supabaseUrl);
-          console.log('🔧 Session data:', data);
         }
       }).catch((error) => {
         console.error('❌ Supabase connection failed:', error.message);
       });
-    } else {
-      console.warn('⚠️ Supabase credentials not configured - using default values');
     }
   } catch (error) {
     console.error('❌ Supabase initialization error:', error);

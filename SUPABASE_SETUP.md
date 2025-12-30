@@ -11,7 +11,7 @@ This guide will help you set up Supabase as your database backend for the Olynk 
 
 1. **Go to your Supabase Dashboard**
    - Navigate to https://supabase.com/dashboard
-   - Select your project: `bmfakoiiebmgsgdtimwdu`
+   - Select your project (or create a new one)
 
 2. **Run the Database Schema**
    - Go to the SQL Editor in your Supabase dashboard
@@ -33,7 +33,7 @@ This guide will help you set up Supabase as your database backend for the Olynk 
 
 The Supabase configuration has been set up in `src/supabase.ts` with your provided credentials:
 
-- **Project URL**: `https://bmfakoiiebmgsgdtimwdu.supabase.co`
+- **Project URL**: `https://your-project-id.supabase.co` (get from Supabase dashboard)
 - **Anonymous Key**: Already configured for client-side operations
 - **Service Role Key**: Already configured for server-side operations
 
@@ -59,12 +59,14 @@ The Supabase configuration has been set up in `src/supabase.ts` with your provid
 
 For better security, you can move the API keys to environment variables:
 
-1. **Create a `.env` file** in your project root:
+1. **Create a `.env.local` file** in your project root:
    ```env
-   VITE_SUPABASE_URL=https://bmfakoiiebmgsgdtimwdu.supabase.co
-   VITE_SUPABASE_ANON_KEY=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImJtZmFrb2lpZWJtc2dkdGltd2R1Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTM3MjE4MDgsImV4cCI6MjA2OTI5NzgwOH0.z3sqY4qSnNXx2tYVkJu10KkQDWkXTi9cT8iilwnBB8w
-   VITE_SUPABASE_SERVICE_KEY=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImJtZmFrb2lpZWJtc2dkdGltd2R1Iiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImlhdCI6MTc1MzcyMTgwOCwiZXhwIjoyMDY5Mjk3ODA4fQ.dkPn-RLHV-hTkZiD1OUzRofwDH1N7U4FQOX8X9DieTk
+   VITE_SUPABASE_URL=https://your-project-id.supabase.co
+   VITE_SUPABASE_ANON_KEY=your-anon-key-here
+   VITE_SUPABASE_SERVICE_KEY=your-service-key-here
    ```
+   
+   **⚠️ SECURITY NOTE:** Never commit `.env.local` to version control. Get your actual keys from your Supabase dashboard at https://supabase.com/dashboard/project/_/settings/api
 
 2. **Update `src/supabase.ts`** to use environment variables:
    ```typescript

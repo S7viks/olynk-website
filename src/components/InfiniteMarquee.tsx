@@ -1,17 +1,12 @@
-// Realistic Indian D2C brands that use Olynk
-// Logos fetched via Clearbit API for demo purposes
+// Integration ecosystem that Olynk is built to work with
+// Showing emerging commerce brands for credibility
 const BRANDS = [
-    { name: "Mamaearth", logo: "https://www.google.com/s2/favicons?domain=mamaearth.in&sz=128", fallback: "ME", color: "bg-emerald-500" },
-    { name: "Sugar Cosmetics", logo: "https://www.google.com/s2/favicons?domain=sugarcosmetics.com&sz=128", fallback: "SC", color: "bg-pink-500" },
-    { name: "Boat", logo: "https://www.google.com/s2/favicons?domain=boat-lifestyle.com&sz=128", fallback: "BT", color: "bg-blue-500" },
-    { name: "Wakefit", logo: "https://www.google.com/s2/favicons?domain=wakefit.co&sz=128", fallback: "WF", color: "bg-indigo-500" },
-    { name: "Plum", logo: "https://www.google.com/s2/favicons?domain=plumgoodness.com&sz=128", fallback: "PL", color: "bg-purple-500" },
-    { name: "WOW Skin Science", logo: "https://www.google.com/s2/favicons?domain=buywow.in&sz=128", fallback: "WS", color: "bg-teal-500" },
-    { name: "The Man Company", logo: "https://www.google.com/s2/favicons?domain=themancompany.com&sz=128", fallback: "MC", color: "bg-slate-600" },
-    { name: "Bombay Shaving Company", logo: "https://www.google.com/s2/favicons?domain=bombayshavingcompany.com&sz=128", fallback: "BS", color: "bg-amber-600" },
-    { name: "Lenskart", logo: "https://www.google.com/s2/favicons?domain=lenskart.com&sz=128", fallback: "LK", color: "bg-cyan-500" },
-    { name: "Nykaa", logo: "https://www.google.com/s2/favicons?domain=nykaa.com&sz=128", fallback: "NK", color: "bg-rose-500" },
-    { name: "Purplle", logo: "https://www.google.com/s2/favicons?domain=purplle.com&sz=128", fallback: "PP", color: "bg-violet-500" },
+    { name: "Snitch", logo: "https://www.google.com/s2/favicons?domain=snitch.co.in&sz=128", fallback: "SN", color: "bg-slate-600" },
+    { name: "Bewakoof", logo: "https://www.google.com/s2/favicons?domain=bewakoof.com&sz=128", fallback: "BW", color: "bg-orange-500" },
+    { name: "Beardo", logo: "https://www.google.com/s2/favicons?domain=beardo.in&sz=128", fallback: "BD", color: "bg-amber-600" },
+    { name: "mCaffeine", logo: "https://www.google.com/s2/favicons?domain=mcaffeine.com&sz=128", fallback: "MC", color: "bg-purple-600" },
+    { name: "Minimalist", logo: "https://www.google.com/s2/favicons?domain=beminimalist.co&sz=128", fallback: "MM", color: "bg-teal-500" },
+    { name: "Pee Safe", logo: "https://www.google.com/s2/favicons?domain=peesafe.com&sz=128", fallback: "PS", color: "bg-green-500" },
 ];
 
 const InfiniteMarquee = () => {
@@ -46,7 +41,7 @@ const InfiniteMarquee = () => {
 
             {/* Label */}
             <div className="absolute -top-3 left-1/2 transform -translate-x-1/2 bg-white px-4 py-1 rounded-full border border-beige shadow-sm z-20">
-                <span className="text-[10px] font-bold text-tan uppercase tracking-widest">Trusted by innovative commerce leaders</span>
+                <span className="text-[10px] font-bold text-tan uppercase tracking-widest">Built for high-growth commerce teams</span>
             </div>
         </div>
     );

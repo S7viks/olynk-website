@@ -31,7 +31,7 @@ const PricingSection = () => {
     },
     {
       name: 'AI Advisor',
-      description: 'Trusted by growing enterprises to scale operations intelligently',
+      description: 'Built for growing enterprises to scale operations intelligently',
       monthlyPrice: 18000,
       annualPrice: 172800, // 20% discount
       originalAnnualPrice: 216000,

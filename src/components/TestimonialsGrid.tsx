@@ -214,7 +214,7 @@ const TestimonialsGrid = () => {
                 {/* Header */}
                 <div className="text-center mb-20 space-y-6 px-4">
                     <h2 className="text-4xl lg:text-5xl font-black text-navy tracking-tighter leading-tight max-w-4xl mx-auto">
-                        Trusted by leaders running <br />
+                        Built for leaders running <br />
                         <span className="text-olynk">high-scale operations.</span>
                     </h2>
                 </div>

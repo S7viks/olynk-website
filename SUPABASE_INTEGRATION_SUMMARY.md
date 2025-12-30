@@ -199,11 +199,16 @@ const applicationId = await earlyAccessService.submitApplication({
 - `src/components/EarlyAccess.tsx` - Updated to use Supabase
 - `package.json` - Added Supabase dependency
 
-## Credentials Used
+## Credentials Configuration
 
-- **Project URL**: `https://bmfakoiiebmgsgdtimwdu.supabase.co`
-- **Anonymous Key**: `eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImJtZmFrb2lpZWJtc2dkdGltd2R1Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTM3MjE4MDgsImV4cCI6MjA2OTI5NzgwOH0.z3sqY4qSnNXx2tYVkJu10KkQDWkXTi9cT8iilwnBB8w`
-- **Service Role Key**: `eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImJtZmFrb2lpZWJtc2dkdGltd2R1Iiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImlhdCI6MTc1MzcyMTgwOCwiZXhwIjoyMDY5Mjk3ODA4fQ.dkPn-RLHV-hTkZiD1OUzRofwDH1N7U4FQOX8X9DieTk`
+**⚠️ SECURITY:** Credentials should be stored in `.env.local` (never committed to version control).
+
+Get your credentials from your Supabase dashboard:
+- **Project URL**: Found in Settings → API → Project URL
+- **Anonymous Key**: Found in Settings → API → Project API keys → `anon` `public`
+- **Service Role Key**: Found in Settings → API → Project API keys → `service_role` `secret`
+
+**Important:** The service role key has full database access and should NEVER be exposed in client-side code. Only use it in server-side operations or Supabase Edge Functions.
 
 ## Conclusion
 

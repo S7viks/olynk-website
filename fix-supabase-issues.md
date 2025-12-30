@@ -183,10 +183,12 @@ GRANT ALL ON ALL FUNCTIONS IN SCHEMA public TO anon, authenticated;
 Ensure your `.env.local` file has the correct Supabase credentials:
 
 ```env
-VITE_SUPABASE_URL=https://bmfakoiiebmsgdtimwdu.supabase.co
+VITE_SUPABASE_URL=https://your-project-id.supabase.co
 VITE_SUPABASE_ANON_KEY=your-anon-key-here
 VITE_SUPABASE_SERVICE_KEY=your-service-key-here
 ```
+
+**⚠️ Get your actual credentials from:** https://supabase.com/dashboard/project/_/settings/api
 
 ### 3. Create Your First Admin User
 
