@@ -40,34 +40,34 @@ const OlynkDashboard = () => {
             <div className="relative bg-white border border-beige shadow-[0_40px_80px_-20px_rgba(0,27,61,0.15)] rounded-3xl overflow-hidden">
 
                 {/* 1. TOP INTEGRATED STATUS BAR */}
-                <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between px-4 sm:px-8 py-3 border-b border-beige bg-cream gap-4 sm:gap-0">
+                <div className="flex items-center justify-between px-4 sm:px-8 py-3 border-b border-beige bg-cream">
                     <div className="flex items-center gap-4 sm:gap-6">
                         <div className="flex items-center gap-2">
                             <div className="w-2 h-2 rounded-full bg-emerald-500 shadow-[0_0_8px_rgba(16,185,129,0.2)]" />
                             <span className="text-[10px] font-black text-navy uppercase tracking-widest font-mono">System_Active</span>
                         </div>
                         <div className="hidden sm:block h-3 w-[1px] bg-beige" />
-                        <div className="flex items-center gap-2">
+                        <div className="hidden sm:flex items-center gap-2">
                             <Cpu className="w-3.5 h-3.5 text-navy opacity-40" />
                             <span className="text-[10px] font-black text-navy uppercase tracking-widest font-mono">Model:A9-D3</span>
                         </div>
                     </div>
-                    <div className="flex items-center justify-between w-full sm:w-auto gap-6 sm:gap-6">
+                    <div className="flex items-center gap-4 sm:gap-6">
                         <div className="flex items-center gap-2">
                             <Clock className="w-3.5 h-3.5 text-tan" />
                             <span className="text-[10px] font-black text-tan uppercase tracking-widest font-mono">14:02:11</span>
                         </div>
-                        <div className="flex items-center gap-2 text-emerald-600">
+                        <div className="hidden sm:flex items-center gap-2 text-emerald-600">
                             <Activity className="w-3.5 h-3.5 text-emerald-500" />
                             <span className="text-[10px] font-black uppercase tracking-widest font-mono">0.04ms</span>
                         </div>
                     </div>
                 </div>
 
-                <div className="flex flex-col lg:grid lg:grid-cols-12 min-h-0 lg:min-h-[460px]">
+                <div className="grid grid-cols-12 min-h-0 lg:min-h-[460px]">
 
                     {/* 2. LEFT PANEL: COMPRESSED HEALTH TELEMETRY */}
-                    <aside className="lg:col-span-3 p-4 sm:p-6 border-b lg:border-b-0 lg:border-r border-beige space-y-4 bg-cream">
+                    <aside className="hidden lg:block lg:col-span-3 p-6 border-r border-beige space-y-4 bg-cream">
                         <div className="space-y-8">
                             <div className="flex items-center justify-between border-b border-beige pb-2">
                                 <h3 className="text-[10px] font-black text-tan uppercase tracking-widest">Health Telemetry</h3>
@@ -115,7 +115,7 @@ const OlynkDashboard = () => {
                     </aside>
 
                     {/* 3. CENTER: HERO DECISION WINDSHIELD */}
-                    <main className="lg:col-span-6 p-4 sm:p-6 bg-white flex flex-col justify-center border-b lg:border-b-0 lg:border-r border-beige/30">
+                    <main className="col-span-12 lg:col-span-6 p-4 sm:p-6 bg-white flex flex-col justify-center border-b lg:border-b-0 lg:border-r border-beige/30">
                         <div className="max-w-xl mx-auto w-full space-y-6">
                             <div className="space-y-6">
                                 <div className="flex items-center gap-3">
@@ -189,7 +189,7 @@ const OlynkDashboard = () => {
                     </main>
 
                     {/* 4. RIGHT PANEL: ENRICHED LOGIC STACK (NOW WITH CHARTS) */}
-                    <aside className="lg:col-span-3 p-4 sm:p-6 space-y-4 bg-cream overflow-y-auto">
+                    <aside className="hidden lg:block lg:col-span-3 p-4 sm:p-6 space-y-4 bg-cream overflow-y-auto">
                         <div className="space-y-4">
                             {/* Logic Stack Header */}
                             <div className="flex items-center justify-end gap-3 border-b border-beige pb-2">
