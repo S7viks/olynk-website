@@ -24,8 +24,8 @@ try {
   rootElement.innerHTML = `
     <div style="display: flex; justify-content: center; align-items: center; height: 100vh; font-family: Arial, sans-serif;">
       <div style="text-align: center;">
-        <h1 style="color: #dc2626; margin-bottom: 1rem;">OLYNK</h1>
-        <p style="color: #6b7280;">AI Operations Advisor for D2C Brands</p>
+        <h1 style="color: #001B3D; margin-bottom: 1rem;">OLYNK</h1>
+        <p style="color: #6b7280;">The AI Brain for Business Operations</p>
         <p style="color: #9ca3af; font-size: 0.875rem; margin-top: 2rem;">Loading...</p>
       </div>
     </div>

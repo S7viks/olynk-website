@@ -98,8 +98,8 @@ const Features = () => {
               Smartest Employee
             </span>
           </h2>
-          <p className="text-xl text-gray-600 dark:text-gray-400 max-w-3xl mx-auto mb-8">
-            Meet Your New AI Operations Advisor. Explore how OLYNK transforms your operations with intelligent, actionable insights tailored for high-growth commerce enterprises.
+          <p className="text-xl text-steel max-w-3xl mx-auto mb-8">
+            The Intelligence Operating System for Autonomous Commerce. Explore how OLYNK transforms your operations with the AI brain for business.
           </p>
           <div className="bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm border border-gray-200 dark:border-gray-700 rounded-2xl p-6 max-w-4xl mx-auto">
             <p className="text-lg text-gray-700 dark:text-gray-300 font-medium mb-4">

@@ -65,8 +65,8 @@ export const generateOrganizationStructuredData = () => {
     "@type": "Organization",
     "name": "OLYNK",
     "url": "https://olynk.ai",
-    "logo": "https://olynk.ai/assets/Olynk_Logo.png",
-    "description": "AI-powered operations advisor for D2C brands in India",
+    "logo": "https://olynk.ai/assets/Olynk.AI_Logo.png",
+    "description": "The intelligence operating system for autonomous commerce. Predict problems 10 days before they happen and execute decisions in real-time.",
     "foundingDate": "2024",
     "address": {
       "@type": "PostalAddress",
@@ -90,17 +90,17 @@ export const generateSoftwareStructuredData = () => {
   return {
     "@context": "https://schema.org",
     "@type": "SoftwareApplication",
-    "name": "OLYNK AI Operations Advisor",
+    "name": "OLYNK Intelligence OS",
     "applicationCategory": "BusinessApplication",
     "operatingSystem": "Web",
-    "description": "AI-powered operations advisor that predicts problems before they happen for D2C brands",
+    "description": "OLynk is the intelligence operating system for autonomous commerce. Predict problems 10 days before they happen and execute decisions in real-time.",
     "offers": {
       "@type": "Offer",
-      "price": "20000",
+      "price": "15000",
       "priceCurrency": "INR",
       "priceSpecification": {
         "@type": "UnitPriceSpecification",
-        "price": "20000",
+        "price": "15000",
         "priceCurrency": "INR",
         "unitText": "MONTH"
       }
@@ -120,17 +120,19 @@ export const generateSoftwareStructuredData = () => {
 // SEO keywords for different page types
 export const SEO_KEYWORDS = {
   home: [
-    "AI operations advisor",
-    "D2C operations management",
-    "predictive inventory management",
-    "AI retail automation India",
-    "D2C system integration",
-    "retail operations optimization"
+    "Autonomous commerce",
+    "operational intelligence",
+    "stockout prediction",
+    "RTO prevention",
+    "ROAS monitoring",
+    "inventory management",
+    "AI operations",
+    "commerce OS"
   ],
   about: [
     "OLYNK company",
-    "AI operations advisor India",
-    "D2C technology company",
+    "operational intelligence India",
+    "autonomous commerce technology",
     "retail AI solutions",
     "operations automation"
   ],
@@ -145,16 +147,16 @@ export const SEO_KEYWORDS = {
   pricing: [
     "OLYNK pricing",
     "AI operations cost",
-    "D2C automation pricing",
+    "autonomous commerce pricing",
     "retail AI pricing India",
-    "operations advisor cost"
+    "operational intelligence cost"
   ],
   contact: [
     "contact OLYNK",
-    "AI operations support",
-    "D2C consultation",
+    "operational support",
+    "commerce consultation",
     "retail AI demo",
-    "operations advisor contact"
+    "operational intelligence contact"
   ],
   promo: [
     "OLYNK promo",
@@ -168,48 +170,48 @@ export const SEO_KEYWORDS = {
 // Page-specific SEO configurations
 export const PAGE_SEO: Record<string, SEOProps> = {
   home: {
-    title: "OLYNK - AI Operations Advisor for D2C Brands | Predict Problems Before They Happen",
-    description: "Stop losing ₹2-5L monthly to stockouts and operational chaos. OLYNK's AI advisor predicts what's about to go wrong and tells you exactly how to fix it. Book demo today.",
+    title: "OLYNK | The AI Brain for Business Operations",
+    description: "Predict problems. Automate decisions. Run your business on autopilot. OLynk sits above your tools to build a live operational model that acts autonomously 24/7.",
     keywords: SEO_KEYWORDS.home,
     canonical: "https://olynk.ai",
-    ogImage: "https://olynk.ai/assets/Logo111.png",
+    ogImage: "https://olynk.ai/assets/Olynk.AI_Logo.png",
     ogType: "website",
     twitterCard: "summary_large_image",
     structuredData: generateOrganizationStructuredData()
   },
   about: {
-    title: "About OLYNK - AI Operations Advisor | Our Mission & Vision",
-    description: "Learn about OLYNK's mission to revolutionize D2C operations with AI. We turn scattered data into smart decisions and help brands scale without complexity.",
+    title: "About OLYNK | Our Mission & Vision",
+    description: "Learn about OLYNK's mission to build the intelligence operating system for autonomous commerce. We turn scattered data into smart decisions.",
     keywords: SEO_KEYWORDS.about,
     canonical: "https://olynk.ai/about",
-    ogImage: "https://olynk.ai/assets/Logo111.png",
+    ogImage: "https://olynk.ai/assets/Olynk.AI_Logo.png",
     ogType: "website",
     twitterCard: "summary_large_image"
   },
   pricing: {
-    title: "OLYNK Pricing - AI Operations Advisor Plans & Pricing | Start Free Trial",
-    description: "Choose the right OLYNK plan for your D2C brand. Flexible pricing from ₹10k/month. AI Starter, Growth, and Enterprise plans available. Start your free trial today.",
+    title: "OLYNK Pricing | Plans for Autonomous Commerce",
+    description: "Choose the right OLYNK plan for your business. Starting at ₹15K/month. Scale your operations with the AI brain for business.",
     keywords: SEO_KEYWORDS.pricing,
     canonical: "https://olynk.ai/pricing",
-    ogImage: "https://olynk.ai/assets/Logo111.png",
+    ogImage: "https://olynk.ai/assets/Olynk.AI_Logo.png",
     ogType: "website",
     twitterCard: "summary_large_image"
   },
   contact: {
-    title: "Contact OLYNK - Get in Touch | Book a Demo | AI Operations Support",
-    description: "Contact OLYNK for AI operations support, D2C consultation, or to book a demo. We're here to help you transform your retail operations.",
+    title: "Contact OLYNK | Book a Demo",
+    description: "Contact OLYNK for operational intelligence support, commerce consultation, or to book a demo. Transform your operations today.",
     keywords: SEO_KEYWORDS.contact,
     canonical: "https://olynk.ai/contact",
-    ogImage: "https://olynk.ai/assets/Logo111.png",
+    ogImage: "https://olynk.ai/assets/Olynk.AI_Logo.png",
     ogType: "website",
     twitterCard: "summary_large_image"
   },
   waitlist: {
-    title: "Join OLYNK Waitlist - Early Access to AI Operations Advisor",
-    description: "Join the OLYNK waitlist for early access to our AI operations advisor. Be among the first to transform your D2C operations with predictive AI.",
+    title: "Join OLYNK Waitlist | Early Access",
+    description: "Join the OLYNK waitlist for early access to the AI brain for business operations. Be among the first to experience autonomous commerce.",
     keywords: SEO_KEYWORDS.home,
-    canonical: "https://olynk.ai/waitlist-funnel",
-    ogImage: "https://olynk.ai/assets/Logo111.png",
+    canonical: "https://olynk.ai/waitlist",
+    ogImage: "https://olynk.ai/assets/Olynk.AI_Logo.png",
     ogType: "website",
     twitterCard: "summary_large_image"
   }
@@ -229,7 +231,7 @@ export const createPromoSEO = (
     description: promoDescription,
     keywords: customKeywords || SEO_KEYWORDS.promo,
     canonical: promoUrl,
-    ogImage: promoImage || "https://olynk.ai/assets/Logo111.png",
+    ogImage: promoImage || "https://olynk.ai/assets/Olynk.AI_Logo.png",
     ogImageAlt: promoImageAlt || promoDescription,
     ogType: "website",
     twitterCard: "summary_large_image"
@@ -244,11 +246,11 @@ export const getPageSEO = (pageName: string, customSEO?: Partial<SEOProps>): SEO
 
 // Default SEO settings
 export const DEFAULT_SEO: SEOProps = {
-  title: "OLYNK - AI Operations Advisor for D2C Brands | Predict Problems Before They Happen",
-  description: "Stop losing ₹2-5L monthly to stockouts and operational chaos. OLYNK's AI advisor predicts what's about to go wrong and tells you exactly how to fix it. Book demo today.",
+  title: "OLYNK | The AI Brain for Business Operations",
+  description: "Predict problems. Automate decisions. Run your business on autopilot. OLynk sits above your tools to build a live operational model that acts autonomously 24/7.",
   keywords: SEO_KEYWORDS.home,
   canonical: "https://olynk.ai",
-  ogImage: "https://olynk.ai/assets/Logo111.png",
+  ogImage: "https://olynk.ai/assets/Olynk.AI_Logo.png",
   ogType: "website",
   twitterCard: "summary_large_image"
 };
