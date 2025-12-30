@@ -186,53 +186,53 @@ const Insight = () => {
                         className="relative rounded-[32px] sm:rounded-[40px] overflow-hidden shadow-[0_32px_80px_-16px_rgba(30,41,59,0.1)] border border-beige bg-white"
                     >
                         {/* Browser/Window Header */}
-                        <div className="h-16 border-b border-beige bg-cream/30 backdrop-blur-md flex items-center px-6 lg:px-8 justify-between">
-                            <div className="flex gap-2.5">
-                                <div className="w-3.5 h-3.5 rounded-full bg-beige border border-navy/10" />
-                                <div className="w-3.5 h-3.5 rounded-full bg-beige border border-navy/10" />
-                                <div className="w-3.5 h-3.5 rounded-full bg-beige border border-navy/10" />
+                        <div className="h-14 lg:h-16 border-b border-beige bg-cream/30 backdrop-blur-md flex items-center px-4 lg:px-8 justify-between">
+                            <div className="flex gap-2 lg:gap-2.5">
+                                <div className="w-2.5 h-2.5 lg:w-3.5 lg:h-3.5 rounded-full bg-beige border border-navy/10" />
+                                <div className="w-2.5 h-2.5 lg:w-3.5 lg:h-3.5 rounded-full bg-beige border border-navy/10" />
+                                <div className="w-2.5 h-2.5 lg:w-3.5 lg:h-3.5 rounded-full bg-beige border border-navy/10" />
                             </div>
-                            <div className="flex items-center gap-3 text-xs font-black font-mono text-steel/60 bg-white/50 px-5 py-2 rounded-full border border-beige shadow-sm">
+                            <div className="hidden sm:flex items-center gap-3 text-xs font-black font-mono text-steel/60 bg-white/50 px-5 py-2 rounded-full border border-beige shadow-sm">
                                 <Search className="w-3.5 h-3.5" />
                                 insight_engine_v2.0
                             </div>
-                            <div className="flex items-center gap-4">
-                                <Activity className="w-4 h-4 text-olynk animate-pulse" />
-                                <div className="w-9 h-9 rounded-full bg-navy/5 border border-beige" />
+                            <div className="flex items-center gap-3 lg:gap-4">
+                                <Activity className="w-3.5 h-3.5 lg:w-4 lg:h-4 text-olynk animate-pulse" />
+                                <div className="w-7 h-7 lg:w-9 lg:h-9 rounded-full bg-navy/5 border border-beige" />
                             </div>
                         </div>
 
                         {/* Dashboard Content */}
-                        <div className="p-6 lg:p-10">
+                        <div className="p-4 lg:p-10">
                             <div className="grid lg:grid-cols-3 gap-8">
 
                                 {/* Main Chart Area */}
-                                <div className="lg:col-span-2 space-y-10">
-                                    <div className="flex items-center justify-between">
+                                <div className="lg:col-span-2 space-y-8 lg:space-y-10">
+                                    <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 lg:gap-0">
                                         <div className="space-y-1.5">
-                                            <h3 className="text-xs font-black text-navy/60 uppercase tracking-widest">Revenue Forecast</h3>
-                                            <div className="text-3xl sm:text-4xl lg:text-5xl font-mono font-black text-navy tracking-tighter">$2,482,190 <span className="text-emerald-500 text-lg sm:text-xl align-top font-bold ml-2">+12.4%</span></div>
+                                            <h3 className="text-[10px] lg:text-xs font-black text-navy/60 uppercase tracking-widest">Revenue Forecast</h3>
+                                            <div className="text-2xl sm:text-4xl lg:text-5xl font-mono font-black text-navy tracking-tighter">$2,482,190 <span className="text-emerald-500 text-base sm:text-xl align-top font-bold ml-2">+12.4%</span></div>
                                         </div>
-                                        <div className="flex gap-2 bg-navy/5 p-1 rounded-xl">
+                                        <div className="flex gap-1 lg:gap-2 bg-navy/5 p-1 rounded-xl w-fit">
                                             {['1D', '1W', '1M', '1Y'].map(t => (
-                                                <span key={t} className={`text-[10px] font-black px-4 py-2 rounded-lg cursor-pointer transition-all ${t === '1M' ? 'bg-white text-navy shadow-sm border border-beige' : 'text-navy/60 hover:text-navy'}`}>{t}</span>
+                                                <span key={t} className={`text-[9px] lg:text-[10px] font-black px-3 lg:px-4 py-1.5 lg:py-2 rounded-lg cursor-pointer transition-all ${t === '1M' ? 'bg-white text-navy shadow-sm border border-beige' : 'text-navy/60 hover:text-navy'}`}>{t}</span>
                                             ))}
                                         </div>
                                     </div>
 
                                     {/* Code-based Predictive Pulse Visual - Light Theme */}
-                                    <div className="h-[300px] sm:h-[400px] w-full bg-white rounded-[24px] sm:rounded-[32px] border border-beige overflow-hidden relative group shadow-inner">
+                                    <div className="h-[240px] sm:h-[400px] w-full bg-white rounded-2xl lg:rounded-[32px] border border-beige overflow-hidden relative group shadow-inner">
                                         <PredictivePulse />
                                     </div>
 
-                                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-8">
-                                        <div className="bg-white border border-beige p-6 sm:p-8 rounded-2xl sm:rounded-3xl shadow-sm hover:shadow-md transition-shadow">
-                                            <div className="text-[10px] font-black text-navy/60 uppercase tracking-widest mb-2">Model Accuracy</div>
-                                            <div className="text-2xl sm:text-3xl font-mono font-black text-navy">98.4%</div>
+                                    <div className="grid grid-cols-2 gap-4 sm:gap-8">
+                                        <div className="bg-white border border-beige p-4 sm:p-8 rounded-2xl sm:rounded-3xl shadow-sm hover:shadow-md transition-shadow">
+                                            <div className="text-[8px] lg:text-[10px] font-black text-navy/60 uppercase tracking-widest mb-1 lg:mb-2">Model Accuracy</div>
+                                            <div className="text-xl sm:text-3xl font-mono font-black text-navy">98.4%</div>
                                         </div>
-                                        <div className="bg-white border border-beige p-6 sm:p-8 rounded-2xl sm:rounded-3xl shadow-sm hover:shadow-md transition-shadow">
-                                            <div className="text-[10px] font-black text-navy/60 uppercase tracking-widest mb-2">Anomalies Detected</div>
-                                            <div className="text-2xl sm:text-3xl font-mono font-black text-olynk">12 Active</div>
+                                        <div className="bg-white border border-beige p-4 sm:p-8 rounded-2xl sm:rounded-3xl shadow-sm hover:shadow-md transition-shadow">
+                                            <div className="text-[8px] lg:text-[10px] font-black text-navy/60 uppercase tracking-widest mb-1 lg:mb-2">Anomalies Detected</div>
+                                            <div className="text-xl sm:text-3xl font-mono font-black text-olynk">12 Active</div>
                                         </div>
                                     </div>
                                 </div>

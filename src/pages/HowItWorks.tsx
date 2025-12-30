@@ -8,7 +8,7 @@ const DataStream = () => (
       backgroundImage: 'radial-gradient(circle at 2px 2px, white 1px, transparent 0)',
       backgroundSize: '30px 30px'
     }} />
-    <svg viewBox="0 0 400 400" className="w-64 h-64 relative z-10">
+    <svg viewBox="0 0 400 400" className="w-48 h-48 lg:w-64 lg:h-64 relative z-10">
       {/* Background Nodes */}
       {[...Array(6)].map((_, i) => (
         <motion.circle
@@ -93,32 +93,32 @@ const ExecutionQueue = () => {
   ];
 
   return (
-    <div className="aspect-square rounded-[60px] bg-white text-navy flex flex-col items-center justify-center p-12 overflow-hidden shadow-[0_0_80px_rgba(255,255,255,0.1)] relative">
+    <div className="aspect-square rounded-3xl lg:rounded-[60px] bg-white text-navy flex flex-col items-center justify-center p-6 lg:p-12 overflow-hidden shadow-[0_0_80px_rgba(255,255,255,0.1)] relative">
       <div className="absolute inset-0 bg-navy opacity-[0.02]" />
-      <div className="text-[12px] font-black text-tan uppercase tracking-widest mb-10 font-mono relative z-10">Active_Workflow_Queue</div>
-      <div className="space-y-4 w-full max-w-[280px] relative z-10">
+      <div className="text-[10px] lg:text-[12px] font-black text-tan uppercase tracking-widest mb-6 lg:mb-10 font-mono relative z-10">Active_Workflow_Queue</div>
+      <div className="space-y-3 lg:space-y-4 w-full max-w-[240px] lg:max-w-[280px] relative z-10">
         {jobs.map((job, i) => (
           <motion.div
             key={i}
             initial={{ x: -20, opacity: 0 }}
             animate={{ x: 0, opacity: 1 }}
             transition={{ delay: i * 0.2 }}
-            className="flex items-center justify-between p-4 rounded-2xl bg-white border border-beige shadow-sm"
+            className="flex items-center justify-between p-3 lg:p-4 rounded-xl lg:rounded-2xl bg-white border border-beige shadow-sm"
           >
-            <div className="flex items-center gap-3">
-              <div className={`w-2 h-2 rounded-full ${job.color} ${job.status === 'EXECUTING' ? 'animate-pulse' : ''}`} />
-              <span className="font-mono text-xs font-black">{job.op}</span>
+            <div className="flex items-center gap-2 lg:gap-3">
+              <div className={`w-1.5 h-1.5 lg:w-2 lg:h-2 rounded-full ${job.color} ${job.status === 'EXECUTING' ? 'animate-pulse' : ''}`} />
+              <span className="font-mono text-[10px] lg:text-xs font-black">{job.op}</span>
             </div>
-            <span className={`text-[10px] font-black px-2.5 py-1 rounded-md ${job.status === 'SUCCESS' ? 'bg-emerald-50 text-emerald-700' : 'bg-navy/5 text-navy/60'}`}>{job.status}</span>
+            <span className={`text-[8px] lg:text-[10px] font-black px-2 lg:px-2.5 py-0.5 lg:py-1 rounded-md ${job.status === 'SUCCESS' ? 'bg-emerald-50 text-emerald-700' : 'bg-navy/5 text-navy/60'}`}>{job.status}</span>
           </motion.div>
         ))}
       </div>
       <motion.div
         animate={{ rotate: 360 }}
         transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
-        className="absolute -bottom-20 -right-20 w-64 h-64 border border-navy/[0.03] rounded-full flex items-center justify-center"
+        className="absolute -bottom-20 -right-20 w-48 h-48 lg:w-64 lg:h-64 border border-navy/[0.03] rounded-full flex items-center justify-center"
       >
-        <div className="w-48 h-48 border border-navy/[0.03] rounded-full" />
+        <div className="w-32 h-32 lg:w-48 lg:h-48 border border-navy/[0.03] rounded-full" />
       </motion.div>
     </div>
   );
@@ -128,8 +128,8 @@ const HowItWorks = () => {
   return (
     <div className="min-h-screen bg-transparent relative z-10">
       {/* Hero Section */}
-      <section className="pt-32 pb-16 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
-        <div className="absolute top-20 right-10 opacity-[0.03] select-none pointer-events-none">
+      <section className="pt-24 lg:pt-32 pb-16 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
+        <div className="absolute top-20 right-10 opacity-[0.03] select-none pointer-events-none hidden sm:block">
           <span className="text-[150px] font-black font-mono text-navy tracking-tighter uppercase whitespace-nowrap">OPERATIONAL_PROTOCOL</span>
         </div>
 
@@ -139,11 +139,11 @@ const HowItWorks = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
           >
-            <h1 className="text-5xl lg:text-8xl font-black text-navy leading-[1.05] tracking-tightest mb-8">
+            <h1 className="text-4xl lg:text-8xl font-black text-navy leading-[1.05] tracking-tightest mb-8 uppercase">
               LINK. THINK.<br />
               <span className="text-olynk">ACT.</span>
             </h1>
-            <p className="text-xl lg:text-2xl text-steel max-w-3xl mx-auto leading-relaxed font-medium">
+            <p className="text-lg lg:text-2xl text-steel max-w-3xl mx-auto leading-relaxed font-medium">
               How fragmentation becomes intelligence. The three-phase architecture that powers
               autonomous commerce operations.
             </p>
@@ -153,30 +153,30 @@ const HowItWorks = () => {
 
       {/* Step 1: LINK */}
       <section className="py-16 lg:py-24 px-4 border-t border-beige bg-white/40 backdrop-blur-xl relative overflow-hidden">
-        <div className="absolute top-0 right-0 p-10 opacity-[0.2] select-none pointer-events-none group">
+        <div className="absolute top-0 right-0 p-10 opacity-[0.2] select-none pointer-events-none group hidden sm:block">
           <span className="text-[180px] font-black font-mono text-beige leading-none tracking-tightest uppercase group-hover:text-tan transition-colors">01</span>
         </div>
 
         <div className="max-w-7xl mx-auto relative z-10">
-          <div className="grid lg:grid-cols-2 gap-16 items-center">
-            <div className="space-y-8">
+          <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+            <div className="space-y-6 lg:space-y-8 text-center lg:text-left">
               <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-navy/5 border border-navy/10 text-[10px] font-black font-mono text-navy uppercase tracking-widest">
                 <Database className="w-3 h-3" />
                 Phase_01: Unification
               </div>
-              <h2 className="text-4xl lg:text-6xl font-black text-navy tracking-tightest leading-[0.95]">
+              <h2 className="text-3xl lg:text-6xl font-black text-navy tracking-tightest leading-[0.95] uppercase">
                 The Neural<br />
-                <span className="text-olynk italic font-serif font-normal">Link.</span>
+                <span className="text-olynk italic font-serif font-normal capitalize">Link.</span>
               </h2>
-              <p className="text-lg text-steel leading-relaxed font-medium">
+              <p className="text-base lg:text-lg text-steel leading-relaxed font-medium">
                 We connect your entire stack into a single, high-fidelity data fabric.
                 No more manual exports or checking multiple dashboards.
               </p>
-              <div className="p-6 rounded-3xl bg-cream/30 border border-beige/40">
-                <div className="text-[10px] font-black text-tan uppercase tracking-widest mb-4">Integrated Nodes</div>
-                <div className="flex flex-wrap gap-3">
+              <div className="p-4 lg:p-6 rounded-3xl bg-cream/30 border border-beige/40">
+                <div className="text-[9px] lg:text-[10px] font-black text-tan uppercase tracking-widest mb-4">Integrated Nodes</div>
+                <div className="flex flex-wrap gap-2 lg:gap-3 justify-center lg:justify-start">
                   {["Shopify", "NetSuite", "Shiprocket", "Razorpay", "Meta Ads", "Google Ads"].map((tool, i) => (
-                    <div key={i} className="px-4 py-2 rounded-xl bg-white border border-beige/60 text-xs font-bold text-navy shadow-sm">
+                    <div key={i} className="px-3 lg:px-4 py-1.5 lg:py-2 rounded-xl bg-white border border-beige/60 text-[10px] lg:text-xs font-bold text-navy shadow-sm">
                       {tool}
                     </div>
                   ))}
@@ -184,13 +184,13 @@ const HowItWorks = () => {
               </div>
             </div>
             <div className="relative">
-              <div className="aspect-square rounded-[60px] overflow-hidden shadow-2xl">
+              <div className="aspect-square rounded-[40px] lg:rounded-[60px] overflow-hidden shadow-2xl">
                 <DataStream />
               </div>
-              <div className="absolute -bottom-10 -left-10 bg-white p-6 rounded-3xl border border-beige shadow-xl max-w-[200px] z-20">
-                <Activity className="w-6 h-6 text-olynk mb-2" />
-                <div className="text-xs font-black text-navy uppercase tracking-widest mb-1">Status</div>
-                <div className="text-sm font-bold text-emerald-500 font-mono">LINK_ESTABLISHED</div>
+              <div className="absolute -bottom-6 -left-6 lg:-bottom-10 lg:-left-10 bg-white p-4 lg:p-6 rounded-2xl lg:rounded-3xl border border-beige shadow-xl max-w-[160px] lg:max-w-[200px] z-20">
+                <Activity className="w-5 h-5 lg:w-6 lg:h-6 text-olynk mb-2" />
+                <div className="text-[10px] font-black text-navy uppercase tracking-widest mb-1">Status</div>
+                <div className="text-xs lg:text-sm font-bold text-emerald-500 font-mono">LINK_ESTABLISHED</div>
               </div>
             </div>
           </div>
@@ -199,40 +199,40 @@ const HowItWorks = () => {
 
       {/* Step 2: THINK */}
       <section className="py-16 lg:py-24 px-4 border-t border-beige relative overflow-hidden">
-        <div className="absolute top-0 left-0 p-10 opacity-[0.2] select-none pointer-events-none group">
+        <div className="absolute top-0 left-0 p-10 opacity-[0.2] select-none pointer-events-none group hidden sm:block">
           <span className="text-[180px] font-black font-mono text-beige leading-none tracking-tightest uppercase group-hover:text-tan transition-colors">02</span>
         </div>
 
         <div className="max-w-7xl mx-auto relative z-10">
-          <div className="grid lg:grid-cols-2 gap-16 items-center">
-            <div className="lg:order-2 space-y-8">
+          <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+            <div className="lg:order-2 space-y-6 lg:space-y-8 text-center lg:text-left">
               <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-navy/5 border border-navy/10 text-[10px] font-black font-mono text-navy uppercase tracking-widest">
                 <Cpu className="w-3 h-3" />
                 Phase_02: Orchestration
               </div>
-              <h2 className="text-4xl lg:text-6xl font-black text-navy tracking-tightest leading-[0.95]">
+              <h2 className="text-3xl lg:text-6xl font-black text-navy tracking-tightest leading-[0.95] uppercase">
                 The Neural<br />
-                <span className="text-olynk italic font-serif font-normal">Think.</span>
+                <span className="text-olynk italic font-serif font-normal capitalize">Think.</span>
               </h2>
-              <p className="text-lg text-steel leading-relaxed font-medium">
+              <p className="text-base lg:text-lg text-steel leading-relaxed font-medium">
                 Our models don't just process data—they understand causality.
                 We map the relationship between ads, inventory, and cash flow.
               </p>
-              <div className="grid grid-cols-2 gap-6">
+              <div className="grid grid-cols-2 gap-4 lg:gap-6">
                 <div className="space-y-2">
-                  <div className="text-[10px] font-black text-tan uppercase tracking-widest">Processing Logic</div>
-                  <div className="text-sm font-bold text-navy">Demand Forecasting</div>
-                  <div className="text-sm font-bold text-navy">Risk Analysis</div>
+                  <div className="text-[9px] lg:text-[10px] font-black text-tan uppercase tracking-widest">Processing Logic</div>
+                  <div className="text-xs lg:text-sm font-bold text-navy">Demand Forecasting</div>
+                  <div className="text-xs lg:text-sm font-bold text-navy">Risk Analysis</div>
                 </div>
                 <div className="space-y-2">
-                  <div className="text-[10px] font-black text-tan uppercase tracking-widest">Outcomes</div>
-                  <div className="text-sm font-bold text-emerald-500 font-mono">P&L_PREDICTION</div>
-                  <div className="text-sm font-bold text-emerald-500 font-mono">STOCK_VELOCITY</div>
+                  <div className="text-[9px] lg:text-[10px] font-black text-tan uppercase tracking-widest">Outcomes</div>
+                  <div className="text-xs lg:text-sm font-bold text-emerald-500 font-mono">P&L_PREDICTION</div>
+                  <div className="text-xs lg:text-sm font-bold text-emerald-500 font-mono">STOCK_VELOCITY</div>
                 </div>
               </div>
             </div>
             <div className="lg:order-1 relative">
-              <div className="aspect-square">
+              <div className="aspect-square rounded-3xl lg:rounded-0 overflow-hidden">
                 <InferenceGrid />
               </div>
             </div>
@@ -242,34 +242,34 @@ const HowItWorks = () => {
 
       {/* Step 3: ACT */}
       <section className="py-16 lg:py-24 px-4 border-t border-beige bg-navy text-white relative overflow-hidden">
-        <div className="absolute bottom-0 right-0 p-10 opacity-[0.1] select-none pointer-events-none group">
+        <div className="absolute bottom-0 right-0 p-10 opacity-[0.1] select-none pointer-events-none group hidden sm:block">
           <span className="text-[180px] font-black font-mono text-white leading-none tracking-tightest uppercase">03</span>
         </div>
 
         <div className="max-w-7xl mx-auto relative z-10">
-          <div className="grid lg:grid-cols-2 gap-20 items-center">
-            <div className="space-y-8">
+          <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+            <div className="space-y-6 lg:space-y-8 text-center lg:text-left">
               <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/5 border border-white/10 text-[10px] font-black font-mono text-white uppercase tracking-widest">
                 <Zap className="w-3 h-3" />
                 Phase_03: Autonomous Execution
               </div>
-              <h2 className="text-4xl lg:text-6xl font-black text-white tracking-tightest leading-[0.95]">
+              <h2 className="text-3xl lg:text-6xl font-black text-white tracking-tightest leading-[0.95] uppercase">
                 The Neural<br />
-                <span className="text-emerald-400 italic font-serif font-normal">Act.</span>
+                <span className="text-emerald-400 italic font-serif font-normal capitalize">Act.</span>
               </h2>
-              <p className="text-lg text-white/60 leading-relaxed font-medium">
+              <p className="text-base lg:text-lg text-white/60 leading-relaxed font-medium">
                 Insight without action is just overhead. OLynk executes fixes directly
                 in your systems—while you're asleep.
               </p>
-              <ul className="space-y-4">
+              <ul className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-1 gap-3 lg:gap-4 text-left">
                 {[
                   "Auto-Adjust Ad Spends",
                   "Trigger Supplier POs",
                   "Execute RTO Blocks",
                   "Notify Warehouse Priorities"
                 ].map((action, i) => (
-                  <li key={i} className="flex items-center gap-3 font-bold">
-                    <div className="w-2 h-2 rounded-full bg-emerald-400" />
+                  <li key={i} className="flex items-center gap-3 font-bold text-sm lg:text-base">
+                    <div className="w-1.5 h-1.5 lg:w-2 lg:h-2 rounded-full bg-emerald-400" />
                     {action}
                   </li>
                 ))}

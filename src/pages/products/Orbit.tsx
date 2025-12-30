@@ -149,35 +149,35 @@ const Orbit = () => {
                         <div className="grid lg:grid-cols-2 gap-12 items-center relative z-10">
 
                             {/* Left: Security Status */}
-                            <div className="space-y-10">
-                                <div className="flex flex-col sm:flex-row items-center gap-8">
-                                    <div className="w-48 h-48 sm:w-56 sm:h-56 rounded-3xl bg-navy/5 flex items-center justify-center border border-navy/5 overflow-hidden relative shadow-inner">
+                            <div className="space-y-8 lg:space-y-10">
+                                <div className="flex flex-col sm:flex-row items-center gap-6 lg:gap-8">
+                                    <div className="w-40 h-40 lg:w-56 lg:h-56 rounded-3xl bg-navy/5 flex items-center justify-center border border-navy/5 overflow-hidden relative shadow-inner">
                                         <GovernanceOrbit />
                                     </div>
                                     <div className="text-center sm:text-left">
-                                        <div className="inline-flex items-center gap-2 px-3 py-1 bg-emerald-500/10 border border-emerald-500/20 rounded-full mb-4">
-                                            <ShieldCheck className="w-3.5 h-3.5 text-emerald-600" />
-                                            <span className="text-[10px] font-black text-emerald-600 uppercase tracking-widest">Active_Guard</span>
+                                        <div className="inline-flex items-center gap-2 px-3 py-1 bg-emerald-500/10 border border-emerald-500/20 rounded-full mb-3 lg:mb-4">
+                                            <ShieldCheck className="w-3 h-3 lg:w-3.5 lg:h-3.5 text-emerald-600" />
+                                            <span className="text-[9px] lg:text-[10px] font-black text-emerald-600 uppercase tracking-widest">Active_Guard</span>
                                         </div>
-                                        <h2 className="text-3xl sm:text-4xl font-black text-navy uppercase tracking-tight">System Secure</h2>
-                                        <p className="text-navy/60 font-mono text-[11px] font-black uppercase tracking-widest mt-2">Uptime: 99.9999%</p>
+                                        <h2 className="text-2xl lg:text-4xl font-black text-navy uppercase tracking-tight">System Secure</h2>
+                                        <p className="text-navy/60 font-mono text-[10px] lg:text-[11px] font-black uppercase tracking-widest mt-1.5 lg:mt-2">Uptime: 99.9999%</p>
                                     </div>
                                 </div>
 
-                                <div className="space-y-4 max-w-md">
+                                <div className="space-y-3 lg:space-y-4 max-w-md mx-auto sm:mx-0">
                                     {[
                                         { icon: Lock, label: "SOC 2 Type II Compliant", status: "VERIFIED" },
                                         { icon: Server, label: "Data Residency: US-East-1", status: "LOCKED" },
                                         { icon: FileCheck, label: "Audit Logs Immutability", status: "ENABLED" }
                                     ].map((item, i) => (
-                                        <div key={i} className="bg-white border border-beige p-5 rounded-2xl flex items-center justify-between group transition-all hover:scale-[1.02] hover:shadow-md">
-                                            <div className="flex items-center gap-4">
-                                                <div className="w-10 h-10 rounded-xl bg-navy/5 flex items-center justify-center">
-                                                    <item.icon className="w-4 h-4 text-olynk" />
+                                        <div key={i} className="bg-white border border-beige p-4 lg:p-5 rounded-2xl flex items-center justify-between group transition-all hover:scale-[1.02] hover:shadow-md">
+                                            <div className="flex items-center gap-3 lg:gap-4">
+                                                <div className="w-8 h-8 lg:w-10 lg:h-10 rounded-xl bg-navy/5 flex items-center justify-center">
+                                                    <item.icon className="w-3.5 h-3.5 lg:w-4 lg:h-4 text-olynk" />
                                                 </div>
-                                                <span className="text-navy font-black text-sm tracking-tight">{item.label}</span>
+                                                <span className="text-navy font-black text-xs lg:text-sm tracking-tight">{item.label}</span>
                                             </div>
-                                            <span className="text-[10px] font-black text-emerald-600 font-mono bg-emerald-500/10 px-3 py-1 rounded-full border border-emerald-500/20 uppercase tracking-widest">
+                                            <span className="text-[9px] lg:text-[10px] font-black text-emerald-600 font-mono bg-emerald-500/10 px-2 lg:px-3 py-1 rounded-full border border-emerald-500/20 uppercase tracking-widest">
                                                 {item.status}
                                             </span>
                                         </div>
@@ -186,23 +186,23 @@ const Orbit = () => {
                             </div>
 
                             {/* Right: Live Audit Feed - Light Blueprint */}
-                            <div className="bg-navy/5 rounded-[32px] p-8 border border-navy/5 h-full min-h-[480px] flex flex-col relative overflow-hidden shadow-inner">
-                                <div className="flex items-center justify-between mb-8 border-b border-navy/10 pb-6">
+                            <div className="bg-navy/[0.02] rounded-[28px] lg:rounded-[32px] p-6 lg:p-8 border border-navy/5 h-full min-h-[400px] lg:min-h-[480px] flex flex-col relative overflow-hidden shadow-inner">
+                                <div className="flex items-center justify-between mb-6 lg:mb-8 border-b border-navy/10 pb-4 lg:pb-6">
                                     <div>
-                                        <h3 className="text-sm font-black text-navy uppercase tracking-widest flex items-center gap-2">
+                                        <h3 className="text-xs lg:text-sm font-black text-navy uppercase tracking-widest flex items-center gap-2">
                                             <Activity className="w-4 h-4 text-emerald-600" />
                                             Live Audit Trail
                                         </h3>
-                                        <p className="text-[10px] text-navy/60 font-mono mt-1 font-bold uppercase tracking-widest">REAL_TIME_STREAM_V2.0</p>
+                                        <p className="text-[9px] lg:text-[10px] text-navy/60 font-mono mt-1 font-bold uppercase tracking-widest">REAL_TIME_STREAM_V2.0</p>
                                     </div>
                                     <div className="flex gap-1.5">
-                                        <div className="w-2.5 h-2.5 rounded-full bg-navy/10" />
-                                        <div className="w-2.5 h-2.5 rounded-full bg-navy/10" />
-                                        <div className="w-2.5 h-2.5 rounded-full bg-emerald-500/40" />
+                                        <div className="w-2 h-2 lg:w-2.5 lg:h-2.5 rounded-full bg-navy/10" />
+                                        <div className="w-2 h-2 lg:w-2.5 lg:h-2.5 rounded-full bg-navy/10" />
+                                        <div className="w-2 h-2 lg:w-2.5 lg:h-2.5 rounded-full bg-emerald-500/40" />
                                     </div>
                                 </div>
 
-                                <div className="space-y-4 font-mono text-[11px] flex-1">
+                                <div className="space-y-3 lg:space-y-4 font-mono text-[10px] lg:text-[11px] flex-1">
                                     <AnimatePresence initial={false}>
                                         {logs.map((log, i) => (
                                             <motion.div
@@ -210,11 +210,11 @@ const Orbit = () => {
                                                 initial={{ opacity: 0, x: -20 }}
                                                 animate={{ opacity: 1, x: 0 }}
                                                 exit={{ opacity: 0, y: 20 }}
-                                                className={`flex gap-4 p-4 rounded-xl border transition-all ${i === 0 ? 'bg-white border-beige text-navy shadow-sm' : 'bg-transparent border-navy/5 text-navy/40'}`}
+                                                className={`flex gap-3 lg:gap-4 p-3 lg:p-4 rounded-xl border transition-all ${i === 0 ? 'bg-white border-beige text-navy shadow-sm' : 'bg-transparent border-navy/5 text-navy/40'}`}
                                             >
                                                 <span className="opacity-40 font-black">{log.time}</span>
-                                                <span className="flex-1 font-black uppercase tracking-tight">{log.event}</span>
-                                                <span className={`text-[9px] font-black px-2 py-0.5 rounded-full ${log.status === 'SUCCESS' ? 'bg-emerald-500/10 text-emerald-600' : 'bg-amber-500/10 text-amber-600'}`}>
+                                                <span className="flex-1 font-black uppercase tracking-tight break-all">{log.event}</span>
+                                                <span className={`text-[8px] lg:text-[9px] font-black px-1.5 lg:px-2 py-0.5 rounded-full h-fit ${log.status === 'SUCCESS' ? 'bg-emerald-500/10 text-emerald-600' : 'bg-amber-500/10 text-amber-600'}`}>
                                                     {log.status}
                                                 </span>
                                             </motion.div>
@@ -222,9 +222,9 @@ const Orbit = () => {
                                     </AnimatePresence>
                                 </div>
 
-                                <div className="absolute bottom-8 left-8 text-emerald-600 group flex items-center gap-3 transition-colors">
-                                    <div className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse shadow-[0_0_8px_rgba(16,185,129,0.5)]" />
-                                    <span className="text-[10px] font-black font-mono tracking-widest uppercase">Monitoring_Global_Node_Inference</span>
+                                <div className="absolute bottom-6 lg:bottom-8 left-6 lg:left-8 text-emerald-600 group flex items-center gap-2 lg:gap-3 transition-colors">
+                                    <div className="w-1.5 h-1.5 lg:w-2 lg:h-2 rounded-full bg-emerald-500 animate-pulse shadow-[0_0_8px_rgba(16,185,129,0.5)]" />
+                                    <span className="text-[9px] lg:text-[10px] font-black font-mono tracking-widest uppercase">Monitoring_Global_Node_Inference</span>
                                 </div>
                             </div>
 

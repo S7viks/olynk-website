@@ -53,7 +53,7 @@ const DataPipeline = () => {
                             <foreignObject x="-15" y="-15" width="30" height="30">
                                 <node.icon className="w-7 h-7 text-navy/40" />
                             </foreignObject>
-                            <text y="45" textAnchor="middle" className="text-[9px] font-mono font-black fill-navy/60 uppercase tracking-widest">{node.label}</text>
+                            <text y="45" textAnchor="middle" className="text-[9px] font-mono font-black fill-navy/60 uppercase tracking-widest hidden sm:block">{node.label}</text>
                             <motion.circle
                                 r="4"
                                 fill="#2563EB"
@@ -80,7 +80,7 @@ const DataPipeline = () => {
                     <foreignObject x="-20" y="-20" width="40" height="40">
                         <Activity className="w-10 h-10 text-olynk animate-pulse" />
                     </foreignObject>
-                    <text y="95" textAnchor="middle" className="text-[11px] font-mono font-black fill-navy uppercase tracking-[0.3em]">CORE_FABRIC_ENGINE</text>
+                    <text y="95" textAnchor="middle" className="text-[11px] font-mono font-black fill-navy uppercase tracking-[0.3em] hidden sm:block">CORE_FABRIC_ENGINE</text>
 
                     {/* Scanning rings */}
                     <motion.circle
@@ -105,7 +105,7 @@ const DataPipeline = () => {
                             <foreignObject x="-15" y="-15" width="30" height="30">
                                 <node.icon className="w-7 h-7 text-emerald-500/40" />
                             </foreignObject>
-                            <text y="45" textAnchor="middle" className="text-[9px] font-mono font-black fill-emerald-600 uppercase tracking-widest">{node.label}</text>
+                            <text y="45" textAnchor="middle" className="text-[9px] font-mono font-black fill-emerald-600 uppercase tracking-widest hidden sm:block">{node.label}</text>
                             <motion.circle
                                 r="4"
                                 fill="#10B981"

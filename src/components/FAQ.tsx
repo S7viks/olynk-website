@@ -75,17 +75,17 @@ const FAQItem = ({ question, answer, isOpen, onClick, idx }: { question: string,
     >
       <button
         onClick={onClick}
-        className="w-full py-4 lg:py-6 flex items-center justify-between text-left group px-4 lg:px-8"
+        className="w-full py-4 lg:py-6 flex items-start lg:items-center justify-between text-left group px-4 lg:px-8"
       >
-        <div className="flex items-center gap-3 lg:gap-6">
-          <span className={`text-[8px] lg:text-[9px] font-black font-mono transition-colors duration-500 ${isOpen ? 'text-olynk' : 'text-tan'}`}>
+        <div className="flex items-start lg:items-center gap-3 lg:gap-6 flex-1 min-w-0">
+          <span className={`text-[8px] lg:text-[9px] font-black font-mono transition-colors duration-500 mt-1 lg:mt-0 ${isOpen ? 'text-olynk' : 'text-tan'}`}>
             0{idx + 1}
           </span>
-          <h3 className={`text-sm lg:text-lg font-black transition-colors duration-500 ${isOpen ? 'text-navy' : 'text-steel group-hover:text-navy'} pr-4 lg:pr-0`}>
+          <h3 className={`text-sm lg:text-lg font-black transition-colors duration-500 break-words flex-1 ${isOpen ? 'text-navy' : 'text-steel group-hover:text-navy'} pr-4 lg:pr-0`}>
             {question}
           </h3>
         </div>
-        <div className={`shrink-0 p-1.5 lg:p-2 rounded-full border transition-all duration-500 ${isOpen ? 'bg-navy border-navy text-white rotate-180' : 'bg-transparent border-beige text-tan group-hover:border-tan'}`}>
+        <div className={`shrink-0 p-1.5 lg:p-2 rounded-full border transition-all duration-500 mt-0.5 lg:mt-0 ${isOpen ? 'bg-navy border-navy text-white rotate-180' : 'bg-transparent border-beige text-tan group-hover:border-tan'}`}>
           {isOpen ? <Minus className="w-3 h-3 lg:w-4 lg:h-4" /> : <Plus className="w-3 h-3 lg:w-4 lg:h-4" />}
         </div>
       </button>
@@ -99,8 +99,8 @@ const FAQItem = ({ question, answer, isOpen, onClick, idx }: { question: string,
             transition={{ duration: 0.5, ease: [0.33, 1, 0.68, 1] }}
             className="overflow-hidden"
           >
-            <div className="pb-6 lg:pb-8 px-4 lg:px-8 pl-10 lg:pl-20 pr-4 lg:pr-32">
-              <p className="text-xs lg:text-base text-steel leading-relaxed font-medium">
+            <div className="pb-6 lg:pb-8 px-4 lg:px-8 pl-8 lg:pl-20 pr-4 lg:pr-32">
+              <p className="text-xs lg:text-base text-steel leading-relaxed font-medium break-words">
                 {answer}
               </p>
 

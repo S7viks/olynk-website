@@ -10,15 +10,15 @@ const DecisionEngine = ({ isThinking }: { isThinking: boolean }) => (
             backgroundSize: '20px 20px'
         }} />
 
-        <svg viewBox="0 0 400 300" className="w-full h-full relative z-10 px-8">
+        <svg viewBox="0 0 400 300" className="w-full h-full relative z-10 px-4 lg:px-8">
             {/* Path Guide */}
             <path d="M 50 150 L 350 150" stroke="rgba(30, 41, 59, 0.25)" strokeWidth="1" strokeDasharray="4 4" />
             <path d="M 200 50 L 200 150" stroke="rgba(30, 41, 59, 0.25)" strokeWidth="1" strokeDasharray="4 4" />
 
             {/* Labels */}
-            <text x="50" y="140" className="text-[10px] font-mono font-black fill-navy/40 uppercase tracking-widest">OBSERVE</text>
-            <text x="200" y="40" textAnchor="middle" className="text-[10px] font-mono font-black fill-navy/40 uppercase tracking-widest">PROBLEM</text>
-            <text x="350" y="140" textAnchor="end" className="text-[10px] font-mono font-black fill-amber-600 uppercase tracking-widest">ACTION</text>
+            <text x="50" y="140" className="text-[10px] font-mono font-black fill-navy/40 uppercase tracking-widest hidden sm:block">OBSERVE</text>
+            <text x="200" y="40" textAnchor="middle" className="text-[10px] font-mono font-black fill-navy/40 uppercase tracking-widest hidden sm:block">PROBLEM</text>
+            <text x="350" y="140" textAnchor="end" className="text-[10px] font-mono font-black fill-amber-600 uppercase tracking-widest hidden sm:block">ACTION</text>
 
             {/* Flow dots */}
             <motion.circle
@@ -124,70 +124,70 @@ const Core = () => {
                 <div className="max-w-6xl mx-auto">
                     <div className="relative">
                         {/* Central Brain Anchor */}
-                        <div className="absolute left-1/2 top-0 -translate-x-1/2 w-1 bg-gradient-to-b from-navy/5 to-navy/20 h-20" />
+                        <div className="absolute left-1/2 top-0 -translate-x-1/2 w-1 bg-gradient-to-b from-navy/5 to-navy/20 h-10 lg:h-20" />
 
-                        <div className="bg-white rounded-[40px] p-6 lg:p-10 text-navy relative overflow-hidden shadow-[0_32px_80px_-16px_rgba(30,41,59,0.1)] border border-beige max-w-5xl mx-auto z-10">
-                            <div className="grid lg:grid-cols-2 gap-12 items-center">
+                        <div className="bg-white rounded-[32px] lg:rounded-[40px] p-5 lg:p-10 text-navy relative overflow-hidden shadow-[0_32px_80px_-16px_rgba(30,41,59,0.1)] border border-beige max-w-5xl mx-auto z-10">
+                            <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
 
-                                <div className="space-y-8">
-                                    <div className="mx-auto lg:mx-0 w-full aspect-square max-w-[400px] bg-navy/5 rounded-3xl flex items-center justify-center overflow-hidden border border-navy/5 group relative shadow-inner">
+                                <div className="space-y-6 lg:space-y-8">
+                                    <div className="mx-auto lg:mx-0 w-full aspect-square max-w-[320px] lg:max-w-[400px] bg-navy/5 rounded-3xl flex items-center justify-center overflow-hidden border border-navy/5 group relative shadow-inner">
                                         <DecisionEngine isThinking={step < 3} />
                                     </div>
 
                                     <div className="text-center lg:text-left">
-                                        <h2 className="text-3xl font-black uppercase tracking-tight mb-4 text-navy">Cognitive Execution</h2>
-                                        <div className="font-mono text-[10px] text-navy/60 mb-4 bg-navy/5 inline-block px-3 py-1 rounded-full border border-navy/10 uppercase tracking-widest font-black">AGENT_ID: CORE_V1_ALPHA</div>
-                                        <p className="text-steel font-medium leading-relaxed max-w-md">Our autonomous logic engine maps complex business dependencies and executes multi-step plans in milliseconds.</p>
+                                        <h2 className="text-2xl lg:text-3xl font-black uppercase tracking-tight mb-3 lg:mb-4 text-navy">Cognitive Execution</h2>
+                                        <div className="font-mono text-[9px] lg:text-[10px] text-navy/60 mb-4 bg-navy/5 inline-block px-3 py-1 rounded-full border border-navy/10 uppercase tracking-widest font-black">AGENT_ID: CORE_V1_ALPHA</div>
+                                        <p className="text-sm lg:text-base text-steel font-medium leading-relaxed max-w-md mx-auto lg:mx-0">Our autonomous logic engine maps complex business dependencies and executes multi-step plans in milliseconds.</p>
                                     </div>
                                 </div>
 
                                 {/* Synchronized Terminal - Light Theme */}
-                                <div className="bg-navy/[0.02] rounded-[32px] p-8 border border-navy/5 h-full min-h-[400px] flex flex-col relative overflow-hidden">
-                                    <div className="flex items-center justify-between mb-8 border-b border-navy/10 pb-6">
+                                <div className="bg-navy/[0.02] rounded-[24px] lg:rounded-[32px] p-6 lg:p-8 border border-navy/5 h-full min-h-[350px] lg:min-h-[400px] flex flex-col relative overflow-hidden">
+                                    <div className="flex items-center justify-between mb-6 lg:mb-8 border-b border-navy/10 pb-4 lg:pb-6">
                                         <div>
-                                            <h3 className="text-sm font-black text-navy uppercase tracking-widest flex items-center gap-2">
+                                            <h3 className="text-xs lg:text-sm font-black text-navy uppercase tracking-widest flex items-center gap-2">
                                                 <Activity className="w-4 h-4 text-amber-500" />
                                                 Logic Output
                                             </h3>
-                                            <p className="text-[10px] text-navy/60 font-mono mt-1 font-bold uppercase tracking-widest">REASONING_STREAM_V1</p>
+                                            <p className="text-[9px] lg:text-[10px] text-navy/60 font-mono mt-1 font-bold uppercase tracking-widest">REASONING_STREAM_V1</p>
                                         </div>
-                                        <div className="flex gap-1.5">
-                                            <div className="w-2.5 h-2.5 rounded-full bg-navy/10" />
-                                            <div className="w-2.5 h-2.5 rounded-full bg-navy/10" />
-                                            <div className="w-2.5 h-2.5 rounded-full bg-olynk/40" />
+                                        <div className="flex gap-1 lg:gap-1.5">
+                                            <div className="w-2 h-2 lg:w-2.5 lg:h-2.5 rounded-full bg-navy/10" />
+                                            <div className="w-2 h-2 lg:w-2.5 lg:h-2.5 rounded-full bg-navy/10" />
+                                            <div className="w-2 h-2 lg:w-2.5 lg:h-2.5 rounded-full bg-olynk/40" />
                                         </div>
                                     </div>
 
-                                    <div className="space-y-4 font-mono text-[11px] flex-1">
+                                    <div className="space-y-3 lg:space-y-4 font-mono text-[10px] lg:text-[11px] flex-1">
                                         <AnimatePresence>
                                             {thinkingSteps.slice(0, step + 1).map((item, i) => (
                                                 <motion.div
                                                     key={i}
                                                     initial={{ opacity: 0, x: -10 }}
                                                     animate={{ opacity: 1, x: 0 }}
-                                                    className="flex gap-4 items-start bg-white p-4 rounded-xl border border-beige shadow-sm"
+                                                    className="flex gap-3 lg:gap-4 items-start bg-white p-3 lg:p-4 rounded-xl border border-beige shadow-sm"
                                                 >
-                                                    <div className={`text-[10px] font-black px-2 py-0.5 rounded min-w-[70px] text-center ${item.label === 'ACT' ? 'bg-emerald-500/10 text-emerald-600' : 'bg-amber-500/10 text-amber-600'}`}>
+                                                    <div className={`text-[9px] lg:text-[10px] font-black px-1.5 lg:px-2 py-0.5 rounded min-w-[60px] lg:min-w-[70px] text-center ${item.label === 'ACT' ? 'bg-emerald-500/10 text-emerald-600' : 'bg-amber-500/10 text-amber-600'}`}>
                                                         {item.label}
                                                     </div>
-                                                    <p className="text-[12px] font-bold text-navy/70 leading-snug">
+                                                    <p className="text-[11px] lg:text-[12px] font-bold text-navy/70 leading-snug">
                                                         {item.text}
                                                     </p>
                                                 </motion.div>
                                             ))}
                                         </AnimatePresence>
                                         {step < 3 && (
-                                            <div className="pl-[86px]">
+                                            <div className="pl-[73px] lg:pl-[86px]">
                                                 <motion.div
                                                     animate={{ opacity: [0, 1, 0] }}
                                                     transition={{ duration: 0.8, repeat: Infinity }}
-                                                    className="h-4 w-2 bg-olynk"
+                                                    className="h-3 lg:h-4 w-1.5 lg:w-2 bg-olynk"
                                                 />
                                             </div>
                                         )}
                                     </div>
 
-                                    <div className="absolute bottom-6 left-8 text-navy/60 flex items-center gap-2 font-mono text-[10px] font-black uppercase tracking-widest">
+                                    <div className="absolute bottom-4 lg:bottom-6 left-6 lg:left-8 text-navy/60 flex items-center gap-2 font-mono text-[9px] lg:text-[10px] font-black uppercase tracking-widest">
                                         <div className="w-1.5 h-1.5 rounded-full bg-amber-500 animate-pulse" />
                                         Thinking...
                                     </div>

@@ -357,65 +357,84 @@ const IndustryDetail = () => {
                     </div>
 
                     {/* Dynamic Hero Elements - Industry Specific */}
-                    <div className="relative w-full h-0 mt-0 hidden lg:block">
-
-                        {/* Stat 1: Top Left */}
-                        {data.heroStats?.[0] && (
-                            <motion.div
-                                initial={{ opacity: 0, x: -50 }}
-                                whileInView={{ opacity: 1, x: 0 }}
-                                transition={{ delay: 0.5 }}
-                                className="absolute top-[-380px] left-[5%] p-6 border border-beige rounded-3xl bg-white shadow-xl z-20 min-w-[180px]"
-                            >
-                                <div className="flex items-center gap-2 mb-3">
-                                    <div className={`w-2 h-2 rounded-full ${data.heroStats[0].color} animate-pulse`} />
-                                    <span className="text-[10px] font-black text-tan uppercase tracking-widest">{data.heroStats[0].label}</span>
+                    <div className="relative w-full mt-12 lg:mt-0">
+                        
+                        {/* Mobile Stats Grid */}
+                        <div className="grid grid-cols-1 sm:grid-cols-2 lg:hidden gap-4 mb-12">
+                            {data.heroStats?.map((stat: any, i: number) => (
+                                <div key={i} className="p-5 border border-beige rounded-2xl bg-white shadow-sm flex items-center justify-between">
+                                    <div>
+                                        <div className="flex items-center gap-2 mb-1">
+                                            <div className={`w-1.5 h-1.5 rounded-full ${stat.color} animate-pulse`} />
+                                            <span className="text-[9px] font-black text-tan uppercase tracking-widest">{stat.label}</span>
+                                        </div>
+                                        <div className="text-xl font-black text-navy tracking-tight">{stat.value}</div>
+                                    </div>
+                                    <div className="text-[9px] font-mono text-steel uppercase tracking-tighter text-right">{stat.subLabel}</div>
                                 </div>
-                                <div className="text-3xl font-black text-navy tracking-tight mb-1">{data.heroStats[0].value}</div>
-                                <div className="text-[10px] font-mono text-steel uppercase tracking-tighter">{data.heroStats[0].subLabel}</div>
-                            </motion.div>
-                        )}
+                            ))}
+                        </div>
 
-                        {/* Stat 2: Top Right */}
-                        {data.heroStats?.[1] && (
-                            <motion.div
-                                initial={{ opacity: 0, x: 50 }}
-                                whileInView={{ opacity: 1, x: 0 }}
-                                transition={{ delay: 0.7 }}
-                                className="absolute top-[-380px] right-[5%] p-6 border border-beige rounded-3xl bg-white shadow-xl z-20 min-w-[180px] text-right"
-                            >
-                                <div className="flex items-center gap-2 mb-3 justify-end">
-                                    <span className="text-[10px] font-black text-tan uppercase tracking-widest">{data.heroStats[1].label}</span>
-                                    <div className={`w-2 h-2 rounded-full ${data.heroStats[1].color} animate-pulse`} />
-                                </div>
-                                <div className="text-3xl font-black text-navy tracking-tight mb-1">{data.heroStats[1].value}</div>
-                                <div className="text-[10px] font-medium text-emerald-600 flex items-center justify-end gap-1 font-mono uppercase">
-                                    <Activity className="w-3 h-3" />
-                                    {data.heroStats[1].subLabel}
-                                </div>
-                            </motion.div>
-                        )}
+                        {/* Desktop Stats (Floating) */}
+                        <div className="hidden lg:block">
+                            {/* Stat 1: Top Left */}
+                            {data.heroStats?.[0] && (
+                                <motion.div
+                                    initial={{ opacity: 0, x: -50 }}
+                                    whileInView={{ opacity: 1, x: 0 }}
+                                    transition={{ delay: 0.5 }}
+                                    className="absolute top-[-380px] left-[5%] p-6 border border-beige rounded-3xl bg-white shadow-xl z-20 min-w-[180px]"
+                                >
+                                    <div className="flex items-center gap-2 mb-3">
+                                        <div className={`w-2 h-2 rounded-full ${data.heroStats[0].color} animate-pulse`} />
+                                        <span className="text-[10px] font-black text-tan uppercase tracking-widest">{data.heroStats[0].label}</span>
+                                    </div>
+                                    <div className="text-3xl font-black text-navy tracking-tight mb-1">{data.heroStats[0].value}</div>
+                                    <div className="text-[10px] font-mono text-steel uppercase tracking-tighter">{data.heroStats[0].subLabel}</div>
+                                </motion.div>
+                            )}
 
-                        {/* Stat 3: Middle Left */}
-                        {data.heroStats?.[2] && (
-                            <motion.div
-                                initial={{ opacity: 0, x: -30 }}
-                                whileInView={{ opacity: 1, x: 0 }}
-                                transition={{ delay: 0.9 }}
-                                className="absolute top-[-150px] left-[0%] p-5 border border-beige rounded-3xl bg-white shadow-xl z-20 min-w-[170px]"
-                            >
-                                <div className="flex items-center gap-2 mb-2">
-                                    <ShieldCheck className={`w-3 h-3 ${data.heroStats[2].color}`} />
-                                    <span className="text-[10px] font-black text-tan uppercase tracking-widest">{data.heroStats[2].label}</span>
-                                </div>
-                                <div className="text-xl font-black text-navy tracking-tight uppercase">{data.heroStats[2].value}</div>
-                                <div className="text-[10px] font-mono text-steel mt-1 uppercase">{data.heroStats[2].subLabel}</div>
-                            </motion.div>
-                        )}
+                            {/* Stat 2: Top Right */}
+                            {data.heroStats?.[1] && (
+                                <motion.div
+                                    initial={{ opacity: 0, x: 50 }}
+                                    whileInView={{ opacity: 1, x: 0 }}
+                                    transition={{ delay: 0.7 }}
+                                    className="absolute top-[-380px] right-[5%] p-6 border border-beige rounded-3xl bg-white shadow-xl z-20 min-w-[180px] text-right"
+                                >
+                                    <div className="flex items-center gap-2 mb-3 justify-end">
+                                        <span className="text-[10px] font-black text-tan uppercase tracking-widest">{data.heroStats[1].label}</span>
+                                        <div className={`w-2 h-2 rounded-full ${data.heroStats[1].color} animate-pulse`} />
+                                    </div>
+                                    <div className="text-3xl font-black text-navy tracking-tight mb-1">{data.heroStats[1].value}</div>
+                                    <div className="text-[10px] font-medium text-emerald-600 flex items-center justify-end gap-1 font-mono uppercase">
+                                        <Activity className="w-3 h-3" />
+                                        {data.heroStats[1].subLabel}
+                                    </div>
+                                </motion.div>
+                            )}
 
-                        {/* Tool Grid: Middle Right */}
+                            {/* Stat 3: Middle Left */}
+                            {data.heroStats?.[2] && (
+                                <motion.div
+                                    initial={{ opacity: 0, x: -30 }}
+                                    whileInView={{ opacity: 1, x: 0 }}
+                                    transition={{ delay: 0.9 }}
+                                    className="absolute top-[-150px] left-[0%] p-5 border border-beige rounded-3xl bg-white shadow-xl z-20 min-w-[170px]"
+                                >
+                                    <div className="flex items-center gap-2 mb-2">
+                                        <ShieldCheck className={`w-3 h-3 ${data.heroStats[2].color}`} />
+                                        <span className="text-[10px] font-black text-tan uppercase tracking-widest">{data.heroStats[2].label}</span>
+                                    </div>
+                                    <div className="text-xl font-black text-navy tracking-tight uppercase">{data.heroStats[2].value}</div>
+                                    <div className="text-[10px] font-mono text-steel mt-1 uppercase">{data.heroStats[2].subLabel}</div>
+                                </motion.div>
+                            )}
+                        </div>
+
+                        {/* Tool Grid: Middle Right (Responsive) */}
                         {data.tools && (
-                            <div className="absolute top-[-150px] right-[0%] grid grid-cols-4 gap-2 p-4 border border-beige rounded-3xl bg-white shadow-xl z-20">
+                            <div className="lg:absolute lg:top-[-150px] lg:right-[0%] grid grid-cols-4 sm:grid-cols-8 lg:grid-cols-4 gap-2 p-4 border border-beige rounded-3xl bg-white shadow-sm lg:shadow-xl z-20">
                                 {data.tools.map((tool: any, i: number) => (
                                     <div key={i} className="w-10 h-10 rounded-xl bg-cream border border-beige flex items-center justify-center grayscale hover:grayscale-0 transition-all cursor-crosshair">
                                         <img src={`https://www.google.com/s2/favicons?domain=${tool.domain}&sz=64`} alt={tool.name} className="w-5 h-5 object-contain" />

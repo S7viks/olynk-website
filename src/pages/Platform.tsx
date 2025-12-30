@@ -9,7 +9,7 @@ const Platform = () => {
 
             {/* SECTION 1: HERO - Category Clarity */}
             <section className="relative px-4 sm:px-6 lg:px-8 pt-16 pb-20 lg:pt-24 lg:pb-28 overflow-hidden">
-                <div className="absolute top-10 left-10 opacity-[0.03] select-none pointer-events-none">
+                <div className="absolute top-10 left-10 opacity-[0.03] select-none pointer-events-none hidden sm:block">
                     <span className="text-[150px] font-black font-mono text-navy tracking-tighter uppercase whitespace-nowrap">SYSTEM_ARCH</span>
                 </div>
 
@@ -22,12 +22,12 @@ const Platform = () => {
                         <div className="inline-block mb-6 px-4 py-1.5 rounded-full border border-olynk/30 bg-cream">
                             <span className="text-[10px] font-black text-tan uppercase tracking-[0.2em] font-mono">Architecture_Schema // v2.04</span>
                         </div>
-                        <h1 className="text-4xl sm:text-5xl lg:text-7xl font-black text-navy leading-[1.05] tracking-tightest mb-8 uppercase">
+                        <h1 className="text-3xl sm:text-5xl lg:text-7xl font-black text-navy leading-[1.05] tracking-tightest mb-8 uppercase">
                             One Platform. <br />
                             <span className="text-olynk">Four Engines.</span> <br />
                             Total Intelligence.
                         </h1>
-                        <p className="text-lg sm:text-xl lg:text-2xl text-steel max-w-3xl mx-auto leading-relaxed font-medium mb-12">
+                        <p className="text-base sm:text-xl lg:text-2xl text-steel max-w-3xl mx-auto leading-relaxed font-medium mb-12">
                             The enterprise-grade AI operating system for modern commerce.
                             No fragmentation. <span className="text-navy font-black">Just Unified Performance.</span>
                         </p>
@@ -97,10 +97,10 @@ const Platform = () => {
                 <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-16 items-center">
                     <div className="order-2 lg:order-1 relative">
                         {/* Real Data Unification Image */}
-                        <div className="aspect-square rounded-[40px] bg-white border border-beige shadow-xl flex items-center justify-center relative overflow-hidden group/img">
+                        <div className="aspect-square sm:aspect-video lg:aspect-square rounded-3xl lg:rounded-[40px] bg-white border border-beige shadow-xl flex items-center justify-center relative overflow-hidden group/img">
                             <div className="relative w-full h-full bg-cream/30 overflow-hidden flex items-center justify-center">
                                 <div className="absolute inset-y-0 left-1/2 w-px bg-navy/5 z-20" />
-                                <svg viewBox="0 0 400 400" className="w-full h-full relative z-10 p-8">
+                                <svg viewBox="0 0 400 400" className="w-full h-full relative z-10 p-4 lg:p-8">
                                     {/* Data Grid Grid Lines */}
                                     <path d="M 0 100 L 400 100 M 0 200 L 400 200 M 0 300 L 400 300 M 100 0 L 100 400 M 200 0 L 200 400 M 300 0 L 300 400" stroke="rgba(0,27,61,0.03)" strokeWidth="1" />
 
@@ -126,8 +126,8 @@ const Platform = () => {
                                     />
                                 </svg>
 
-                                <div className="absolute inset-x-0 bottom-0 p-6 bg-navy/90 backdrop-blur-sm transform translate-y-full group-hover/img:translate-y-0 transition-transform duration-500">
-                                    <p className="text-white text-[10px] font-mono font-black uppercase tracking-[0.3em]">LAYER_01 // UNIFIED_FABRIC_SYNC</p>
+                                <div className="absolute inset-x-0 bottom-0 p-4 lg:p-6 bg-navy/90 backdrop-blur-sm transform translate-y-full group-hover/img:translate-y-0 lg:group-hover/img:translate-y-0 transition-transform duration-500">
+                                    <p className="text-white text-[8px] lg:text-[10px] font-mono font-black uppercase tracking-[0.3em]">LAYER_01 // UNIFIED_FABRIC_SYNC</p>
                                 </div>
                             </div>
                         </div>
@@ -191,12 +191,12 @@ const Platform = () => {
                         </p>
                         <div className="flex items-center gap-6 pt-4">
                             <div className="pr-6 border-r border-beige">
-                                <div className="text-3xl font-black text-navy">87.4%</div>
-                                <div className="text-xs font-bold text-steel uppercase tracking-wider">Forecast Accuracy</div>
+                                <div className="text-2xl lg:text-3xl font-black text-navy">87.4%</div>
+                                <div className="text-[10px] lg:text-xs font-bold text-steel uppercase tracking-wider">Forecast Accuracy</div>
                             </div>
                             <div>
-                                <div className="text-3xl font-black text-navy">2.4M+</div>
-                                <div className="text-xs font-bold text-steel uppercase tracking-wider">Predictions Run</div>
+                                <div className="text-2xl lg:text-3xl font-black text-navy">2.4M+</div>
+                                <div className="text-[10px] lg:text-xs font-bold text-steel uppercase tracking-wider">Predictions Run</div>
                             </div>
                         </div>
                         <div className="pt-6">
@@ -208,7 +208,7 @@ const Platform = () => {
                     </div>
                     <div className="relative">
                         {/* Premium Code-Based Predictive Visual */}
-                        <div className="aspect-video rounded-[40px] bg-white border border-beige shadow-xl flex items-center justify-center relative overflow-hidden group/img">
+                        <div className="aspect-video rounded-3xl lg:rounded-[40px] bg-white border border-beige shadow-xl flex items-center justify-center relative overflow-hidden group/img">
                             <div className="relative w-full h-full bg-beige/30 overflow-hidden flex items-center justify-center p-4 group-hover:bg-beige/40 transition-colors duration-500">
                                 {/* Technical Grid Background */}
                                 <div className="absolute inset-0 opacity-20" style={{
@@ -217,7 +217,7 @@ const Platform = () => {
                                 }} />
 
                                 {/* Animated Insight Line */}
-                                <svg viewBox="0 0 800 300" className="w-full h-full relative z-10 px-8">
+                                <svg viewBox="0 0 800 300" className="w-full h-full relative z-10 px-4 lg:px-8">
                                     {/* Confidence Interval Area */}
                                     <motion.path
                                         d="M400,150 L800,50 L800,250 L400,150"
@@ -254,15 +254,17 @@ const Platform = () => {
                                         animate={{ scale: [0, 1.5, 1] }}
                                         transition={{ delay: 1.5, duration: 0.5 }}
                                     />
-                                    <motion.text x="410" y="140" fill="#2B5288" className="text-[10px] font-black font-mono uppercase tracking-widest" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 1.8 }}>PREDICTION_NODE</motion.text>
+                                    <motion.text x="410" y="140" fill="#2B5288" className="text-[8px] lg:text-[10px] font-black font-mono uppercase tracking-widest" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 1.8 }}>PREDICTION_NODE</motion.text>
                                 </svg>
 
-                                <div className="absolute inset-x-0 bottom-0 p-6 bg-navy/90 backdrop-blur-sm transform translate-y-full group-hover:translate-y-0 transition-transform duration-500">
-                                    <p className="text-white text-[10px] font-mono font-black uppercase tracking-[0.3em]">LAYER_02 // CAUSAL_FORECAST_ENGINE</p>
+                                <div className="absolute inset-x-0 bottom-0 p-4 lg:p-6 bg-navy/90 backdrop-blur-sm transform translate-y-full group-hover:translate-y-0 transition-transform duration-500">
+                                    <p className="text-white text-[8px] lg:text-[10px] font-mono font-black uppercase tracking-[0.3em]">LAYER_02 // CAUSAL_FORECAST_ENGINE</p>
                                 </div>
                             </div>
                         </div>
                     </div>
+                </div>
+            </section>
                 </div>
             </section>
 
@@ -271,36 +273,36 @@ const Platform = () => {
                 <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-16 items-center">
                     <div className="order-2 lg:order-1 relative">
                         {/* Real Automation Flow Image */}
-                        <div className="aspect-square rounded-[40px] bg-white border border-beige shadow-xl flex items-center justify-center relative overflow-hidden group/img">
-                            <div className="relative w-full h-full bg-cream/30 overflow-hidden flex flex-col items-center justify-center p-8">
+                        <div className="aspect-square rounded-3xl lg:rounded-[40px] bg-white border border-beige shadow-xl flex items-center justify-center relative overflow-hidden group/img">
+                            <div className="relative w-full h-full bg-cream/30 overflow-hidden flex flex-col items-center justify-center p-4 lg:p-8">
                                 {/* Visualizing the Logic Flow */}
-                                <div className="w-full space-y-8 relative z-10">
+                                <div className="w-full space-y-6 lg:space-y-8 relative z-10">
                                     {/* Input: Problem Detected */}
                                     <motion.div
                                         initial={{ opacity: 0, x: -20 }}
                                         whileInView={{ opacity: 1, x: 0 }}
-                                        className="flex items-center gap-4 bg-white/80 backdrop-blur-sm p-4 rounded-2xl border border-beige shadow-sm"
+                                        className="flex items-center gap-3 lg:gap-4 bg-white/80 backdrop-blur-sm p-3 lg:p-4 rounded-2xl border border-beige shadow-sm"
                                     >
-                                        <div className="w-10 h-10 rounded-xl bg-tan/20 flex items-center justify-center text-tan">
-                                            <Database className="w-5 h-5" />
+                                        <div className="w-8 h-8 lg:w-10 lg:h-10 rounded-xl bg-tan/20 flex items-center justify-center text-tan">
+                                            <Database className="w-4 h-4 lg:w-5 lg:h-5" />
                                         </div>
                                         <div className="flex-1">
-                                            <div className="text-[8px] font-mono font-black text-tan uppercase tracking-widest">Input_Signal</div>
-                                            <div className="text-xs font-black text-navy uppercase">Demand Spike Detected</div>
+                                            <div className="text-[7px] lg:text-[8px] font-mono font-black text-tan uppercase tracking-widest">Input_Signal</div>
+                                            <div className="text-[10px] lg:text-xs font-black text-navy uppercase">Demand Spike Detected</div>
                                         </div>
-                                        <div className="w-2 h-2 rounded-full bg-amber-500 animate-pulse" />
+                                        <div className="w-1.5 h-1.5 lg:w-2 lg:h-2 rounded-full bg-amber-500 animate-pulse" />
                                     </motion.div>
 
                                     {/* Process: Logic Center */}
-                                    <div className="flex justify-center relative py-2">
+                                    <div className="flex justify-center relative py-1 lg:py-2">
                                         <div className="absolute inset-y-0 w-px bg-beige left-1/2 -translate-x-1/2" />
                                         <motion.div
                                             animate={{ scale: [1, 1.05, 1], rotate: [0, 5, 0, -5, 0] }}
                                             transition={{ duration: 4, repeat: Infinity }}
-                                            className="w-20 h-20 rounded-3xl bg-navy border-4 border-olynk flex items-center justify-center relative z-10 shadow-2xl shadow-olynk/20"
+                                            className="w-16 h-16 lg:w-20 lg:h-20 rounded-2xl lg:rounded-3xl bg-navy border-2 lg:border-4 border-olynk flex items-center justify-center relative z-10 shadow-2xl shadow-olynk/20"
                                         >
-                                            <Zap className="w-8 h-8 text-white" fill="white" />
-                                            <div className="absolute -inset-2 rounded-[36px] border border-olynk/30 animate-ping" style={{ animationDuration: '3s' }} />
+                                            <Zap className="w-6 h-6 lg:w-8 lg:h-8 text-white" fill="white" />
+                                            <div className="absolute -inset-1.5 lg:-inset-2 rounded-[28px] lg:rounded-[36px] border border-olynk/30 animate-ping" style={{ animationDuration: '3s' }} />
                                         </motion.div>
                                     </div>
 
@@ -308,16 +310,16 @@ const Platform = () => {
                                     <motion.div
                                         initial={{ opacity: 0, x: 20 }}
                                         whileInView={{ opacity: 1, x: 0 }}
-                                        className="flex items-center gap-4 bg-white/80 backdrop-blur-sm p-4 rounded-2xl border border-olynk/20 shadow-lg"
+                                        className="flex items-center gap-3 lg:gap-4 bg-white/80 backdrop-blur-sm p-3 lg:p-4 rounded-2xl border border-olynk/20 shadow-lg"
                                     >
-                                        <div className="w-10 h-10 rounded-xl bg-olynk flex items-center justify-center text-white">
-                                            <CheckCircle2 className="w-5 h-5" />
+                                        <div className="w-8 h-8 lg:w-10 lg:h-10 rounded-xl bg-olynk flex items-center justify-center text-white">
+                                            <CheckCircle2 className="w-4 h-4 lg:w-5 lg:h-5" />
                                         </div>
                                         <div className="flex-1">
-                                            <div className="text-[8px] font-mono font-black text-olynk uppercase tracking-widest">Autonomous_Action</div>
-                                            <div className="text-xs font-black text-navy uppercase">Purchase Order Issued</div>
+                                            <div className="text-[7px] lg:text-[8px] font-mono font-black text-olynk uppercase tracking-widest">Autonomous_Action</div>
+                                            <div className="text-[10px] lg:text-xs font-black text-navy uppercase">Purchase Order Issued</div>
                                         </div>
-                                        <div className="px-2 py-1 rounded-md bg-emerald-500/10 text-emerald-600 text-[8px] font-black font-mono">
+                                        <div className="px-1.5 lg:px-2 py-0.5 lg:py-1 rounded-md bg-emerald-500/10 text-emerald-600 text-[7px] lg:text-[8px] font-black font-mono">
                                             EXECUTED
                                         </div>
                                     </motion.div>
@@ -333,8 +335,8 @@ const Platform = () => {
                                     </svg>
                                 </div>
 
-                                <div className="absolute inset-x-0 bottom-0 p-6 bg-navy/90 backdrop-blur-sm transform translate-y-full group-hover/img:translate-y-0 transition-transform duration-500">
-                                    <p className="text-white text-[10px] font-mono font-black uppercase tracking-[0.3em]">LAYER_03 // AUTONOMOUS_ACTION_PROTOCOL</p>
+                                <div className="absolute inset-x-0 bottom-0 p-4 lg:p-6 bg-navy/90 backdrop-blur-sm transform translate-y-full group-hover/img:translate-y-0 transition-transform duration-500">
+                                    <p className="text-white text-[8px] lg:text-[10px] font-mono font-black uppercase tracking-[0.3em]">LAYER_03 // AUTONOMOUS_ACTION_PROTOCOL</p>
                                 </div>
                             </div>
                         </div>
@@ -379,7 +381,7 @@ const Platform = () => {
 
             {/* SECTION 6: ORBIT (Deep Dive) */}
             <section id="orbit" className="py-16 lg:py-24 px-4 border-t border-beige bg-navy relative overflow-hidden text-white">
-                <div className="absolute inset-0 opacity-10 pointer-events-none"
+                <div className="absolute inset-0 opacity-10 pointer-events-none hidden lg:block"
                     style={{ backgroundImage: `radial-gradient(circle at 2px 2px, white 1px, transparent 0)`, backgroundSize: '40px 40px' }} />
 
                 <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-16 items-center relative z-10">
@@ -406,8 +408,8 @@ const Platform = () => {
                     </div>
                     <div className="relative">
                         {/* Real Chat Interface Image */}
-                        <div className="aspect-video rounded-[40px] bg-navy border border-white/10 shadow-2xl flex items-center justify-center relative overflow-hidden group/img">
-                            <div className="relative w-full h-full bg-navy/20 overflow-hidden flex items-center justify-center p-6">
+                        <div className="aspect-video rounded-3xl lg:rounded-[40px] bg-navy border border-white/10 shadow-2xl flex items-center justify-center relative overflow-hidden group/img">
+                            <div className="relative w-full h-full bg-navy/20 overflow-hidden flex items-center justify-center p-4 lg:p-6">
                                 <svg viewBox="0 0 400 400" className="w-full h-full relative z-10">
                                     {/* Central Brain Pulse */}
                                     <motion.circle
@@ -445,12 +447,14 @@ const Platform = () => {
                                     })}
                                 </svg>
 
-                                <div className="absolute inset-x-0 bottom-0 p-6 bg-white/10 backdrop-blur-md transform translate-y-full group-hover/img:translate-y-0 transition-transform duration-500">
-                                    <p className="text-white text-[10px] font-mono font-black uppercase tracking-[0.3em]">LAYER_04 // CROSS_DOMAIN_GOVERNANCE</p>
+                                <div className="absolute inset-x-0 bottom-0 p-4 lg:p-6 bg-white/10 backdrop-blur-md transform translate-y-full lg:group-hover/img:translate-y-0 transition-transform duration-500">
+                                    <p className="text-white text-[8px] lg:text-[10px] font-mono font-black uppercase tracking-[0.3em]">LAYER_04 // CROSS_DOMAIN_GOVERNANCE</p>
                                 </div>
                             </div>
                         </div>
                     </div>
+                </div>
+            </section>
                 </div>
             </section>
 
@@ -472,15 +476,15 @@ const Platform = () => {
                                 whileInView={{ opacity: 1, y: 0 }}
                                 viewport={{ once: true }}
                                 transition={{ duration: 0.6 }}
-                                className="p-6 rounded-2xl bg-gradient-to-r from-olynk to-navy text-white relative overflow-hidden group"
+                                className="p-4 lg:p-6 rounded-2xl bg-gradient-to-r from-olynk to-navy text-white relative overflow-hidden group"
                             >
                                 <div className="absolute inset-0 bg-white/5 opacity-0 group-hover:opacity-100 transition-opacity" />
                                 <div className="relative z-10 flex items-center justify-between">
-                                    <div>
-                                        <div className="text-xs font-mono font-black uppercase tracking-widest opacity-80 mb-1">Intelligence Layer</div>
-                                        <div className="text-2xl font-black tracking-tight">OLynk AI Platform</div>
+                                    <div className="text-left">
+                                        <div className="text-[10px] lg:text-xs font-mono font-black uppercase tracking-widest opacity-80 mb-1">Intelligence Layer</div>
+                                        <div className="text-xl lg:text-2xl font-black tracking-tight">OLynk AI Platform</div>
                                     </div>
-                                    <Brain className="w-10 h-10 opacity-40" />
+                                    <Brain className="w-8 h-8 lg:w-10 lg:h-10 opacity-40" />
                                 </div>
                             </motion.div>
 
