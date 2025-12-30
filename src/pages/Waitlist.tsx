@@ -1,8 +1,35 @@
 import { motion } from 'framer-motion';
+import { useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { useAuth } from '../contexts/AuthContext';
 import WaitlistForm from '../components/waitlist/WaitlistForm';
 import WaitlistMetrics from '../components/waitlist/WaitlistMetrics';
 
 const Waitlist = () => {
+    const { user, isLoading } = useAuth();
+    const navigate = useNavigate();
+
+    useEffect(() => {
+        // If user is authenticated, redirect to home page
+        if (!isLoading && user) {
+            navigate('/');
+        }
+    }, [user, isLoading, navigate]);
+
+    // Show loading state while checking authentication
+    if (isLoading) {
+        return (
+            <div className="min-h-screen flex items-center justify-center bg-cream">
+                <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-olynk"></div>
+            </div>
+        );
+    }
+
+    // If user is authenticated, don't render the waitlist (redirect will happen)
+    if (user) {
+        return null;
+    }
+
     return (
         <div className="min-h-[80vh] relative z-10">
             <div className="pt-20 pb-20 px-4 sm:px-6 lg:px-8">

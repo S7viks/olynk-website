@@ -80,17 +80,10 @@ const LoginForm: React.FC<LoginFormProps> = ({
           setError(error.message || 'Login failed');
         } else {
           setSuccess('Login successful!');
-          // Wait a bit for profile to load, then redirect
+          // Wait a bit for profile to load, then redirect to waitlist
           setTimeout(() => {
             onSuccess?.();
-            // Redirect based on user role or return to previous page
-            const from = (location.state as any)?.from?.pathname;
-            if (from) {
-              navigate(from);
-            } else {
-              // Profile will be loaded by AuthContext, redirect will happen via useEffect or user can navigate manually
-              navigate('/');
-            }
+            navigate('/waitlist');
           }, 1500);
         }
       } else if (mode === 'signup' || mode === 'waitlist') {
@@ -113,7 +106,7 @@ const LoginForm: React.FC<LoginFormProps> = ({
           );
           setTimeout(() => {
             onSuccess?.();
-            navigate('/');
+            navigate('/waitlist');
           }, 2000);
         }
       }
