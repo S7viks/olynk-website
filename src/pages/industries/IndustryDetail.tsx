@@ -265,6 +265,12 @@ const IndustryDetail = () => {
     const data = industriesData[id || 'commerce'] || industriesData.commerce;
     const isCommerce = (id || 'commerce') === 'commerce';
     const [isModalOpen, setIsModalOpen] = useState(false);
+    const [selectedLayerId, setSelectedLayerId] = useState<string | null>(null);
+
+    const openModalWithLayer = (layerId: string | null = null) => {
+        setSelectedLayerId(layerId);
+        setIsModalOpen(true);
+    };
 
     return (
         <div className="relative min-h-screen bg-transparent">
@@ -439,7 +445,7 @@ const IndustryDetail = () => {
                             <h2 className="text-4xl lg:text-5xl font-black text-navy uppercase tracking-tightest">The Operational Layers</h2>
                         </div>
                         <button
-                            onClick={() => setIsModalOpen(true)}
+                            onClick={() => openModalWithLayer(null)}
                             className="flex items-center gap-3 group/btn text-navy font-black text-[12px] uppercase tracking-widest pt-4 border-b border-navy/20 hover:border-navy w-fit pb-1 hover:gap-5 transition-all"
                         >
                             Review Fix Mechanism
@@ -461,9 +467,12 @@ const IndustryDetail = () => {
                                 <p className="text-steel font-medium leading-relaxed mb-10">
                                     {layer.desc}
                                 </p>
-                                <div className="flex items-center gap-2 text-navy font-black text-[10px] uppercase tracking-widest opacity-60 group-hover:opacity-100 transition-opacity">
+                                <button
+                                    onClick={() => openModalWithLayer(layer.id)}
+                                    className="flex items-center gap-2 text-navy font-black text-[10px] uppercase tracking-widest opacity-60 group-hover:opacity-100 transition-opacity hover:gap-3 transition-all"
+                                >
                                     View Protocol <ArrowRight className="w-3 h-3 group-hover:translate-x-1 transition-transform" />
-                                </div>
+                                </button>
                             </motion.div>
                         ))}
                     </div>
@@ -492,6 +501,7 @@ const IndustryDetail = () => {
                 onClose={() => setIsModalOpen(false)}
                 layers={data.layers}
                 industryTitle={data.title}
+                selectedLayerId={selectedLayerId}
             />
 
         </div>

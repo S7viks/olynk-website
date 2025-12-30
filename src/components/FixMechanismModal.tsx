@@ -1,4 +1,5 @@
 import { motion, AnimatePresence } from 'framer-motion';
+import { useRef, useEffect } from 'react';
 import { X, CheckCircle2, ArrowRight, Zap } from 'lucide-react';
 
 interface FixMechanismModalProps {
@@ -10,9 +11,25 @@ interface FixMechanismModalProps {
         desc: string;
     }>;
     industryTitle: string;
+    selectedLayerId?: string | null;
 }
 
-const FixMechanismModal = ({ isOpen, onClose, layers, industryTitle }: FixMechanismModalProps) => {
+const FixMechanismModal = ({ isOpen, onClose, layers, industryTitle, selectedLayerId }: FixMechanismModalProps) => {
+    const scrollContainerRef = useRef<HTMLDivElement>(null);
+
+    useEffect(() => {
+        if (isOpen && selectedLayerId && scrollContainerRef.current) {
+            // Small delay to ensure the modal content is rendered and measurements are accurate
+            const timer = setTimeout(() => {
+                const element = document.getElementById(`layer-${selectedLayerId}`);
+                if (element) {
+                    element.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                }
+            }, 100);
+            return () => clearTimeout(timer);
+        }
+    }, [isOpen, selectedLayerId]);
+
     return (
         <AnimatePresence>
             {isOpen && (
@@ -62,18 +79,22 @@ const FixMechanismModal = ({ isOpen, onClose, layers, industryTitle }: FixMechan
                             </div>
 
                             {/* Scrollable Content */}
-                            <div className="overflow-y-auto max-h-[calc(85vh-280px)] p-10">
+                            <div
+                                ref={scrollContainerRef}
+                                className="overflow-y-auto max-h-[calc(85vh-280px)] p-10"
+                            >
                                 <div className="space-y-8">
                                     {layers.map((layer, index) => (
                                         <motion.div
                                             key={layer.id}
+                                            id={`layer-${layer.id}`}
                                             initial={{ opacity: 0, x: -20 }}
                                             animate={{ opacity: 1, x: 0 }}
                                             transition={{ delay: index * 0.1 }}
                                             className="group"
                                         >
                                             {/* Layer Card */}
-                                            <div className="p-8 rounded-3xl bg-cream border-2 border-beige hover:border-navy/30 transition-all">
+                                            <div className={`p-8 rounded-3xl bg-cream border-2 transition-all ${selectedLayerId === layer.id ? 'border-olynk shadow-lg bg-white ring-4 ring-olynk/10' : 'border-beige hover:border-navy/30'}`}>
                                                 <div className="flex items-start gap-6">
                                                     {/* Index Badge */}
                                                     <div className="w-14 h-14 rounded-2xl bg-white border-2 border-navy flex items-center justify-center shrink-0">
@@ -105,7 +126,7 @@ const FixMechanismModal = ({ isOpen, onClose, layers, industryTitle }: FixMechan
                                                                         TECHNICAL_IMPLEMENTATION
                                                                     </span>
                                                                     <div className="space-y-2">
-                                                                        {getTechnicalDetails(layer.id, index).map((detail, i) => (
+                                                                        {getTechnicalDetails(layer.id).map((detail, i) => (
                                                                             <div key={i} className="flex items-start gap-2">
                                                                                 <ArrowRight className="w-4 h-4 text-navy shrink-0 mt-0.5" />
                                                                                 <span className="text-sm text-navy font-bold leading-relaxed">
@@ -151,7 +172,7 @@ const FixMechanismModal = ({ isOpen, onClose, layers, industryTitle }: FixMechan
 };
 
 // Helper function to generate technical details based on layer ID
-const getTechnicalDetails = (layerId: string, index: number): string[] => {
+const getTechnicalDetails = (layerId: string): string[] => {
     const detailsMap: Record<string, string[]> = {
         'INVENTORY_AUTONOMY': [
             'Real-time sync across all sales channels and nodes',

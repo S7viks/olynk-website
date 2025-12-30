@@ -17,6 +17,7 @@
 
 
 import { Link } from 'react-router-dom';
+import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { ArrowRight, CheckCircle, ArrowDown, Search, Brain, CreditCard, Zap } from 'lucide-react';
 import Navbar from '../components/Navbar';
@@ -27,9 +28,38 @@ import HowItWorks from '../components/HowItWorks';
 import InteractiveBackground from '../components/InteractiveBackground';
 import TestimonialsGrid from '../components/TestimonialsGrid';
 import FAQ from '../components/FAQ';
-
+import FixMechanismModal from '../components/FixMechanismModal';
 
 const Home = () => {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [activeIndustry, setActiveIndustry] = useState({ title: 'Operational Intelligence', layers: [] });
+
+  const homeLayers = [
+    {
+      id: 'MULTI_CHANNEL_SYNC',
+      title: 'Fabric Layer',
+      desc: 'Unifies all your data streams into a single, high-fidelity source of truth. No more manual reconciliation.'
+    },
+    {
+      id: 'DEMAND_PREDICTION',
+      title: 'Insight Layer',
+      desc: 'Analyzes patterns across your entire operation to predict stock-outs, revenue leaks, and demand spikes before they happen.'
+    },
+    {
+      id: 'SUPPLY_CHAIN_LOGIC',
+      title: 'Core Engine',
+      desc: 'Automatically executes the best operational decisions—from inventory reallocation to supplier reordering—without human intervention.'
+    }
+  ];
+
+  const openModal = () => {
+    setActiveIndustry({
+      title: 'Operational Intelligence',
+      layers: homeLayers
+    });
+    setIsModalOpen(true);
+  };
+
   return (
     <div className="min-h-screen bg-cream">
       <Navbar />
@@ -255,7 +285,10 @@ const Home = () => {
                         {pattern.solution}
                       </p>
                     </div>
-                    <button className="flex items-center gap-3 group/btn text-navy font-black text-[12px] uppercase tracking-widest pt-4 border-b border-navy/20 hover:border-navy w-fit pb-1 hover:gap-5 transition-all">
+                    <button 
+                      onClick={openModal}
+                      className="flex items-center gap-3 group/btn text-navy font-black text-[12px] uppercase tracking-widest pt-4 border-b border-navy/20 hover:border-navy w-fit pb-1 hover:gap-5 transition-all"
+                    >
                       Review Fix Mechanism
                       <ArrowRight className="w-4 h-4 transition-transform" />
                     </button>
@@ -315,6 +348,14 @@ const Home = () => {
           </div>
         </div>
       </section>
+
+      {/* Fix Mechanism Modal */}
+      <FixMechanismModal
+        isOpen={isModalOpen}
+        onClose={() => setIsModalOpen(false)}
+        layers={activeIndustry.layers}
+        industryTitle={activeIndustry.title}
+      />
     </div >
   );
 };
