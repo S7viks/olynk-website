@@ -28,6 +28,9 @@ import Waitlist from './pages/Waitlist';
 
 // Auth Components
 import LoginForm from './components/LoginForm';
+import PasswordReset from './pages/PasswordReset';
+import UserDashboard from './pages/UserDashboard';
+import WaitlistDashboard from './components/WaitlistDashboard';
 
 // New Pages
 import Documentation from './pages/Documentation';
@@ -217,6 +220,47 @@ const App = () => {
                     <Waitlist />
                     <Footer />
                   </div>
+                }
+              />
+
+              <Route
+                path="/reset-password"
+                element={
+                  <div className="relative">
+                    <Navbar />
+                    <InteractiveBackground />
+                    <PasswordReset />
+                    <Footer />
+                  </div>
+                }
+              />
+
+              {/* Protected Dashboard Routes */}
+              <Route
+                path="/dashboard"
+                element={
+                  <ProtectedRoute>
+                    <div className="relative">
+                      <Navbar />
+                      <InteractiveBackground />
+                      <WaitlistDashboard />
+                      <Footer />
+                    </div>
+                  </ProtectedRoute>
+                }
+              />
+
+              <Route
+                path="/user-dashboard"
+                element={
+                  <ProtectedRoute>
+                    <div className="relative">
+                      <Navbar />
+                      <InteractiveBackground />
+                      <UserDashboard />
+                      <Footer />
+                    </div>
+                  </ProtectedRoute>
                 }
               />
 

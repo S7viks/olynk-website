@@ -153,6 +153,22 @@ const Navbar = () => {
                                     Admin
                                 </Link>
                             )}
+                            {profile?.role === 'waitlist' && (
+                                <Link
+                                    to="/dashboard"
+                                    className="hidden md:block text-navy font-bold text-[13px] uppercase tracking-wide hover:text-olynk transition-colors"
+                                >
+                                    Dashboard
+                                </Link>
+                            )}
+                            {profile?.role === 'user' && (
+                                <Link
+                                    to="/user-dashboard"
+                                    className="hidden md:block text-navy font-bold text-[13px] uppercase tracking-wide hover:text-olynk transition-colors"
+                                >
+                                    Dashboard
+                                </Link>
+                            )}
                             <div className="flex items-center gap-2 px-3 py-1.5 bg-navy/5 rounded-full border border-navy/10">
                                 <User className="w-3.5 h-3.5 text-navy" />
                                 <span className="text-[11px] font-black text-navy uppercase tracking-widest truncate max-w-[100px]">
@@ -271,6 +287,24 @@ const Navbar = () => {
                                                 className="block w-full text-center py-4 text-lg font-bold text-olynk border-2 border-olynk/20 rounded-2xl mb-4"
                                             >
                                                 Admin Dashboard
+                                            </Link>
+                                        )}
+                                        {profile?.role === 'waitlist' && (
+                                            <Link
+                                                to="/dashboard"
+                                                onClick={() => setIsMenuOpen(false)}
+                                                className="block w-full text-center py-4 text-lg font-bold text-navy border-2 border-beige rounded-2xl mb-4"
+                                            >
+                                                My Dashboard
+                                            </Link>
+                                        )}
+                                        {profile?.role === 'user' && (
+                                            <Link
+                                                to="/user-dashboard"
+                                                onClick={() => setIsMenuOpen(false)}
+                                                className="block w-full text-center py-4 text-lg font-bold text-navy border-2 border-beige rounded-2xl mb-4"
+                                            >
+                                                My Dashboard
                                             </Link>
                                         )}
                                         <button

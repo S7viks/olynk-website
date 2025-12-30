@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useAuth } from '../contexts/AuthContext';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
 
 interface LoginFormProps {
   mode?: 'login' | 'signup' | 'waitlist';
@@ -13,8 +13,9 @@ const LoginForm: React.FC<LoginFormProps> = ({
   onSuccess, 
   onCancel 
 }) => {
-  const { signIn, signUp, isLoading } = useAuth();
+  const { signIn, signUp, isLoading, profile } = useAuth();
   const navigate = useNavigate();
+  const location = useLocation();
   
   const [formData, setFormData] = useState({
     email: '',
@@ -79,10 +80,18 @@ const LoginForm: React.FC<LoginFormProps> = ({
           setError(error.message || 'Login failed');
         } else {
           setSuccess('Login successful!');
+          // Wait a bit for profile to load, then redirect
           setTimeout(() => {
             onSuccess?.();
-            navigate('/');
-          }, 1000);
+            // Redirect based on user role or return to previous page
+            const from = (location.state as any)?.from?.pathname;
+            if (from) {
+              navigate(from);
+            } else {
+              // Profile will be loaded by AuthContext, redirect will happen via useEffect or user can navigate manually
+              navigate('/');
+            }
+          }, 1500);
         }
       } else if (mode === 'signup' || mode === 'waitlist') {
         const signupData = {
@@ -286,6 +295,14 @@ const LoginForm: React.FC<LoginFormProps> = ({
                     className="text-olynk hover:text-navy transition-colors underline underline-offset-4"
                   >
                     Sign up
+                  </button>
+                </p>
+                <p className="text-[10px] font-black text-tan uppercase tracking-widest">
+                  <button
+                    onClick={() => navigate('/reset-password')}
+                    className="text-navy hover:text-olynk transition-colors"
+                  >
+                    Forgot Password?
                   </button>
                 </p>
                 <p className="text-[10px] font-black text-tan uppercase tracking-widest">
