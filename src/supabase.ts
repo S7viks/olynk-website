@@ -11,28 +11,26 @@ const supabaseUrl = import.meta.env.VITE_SUPABASE_URL
 const supabaseAnonKey = import.meta.env.VITE_SUPABASE_ANON_KEY
 const supabaseServiceKey = import.meta.env.VITE_SUPABASE_SERVICE_KEY
 
-// Validate configuration - fail fast if required variables are missing
-if (!supabaseUrl) {
-  const error = '❌ CRITICAL: VITE_SUPABASE_URL is not configured. Please set it in your .env.local file'
-  console.error(error)
-  if (typeof window !== 'undefined') {
-    throw new Error(error)
-  }
-}
-
-if (!supabaseAnonKey) {
-  const error = '❌ CRITICAL: VITE_SUPABASE_ANON_KEY is not configured. Please set it in your .env.local file'
-  console.error(error)
-  if (typeof window !== 'undefined') {
-    throw new Error(error)
-  }
-}
+// Create a placeholder that warns when features requiring Supabase are used
+const createPlaceholderClient = () => {
+  return new Proxy({} as any, {
+    get: () => {
+      console.warn('⚠️ Supabase is not configured. Database features will not work. Set VITE_SUPABASE_URL and VITE_SUPABASE_ANON_KEY in your .env file.');
+      return () => Promise.reject(new Error('Supabase not configured'));
+    }
+  });
+};
 
 // Create Supabase client for client-side operations (singleton)
 let supabaseInstance: ReturnType<typeof createClient> | null = null;
 let supabaseAdminInstance: ReturnType<typeof createClient> | null = null;
 
 function getSupabaseClient() {
+  // Only create real client if credentials are available
+  if (!supabaseUrl || !supabaseAnonKey) {
+    return createPlaceholderClient();
+  }
+
   if (!supabaseInstance) {
     // Check if already initialized globally
     if (typeof window !== 'undefined' && (window as any).__SUPABASE_CLIENT_INSTANCE__) {
@@ -48,7 +46,7 @@ function getSupabaseClient() {
         storage: typeof window !== 'undefined' ? window.localStorage : undefined
       }
     });
-    
+
     // Mark as initialized globally
     if (typeof window !== 'undefined') {
       (window as any).__SUPABASE_CLIENT_INITIALIZED__ = true;
@@ -59,6 +57,11 @@ function getSupabaseClient() {
 }
 
 function getSupabaseAdminClient() {
+  // Only create real admin client if credentials are available
+  if (!supabaseUrl || !supabaseServiceKey) {
+    return createPlaceholderClient();
+  }
+
   if (!supabaseAdminInstance) {
     supabaseAdminInstance = createClient(supabaseUrl, supabaseServiceKey, {
       auth: {
