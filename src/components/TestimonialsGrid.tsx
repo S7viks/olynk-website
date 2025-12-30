@@ -115,18 +115,18 @@ const TESTIMONIALS_ROW_2 = [
 
 const TestimonialCard = ({ testimonial }: { testimonial: typeof TESTIMONIALS_ROW_1[0] }) => {
     return (
-        <div className="bg-white p-6 rounded-2xl shadow-sm border border-beige flex flex-col gap-4 relative group hover:shadow-xl transition-all duration-300 w-[350px] shrink-0">
+        <div className="bg-white p-5 lg:p-6 rounded-2xl shadow-sm border border-beige flex flex-col gap-4 relative group hover:shadow-xl transition-all duration-300 w-[280px] sm:w-[350px] shrink-0">
             {/* Meta Info */}
-            <div className="flex items-center justify-between text-[11px] font-bold text-steel/60">
+            <div className="flex items-center justify-between text-[10px] lg:text-[11px] font-bold text-steel/60">
                 <div className="flex items-center gap-3">
-                    <span className="flex items-center gap-1"><Heart className="w-3.5 h-3.5" /> {testimonial.likes}</span>
-                    <span className="flex items-center gap-1"><MessageCircle className="w-3.5 h-3.5" /> {testimonial.comments}</span>
+                    <span className="flex items-center gap-1"><Heart className="w-3 h-3 lg:w-3.5 lg:h-3.5" /> {testimonial.likes}</span>
+                    <span className="flex items-center gap-1"><MessageCircle className="w-3 h-3 lg:w-3.5 lg:h-3.5" /> {testimonial.comments}</span>
                 </div>
                 <span>{testimonial.date}</span>
             </div>
 
             {/* Content */}
-            <p className="text-[15px] leading-relaxed text-navy h-[80px] overflow-hidden">
+            <p className="text-sm lg:text-[15px] leading-relaxed text-navy h-[70px] lg:h-[80px] overflow-hidden">
                 {testimonial.content.split(/(@\w+)/g).map((part, i) => (
                     part.startsWith('@') ? <span key={i} className="text-olynk font-semibold">{part}</span> : part
                 ))}
@@ -134,21 +134,21 @@ const TestimonialCard = ({ testimonial }: { testimonial: typeof TESTIMONIALS_ROW
 
             {/* Profile */}
             <div className="flex items-center justify-between mt-2">
-                <div className="flex items-center gap-3">
-                    <img src={testimonial.avatar} alt={testimonial.author} className="w-10 h-10 rounded-full border border-beige" />
+                <div className="flex items-center gap-2 lg:gap-3">
+                    <img src={testimonial.avatar} alt={testimonial.author} className="w-8 h-8 lg:w-10 lg:h-10 rounded-full border border-beige" />
                     <div className="flex flex-col">
-                        <span className="text-[14px] font-black text-navy leading-none">{testimonial.author}</span>
-                        <span className="text-[12px] text-tan">{testimonial.handle}</span>
+                        <span className="text-xs lg:text-[14px] font-black text-navy leading-none">{testimonial.author}</span>
+                        <span className="text-[10px] lg:text-[12px] text-tan">{testimonial.handle}</span>
                     </div>
                 </div>
 
                 {/* Platform Icon */}
-                <div className={`p-2 rounded-lg text-white ${testimonial.color}`}>
+                <div className={`p-1.5 lg:p-2 rounded-lg text-white ${testimonial.color}`}>
                     {testimonial.platform === 'x' && (
-                        <svg viewBox="0 0 24 24" className="w-3.5 h-3.5 fill-current"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" /></svg>
+                        <svg viewBox="0 0 24 24" className="w-3 h-3 lg:w-3.5 lg:h-3.5 fill-current"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" /></svg>
                     )}
-                    {testimonial.platform === 'instagram' && <Instagram className="w-3.5 h-3.5" />}
-                    {testimonial.platform === 'facebook' && <Facebook className="w-3.5 h-3.5" />}
+                    {testimonial.platform === 'instagram' && <Instagram className="w-3 h-3 lg:w-3.5 lg:h-3.5" />}
+                    {testimonial.platform === 'facebook' && <Facebook className="w-3 h-3 lg:w-3.5 lg:h-3.5" />}
                 </div>
             </div>
         </div>

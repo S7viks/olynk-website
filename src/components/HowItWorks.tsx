@@ -94,7 +94,7 @@ const HowItWorks = () => {
                 </div>
 
                 {/* The Architecture Flow */}
-                <div className="relative pt-12">
+                <div className="relative pt-8 lg:pt-12">
 
                     {/* Animated Connection Path (Desktop) */}
                     <div className="hidden lg:block absolute top-[120px] left-0 right-0 h-[1px] bg-beige/60 overflow-hidden">
@@ -105,7 +105,7 @@ const HowItWorks = () => {
                     </div>
 
                     {/* Nodes Grid */}
-                    <div className="grid grid-cols-1 lg:grid-cols-3 gap-16 lg:gap-24 relative">
+                    <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 lg:gap-24 relative">
                         {PROTOCOLS.map((protocol, idx) => (
                             <motion.div
                                 key={protocol.id}
@@ -127,49 +127,49 @@ const HowItWorks = () => {
                                 </div>
 
                                 {/* Content Card */}
-                                <div className="bg-white/40 backdrop-blur-xl border border-white rounded-[32px] sm:rounded-[40px] p-6 sm:p-10 lg:p-12 shadow-sm hover:shadow-2xl hover:border-olynk/10 transition-all duration-700 group/card relative overflow-hidden flex flex-col flex-1 h-full">
+                                <div className="bg-white/40 backdrop-blur-xl border border-white rounded-[24px] sm:rounded-[40px] p-6 sm:p-10 lg:p-12 shadow-sm hover:shadow-2xl hover:border-olynk/10 transition-all duration-700 group/card relative overflow-hidden flex flex-col flex-1 h-full">
                                     {/* Card ID Mask */}
-                                    <div className="absolute top-0 right-0 p-8 opacity-5 group-hover/card:opacity-10 transition-opacity">
-                                        <span className="text-6xl font-black font-mono tracking-tighter">{protocol.id}</span>
+                                    <div className="absolute top-0 right-0 p-6 lg:p-8 opacity-5 group-hover/card:opacity-10 transition-opacity">
+                                        <span className="text-4xl lg:text-6xl font-black font-mono tracking-tighter">{protocol.id}</span>
                                     </div>
 
                                     {/* Mobile Icon */}
-                                    <div className="lg:hidden w-16 h-16 rounded-2xl bg-cream flex items-center justify-center mb-8">
-                                        <protocol.icon className="w-8 h-8 text-navy" />
+                                    <div className="lg:hidden w-14 h-14 rounded-2xl bg-cream flex items-center justify-center mb-6 lg:mb-8">
+                                        <protocol.icon className="w-6 h-6 text-navy" />
                                     </div>
 
-                                    <div className="space-y-8 relative z-10 flex flex-col flex-1">
+                                    <div className="space-y-6 lg:space-y-8 relative z-10 flex flex-col flex-1">
                                         {/* Header Row */}
-                                        <div className="flex items-center justify-between border-b border-beige/40 pb-6">
+                                        <div className="flex items-center justify-between border-b border-beige/40 pb-4 lg:pb-6">
                                             <div className="flex flex-col">
-                                                <span className="text-[10px] font-black text-olynk uppercase tracking-[0.4em] font-mono mb-2">{protocol.id}</span>
-                                                <span className="text-lg font-black text-navy tracking-tight">{protocol.label}</span>
+                                                <span className="text-[8px] lg:text-[10px] font-black text-olynk uppercase tracking-[0.4em] font-mono mb-1 lg:mb-2">{protocol.id}</span>
+                                                <span className="text-base lg:text-lg font-black text-navy tracking-tight">{protocol.label}</span>
                                             </div>
                                             <div className="flex flex-col items-end">
-                                                <div className="flex items-center gap-2 mb-1">
+                                                <div className="flex items-center gap-2">
                                                     <div className={`w-1.5 h-1.5 rounded-full ${protocol.statusLight} animate-pulse`} />
-                                                    <span className="text-[9px] font-black text-navy tracking-widest">{protocol.status}</span>
+                                                    <span className="text-[8px] lg:text-[9px] font-black text-navy tracking-widest">{protocol.status}</span>
                                                 </div>
                                             </div>
                                         </div>
 
                                         {/* Main Copy */}
-                                        <div className="space-y-4 flex-1">
-                                            <h3 className="text-2xl lg:text-3xl font-black text-navy leading-tight tracking-tightest">
+                                        <div className="space-y-3 lg:space-y-4 flex-1">
+                                            <h3 className="text-xl lg:text-3xl font-black text-navy leading-tight tracking-tightest">
                                                 {protocol.title}
                                             </h3>
-                                            <p className="text-base lg:text-lg text-steel font-medium leading-relaxed">
+                                            <p className="text-sm lg:text-lg text-steel font-medium leading-relaxed">
                                                 {protocol.description}
                                             </p>
                                         </div>
 
                                         {/* Technical Metadata Reveal */}
-                                        <div className="pt-6 border-t border-beige/40 flex items-center justify-between mt-auto">
-                                            <div className="flex items-center gap-3">
-                                                <CheckCircle2 className="w-4 h-4 text-emerald-500" />
-                                                <span className="text-[10px] font-bold text-tan-dark uppercase tracking-widest font-mono">{protocol.systemText}</span>
+                                        <div className="pt-4 lg:pt-6 border-t border-beige/40 flex items-center justify-between mt-auto">
+                                            <div className="flex items-center gap-2 lg:gap-3">
+                                                <CheckCircle2 className="w-3.5 h-3.5 lg:w-4 h-4 text-emerald-500" />
+                                                <span className="text-[8px] lg:text-[10px] font-bold text-tan-dark uppercase tracking-widest font-mono">{protocol.systemText}</span>
                                             </div>
-                                            <span className="text-[10px] font-black text-navy/20 uppercase tracking-[0.2em] font-mono">0{idx + 1}</span>
+                                            <span className="text-[8px] lg:text-[10px] font-black text-navy/20 uppercase tracking-[0.2em] font-mono">0{idx + 1}</span>
                                         </div>
                                     </div>
                                 </div>
@@ -179,31 +179,30 @@ const HowItWorks = () => {
                 </div>
 
                 {/* Bottom Specification Pods */}
-                <div className="mt-40 grid grid-cols-1 md:grid-cols-2 gap-8 relative z-10">
+                <div className="mt-20 lg:mt-40 grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8 relative z-10">
                     {/* Time Pod */}
-                    <div className="flex items-center gap-10 p-10 bg-navy rounded-[40px] text-white shadow-2xl relative overflow-hidden group/pod">
+                    <div className="flex flex-col sm:flex-row items-start sm:items-center gap-6 lg:gap-10 p-8 lg:p-10 bg-navy rounded-3xl lg:rounded-[40px] text-white shadow-2xl relative overflow-hidden group/pod">
                         <div className="flex flex-col">
-                            <span className="text-5xl sm:text-7xl font-black tracking-tightest leading-none mb-2">15:00</span>
-                            <span className="text-[10px] font-bold text-white/40 uppercase tracking-[0.4em] font-mono">Minutes_to_deploy</span>
+                            <span className="text-5xl lg:text-7xl font-black tracking-tightest leading-none mb-2">15:00</span>
+                            <span className="text-[8px] lg:text-[10px] font-bold text-white/40 uppercase tracking-[0.4em] font-mono">Minutes_to_deploy</span>
                         </div>
-                        <div className="h-20 w-[1px] bg-white/20" />
-                        <div className="max-w-[180px]">
-                            <p className="text-base font-bold leading-tight opacity-70 group-hover/pod:opacity-100 transition-opacity">
+                        <div className="hidden sm:block h-20 w-[1px] bg-white/20" />
+                        <div className="max-w-full sm:max-w-[180px]">
+                            <p className="text-sm lg:text-base font-bold leading-tight opacity-70 group-hover/pod:opacity-100 transition-opacity">
                                 Zero-friction setup. Start linking your datasets instantly.
                             </p>
                         </div>
-                        {/* Decorative Background Icon */}
-                        <Clock className="absolute -right-8 -bottom-8 w-40 h-40 opacity-[0.03] group-hover/pod:scale-110 transition-transform duration-700" />
+                        <Clock className="absolute -right-8 -bottom-8 w-32 h-32 lg:w-40 h-40 opacity-[0.03] group-hover/pod:scale-110 transition-transform duration-700" />
                     </div>
 
                     {/* Security Pod */}
-                    <div className="flex items-center gap-10 p-10 bg-white border border-beige rounded-[40px] shadow-sm hover:shadow-xl transition-all duration-500 group/pod relative overflow-hidden">
-                        <div className="w-12 h-12 sm:w-16 sm:h-16 rounded-2xl bg-emerald-50 flex items-center justify-center shrink-0">
-                            <ShieldCheck className="w-6 h-6 sm:w-8 sm:h-8 text-emerald-600" />
+                    <div className="flex items-center gap-6 lg:gap-10 p-8 lg:p-10 bg-white border border-beige rounded-3xl lg:rounded-[40px] shadow-sm hover:shadow-xl transition-all duration-500 group/pod relative overflow-hidden">
+                        <div className="w-12 h-12 lg:w-16 lg:h-16 rounded-xl lg:rounded-2xl bg-emerald-50 flex items-center justify-center shrink-0">
+                            <ShieldCheck className="w-6 h-6 lg:w-8 h-8 text-navy" />
                         </div>
-                        <div className="space-y-1 sm:space-y-2">
-                            <h4 className="text-lg sm:text-xl font-black text-navy tracking-tight">Enterprise-grade security.</h4>
-                            <p className="text-sm sm:text-base text-steel font-medium">
+                        <div className="space-y-1 lg:space-y-2">
+                            <h4 className="text-base lg:text-xl font-black text-navy tracking-tight">Enterprise-grade security.</h4>
+                            <p className="text-xs lg:text-base text-steel font-medium">
                                 Your data is protected by bank-level encryption. <span className="text-navy font-bold">SOC 2 Type II Certified.</span>
                             </p>
                         </div>

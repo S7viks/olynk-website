@@ -1,7 +1,7 @@
 
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
-import { ArrowRight, Database, Brain, Zap, MessageSquare } from 'lucide-react';
+import { ArrowRight, Database, Brain, Zap, MessageSquare, CheckCircle2 } from 'lucide-react';
 
 const Platform = () => {
     return (
@@ -272,34 +272,66 @@ const Platform = () => {
                     <div className="order-2 lg:order-1 relative">
                         {/* Real Automation Flow Image */}
                         <div className="aspect-square rounded-[40px] bg-white border border-beige shadow-xl flex items-center justify-center relative overflow-hidden group/img">
-                            <div className="relative w-full h-full bg-cream/30 overflow-hidden flex items-center justify-center p-6">
-                                <svg viewBox="0 0 400 400" className="w-full h-full relative z-10">
-                                    {/* Logic Gate Visual */}
-                                    <rect x="150" y="150" width="100" height="100" rx="12" fill="none" stroke="#A88B71" strokeWidth="2" strokeDasharray="4 4" />
-                                    <motion.path
-                                        d="M 50 200 L 150 200" stroke="#A88B71" strokeWidth="2" strokeLinecap="round"
-                                        initial={{ pathLength: 0 }}
-                                        animate={{ pathLength: 1 }}
-                                        transition={{ duration: 2, repeat: Infinity }}
-                                    />
-                                    <motion.path
-                                        d="M 250 200 L 350 200" stroke="#001B3D" strokeWidth="3" strokeLinecap="round"
-                                        initial={{ pathLength: 0, opacity: 0 }}
-                                        animate={{ pathLength: [0, 0, 1, 1], opacity: [0, 0, 1, 0] }}
-                                        transition={{ duration: 2, repeat: Infinity, times: [0, 0.5, 0.8, 1] }}
-                                    />
-                                    {/* Verified Signal Pulse */}
-                                    <motion.circle
-                                        r="6" fill="#A88B71"
-                                        animate={{
-                                            cx: [50, 150, 250, 350],
-                                            opacity: [1, 1, 1, 0],
-                                            scale: [1, 1, 1.5, 1]
-                                        }}
-                                        transition={{ duration: 2, repeat: Infinity, ease: "linear" }}
-                                    />
-                                    <text x="200" y="140" textAnchor="middle" fill="#A88B71" className="text-[10px] font-black font-mono tracking-widest uppercase">LOGIC_GATE_AC-9</text>
-                                </svg>
+                            <div className="relative w-full h-full bg-cream/30 overflow-hidden flex flex-col items-center justify-center p-8">
+                                {/* Visualizing the Logic Flow */}
+                                <div className="w-full space-y-8 relative z-10">
+                                    {/* Input: Problem Detected */}
+                                    <motion.div
+                                        initial={{ opacity: 0, x: -20 }}
+                                        whileInView={{ opacity: 1, x: 0 }}
+                                        className="flex items-center gap-4 bg-white/80 backdrop-blur-sm p-4 rounded-2xl border border-beige shadow-sm"
+                                    >
+                                        <div className="w-10 h-10 rounded-xl bg-tan/20 flex items-center justify-center text-tan">
+                                            <Database className="w-5 h-5" />
+                                        </div>
+                                        <div className="flex-1">
+                                            <div className="text-[8px] font-mono font-black text-tan uppercase tracking-widest">Input_Signal</div>
+                                            <div className="text-xs font-black text-navy uppercase">Demand Spike Detected</div>
+                                        </div>
+                                        <div className="w-2 h-2 rounded-full bg-amber-500 animate-pulse" />
+                                    </motion.div>
+
+                                    {/* Process: Logic Center */}
+                                    <div className="flex justify-center relative py-2">
+                                        <div className="absolute inset-y-0 w-px bg-beige left-1/2 -translate-x-1/2" />
+                                        <motion.div
+                                            animate={{ scale: [1, 1.05, 1], rotate: [0, 5, 0, -5, 0] }}
+                                            transition={{ duration: 4, repeat: Infinity }}
+                                            className="w-20 h-20 rounded-3xl bg-navy border-4 border-olynk flex items-center justify-center relative z-10 shadow-2xl shadow-olynk/20"
+                                        >
+                                            <Zap className="w-8 h-8 text-white" fill="white" />
+                                            <div className="absolute -inset-2 rounded-[36px] border border-olynk/30 animate-ping" style={{ animationDuration: '3s' }} />
+                                        </motion.div>
+                                    </div>
+
+                                    {/* Output: Autonomous Action */}
+                                    <motion.div
+                                        initial={{ opacity: 0, x: 20 }}
+                                        whileInView={{ opacity: 1, x: 0 }}
+                                        className="flex items-center gap-4 bg-white/80 backdrop-blur-sm p-4 rounded-2xl border border-olynk/20 shadow-lg"
+                                    >
+                                        <div className="w-10 h-10 rounded-xl bg-olynk flex items-center justify-center text-white">
+                                            <CheckCircle2 className="w-5 h-5" />
+                                        </div>
+                                        <div className="flex-1">
+                                            <div className="text-[8px] font-mono font-black text-olynk uppercase tracking-widest">Autonomous_Action</div>
+                                            <div className="text-xs font-black text-navy uppercase">Purchase Order Issued</div>
+                                        </div>
+                                        <div className="px-2 py-1 rounded-md bg-emerald-500/10 text-emerald-600 text-[8px] font-black font-mono">
+                                            EXECUTED
+                                        </div>
+                                    </motion.div>
+                                </div>
+
+                                {/* Abstract Background Elements */}
+                                <div className="absolute inset-0 opacity-[0.03] pointer-events-none">
+                                    <svg width="100%" height="100%">
+                                        <pattern id="logic-grid" width="40" height="40" patternUnits="userSpaceOnUse">
+                                            <path d="M 40 0 L 0 0 0 40" fill="none" stroke="currentColor" strokeWidth="1" />
+                                        </pattern>
+                                        <rect width="100%" height="100%" fill="url(#logic-grid)" />
+                                    </svg>
+                                </div>
 
                                 <div className="absolute inset-x-0 bottom-0 p-6 bg-navy/90 backdrop-blur-sm transform translate-y-full group-hover/img:translate-y-0 transition-transform duration-500">
                                     <p className="text-white text-[10px] font-mono font-black uppercase tracking-[0.3em]">LAYER_03 // AUTONOMOUS_ACTION_PROTOCOL</p>

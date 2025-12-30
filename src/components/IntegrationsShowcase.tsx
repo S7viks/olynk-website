@@ -138,36 +138,36 @@ const IntegrationsShowcase = () => {
             />
 
 
-            <div className="max-w-7xl mx-auto px-4 mb-16 text-center relative z-10">
-                <h2 className="text-4xl lg:text-5xl font-black text-navy mb-8 tracking-tighter leading-[0.95]">
+            <div className="max-w-7xl mx-auto px-4 mb-12 lg:mb-16 text-center relative z-10">
+                <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-navy mb-6 lg:mb-8 tracking-tighter leading-[0.95]">
                     Olynk connects to your <br />
-                    <span className="text-olynk underline decoration-tan decoration-8 underline-offset-8">existing apps in minutes.</span>
+                    <span className="text-olynk underline decoration-tan decoration-4 lg:decoration-8 underline-offset-4 lg:underline-offset-8 text-2xl sm:text-4xl lg:text-5xl">existing apps in minutes.</span>
                 </h2>
             </div>
 
-            <div className="space-y-4 mb-16 relative z-10">
+            <div className="space-y-4 mb-12 lg:mb-16 relative z-10">
                 <HorizontalMarquee tools={row1} />
                 <HorizontalMarquee tools={row2} reverse />
             </div>
 
             {/* Value Props */}
-            <div className="max-w-7xl mx-auto px-4 mt-16 relative z-10">
-                <div className="flex flex-wrap justify-center gap-x-16 gap-y-12 max-w-6xl mx-auto border-t border-beige/40 pt-16">
-                    <div className="text-left space-y-4 max-w-[240px]">
-                        <p className="text-base font-black text-navy leading-relaxed">
-                            <span className="text-[12px] font-mono text-olynk block mb-2 uppercase tracking-widest">0% Migration</span>
+            <div className="max-w-7xl mx-auto px-4 mt-12 lg:mt-16 relative z-10">
+                <div className="flex flex-col sm:flex-row flex-wrap justify-center items-center sm:items-start gap-8 lg:gap-16 max-w-6xl mx-auto border-t border-beige/40 pt-12 lg:pt-16">
+                    <div className="text-center sm:text-left space-y-3 lg:space-y-4 max-w-[280px] sm:max-w-[240px]">
+                        <p className="text-sm lg:text-base font-black text-navy leading-relaxed">
+                            <span className="text-[10px] lg:text-[12px] font-mono text-olynk block mb-1 lg:mb-2 uppercase tracking-widest">0% Migration</span>
                             No data entry or system changes required. Works on top of your stack.
                         </p>
                     </div>
-                    <div className="text-left space-y-4 max-w-[240px]">
-                        <p className="text-base font-black text-navy leading-relaxed">
-                            <span className="text-[12px] font-mono text-olynk block mb-2 uppercase tracking-widest">Instant Intelligence</span>
+                    <div className="text-center sm:text-left space-y-3 lg:space-y-4 max-w-[280px] sm:max-w-[240px]">
+                        <p className="text-sm lg:text-base font-black text-navy leading-relaxed">
+                            <span className="text-[10px] lg:text-[12px] font-mono text-olynk block mb-1 lg:mb-2 uppercase tracking-widest">Instant Intelligence</span>
                             One unified layer that brings order to your fragmented tools.
                         </p>
                     </div>
-                    <div className="text-left space-y-4 max-w-[240px]">
-                        <p className="text-base font-black text-navy leading-relaxed">
-                            <span className="text-[12px] font-mono text-olynk block mb-2 uppercase tracking-widest">Autonomous Action</span>
+                    <div className="text-center sm:text-left space-y-3 lg:space-y-4 max-w-[280px] sm:max-w-[240px]">
+                        <p className="text-sm lg:text-base font-black text-navy leading-relaxed">
+                            <span className="text-[10px] lg:text-[12px] font-mono text-olynk block mb-1 lg:mb-2 uppercase tracking-widest">Autonomous Action</span>
                             Decide once. Olynk executes the logic across all your tools automatically.
                         </p>
                     </div>
