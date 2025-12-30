@@ -17,7 +17,7 @@ git status --short
 
 Write-Host ""
 Write-Host "Step 2: Adding changes to Git..." -ForegroundColor Yellow
-git add index.html dist/index.html vercel.json public/_headers SOCIAL_PREVIEW_FIX.md
+git add index.html dist/index.html vercel.json public/_headers SOCIAL_PREVIEW_FIX.md public/assets/olynk-social-preview.png
 
 Write-Host ""
 Write-Host "Step 3: Committing changes..." -ForegroundColor Yellow
@@ -38,7 +38,7 @@ Write-Host "2. Clear social media caches:" -ForegroundColor White
 Write-Host "   - Facebook: https://developers.facebook.com/tools/debug/" -ForegroundColor Gray
 Write-Host "   - Twitter: https://cards-dev.twitter.com/validator" -ForegroundColor Gray
 Write-Host "   - LinkedIn: https://www.linkedin.com/post-inspector/" -ForegroundColor Gray
-Write-Host "3. Test sharing https://olynk.ai on each platform" -ForegroundColor White
+Write-Host "3. Test sharing https://www.olynkai.com/ on each platform" -ForegroundColor White
 Write-Host ""
 Write-Host "For detailed instructions, see: SOCIAL_PREVIEW_FIX.md" -ForegroundColor Cyan
 Write-Host ""

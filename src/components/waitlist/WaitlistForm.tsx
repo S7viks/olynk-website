@@ -82,7 +82,13 @@ export default function WaitlistForm() {
             setSuccess(true);
         } catch (err: any) {
             console.error('Waitlist error:', err);
-            setError(err.message || 'Something went wrong. Please try again.');
+            
+            // Handle duplicate email error
+            if (err.code === '23505' || err.message?.includes('duplicate key') || err.message?.includes('unique constraint')) {
+                setError('This email is already registered on our waitlist. Please check your inbox for your confirmation email.');
+            } else {
+                setError(err.message || 'Something went wrong. Please try again.');
+            }
         } finally {
             setLoading(false);
         }

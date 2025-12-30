@@ -99,7 +99,7 @@ const Features = () => {
             </span>
           </h2>
           <p className="text-xl text-steel max-w-3xl mx-auto mb-8">
-            The Intelligence Operating System for Autonomous Commerce. Explore how OLYNK transforms your operations with the AI brain for business.
+            Predict Problems. Automate Decisions. Explore how OLYNK transforms your operations with the intelligence engine for modern commerce.
           </p>
           <div className="bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm border border-gray-200 dark:border-gray-700 rounded-2xl p-6 max-w-4xl mx-auto">
             <p className="text-lg text-gray-700 dark:text-gray-300 font-medium mb-4">

@@ -38,13 +38,13 @@ const SEO: React.FC<SEOComponentProps> = (props) => {
 
   // Ensure absolute URLs for images (Open Graph protocol requires absolute URLs)
   const absoluteOgImage = ogImage 
-    ? (ogImage.startsWith('http') ? ogImage : `https://olynk.ai${ogImage.startsWith('/') ? ogImage : '/' + ogImage}`)
-    : 'https://olynk.ai/assets/Olynk.AI_Logo.png';
+    ? (ogImage.startsWith('http') ? ogImage : `https://www.olynkai.com${ogImage.startsWith('/') ? ogImage : '/' + ogImage}`)
+    : 'https://www.olynkai.com/assets/olynk-social-preview.png';
   
   // Ensure canonical URL is absolute (Open Graph protocol requires absolute URLs)
   const absoluteCanonical = canonical 
-    ? (canonical.startsWith('http') ? canonical : `https://olynk.ai${canonical.startsWith('/') ? canonical : '/' + canonical}`)
-    : 'https://olynk.ai';
+    ? (canonical.startsWith('http') ? canonical : `https://www.olynkai.com${canonical.startsWith('/') ? canonical : '/' + canonical}`)
+    : 'https://www.olynkai.com';
   
   // Default image alt text if not provided (Open Graph protocol recommends og:image:alt)
   const imageAlt = ogImageAlt || description || `${title} - OLYNK Intelligence OS`;

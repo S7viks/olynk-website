@@ -1,7 +1,7 @@
 {
-  "name": "OLYNK | AI Brain for Business",
+  "name": "OLYNK | Predict Problems. Automate Decisions.",
   "short_name": "OLYNK",
-  "description": "The intelligence operating system for autonomous commerce. Predict problems 10 days before they happen and execute decisions in real-time.",
+  "description": "Stop discovering stockouts when your customers do. OLYNK predicts operational problems 10 days before they happen.",
   "start_url": "/",
   "display": "standalone",
   "background_color": "#F3EAE0",
@@ -9,13 +9,13 @@
   "orientation": "portrait-primary",
   "icons": [
     {
-      "src": "/assets/Olynk.AI_Logo.png",
+      "src": "/assets/olynk-social-preview.png",
       "sizes": "192x192",
       "type": "image/png",
       "purpose": "any maskable"
     },
     {
-      "src": "/assets/Olynk.AI_Logo.png",
+      "src": "/assets/olynk-social-preview.png",
       "sizes": "512x512",
       "type": "image/png",
       "purpose": "any maskable"

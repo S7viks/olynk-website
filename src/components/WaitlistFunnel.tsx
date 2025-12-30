@@ -18,6 +18,7 @@ const WaitlistFunnel: React.FC = () => {
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
+  const [errorMessage, setErrorMessage] = useState<string>('');
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     const { name, value } = e.target;
@@ -31,6 +32,7 @@ const WaitlistFunnel: React.FC = () => {
     e.preventDefault();
     setIsSubmitting(true);
     setSubmitStatus('idle');
+    setErrorMessage('');
 
     try {
       const { error } = await supabase
@@ -62,9 +64,29 @@ const WaitlistFunnel: React.FC = () => {
       setTimeout(() => {
         navigate('/');
       }, 2000);
-    } catch (error) {
+    } catch (error: any) {
       console.error('Error submitting waitlist form:', error);
-      setSubmitStatus('error');
+      
+      // Handle duplicate email error
+      if (error.code === '23505' || error.message?.includes('duplicate key') || error.message?.includes('unique constraint')) {
+        // For duplicate emails, show success instead of error to prevent email enumeration
+        setSubmitStatus('success');
+        setFormData({
+          email: '',
+          firstName: '',
+          lastName: '',
+          company: '',
+          industry: '',
+          companySize: '',
+          useCase: ''
+        });
+        setTimeout(() => {
+          navigate('/');
+        }, 2000);
+      } else {
+        setErrorMessage(error.message || 'An unexpected error occurred. Please try again.');
+        setSubmitStatus('error');
+      }
     } finally {
       setIsSubmitting(false);
     }
@@ -300,7 +322,7 @@ const WaitlistFunnel: React.FC = () => {
 
                 {submitStatus === 'error' && (
                   <div className="bg-red-50 border border-red-200 text-red-700 px-4 py-3 rounded-lg">
-                    There was an error submitting your request. Please try again.
+                    {errorMessage || 'There was an error submitting your request. Please try again.'}
                   </div>
                 )}
 

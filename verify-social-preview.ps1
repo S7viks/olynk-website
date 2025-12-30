@@ -6,8 +6,8 @@ Write-Host "OLYNK - Social Preview Verification" -ForegroundColor Cyan
 Write-Host "========================================" -ForegroundColor Cyan
 Write-Host ""
 
-$url = "https://olynk.ai"
-$imageUrl = "https://olynk.ai/assets/Olynk_Logo.png"
+$url = "https://www.olynkai.com/"
+$imageUrl = "https://www.olynkai.com/assets/olynk-social-preview.png"
 
 Write-Host "Testing: $url" -ForegroundColor Yellow
 Write-Host ""

@@ -64,9 +64,9 @@ export const generateOrganizationStructuredData = () => {
     "@context": "https://schema.org",
     "@type": "Organization",
     "name": "OLYNK",
-    "url": "https://olynk.ai",
-    "logo": "https://olynk.ai/assets/Olynk.AI_Logo.png",
-    "description": "The intelligence operating system for autonomous commerce. Predict problems 10 days before they happen and execute decisions in real-time.",
+    "url": "https://www.olynkai.com",
+    "logo": "https://www.olynkai.com/assets/olynk-social-preview.png",
+    "description": "OLynk predicts operational problems 10 days in advance and executes decisions in real-time. Built for high-velocity commerce.",
     "foundingDate": "2024",
     "address": {
       "@type": "PostalAddress",
@@ -80,7 +80,7 @@ export const generateOrganizationStructuredData = () => {
       "contactType": "customer service"
     },
     "sameAs": [
-      "https://olynk.ai"
+      "https://www.olynkai.com"
     ]
   };
 };
@@ -90,10 +90,10 @@ export const generateSoftwareStructuredData = () => {
   return {
     "@context": "https://schema.org",
     "@type": "SoftwareApplication",
-    "name": "OLYNK Intelligence OS",
+    "name": "OLYNK | The Intelligence Operating System",
     "applicationCategory": "BusinessApplication",
     "operatingSystem": "Web",
-    "description": "OLynk is the intelligence operating system for autonomous commerce. Predict problems 10 days before they happen and execute decisions in real-time.",
+    "description": "OLynk predicts operational problems 10 days in advance and executes decisions in real-time. Built for high-velocity commerce.",
     "offers": {
       "@type": "Offer",
       "price": "15000",
@@ -170,11 +170,11 @@ export const SEO_KEYWORDS = {
 // Page-specific SEO configurations
 export const PAGE_SEO: Record<string, SEOProps> = {
   home: {
-    title: "OLYNK | The AI Brain for Business Operations",
-    description: "Predict problems. Automate decisions. Run your business on autopilot. OLynk sits above your tools to build a live operational model that acts autonomously 24/7.",
+    title: "OLYNK | The Intelligence Operating System for Autonomous Commerce",
+    description: "OLynk predicts operational problems 10 days in advance and executes decisions in real-time. Built for high-velocity commerce.",
     keywords: SEO_KEYWORDS.home,
-    canonical: "https://olynk.ai",
-    ogImage: "https://olynk.ai/assets/Olynk.AI_Logo.png",
+    canonical: "https://www.olynkai.com",
+    ogImage: "https://www.olynkai.com/assets/olynk-social-preview.png",
     ogType: "website",
     twitterCard: "summary_large_image",
     structuredData: generateOrganizationStructuredData()
@@ -183,8 +183,8 @@ export const PAGE_SEO: Record<string, SEOProps> = {
     title: "About OLYNK | Our Mission & Vision",
     description: "Learn about OLYNK's mission to build the intelligence operating system for autonomous commerce. We turn scattered data into smart decisions.",
     keywords: SEO_KEYWORDS.about,
-    canonical: "https://olynk.ai/about",
-    ogImage: "https://olynk.ai/assets/Olynk.AI_Logo.png",
+    canonical: "https://www.olynkai.com/about",
+    ogImage: "https://www.olynkai.com/assets/olynk-social-preview.png",
     ogType: "website",
     twitterCard: "summary_large_image"
   },
@@ -192,8 +192,8 @@ export const PAGE_SEO: Record<string, SEOProps> = {
     title: "OLYNK Pricing | Plans for Autonomous Commerce",
     description: "Choose the right OLYNK plan for your business. Starting at ₹15K/month. Scale your operations with the AI brain for business.",
     keywords: SEO_KEYWORDS.pricing,
-    canonical: "https://olynk.ai/pricing",
-    ogImage: "https://olynk.ai/assets/Olynk.AI_Logo.png",
+    canonical: "https://www.olynkai.com/pricing",
+    ogImage: "https://www.olynkai.com/assets/olynk-social-preview.png",
     ogType: "website",
     twitterCard: "summary_large_image"
   },
@@ -201,8 +201,8 @@ export const PAGE_SEO: Record<string, SEOProps> = {
     title: "Contact OLYNK | Book a Demo",
     description: "Contact OLYNK for operational intelligence support, commerce consultation, or to book a demo. Transform your operations today.",
     keywords: SEO_KEYWORDS.contact,
-    canonical: "https://olynk.ai/contact",
-    ogImage: "https://olynk.ai/assets/Olynk.AI_Logo.png",
+    canonical: "https://www.olynkai.com/contact",
+    ogImage: "https://www.olynkai.com/assets/olynk-social-preview.png",
     ogType: "website",
     twitterCard: "summary_large_image"
   },
@@ -210,8 +210,8 @@ export const PAGE_SEO: Record<string, SEOProps> = {
     title: "Join OLYNK Waitlist | Early Access",
     description: "Join the OLYNK waitlist for early access to the AI brain for business operations. Be among the first to experience autonomous commerce.",
     keywords: SEO_KEYWORDS.home,
-    canonical: "https://olynk.ai/waitlist",
-    ogImage: "https://olynk.ai/assets/Olynk.AI_Logo.png",
+    canonical: "https://www.olynkai.com/waitlist",
+    ogImage: "https://www.olynkai.com/assets/olynk-social-preview.png",
     ogType: "website",
     twitterCard: "summary_large_image"
   }
@@ -231,7 +231,7 @@ export const createPromoSEO = (
     description: promoDescription,
     keywords: customKeywords || SEO_KEYWORDS.promo,
     canonical: promoUrl,
-    ogImage: promoImage || "https://olynk.ai/assets/Olynk.AI_Logo.png",
+    ogImage: promoImage || "https://www.olynkai.com/assets/olynk-social-preview.png",
     ogImageAlt: promoImageAlt || promoDescription,
     ogType: "website",
     twitterCard: "summary_large_image"
@@ -246,11 +246,11 @@ export const getPageSEO = (pageName: string, customSEO?: Partial<SEOProps>): SEO
 
 // Default SEO settings
 export const DEFAULT_SEO: SEOProps = {
-  title: "OLYNK | The AI Brain for Business Operations",
-  description: "Predict problems. Automate decisions. Run your business on autopilot. OLynk sits above your tools to build a live operational model that acts autonomously 24/7.",
+  title: "OLYNK | The Intelligence Operating System for Autonomous Commerce",
+  description: "OLynk predicts operational problems 10 days in advance and executes decisions in real-time. Built for high-velocity commerce.",
   keywords: SEO_KEYWORDS.home,
-  canonical: "https://olynk.ai",
-  ogImage: "https://olynk.ai/assets/Olynk.AI_Logo.png",
+  canonical: "https://www.olynkai.com",
+  ogImage: "https://www.olynkai.com/assets/olynk-social-preview.png",
   ogType: "website",
   twitterCard: "summary_large_image"
 };
