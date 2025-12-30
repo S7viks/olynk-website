@@ -297,51 +297,51 @@ const OlynkDashboard = () => {
                 </div>
 
                 {/* 5. BOTTOM IMPACT STRIP */}
-                <div className="px-10 py-4 bg-navy flex flex-col lg:flex-row items-center justify-between gap-12 border-t border-white/5">
-                    <div className="grid grid-cols-2 lg:flex lg:items-center gap-12 lg:gap-16 w-full lg:w-auto">
+                <div className="px-6 lg:px-10 py-6 bg-navy flex flex-col lg:flex-row items-center justify-between gap-8 lg:gap-12 border-t border-white/5">
+                    <div className="grid grid-cols-2 md:grid-cols-4 lg:flex lg:items-center gap-8 lg:gap-16 w-full lg:w-auto">
 
                         <div className="space-y-1.5 flex flex-col">
-                            <span className="text-[10px] font-black text-white/30 uppercase tracking-[0.3em] font-mono">Impact_Rescued</span>
+                            <span className="text-[9px] lg:text-[10px] font-black text-white/30 uppercase tracking-[0.3em] font-mono">Impact_Rescued</span>
                             <div className="flex items-baseline gap-2">
-                                <span className="text-3xl font-black text-emerald-400 font-mono tracking-tighter">₹8.4L</span>
+                                <span className="text-2xl lg:text-3xl font-black text-emerald-400 font-mono tracking-tighter">₹8.4L</span>
                                 <ArrowUpRight className="w-4 h-4 text-emerald-400 opacity-40" />
                             </div>
                         </div>
 
                         <div className="space-y-1.5 flex flex-col">
-                            <span className="text-[10px] font-black text-white/30 uppercase tracking-[0.3em] font-mono">Efficiency_Gain</span>
+                            <span className="text-[9px] lg:text-[10px] font-black text-white/30 uppercase tracking-[0.3em] font-mono">Efficiency_Gain</span>
                             <div className="flex items-baseline gap-2">
-                                <span className="text-3xl font-black text-emerald-400 font-mono tracking-tighter">+22.4%</span>
+                                <span className="text-2xl lg:text-3xl font-black text-emerald-400 font-mono tracking-tighter">+22.4%</span>
                                 <Activity className="w-4 h-4 text-emerald-400 opacity-40" />
                             </div>
                         </div>
 
                         <div className="space-y-1.5 flex flex-col">
-                            <span className="text-[10px] font-black text-white/30 uppercase tracking-[0.3em] font-mono">Precision_Score</span>
+                            <span className="text-[9px] lg:text-[10px] font-black text-white/30 uppercase tracking-[0.3em] font-mono">Precision_Score</span>
                             <div className="flex items-baseline gap-2">
-                                <span className="text-3xl font-black text-emerald-400 font-mono tracking-tighter">94.8%</span>
+                                <span className="text-2xl lg:text-3xl font-black text-emerald-400 font-mono tracking-tighter">94.8%</span>
                                 <Target className="w-4 h-4 text-emerald-400 opacity-40" />
                             </div>
                         </div>
 
                         <div className="space-y-1.5 flex flex-col">
-                            <span className="text-[10px] font-black text-white/30 uppercase tracking-[0.3em] font-mono">Capital_Velocity</span>
+                            <span className="text-[9px] lg:text-[10px] font-black text-white/30 uppercase tracking-[0.3em] font-mono">Capital_Velocity</span>
                             <div className="flex items-baseline gap-2">
-                                <span className="text-3xl font-black text-emerald-400 font-mono tracking-tighter">1.8x</span>
+                                <span className="text-2xl lg:text-3xl font-black text-emerald-400 font-mono tracking-tighter">1.8x</span>
                                 <Repeat className="w-4 h-4 text-emerald-400 opacity-40" />
                             </div>
                         </div>
                     </div>
 
-                    <div className="flex items-center gap-6 shrink-0 bg-white/5 p-4 rounded-2xl border border-white/10">
-                        <div className="flex flex-col items-center lg:items-end">
-                            <span className="text-[9px] font-black text-white/40 uppercase tracking-widest mb-1">Forecast_Scope</span>
-                            <span className="text-xs font-black text-white uppercase tracking-tighter px-3 py-1 bg-white/10 rounded-md">14-DAY_WINDOW</span>
+                    <div className="flex items-center gap-4 lg:gap-6 w-full lg:w-auto bg-white/5 p-4 rounded-2xl border border-white/10 overflow-hidden">
+                        <div className="flex flex-col items-start lg:items-end flex-1 lg:flex-none">
+                            <span className="text-[8px] lg:text-[9px] font-black text-white/40 uppercase tracking-widest mb-1">Forecast_Scope</span>
+                            <span className="text-[10px] lg:text-xs font-black text-white uppercase tracking-tighter px-2 lg:px-3 py-1 bg-white/10 rounded-md whitespace-nowrap">14-DAY_WINDOW</span>
                         </div>
-                        <div className="h-10 w-[1px] bg-white/10" />
-                        <div className="flex items-center gap-3">
-                            <Gauge className="w-5 h-5 text-emerald-400" />
-                            <span className="text-[10px] font-black text-white uppercase tracking-widest leading-none">Optimal<br />Status</span>
+                        <div className="h-10 w-[1px] bg-white/10 shrink-0"></div>
+                        <div className="flex items-center gap-3 shrink-0">
+                            <Gauge className="w-4 h-4 lg:w-5 h-5 text-emerald-400" />
+                            <span className="text-[9px] lg:text-[10px] font-black text-white uppercase tracking-widest leading-none">Optimal<br />Status</span>
                         </div>
                     </div>
                 </div>
