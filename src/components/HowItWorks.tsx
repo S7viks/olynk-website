@@ -1,4 +1,5 @@
 import { useRef } from 'react';
+import { Link } from 'react-router-dom';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { Database, Brain, Zap, ArrowRight, CheckCircle2, ShieldCheck, Clock } from 'lucide-react';
 
@@ -212,13 +213,13 @@ const HowItWorks = () => {
 
             {/* Explorer Call-to-Action */}
             <div className="mt-24 flex justify-center">
-                <button className="group px-12 py-6 bg-transparent border-2 border-beige hover:border-navy rounded-2xl transition-all duration-500 flex items-center gap-6 active:scale-95 shadow-sm">
+                <Link to="/platform" className="group px-12 py-6 bg-transparent border-2 border-beige hover:border-navy rounded-2xl transition-all duration-500 flex items-center gap-6 active:scale-95 shadow-sm">
                     <div className="flex flex-col items-start">
                         <span className="text-[10px] font-black text-tan uppercase tracking-[0.3em] font-mono mb-1">Scroll_to_explore</span>
                         <span className="text-lg font-black text-navy tracking-tightest">View Platform Stack</span>
                     </div>
                     <ArrowRight className="w-6 h-6 text-navy group-hover:translate-x-3 transition-transform duration-500" />
-                </button>
+                </Link>
             </div>
             {/* Background Subtle Labels - Tone-on-Tone Reveal */}
             <div className="absolute top-0 right-0 p-10 opacity-0 group-hover:opacity-100 transition-opacity duration-700 select-none pointer-events-none">

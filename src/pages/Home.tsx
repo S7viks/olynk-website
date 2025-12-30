@@ -17,7 +17,7 @@
 
 
 import { Link } from 'react-router-dom';
-import { useState } from 'react';
+import { useState, useRef } from 'react';
 import { motion } from 'framer-motion';
 import { ArrowRight, CheckCircle, ArrowDown, Search, Brain, CreditCard, Zap } from 'lucide-react';
 import Navbar from '../components/Navbar';
@@ -33,6 +33,11 @@ import FixMechanismModal from '../components/FixMechanismModal';
 const Home = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [activeIndustry, setActiveIndustry] = useState<{ title: string; layers: any[] }>({ title: 'Operational Intelligence', layers: [] });
+  const diagnosticRef = useRef<HTMLDivElement>(null);
+
+  const scrollToDiagnostic = () => {
+    diagnosticRef.current?.scrollIntoView({ behavior: 'smooth' });
+  };
 
   const homeLayers = [
     {
@@ -124,9 +129,13 @@ const Home = () => {
         </div>
 
         {/* Scroll Indicator */}
-        <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-20 animate-bounce">
+        <button
+          onClick={scrollToDiagnostic}
+          className="absolute bottom-8 left-1/2 -translate-x-1/2 z-20 animate-bounce cursor-pointer hover:scale-110 transition-transform"
+          aria-label="Scroll to content"
+        >
           <ArrowDown className="w-6 h-6 text-tan" />
-        </div>
+        </button>
       </section>
 
       {/* SECTION 2: Trust Bar */}
@@ -138,7 +147,7 @@ const Home = () => {
       </section>
 
       {/* SECTION 3: The Diagnostic Matrix (Refined Clinical) */}
-      <section className="group py-16 lg:py-24 px-4 sm:px-6 lg:px-8 bg-cream border-t border-beige relative overflow-hidden">
+      <section ref={diagnosticRef} className="group py-16 lg:py-24 px-4 sm:px-6 lg:px-8 bg-cream border-t border-beige relative overflow-hidden">
         {/* 1. Dynamic Background Layer (Blur Blobs) */}
         <div className="absolute inset-0 overflow-hidden pointer-events-none z-0">
           <motion.div
