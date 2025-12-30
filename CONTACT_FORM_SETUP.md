@@ -2,18 +2,18 @@
 
 ## ✅ Contact Form Database Complete!
 
-Your contact form is now fully connected to Firebase and ready to collect and manage submissions.
+Your contact form is now fully connected to Supabase and ready to collect and manage submissions.
 
 ## 📁 What's Been Set Up:
 
 ### 1. **Contact Form Component** (`src/components/ContactForm.tsx`)
-- Standalone contact form with Firebase integration
+- Standalone contact form with Supabase integration
 - Form validation and error handling
 - Success/error state management
 - Beautiful, responsive design
 
 ### 2. **Footer Contact Form** (`src/components/Footer.tsx`)
-- Updated footer contact form to use Firebase
+- Updated footer contact form to use Supabase
 - Real-time form submission
 - Success/error feedback
 - Form state management
@@ -25,12 +25,12 @@ Your contact form is now fully connected to Firebase and ready to collect and ma
 - Status management
 - Detailed message view
 
-### 4. **Firebase Service** (`src/services/firebaseService.ts`)
+### 4. **Supabase Integration** (`src/supabase.ts`)
 - Enhanced `contactService` with complete CRUD operations
 - Status management functions
 - Query and filtering capabilities
 
-## 🔥 Firebase Collections:
+## 🔥 Supabase Tables:
 
 Your contact form submissions are stored in the `contactForms` collection with:
 ```typescript
@@ -92,7 +92,7 @@ Your contact form submissions are stored in the `contactForms` collection with:
 
 ### **Submit Contact Form:**
 ```typescript
-import { contactService } from '../services/firebaseService';
+import { supabase } from '../supabase';
 
 const handleSubmit = async (formData) => {
   try {
@@ -121,7 +121,7 @@ const newSubmissions = await contactService.getSubmissionsByStatus('new');
 
 ## 🔐 Security Rules:
 
-Make sure to set up Firestore security rules in your Firebase Console:
+Make sure to set up Row Level Security (RLS) policies in your Supabase Dashboard:
 
 ```javascript
 rules_version = '2';
@@ -145,7 +145,7 @@ service cloud.firestore {
 
 ## 📞 Support:
 
-Your contact form is now fully functional and ready to collect real user inquiries! All submissions will be stored in Firebase and can be managed through the admin dashboard.
+Your contact form is now fully functional and ready to collect real user inquiries! All submissions will be stored in Supabase and can be managed through the admin dashboard.
 
 **Access Points:**
 - Contact Form: `/contact`

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { firebaseService, demoService, contactService, earlyAccessService } from '../services/firebaseService';
+import { supabase } from '../supabase';
 
 interface DatabaseStats {
   demoRequests: number;
@@ -26,22 +26,22 @@ const DatabaseChecker: React.FC = () => {
       setError(null);
 
       const [
-        demoRequests,
-        contactForms,
-        earlyAccessRequests,
-        newsletterSubscriptions
+        { data: demoRequests },
+        { data: contactForms },
+        { data: earlyAccessRequests },
+        { data: newsletterSubscriptions }
       ] = await Promise.all([
-        firebaseService.getDocuments('demoRequests'),
-        firebaseService.getDocuments('contactForms'),
-        firebaseService.getDocuments('earlyAccessRequests'),
-        firebaseService.getDocuments('newsletterSubscriptions')
+        supabase.from('demo_requests').select('*'),
+        supabase.from('contact_forms').select('*'),
+        supabase.from('early_access_requests').select('*'),
+                 supabase.from('newsletter_signups').select('*')
       ]);
 
       setStats({
-        demoRequests: demoRequests.length,
-        contactForms: contactForms.length,
-        earlyAccessRequests: earlyAccessRequests.length,
-        newsletterSubscriptions: newsletterSubscriptions.length
+        demoRequests: demoRequests?.length || 0,
+        contactForms: contactForms?.length || 0,
+        earlyAccessRequests: earlyAccessRequests?.length || 0,
+        newsletterSubscriptions: newsletterSubscriptions?.length || 0
       });
     } catch (err) {
       setError(err instanceof Error ? err.message : 'Failed to load database stats');
@@ -55,8 +55,14 @@ const DatabaseChecker: React.FC = () => {
       setLoading(true);
       setError(null);
       
-      const data = await firebaseService.getDocuments(collectionName);
-      setCollectionData(data);
+      const { data, error } = await supabase
+        .from(collectionName)
+        .select('*')
+        .order('created_at', { ascending: false });
+
+      if (error) throw error;
+      
+      setCollectionData(data || []);
       setSelectedCollection(collectionName);
       setViewingData(true);
     } catch (err) {
@@ -68,9 +74,6 @@ const DatabaseChecker: React.FC = () => {
 
   const formatTimestamp = (timestamp: any) => {
     if (!timestamp) return 'N/A';
-    if (timestamp.toDate) {
-      return timestamp.toDate().toLocaleString();
-    }
     return new Date(timestamp).toLocaleString();
   };
 

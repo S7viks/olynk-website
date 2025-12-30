@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { earlyAccessService } from '../services/firebaseService';
+import { supabase } from '../supabase';
 
 interface EarlyAccessApplication {
   id: string;
@@ -29,8 +29,13 @@ const AdminDashboard: React.FC = () => {
   const loadApplications = async () => {
     try {
       setLoading(true);
-      const data = await earlyAccessService.getApplications();
-      setApplications(data);
+      const { data, error } = await supabase
+        .from('early_access_requests')
+        .select('*')
+        .order('created_at', { ascending: false });
+
+      if (error) throw error;
+      setApplications(data || []);
     } catch (error) {
       console.error('Error loading applications:', error);
     } finally {
@@ -40,7 +45,13 @@ const AdminDashboard: React.FC = () => {
 
   const handleStatusUpdate = async (applicationId: string, newStatus: EarlyAccessApplication['status']) => {
     try {
-      await earlyAccessService.updateApplicationStatus(applicationId, newStatus);
+      const { error } = await supabase
+        .from('early_access_requests')
+        .update({ status: newStatus })
+        .eq('id', applicationId);
+
+      if (error) throw error;
+      
       // Reload applications to get updated data
       await loadApplications();
     } catch (error) {

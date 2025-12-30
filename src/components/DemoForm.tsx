@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { demoService } from '../services/firebaseService';
+import { demoService } from '../services/supabaseService';
 
 const DemoForm: React.FC = () => {
   const [formData, setFormData] = useState({

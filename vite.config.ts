@@ -9,8 +9,28 @@ export default defineConfig({
   build: {
     assetsDir: 'assets',
     copyPublicDir: true,
+    rollupOptions: {
+      output: {
+        manualChunks: undefined,
+        assetFileNames: 'assets/[name]-[hash][extname]',
+        chunkFileNames: 'assets/[name]-[hash].js',
+        entryFileNames: 'assets/[name]-[hash].js',
+      },
+    },
+    sourcemap: false,
+    minify: 'esbuild',
+    target: 'esnext',
+    outDir: 'dist',
   },
   optimizeDeps: {
     exclude: ['lucide-react'],
+  },
+  server: {
+    port: 3000,
+    host: true,
+  },
+  preview: {
+    port: 3000,
+    host: true,
   },
 });
