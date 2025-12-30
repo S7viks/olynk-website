@@ -235,7 +235,7 @@ const Home = () => {
               >
                 {/* Side A: The Symptom (Clinical Pain) */}
                 <div className="lg:col-span-7 p-6 lg:p-10 border-b lg:border-b-0 lg:border-r border-beige">
-                  <div className="flex items-start gap-6 mb-8">
+                  <div className="flex items-start gap-4 lg:gap-6 mb-6 lg:mb-8">
                     <div className="w-10 h-10 rounded-lg bg-cream flex items-center justify-center shrink-0 border border-beige/60">
                       <pattern.icon className="w-4 h-4 text-navy opacity-40" />
                     </div>
@@ -244,23 +244,23 @@ const Home = () => {
                     </div>
                   </div>
 
-                  <div className="space-y-8">
-                    <p className="text-lg lg:text-xl font-medium text-steel leading-tight italic font-serif">
+                  <div className="space-y-6 lg:space-y-8">
+                    <p className="text-base lg:text-xl font-medium text-steel leading-tight italic font-serif">
                       "{pattern.quote}"
                     </p>
-                    <p className="text-base text-steel max-w-xl leading-relaxed">
+                    <p className="text-sm lg:text-base text-steel max-w-xl leading-relaxed">
                       {pattern.detail}
                     </p>
 
                     {/* Multi-Metric Cost Indicator */}
-                    <div className="pt-8 border-t border-beige flex flex-wrap gap-12">
-                      <div className="space-y-4">
-                        <span className="text-[10px] font-black text-tan uppercase tracking-widest block">{pattern.costLabel}</span>
-                        <div className="flex gap-10">
+                    <div className="pt-6 lg:pt-8 border-t border-beige flex flex-wrap gap-8 lg:gap-12">
+                      <div className="space-y-3 lg:space-y-4">
+                        <span className="text-[9px] lg:text-[10px] font-black text-tan uppercase tracking-widest block">{pattern.costLabel}</span>
+                        <div className="flex gap-8 lg:gap-10">
                           {pattern.costMetrics.map((m, mi) => (
                             <div key={mi} className="space-y-1">
-                              <span className="text-[10px] font-bold text-navy/20 block uppercase tracking-tighter">{m.label}</span>
-                              <span className={`text-xl font-black ${m.color === 'text-red-400' ? 'text-red-600' : 'text-red-500'} font-mono tracking-tighter`}>{m.val}</span>
+                              <span className="text-[9px] lg:text-[10px] font-bold text-navy/20 block uppercase tracking-tighter">{m.label}</span>
+                              <span className={`text-lg lg:text-xl font-black ${m.color === 'text-red-400' ? 'text-red-600' : 'text-red-500'} font-mono tracking-tighter`}>{m.val}</span>
                             </div>
                           ))}
                         </div>
@@ -270,24 +270,24 @@ const Home = () => {
                 </div>
 
                 {/* Side B: The Intervention (The Olynk Shift) */}
-                <div className="lg:col-span-5 p-6 lg:p-10 bg-white flex flex-col justify-center relative border-l border-beige/40">
-                  <div className="relative z-10 space-y-8">
+                <div className="lg:col-span-5 p-6 lg:p-10 bg-white flex flex-col justify-center relative lg:border-l border-beige/40">
+                  <div className="relative z-10 space-y-6 lg:space-y-8">
                     <div className="flex items-center gap-4">
                       <div className="p-1 rounded-full bg-olynk/5">
                         <Zap className="w-4 h-4 text-olynk" strokeWidth={3} />
                       </div>
                     </div>
-                    <div className="space-y-4">
-                      <h4 className="text-2xl lg:text-4xl font-black text-navy leading-[0.95] tracking-tightest">
+                    <div className="space-y-3 lg:space-y-4">
+                      <h4 className="text-xl lg:text-4xl font-black text-navy leading-[0.95] tracking-tightest">
                         {pattern.intervention}
                       </h4>
-                      <p className="text-base lg:text-lg text-steel font-medium leading-relaxed">
+                      <p className="text-sm lg:text-lg text-steel font-medium leading-relaxed">
                         {pattern.solution}
                       </p>
                     </div>
                     <button
                       onClick={openModal}
-                      className="flex items-center gap-3 group/btn text-navy font-black text-[12px] uppercase tracking-widest pt-4 border-b border-navy/20 hover:border-navy w-fit pb-1 hover:gap-5 transition-all"
+                      className="flex items-center gap-3 group/btn text-navy font-black text-[10px] lg:text-[12px] uppercase tracking-widest pt-4 border-b border-navy/20 hover:border-navy w-fit pb-1 hover:gap-5 transition-all"
                     >
                       Review Fix Mechanism
                       <ArrowRight className="w-4 h-4 transition-transform" />

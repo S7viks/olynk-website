@@ -51,29 +51,29 @@ const FixMechanismModal = ({ isOpen, onClose, layers, industryTitle, selectedLay
                         transition={{ type: "spring", damping: 25, stiffness: 300 }}
                         className="fixed inset-0 z-50 flex items-center justify-center p-6 pointer-events-none"
                     >
-                        <div className="bg-white rounded-[48px] border-2 border-navy shadow-2xl max-w-4xl w-full max-h-[85vh] overflow-hidden pointer-events-auto relative">
+                        <div className="bg-white rounded-3xl lg:rounded-[48px] border-2 border-navy shadow-2xl max-w-4xl w-full max-h-[90vh] lg:max-h-[85vh] overflow-hidden pointer-events-auto relative mx-4">
 
                             {/* Close Button */}
                             <button
                                 onClick={onClose}
-                                className="absolute top-8 right-8 w-12 h-12 rounded-2xl bg-cream border border-beige hover:bg-navy hover:border-navy hover:text-white transition-all flex items-center justify-center z-10 group"
+                                className="absolute top-4 right-4 lg:top-8 lg:right-8 w-10 h-10 lg:w-12 lg:h-12 rounded-xl lg:rounded-2xl bg-cream border border-beige hover:bg-navy hover:border-navy hover:text-white transition-all flex items-center justify-center z-10 group"
                             >
                                 <X className="w-5 h-5" />
                             </button>
 
                             {/* Header */}
-                            <div className="bg-gradient-to-br from-cream to-beige border-b-2 border-navy/10 p-10">
+                            <div className="bg-gradient-to-br from-cream to-beige border-b-2 border-navy/10 p-6 lg:p-10">
                                 <div className="flex items-center gap-3 mb-4">
                                     <div className="w-3 h-3 rounded-full bg-olynk animate-pulse" />
-                                    <span className="text-[10px] font-mono font-black text-tan uppercase tracking-[0.3em]">
+                                    <span className="text-[8px] lg:text-[10px] font-mono font-black text-tan uppercase tracking-[0.2em] lg:tracking-[0.3em]">
                                         SYSTEM_ARCHITECTURE // {industryTitle.toUpperCase()}
                                     </span>
                                 </div>
-                                <h2 className="text-4xl lg:text-5xl font-black text-navy mb-4 tracking-tight">
-                                    Fix Mechanism <br />
-                                    <span className="text-olynk italic font-serif font-normal">Analysis</span>
+                                <h2 className="text-2xl lg:text-5xl font-black text-navy mb-3 lg:mb-4 tracking-tight leading-tight">
+                                    Fix Mechanism <br className="hidden lg:block" />
+                                    <span className="text-olynk italic font-serif font-normal text-xl lg:text-5xl">Analysis</span>
                                 </h2>
-                                <p className="text-steel text-lg font-medium leading-relaxed max-w-2xl">
+                                <p className="text-steel text-sm lg:text-lg font-medium leading-relaxed max-w-2xl">
                                     Explore how Olynk's operational intelligence layers work together to solve {industryTitle.toLowerCase()} challenges.
                                 </p>
                             </div>
@@ -81,9 +81,9 @@ const FixMechanismModal = ({ isOpen, onClose, layers, industryTitle, selectedLay
                             {/* Scrollable Content */}
                             <div
                                 ref={scrollContainerRef}
-                                className="overflow-y-auto max-h-[calc(85vh-280px)] p-10"
+                                className="overflow-y-auto max-h-[calc(90vh-200px)] lg:max-h-[calc(85vh-280px)] p-6 lg:p-10"
                             >
-                                <div className="space-y-8">
+                                <div className="space-y-6 lg:space-y-8">
                                     {layers.map((layer, index) => (
                                         <motion.div
                                             key={layer.id}
@@ -94,42 +94,42 @@ const FixMechanismModal = ({ isOpen, onClose, layers, industryTitle, selectedLay
                                             className="group"
                                         >
                                             {/* Layer Card */}
-                                            <div className={`p-8 rounded-3xl bg-cream border-2 transition-all ${selectedLayerId === layer.id ? 'border-olynk shadow-lg bg-white ring-4 ring-olynk/10' : 'border-beige hover:border-navy/30'}`}>
-                                                <div className="flex items-start gap-6">
+                                            <div className={`p-5 lg:p-8 rounded-2xl lg:rounded-3xl bg-cream border-2 transition-all ${selectedLayerId === layer.id ? 'border-olynk shadow-lg bg-white ring-4 ring-olynk/10' : 'border-beige hover:border-navy/30'}`}>
+                                                <div className="flex flex-col lg:flex-row items-start gap-4 lg:gap-6">
                                                     {/* Index Badge */}
-                                                    <div className="w-14 h-14 rounded-2xl bg-white border-2 border-navy flex items-center justify-center shrink-0">
-                                                        <span className="text-xl font-black font-mono text-navy">
+                                                    <div className="w-10 h-10 lg:w-14 lg:h-14 rounded-xl lg:rounded-2xl bg-white border-2 border-navy flex items-center justify-center shrink-0">
+                                                        <span className="text-lg lg:text-xl font-black font-mono text-navy">
                                                             0{index + 1}
                                                         </span>
                                                     </div>
 
                                                     <div className="flex-1">
                                                         {/* Layer Title */}
-                                                        <div className="flex items-center gap-3 mb-3">
-                                                            <h3 className="text-2xl font-black text-navy uppercase tracking-tight">
+                                                        <div className="flex items-center gap-3 mb-2 lg:mb-3">
+                                                            <h3 className="text-lg lg:text-2xl font-black text-navy uppercase tracking-tight">
                                                                 {layer.title}
                                                             </h3>
-                                                            <CheckCircle2 className="w-5 h-5 text-emerald-500" />
+                                                            <CheckCircle2 className="w-4 h-4 lg:w-5 h-5 text-emerald-500" />
                                                         </div>
 
                                                         {/* Layer Description */}
-                                                        <p className="text-steel text-base leading-relaxed mb-6 font-medium">
+                                                        <p className="text-steel text-sm lg:text-base leading-relaxed mb-4 lg:mb-6 font-medium">
                                                             {layer.desc}
                                                         </p>
 
                                                         {/* Technical Implementation */}
-                                                        <div className="bg-white/60 rounded-2xl p-6 border border-olynk/10">
-                                                            <div className="flex items-start gap-3 mb-3">
-                                                                <Zap className="w-5 h-5 text-olynk shrink-0 mt-0.5" fill="currentColor" fillOpacity={0.1} />
+                                                        <div className="bg-white/60 rounded-xl lg:rounded-2xl p-4 lg:p-6 border border-olynk/10">
+                                                            <div className="flex items-start gap-3">
+                                                                <Zap className="w-4 h-4 lg:w-5 h-5 text-olynk shrink-0 mt-0.5" fill="currentColor" fillOpacity={0.1} />
                                                                 <div>
-                                                                    <span className="text-[10px] font-black font-mono text-olynk uppercase tracking-widest block mb-2">
+                                                                    <span className="text-[8px] lg:text-[10px] font-black font-mono text-olynk uppercase tracking-widest block mb-2">
                                                                         TECHNICAL_IMPLEMENTATION
                                                                     </span>
                                                                     <div className="space-y-2">
                                                                         {getTechnicalDetails(layer.id).map((detail, i) => (
                                                                             <div key={i} className="flex items-start gap-2">
-                                                                                <ArrowRight className="w-4 h-4 text-navy shrink-0 mt-0.5" />
-                                                                                <span className="text-sm text-navy font-bold leading-relaxed">
+                                                                                <ArrowRight className="w-3 h-3 lg:w-4 lg:h-4 text-navy shrink-0 mt-0.5" />
+                                                                                <span className="text-xs lg:text-sm text-navy font-bold leading-relaxed">
                                                                                     {detail}
                                                                                 </span>
                                                                             </div>
@@ -144,8 +144,8 @@ const FixMechanismModal = ({ isOpen, onClose, layers, industryTitle, selectedLay
 
                                             {/* Connection Line */}
                                             {index < layers.length - 1 && (
-                                                <div className="flex justify-center py-4">
-                                                    <div className="w-0.5 h-8 bg-gradient-to-b from-navy/40 to-navy/10" />
+                                                <div className="flex justify-center py-3 lg:py-4">
+                                                    <div className="w-0.5 h-6 lg:h-8 bg-gradient-to-b from-navy/40 to-navy/10" />
                                                 </div>
                                             )}
                                         </motion.div>
@@ -154,12 +154,12 @@ const FixMechanismModal = ({ isOpen, onClose, layers, industryTitle, selectedLay
                             </div>
 
                             {/* Footer CTA */}
-                            <div className="bg-gradient-to-t from-cream to-white border-t-2 border-navy/10 p-8 flex items-center justify-between">
-                                <div>
-                                    <p className="text-sm font-bold text-navy mb-1">Ready to deploy?</p>
-                                    <p className="text-xs text-steel font-medium">Start your pilot in minutes.</p>
+                            <div className="bg-gradient-to-t from-cream to-white border-t-2 border-navy/10 p-6 lg:p-8 flex flex-col sm:flex-row items-center justify-between gap-4">
+                                <div className="text-center sm:text-left">
+                                    <p className="text-xs lg:text-sm font-bold text-navy mb-0.5 lg:mb-1">Ready to deploy?</p>
+                                    <p className="text-[10px] lg:text-xs text-steel font-medium">Start your pilot in minutes.</p>
                                 </div>
-                                <button className="bg-navy text-white px-8 py-4 rounded-2xl text-xs font-black uppercase tracking-widest hover:bg-olynk transition-all shadow-xl hover:-translate-y-1">
+                                <button className="w-full sm:w-auto bg-navy text-white px-6 lg:px-8 py-3 lg:py-4 rounded-xl lg:rounded-2xl text-[10px] lg:text-xs font-black uppercase tracking-widest hover:bg-olynk transition-all shadow-xl hover:-translate-y-1">
                                     Request Demo
                                 </button>
                             </div>
