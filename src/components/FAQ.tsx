@@ -71,22 +71,22 @@ const FAQItem = ({ question, answer, isOpen, onClick, idx }: { question: string,
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5, delay: idx * 0.1 }}
-      className={`border-b border-beige transition-all duration-500 rounded-2xl mb-3 overflow-hidden ${isOpen ? 'bg-white shadow-sm' : 'hover:bg-white bg-white/40'}`}
+      className={`border-b border-beige transition-all duration-500 rounded-xl lg:rounded-2xl mb-2 lg:mb-3 overflow-hidden ${isOpen ? 'bg-white shadow-sm' : 'hover:bg-white bg-white/40'}`}
     >
       <button
         onClick={onClick}
-        className="w-full py-4 lg:py-6 flex items-center justify-between text-left group px-6 lg:px-8"
+        className="w-full py-4 lg:py-6 flex items-center justify-between text-left group px-4 lg:px-8"
       >
-        <div className="flex items-center gap-6">
-          <span className={`text-[9px] font-black font-mono transition-colors duration-500 ${isOpen ? 'text-olynk' : 'text-tan'}`}>
+        <div className="flex items-center gap-3 lg:gap-6">
+          <span className={`text-[8px] lg:text-[9px] font-black font-mono transition-colors duration-500 ${isOpen ? 'text-olynk' : 'text-tan'}`}>
             0{idx + 1}
           </span>
-          <h3 className={`text-base lg:text-lg font-black transition-colors duration-500 ${isOpen ? 'text-navy' : 'text-steel group-hover:text-navy'}`}>
+          <h3 className={`text-sm lg:text-lg font-black transition-colors duration-500 ${isOpen ? 'text-navy' : 'text-steel group-hover:text-navy'} pr-4 lg:pr-0`}>
             {question}
           </h3>
         </div>
-        <div className={`shrink-0 ml-4 p-2 rounded-full border transition-all duration-500 ${isOpen ? 'bg-navy border-navy text-white rotate-180' : 'bg-transparent border-beige text-tan group-hover:border-tan'}`}>
-          {isOpen ? <Minus className="w-4 h-4" /> : <Plus className="w-4 h-4" />}
+        <div className={`shrink-0 p-1.5 lg:p-2 rounded-full border transition-all duration-500 ${isOpen ? 'bg-navy border-navy text-white rotate-180' : 'bg-transparent border-beige text-tan group-hover:border-tan'}`}>
+          {isOpen ? <Minus className="w-3 h-3 lg:w-4 lg:h-4" /> : <Plus className="w-3 h-3 lg:w-4 lg:h-4" />}
         </div>
       </button>
 
@@ -99,14 +99,14 @@ const FAQItem = ({ question, answer, isOpen, onClick, idx }: { question: string,
             transition={{ duration: 0.5, ease: [0.33, 1, 0.68, 1] }}
             className="overflow-hidden"
           >
-            <div className="pb-8 px-6 lg:px-8 pl-14 lg:pl-20 pr-8 lg:pr-32">
-              <p className="text-sm lg:text-base text-steel leading-relaxed font-medium">
+            <div className="pb-6 lg:pb-8 px-4 lg:px-8 pl-10 lg:pl-20 pr-4 lg:pr-32">
+              <p className="text-xs lg:text-base text-steel leading-relaxed font-medium">
                 {answer}
               </p>
 
-              <div className="mt-8 flex items-center gap-4">
-                <div className="w-8 h-[1px] bg-tan" />
-                <span className="text-[10px] font-black text-tan uppercase tracking-[0.2em] font-mono">Response_Validated_Active</span>
+              <div className="mt-6 lg:mt-8 flex items-center gap-3 lg:gap-4">
+                <div className="w-6 lg:w-8 h-[1px] bg-tan" />
+                <span className="text-[8px] lg:text-[10px] font-black text-tan uppercase tracking-[0.2em] font-mono">Response_Validated_Active</span>
               </div>
             </div>
           </motion.div>
@@ -121,8 +121,8 @@ const FAQ = () => {
   const [openIndex, setOpenIndex] = useState<number | null>(0);
 
   return (
-    <section className="group py-24 lg:py-32 bg-cream relative overflow-hidden border-t border-beige">
-      {/* 1. Dynamic Background Layer */}
+    <section className="group py-16 lg:py-32 bg-cream relative overflow-hidden border-t border-beige">
+      {/* ... dynamic background ... */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <motion.div
           animate={{ x: [0, -100, 0], y: [0, -50, 0], scale: [1, 1.1, 1] }}
@@ -136,56 +136,53 @@ const FAQ = () => {
         />
       </div>
 
-      {/* 2. Complex Radial Gradient Overlay */}
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_80%,rgba(255,255,255,0.5),rgba(243,234,224,0.1))]" />
 
-      {/* 3. Subtle Grain Texture */}
       <div className="absolute inset-0 opacity-[0.04] mix-blend-overlay pointer-events-none z-0"
         style={{ backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E")` }} />
 
-      {/* Background Subtle Labels */}
-      <div className="absolute top-0 right-0 p-10 opacity-0 group-hover:opacity-100 transition-opacity duration-700 select-none pointer-events-none">
-        <span className="text-[120px] font-black font-mono text-beige leading-none tracking-tightest uppercase">QUERY_ONLINE</span>
+      <div className="absolute top-0 right-0 p-6 lg:p-10 opacity-0 group-hover:opacity-100 transition-opacity duration-700 select-none pointer-events-none">
+        <span className="text-4xl lg:text-[120px] font-black font-mono text-beige leading-none tracking-tightest uppercase">QUERY_ONLINE</span>
       </div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
 
         {/* Header Block */}
-        <div className="mb-20 flex flex-col lg:flex-row lg:items-end lg:justify-between gap-12">
+        <div className="mb-12 lg:mb-20 flex flex-col lg:flex-row lg:items-end lg:justify-between gap-8 lg:gap-12">
           <div className="max-w-3xl">
-            <div className="flex items-center gap-4 mb-6">
-              <div className="w-12 h-[1px] bg-tan" />
-              <span className="text-[10px] font-black text-olynk uppercase tracking-[0.4em] font-mono">Knowledge Base</span>
+            <div className="flex items-center gap-3 lg:gap-4 mb-4 lg:mb-6">
+              <div className="w-8 lg:w-12 h-[1px] bg-tan" />
+              <span className="text-[8px] lg:text-[10px] font-black text-olynk uppercase tracking-[0.4em] font-mono">Knowledge Base</span>
             </div>
-            <h2 className="text-4xl lg:text-5xl font-black text-navy tracking-tightest leading-tight mb-6">
+            <h2 className="text-3xl lg:text-5xl font-black text-navy tracking-tightest leading-tight mb-4 lg:mb-6">
               Questions from <br />
-              <span className="text-olynk">modern commerce leaders.</span>
+              <span className="text-olynk text-2xl lg:text-5xl">modern commerce leaders.</span>
             </h2>
-            <p className="text-lg lg:text-xl text-steel font-medium leading-relaxed max-w-2xl">
+            <p className="text-base lg:text-xl text-steel font-medium leading-relaxed max-w-2xl">
               Everything you need to know about integrating Olynk OS into your <span className="text-navy font-bold">existing operations</span>.
             </p>
           </div>
 
           <div className="flex flex-col gap-4">
-            <div className="p-6 bg-white border border-beige rounded-2xl shadow-sm flex items-center gap-6">
-              <div className="w-12 h-12 rounded-xl bg-cream flex items-center justify-center text-navy font-bold border border-beige/40">
-                <ShieldCheck className="w-6 h-6" />
+            <div className="p-4 lg:p-6 bg-white border border-beige rounded-xl lg:rounded-2xl shadow-sm flex items-center gap-4 lg:gap-6 w-fit lg:w-auto">
+              <div className="w-10 h-10 lg:w-12 lg:h-12 rounded-lg lg:rounded-xl bg-cream flex items-center justify-center text-navy font-bold border border-beige/40">
+                <ShieldCheck className="w-5 h-5 lg:w-6 h-6" />
               </div>
-              <div className="space-y-1">
-                <span className="text-[10px] font-black text-tan uppercase tracking-[0.2em] font-mono block">Certificate_Valid</span>
-                <span className="text-sm font-bold text-navy">SOC 2 Type II Certified</span>
+              <div className="space-y-0.5 lg:space-y-1">
+                <span className="text-[8px] lg:text-[10px] font-black text-tan uppercase tracking-[0.2em] font-mono block">Certificate_Valid</span>
+                <span className="text-xs lg:text-sm font-bold text-navy">SOC 2 Type II Certified</span>
               </div>
             </div>
           </div>
         </div>
 
         {/* Tabs & Content Container */}
-        <div className="grid lg:grid-cols-12 gap-12 lg:gap-24">
+        <div className="grid lg:grid-cols-12 gap-8 lg:gap-24">
 
-          {/* Tab Navigation (Sidebar on Desktop, Top on Mobile) */}
+          {/* Tab Navigation */}
           <div className="lg:col-span-4">
             <div className="sticky top-24 space-y-4">
-              <div className="flex lg:flex-col gap-4 overflow-x-auto pb-4 lg:pb-0 no-scrollbar">
+              <div className="flex lg:flex-col gap-3 overflow-x-auto pb-4 lg:pb-0 no-scrollbar">
                 {(Object.keys(FAQ_CATEGORIES) as FAQCategory[]).map((category) => {
                   const isActive = activeTab === category;
                   const Icon = FAQ_CATEGORIES[category].icon;
@@ -197,25 +194,25 @@ const FAQ = () => {
                         setOpenIndex(0);
                       }}
                       className={`
-                          shrink-0 flex items-center gap-4 px-6 py-4 rounded-xl border transition-all duration-300 w-full text-left group/tab
+                          shrink-0 flex items-center gap-3 lg:gap-4 px-4 lg:px-6 py-3 lg:py-4 rounded-xl border transition-all duration-300 w-auto lg:w-full text-left group/tab
                           ${isActive
-                          ? 'bg-navy border-navy shadow-lg'
-                          : 'bg-white/40 border-beige hover:bg-white hover:border-tan/50'
+                          ? 'bg-navy border-navy shadow-lg text-white'
+                          : 'bg-white/40 border-beige text-navy hover:bg-white hover:border-tan/50'
                         }
                         `}
                     >
                       <div className={`
-                          w-10 h-10 rounded-lg flex items-center justify-center transition-colors duration-300
+                          w-8 h-8 lg:w-10 lg:h-10 rounded-lg flex items-center justify-center transition-colors duration-300
                           ${isActive ? 'bg-white/10 text-white' : 'bg-cream text-navy/40 group-hover/tab:text-navy'}
                         `}>
-                        <Icon className="w-5 h-5" />
+                        <Icon className="w-4 h-4 lg:w-5 h-5" />
                       </div>
                       <div className="flex flex-col">
-                        <span className={`text-[10px] font-black uppercase tracking-widest font-mono mb-0.5 transition-colors duration-300 ${isActive ? 'text-white/40' : 'text-tan'}`}>
-                          Category
+                        <span className={`text-[8px] lg:text-[10px] font-black uppercase tracking-widest font-mono mb-0.5 transition-colors duration-300 ${isActive ? 'text-white/40' : 'text-tan'}`}>
+                          {isActive ? 'Active' : 'Category'}
                         </span>
-                        <span className={`text-sm font-bold transition-colors duration-300 ${isActive ? 'text-white' : 'text-navy'}`}>
-                          {FAQ_CATEGORIES[category].label}
+                        <span className={`text-xs lg:text-sm font-bold transition-colors duration-300`}>
+                          {category}
                         </span>
                       </div>
                       {isActive && (
@@ -242,7 +239,7 @@ const FAQ = () => {
 
           {/* Questions Panel */}
           <div className="lg:col-span-8">
-            <div className="space-y-4 min-h-[500px]">
+            <div className="space-y-2 lg:space-y-4 min-h-0 lg:min-h-[500px]">
               <AnimatePresence mode="wait">
                 <motion.div
                   key={activeTab}
@@ -268,19 +265,19 @@ const FAQ = () => {
         </div>
 
         {/* Bottom CTA / Help */}
-        <div className="mt-24 p-10 lg:p-14 bg-navy rounded-[40px] relative overflow-hidden group">
-          <div className="absolute top-0 right-0 opacity-10 transition-transform duration-700 group-hover:scale-125">
-            <Zap className="w-64 h-64 text-white" />
+        <div className="mt-16 lg:mt-24 p-8 lg:p-14 bg-navy rounded-3xl lg:rounded-[40px] relative overflow-hidden group">
+          <div className="absolute top-0 right-0 opacity-5 lg:opacity-10 transition-transform duration-700 group-hover:scale-125">
+            <Zap className="w-48 h-48 lg:w-64 lg:h-64 text-white" />
           </div>
 
-          <div className="relative z-10 lg:flex lg:items-center lg:justify-between gap-12">
-            <div className="max-w-2xl space-y-6">
-              <h3 className="text-3xl lg:text-4xl font-black text-white tracking-tightest">Still have questions?</h3>
-              <p className="text-xl text-cream font-medium">
+          <div className="relative z-10 flex flex-col lg:flex-row lg:items-center lg:justify-between gap-8 lg:gap-12">
+            <div className="max-w-2xl space-y-4 lg:space-y-6">
+              <h3 className="text-2xl lg:text-4xl font-black text-white tracking-tightest">Still have questions?</h3>
+              <p className="text-lg lg:text-xl text-cream font-medium">
                 Our operations experts are ready to walk you through Olynk OS with your own data.
               </p>
             </div>
-            <button className="mt-10 lg:mt-0 px-10 py-5 bg-white text-navy rounded-xl font-black text-[13px] uppercase tracking-widest hover:bg-cream transition-all duration-300 shadow-2xl active:scale-95 flex items-center gap-4">
+            <button className="w-full lg:w-auto px-8 py-4 lg:px-10 lg:py-5 bg-white text-navy rounded-xl font-black text-[11px] lg:text-[13px] uppercase tracking-widest hover:bg-cream transition-all duration-300 shadow-2xl active:scale-95 flex items-center justify-center lg:justify-start gap-3 lg:gap-4">
               Speak to an Expert
               <Plus className="w-4 h-4 rotate-45" />
             </button>
@@ -288,16 +285,16 @@ const FAQ = () => {
         </div>
 
         {/* Trust Indicators */}
-        <div className="mt-16 flex flex-wrap items-center justify-center gap-12 text-[11px] font-black text-tan uppercase tracking-[0.3em] font-mono">
-          <div className="flex items-center gap-3">
+        <div className="mt-12 lg:mt-16 flex flex-wrap items-center justify-center gap-6 lg:gap-12 text-[8px] lg:text-[11px] font-black text-tan uppercase tracking-[0.3em] font-mono">
+          <div className="flex items-center gap-2 lg:gap-3">
             <Lock className="w-3 h-3" />
             <span>AES_256_ENCRYPTION</span>
           </div>
-          <div className="flex items-center gap-3">
-            <div className="w-2 h-2 rounded-full bg-emerald-500" />
+          <div className="flex items-center gap-2 lg:gap-3">
+            <div className="w-1.5 lg:w-2 h-1.5 lg:h-2 rounded-full bg-emerald-500" />
             <span>99.9%_SYSTEM_UPTIME</span>
           </div>
-          <div className="flex items-center gap-3">
+          <div className="flex items-center gap-2 lg:gap-3">
             <ShieldCheck className="w-3 h-3" />
             <span>DATA_TRAINING_ISOLATION</span>
           </div>
