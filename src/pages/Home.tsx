@@ -27,8 +27,9 @@ import HowItWorks from '../components/HowItWorks';
 import InteractiveBackground from '../components/InteractiveBackground';
 import TestimonialsGrid from '../components/TestimonialsGrid';
 import FAQ from '../components/FAQ';
-const Home = () => {
 
+
+const Home = () => {
   return (
     <div className="min-h-screen bg-cream">
       <Navbar />
@@ -87,13 +88,7 @@ const Home = () => {
 
           {/* 2. Command Center Visual */}
           <div className="w-full max-w-full mx-auto relative px-4 lg:px-6">
-            <motion.div
-              initial={{ opacity: 0, scale: 0.95 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.4 }}
-            >
-              <OlynkDashboard />
-            </motion.div>
+            <OlynkDashboard />
           </div>
 
         </div>
@@ -167,8 +162,7 @@ const Home = () => {
                 ],
                 intervention: "Get one master view",
                 solution: "No more checking 12 tools. Just one screen that shows you exactly how much money you’re making.",
-                accent: "navy",
-                link: "/platform/fabric"
+                accent: "navy"
               },
               {
                 id: "02",
@@ -183,8 +177,7 @@ const Home = () => {
                 ],
                 intervention: "Prevent losses automatically",
                 solution: "See problems 30 days before they hit. We fix them while you’re asleep.",
-                accent: "olynk",
-                link: "/platform/insight"
+                accent: "olynk"
               },
               {
                 id: '03',
@@ -199,8 +192,7 @@ const Home = () => {
                 ],
                 intervention: "AI handles the paperwork",
                 solution: "Olynk handles the boring admin work so you can focus on growing your enterprise.",
-                accent: "navy",
-                link: "/platform/core"
+                accent: "navy"
               }
             ].map((pattern, idx) => (
               <motion.div
@@ -263,13 +255,10 @@ const Home = () => {
                         {pattern.solution}
                       </p>
                     </div>
-                    <Link
-                      to={pattern.link}
-                      className="flex items-center gap-3 group/btn text-navy font-black text-[12px] uppercase tracking-widest pt-4 border-b border-navy/20 hover:border-navy w-fit pb-1 hover:gap-5 transition-all"
-                    >
+                    <button className="flex items-center gap-3 group/btn text-navy font-black text-[12px] uppercase tracking-widest pt-4 border-b border-navy/20 hover:border-navy w-fit pb-1 hover:gap-5 transition-all">
                       Review Fix Mechanism
                       <ArrowRight className="w-4 h-4 transition-transform" />
-                    </Link>
+                    </button>
                   </div>
                 </div>
               </motion.div>
