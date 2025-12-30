@@ -25,8 +25,8 @@ const DataPipeline = () => {
                             key={i}
                             r="2.5"
                             fill="#2563EB"
-                            initial={{ style: { offsetDistance: "0%" } as any }}
-                            animate={{ style: { offsetDistance: "100%" } as any }}
+                            initial={{ offsetDistance: "0%" }}
+                            animate={{ offsetDistance: "100%" }}
                             transition={{
                                 duration: 4 + Math.random() * 2,
                                 repeat: Infinity,
@@ -160,7 +160,7 @@ const Fabric = () => {
                             <Database className="w-3 h-3" />
                             Data Layer
                         </div>
-                        <h1 className="text-5xl sm:text-6xl lg:text-7xl font-black text-navy leading-[1.1] tracking-tight mb-8">
+                        <h1 className="text-4xl sm:text-6xl lg:text-7xl font-black text-navy leading-[1.1] tracking-tight mb-8">
                             Connect and <br />
                             <span className="text-olynk">unify everything.</span>
                         </h1>
@@ -179,7 +179,7 @@ const Fabric = () => {
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
                         transition={{ duration: 0.8, delay: 0.2 }}
-                        className="relative rounded-[40px] overflow-hidden shadow-[0_32px_80px_-16px_rgba(30,41,59,0.1)] border border-beige bg-white aspect-[21/9] min-h-[500px]"
+                        className="relative rounded-[32px] sm:rounded-[40px] overflow-hidden shadow-[0_32px_80px_-16px_rgba(30,41,59,0.1)] border border-beige bg-white aspect-auto lg:aspect-[21/9] min-h-[400px] lg:min-h-[500px]"
                     >
                         <DataPipeline />
 
@@ -199,7 +199,7 @@ const Fabric = () => {
             {/* Technical Capabilities Showcase */}
             <section className="py-20 lg:py-24 bg-cream border-t border-beige relative">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                    <div className="grid md:grid-cols-3 gap-16">
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-12 sm:gap-16">
                         {[
                             {
                                 icon: Network,

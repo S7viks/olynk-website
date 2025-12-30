@@ -17,7 +17,7 @@ const Solutions = () => {
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.8 }}
           >
-            <h1 className="text-5xl lg:text-8xl font-black text-navy leading-[1.05] tracking-tightest mb-8">
+            <h1 className="text-4xl sm:text-6xl lg:text-8xl font-black text-navy leading-[1.05] tracking-tightest mb-8">
               Built for<br />
               <span className="text-olynk">High-Velocity Operations.</span>
             </h1>
@@ -38,7 +38,7 @@ const Solutions = () => {
         <div className="max-w-7xl mx-auto relative z-10">
           <div className="grid lg:grid-cols-3 gap-8">
             {/* Column 1: The Threshold */}
-            <div className="bg-white p-10 rounded-[40px] border border-beige/60 shadow-sm space-y-8">
+            <div className="bg-white p-6 sm:p-10 rounded-[32px] sm:rounded-[40px] border border-beige/60 shadow-sm space-y-8">
               <div className="w-12 h-12 rounded-2xl bg-cream flex items-center justify-center">
                 <Activity className="w-6 h-6 text-navy" />
               </div>
@@ -59,7 +59,7 @@ const Solutions = () => {
             </div>
 
             {/* Column 2: Industries */}
-            <div className="bg-navy p-10 rounded-[40px] border border-navy shadow-xl space-y-8 relative overflow-hidden">
+            <div className="bg-navy p-6 sm:p-10 rounded-[32px] sm:rounded-[40px] border border-navy shadow-xl space-y-8 relative overflow-hidden">
               <div className="absolute top-0 right-0 p-6 opacity-[0.1] text-white">
                 <Users2 className="w-20 h-20" />
               </div>
@@ -80,7 +80,7 @@ const Solutions = () => {
             </div>
 
             {/* Column 3: Decision Makers */}
-            <div className="bg-white p-10 rounded-[40px] border border-beige/60 shadow-sm space-y-8">
+            <div className="bg-white p-6 sm:p-10 rounded-[32px] sm:rounded-[40px] border border-beige/60 shadow-sm space-y-8">
               <div className="w-12 h-12 rounded-2xl bg-cream flex items-center justify-center">
                 <BarChart3 className="w-6 h-6 text-olynk" />
               </div>
@@ -106,16 +106,16 @@ const Solutions = () => {
       {/* Core Capability Matrix */}
       <section className="py-24 lg:py-32 px-4 border-t border-beige relative">
         <div className="max-w-4xl mx-auto text-center mb-24">
-          <h2 className="text-4xl lg:text-7xl font-black text-navy tracking-tightest leading-[0.95] mb-8">
+          <h2 className="text-3xl sm:text-5xl lg:text-7xl font-black text-navy tracking-tightest leading-[0.95] mb-8">
             The End of<br />
-            <span className="text-navy/40 italic font-serif font-normal text-5xl lg:text-6xl">Information Gaps.</span>
+            <span className="text-navy/40 italic font-serif font-normal text-3xl sm:text-5xl lg:text-6xl">Information Gaps.</span>
           </h2>
         </div>
 
         <div className="max-w-7xl mx-auto">
           <div className="grid md:grid-cols-3 gap-0 rounded-[48px] overflow-hidden border border-beige shadow-2xl bg-white">
             {/* Solution 1 */}
-            <div className="p-12 border-b md:border-b-0 md:border-r border-beige hover:bg-cream/20 transition-colors group">
+            <div className="p-8 sm:p-12 border-b md:border-b-0 md:border-r border-beige hover:bg-cream/20 transition-colors group">
               <div className="w-14 h-14 rounded-2xl bg-cream flex items-center justify-center mb-8 group-hover:scale-110 transition-transform">
                 <ShoppingCart className="w-7 h-7 text-olynk" />
               </div>
@@ -155,7 +155,7 @@ const Solutions = () => {
             </div>
 
             {/* Solution 3 */}
-            <div className="p-12 hover:bg-cream/20 transition-colors group">
+            <div className="p-8 sm:p-12 hover:bg-cream/20 transition-colors group">
               <div className="w-14 h-14 rounded-2xl bg-cream flex items-center justify-center mb-8 group-hover:scale-110 transition-transform">
                 <TrendingUp className="w-7 h-7 text-olynk" />
               </div>

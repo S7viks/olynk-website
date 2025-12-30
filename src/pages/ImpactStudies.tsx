@@ -11,7 +11,7 @@ const ImpactStudies = () => {
                             <Award className="w-3 h-3 text-navy" />
                             <span className="text-[10px] font-black uppercase tracking-[0.2em] text-navy font-mono">CASE_STUDIES</span>
                         </div>
-                        <h1 className="text-5xl lg:text-7xl font-black text-navy mb-6 tracking-tight">Impact Studies</h1>
+                        <h1 className="text-4xl sm:text-5xl lg:text-7xl font-black text-navy mb-6 tracking-tight leading-tightest">Impact Studies</h1>
                         <p className="text-xl text-steel font-medium">Real results from businesses using Olynk.</p>
                     </motion.div>
                 </div>
@@ -25,19 +25,19 @@ const ImpactStudies = () => {
                         { company: "Healthcare Provider", metric: "99.9% Compliance", desc: "achieved across all protocols", vertical: "CLINICAL" }
                     ].map((study, i) => (
                         <motion.div key={i} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ delay: i * 0.1 }}
-                            className="p-10 rounded-3xl bg-cream border-2 border-beige">
+                            className="p-6 sm:p-10 rounded-[32px] sm:rounded-[40px] bg-cream border-2 border-beige">
                             <div className="flex items-start justify-between mb-6">
                                 <div className="flex-1">
-                                    <span className="text-xs font-mono font-black text-olynk uppercase tracking-widest mb-3 block">{study.vertical}</span>
-                                    <h3 className="text-3xl font-black text-navy mb-2">{study.company}</h3>
-                                    <div className="flex items-baseline gap-3 mb-2">
-                                        <span className="text-5xl font-black text-olynk">{study.metric}</span>
-                                        <TrendingUp className="w-6 h-6 text-emerald-500" />
+                                    <span className="text-[10px] font-mono font-black text-olynk uppercase tracking-widest mb-3 block">{study.vertical}</span>
+                                    <h3 className="text-xl sm:text-3xl font-black text-navy mb-2">{study.company}</h3>
+                                    <div className="flex flex-col sm:flex-row sm:items-baseline gap-1 sm:gap-3 mb-4">
+                                        <span className="text-4xl sm:text-5xl font-black text-olynk">{study.metric}</span>
+                                        <TrendingUp className="hidden sm:block w-6 h-6 text-emerald-500" />
                                     </div>
-                                    <p className="text-steel font-medium text-lg">{study.desc}</p>
+                                    <p className="text-steel font-medium text-base sm:text-lg">{study.desc}</p>
                                 </div>
                             </div>
-                            <button className="text-navy font-black text-sm uppercase tracking-widest hover:text-olynk transition-all">
+                            <button className="text-navy font-black text-[10px] sm:text-xs uppercase tracking-widest hover:text-olynk transition-all pt-4 border-t border-navy/10 w-full text-left">
                                 Download Full Case Study →
                             </button>
                         </motion.div>

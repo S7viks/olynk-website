@@ -132,7 +132,7 @@ const Orbit = () => {
                             <Eye className="w-3.5 h-3.5" />
                             Governance Layer
                         </div>
-                        <h1 className="text-5xl lg:text-7xl font-black text-navy leading-[1.05] tracking-tightest mb-8">
+                        <h1 className="text-4xl sm:text-5xl lg:text-7xl font-black text-navy leading-[1.05] tracking-tightest mb-8">
                             Deploy, secure, <br /><span className="text-olynk">and monitor.</span>
                         </h1>
                         <p className="text-xl text-steel max-w-2xl mx-auto leading-relaxed font-medium mb-12">
@@ -150,16 +150,16 @@ const Orbit = () => {
 
                             {/* Left: Security Status */}
                             <div className="space-y-10">
-                                <div className="flex items-center gap-8">
-                                    <div className="w-56 h-56 rounded-3xl bg-navy/5 flex items-center justify-center border border-navy/5 overflow-hidden relative shadow-inner">
+                                <div className="flex flex-col sm:flex-row items-center gap-8">
+                                    <div className="w-48 h-48 sm:w-56 sm:h-56 rounded-3xl bg-navy/5 flex items-center justify-center border border-navy/5 overflow-hidden relative shadow-inner">
                                         <GovernanceOrbit />
                                     </div>
-                                    <div>
+                                    <div className="text-center sm:text-left">
                                         <div className="inline-flex items-center gap-2 px-3 py-1 bg-emerald-500/10 border border-emerald-500/20 rounded-full mb-4">
                                             <ShieldCheck className="w-3.5 h-3.5 text-emerald-600" />
                                             <span className="text-[10px] font-black text-emerald-600 uppercase tracking-widest">Active_Guard</span>
                                         </div>
-                                        <h2 className="text-4xl font-black text-navy uppercase tracking-tight">System Secure</h2>
+                                        <h2 className="text-3xl sm:text-4xl font-black text-navy uppercase tracking-tight">System Secure</h2>
                                         <p className="text-navy/60 font-mono text-[11px] font-black uppercase tracking-widest mt-2">Uptime: 99.9999%</p>
                                     </div>
                                 </div>
@@ -236,7 +236,7 @@ const Orbit = () => {
             {/* Feature Showcase Grid */}
             <section className="py-16 lg:py-20 bg-cream border-t border-beige relative">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                    <div className="grid md:grid-cols-3 gap-12">
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
                         {[
                             {
                                 icon: Globe,

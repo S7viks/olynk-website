@@ -32,7 +32,7 @@ import FixMechanismModal from '../components/FixMechanismModal';
 
 const Home = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const [activeIndustry, setActiveIndustry] = useState({ title: 'Operational Intelligence', layers: [] });
+  const [activeIndustry, setActiveIndustry] = useState<{ title: string; layers: any[] }>({ title: 'Operational Intelligence', layers: [] });
 
   const homeLayers = [
     {
@@ -74,7 +74,7 @@ const Home = () => {
           <div className="text-center max-w-4xl mx-auto space-y-8 mb-8 relative z-20">
 
             {/* Headline */}
-            <h1 className="text-5xl lg:text-7xl font-black text-navy leading-[1.1] tracking-tightest">
+            <h1 className="text-4xl sm:text-5xl lg:text-7xl font-black text-navy leading-[1.1] tracking-tightest">
               An AI that runs
               <span className="block mt-2 text-gradient">
                 your operations.
@@ -285,7 +285,7 @@ const Home = () => {
                         {pattern.solution}
                       </p>
                     </div>
-                    <button 
+                    <button
                       onClick={openModal}
                       className="flex items-center gap-3 group/btn text-navy font-black text-[12px] uppercase tracking-widest pt-4 border-b border-navy/20 hover:border-navy w-fit pb-1 hover:gap-5 transition-all"
                     >

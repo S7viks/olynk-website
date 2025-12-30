@@ -31,7 +31,7 @@ const OlynkDashboard = () => {
 
     return (
         <motion.div
-            className="w-full max-w-full mx-auto p-4"
+            className="w-full max-w-full mx-auto p-2 sm:p-4"
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
@@ -40,19 +40,19 @@ const OlynkDashboard = () => {
             <div className="relative bg-white border border-beige shadow-[0_40px_80px_-20px_rgba(0,27,61,0.15)] rounded-3xl overflow-hidden">
 
                 {/* 1. TOP INTEGRATED STATUS BAR */}
-                <div className="flex items-center justify-between px-8 py-3 border-b border-beige bg-cream">
-                    <div className="flex items-center gap-6">
+                <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between px-4 sm:px-8 py-3 border-b border-beige bg-cream gap-4 sm:gap-0">
+                    <div className="flex items-center gap-4 sm:gap-6">
                         <div className="flex items-center gap-2">
                             <div className="w-2 h-2 rounded-full bg-emerald-500 shadow-[0_0_8px_rgba(16,185,129,0.2)]" />
                             <span className="text-[10px] font-black text-navy uppercase tracking-widest font-mono">System_Active</span>
                         </div>
-                        <div className="h-3 w-[1px] bg-beige" />
+                        <div className="hidden sm:block h-3 w-[1px] bg-beige" />
                         <div className="flex items-center gap-2">
                             <Cpu className="w-3.5 h-3.5 text-navy opacity-40" />
                             <span className="text-[10px] font-black text-navy uppercase tracking-widest font-mono">Model:A9-D3</span>
                         </div>
                     </div>
-                    <div className="flex items-center gap-6">
+                    <div className="flex items-center justify-between w-full sm:w-auto gap-6 sm:gap-6">
                         <div className="flex items-center gap-2">
                             <Clock className="w-3.5 h-3.5 text-tan" />
                             <span className="text-[10px] font-black text-tan uppercase tracking-widest font-mono">14:02:11</span>
@@ -64,10 +64,10 @@ const OlynkDashboard = () => {
                     </div>
                 </div>
 
-                <div className="grid grid-cols-12 min-h-[460px]">
+                <div className="flex flex-col lg:grid lg:grid-cols-12 min-h-0 lg:min-h-[460px]">
 
                     {/* 2. LEFT PANEL: COMPRESSED HEALTH TELEMETRY */}
-                    <aside className="col-span-3 p-6 border-r border-beige space-y-4 bg-cream">
+                    <aside className="lg:col-span-3 p-4 sm:p-6 border-b lg:border-b-0 lg:border-r border-beige space-y-4 bg-cream">
                         <div className="space-y-8">
                             <div className="flex items-center justify-between border-b border-beige pb-2">
                                 <h3 className="text-[10px] font-black text-tan uppercase tracking-widest">Health Telemetry</h3>
@@ -115,7 +115,7 @@ const OlynkDashboard = () => {
                     </aside>
 
                     {/* 3. CENTER: HERO DECISION WINDSHIELD */}
-                    <main className="col-span-6 p-6 bg-white flex flex-col justify-center border-r border-beige/30">
+                    <main className="lg:col-span-6 p-4 sm:p-6 bg-white flex flex-col justify-center border-b lg:border-b-0 lg:border-r border-beige/30">
                         <div className="max-w-xl mx-auto w-full space-y-6">
                             <div className="space-y-6">
                                 <div className="flex items-center gap-3">
@@ -131,7 +131,7 @@ const OlynkDashboard = () => {
                                     <div className="flex items-center gap-2">
                                         <span className="text-[10px] font-black text-navy uppercase tracking-[0.3em] font-mono bg-cream px-2 py-0.5 rounded border border-beige">Action Required</span>
                                     </div>
-                                    <h2 className="text-2xl lg:text-3xl font-black text-navy leading-tight tracking-tightest">
+                                    <h2 className="text-xl sm:text-2xl lg:text-3xl font-black text-navy leading-tight tracking-tightest">
                                         SKU-214 will run out of stock in <span className="text-olynk italic font-serif">6 days.</span>
                                     </h2>
                                     <div className="flex items-center gap-2.5">
@@ -141,7 +141,7 @@ const OlynkDashboard = () => {
                                 </div>
                             </div>
 
-                            <div className="grid grid-cols-2 gap-4">
+                            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                                 <div className="p-5 rounded-2xl bg-white border border-beige shadow-sm">
                                     <div className="flex items-center gap-3 mb-3">
                                         <Zap className="w-4 h-4 text-olynk" strokeWidth={3} />
@@ -189,7 +189,7 @@ const OlynkDashboard = () => {
                     </main>
 
                     {/* 4. RIGHT PANEL: ENRICHED LOGIC STACK (NOW WITH CHARTS) */}
-                    <aside className="col-span-3 p-6 space-y-4 bg-cream overflow-y-auto">
+                    <aside className="lg:col-span-3 p-4 sm:p-6 space-y-4 bg-cream overflow-y-auto">
                         <div className="space-y-4">
                             {/* Logic Stack Header */}
                             <div className="flex items-center justify-end gap-3 border-b border-beige pb-2">
@@ -297,7 +297,7 @@ const OlynkDashboard = () => {
                 </div>
 
                 {/* 5. BOTTOM IMPACT STRIP */}
-                <div className="px-6 lg:px-10 py-6 bg-navy flex flex-col lg:flex-row items-center justify-between gap-8 lg:gap-12 border-t border-white/5">
+                <div className="px-4 sm:px-10 py-6 bg-navy flex flex-col lg:flex-row items-center justify-between gap-8 lg:gap-12 border-t border-white/5">
                     <div className="grid grid-cols-2 md:grid-cols-4 lg:flex lg:items-center gap-8 lg:gap-16 w-full lg:w-auto">
 
                         <div className="space-y-1.5 flex flex-col">

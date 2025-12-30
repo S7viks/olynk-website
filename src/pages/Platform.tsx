@@ -22,12 +22,12 @@ const Platform = () => {
                         <div className="inline-block mb-6 px-4 py-1.5 rounded-full border border-olynk/30 bg-cream">
                             <span className="text-[10px] font-black text-tan uppercase tracking-[0.2em] font-mono">Architecture_Schema // v2.04</span>
                         </div>
-                        <h1 className="text-5xl lg:text-7xl font-black text-navy leading-[1.05] tracking-tightest mb-8 uppercase">
+                        <h1 className="text-4xl sm:text-5xl lg:text-7xl font-black text-navy leading-[1.05] tracking-tightest mb-8 uppercase">
                             One Platform. <br />
                             <span className="text-olynk">Four Engines.</span> <br />
                             Total Intelligence.
                         </h1>
-                        <p className="text-xl lg:text-2xl text-steel max-w-3xl mx-auto leading-relaxed font-medium mb-12">
+                        <p className="text-lg sm:text-xl lg:text-2xl text-steel max-w-3xl mx-auto leading-relaxed font-medium mb-12">
                             The enterprise-grade AI operating system for modern commerce.
                             No fragmentation. <span className="text-navy font-black">Just Unified Performance.</span>
                         </p>
@@ -77,7 +77,7 @@ const Platform = () => {
                                 bg: 'bg-beige'
                             }
                         ].map((engine) => (
-                            <a href={`#${engine.id}`} key={engine.name} className="group p-8 rounded-3xl bg-white border border-beige hover:border-navy hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-1">
+                            <a href={`#${engine.id}`} key={engine.name} className="group p-6 sm:p-8 rounded-2xl sm:rounded-3xl bg-white border border-beige hover:border-navy hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-1">
                                 <div className={`w-14 h-14 rounded-2xl ${engine.bg} border border-beige/40 flex items-center justify-center mb-6 group-hover:bg-white transition-colors`}>
                                     <engine.icon className={`w-7 h-7 ${engine.color}`} />
                                 </div>
@@ -137,7 +137,7 @@ const Platform = () => {
                             <Database className="w-4 h-4 text-tan" />
                             Unified Data Layer
                         </div>
-                        <h2 className="text-4xl lg:text-6xl font-black text-navy tracking-tightest leading-none uppercase">
+                        <h2 className="text-3xl sm:text-4xl lg:text-6xl font-black text-navy tracking-tightest leading-none uppercase">
                             Olynk Fabric
                         </h2>
                         <h3 className="text-xl lg:text-2xl text-steel font-medium leading-tight">
@@ -179,7 +179,7 @@ const Platform = () => {
                             <Brain className="w-4 h-4 text-tan" />
                             Intelligence Layer
                         </div>
-                        <h2 className="text-4xl lg:text-6xl font-black text-navy tracking-tightest leading-none uppercase">
+                        <h2 className="text-3xl sm:text-4xl lg:text-6xl font-black text-navy tracking-tightest leading-none uppercase">
                             Olynk Insight
                         </h2>
                         <h3 className="text-xl lg:text-2xl text-steel font-medium leading-tight">
@@ -312,7 +312,7 @@ const Platform = () => {
                             <Zap className="w-4 h-4 text-navy" />
                             Execution Layer
                         </div>
-                        <h2 className="text-4xl lg:text-6xl font-black text-navy tracking-tightest leading-none uppercase">
+                        <h2 className="text-3xl sm:text-4xl lg:text-6xl font-black text-navy tracking-tightest leading-none uppercase">
                             Olynk Core
                         </h2>
                         <h3 className="text-xl lg:text-2xl text-steel font-medium leading-tight">
@@ -356,7 +356,7 @@ const Platform = () => {
                             <MessageSquare className="w-4 h-4 text-olynk" />
                             Interface Layer
                         </div>
-                        <h2 className="text-4xl lg:text-6xl font-black text-white tracking-tightest leading-none uppercase">
+                        <h2 className="text-3xl sm:text-4xl lg:text-6xl font-black text-white tracking-tightest leading-none uppercase">
                             Olynk Orbit
                         </h2>
                         <h3 className="text-xl lg:text-2xl text-white/80 font-medium leading-tight">
@@ -473,7 +473,7 @@ const Platform = () => {
                                 whileInView={{ opacity: 1, y: 0 }}
                                 viewport={{ once: true }}
                                 transition={{ duration: 0.6, delay: 0.2 }}
-                                className="grid grid-cols-3 gap-4"
+                                className="grid grid-cols-2 sm:grid-cols-3 gap-4"
                             >
                                 {[
                                     { name: 'Shopify', label: 'eCommerce' },
@@ -509,7 +509,7 @@ const Platform = () => {
             {/* SECTION 8: FINAL CTA */}
             <section className="py-20 lg:py-24 px-4 border-t border-beige relative overflow-hidden">
                 <div className="max-w-5xl mx-auto text-center relative z-10">
-                    <h2 className="text-4xl lg:text-6xl font-black text-navy tracking-tightest leading-[0.95] mb-12">
+                    <h2 className="text-3xl sm:text-4xl lg:text-6xl font-black text-navy tracking-tightest leading-[0.95] mb-12">
                         Ready to deploy <br />
                         <span className="text-olynk">True Intelligence?</span>
                     </h2>

@@ -83,11 +83,11 @@ const HowItWorks = () => {
                         <span className="text-[10px] font-black text-olynk uppercase tracking-[0.5em] font-mono">Platform Architecture</span>
                         <div className="w-12 h-[1px] bg-olynk/40 font-mono" />
                     </div>
-                    <h2 className="text-4xl lg:text-5xl font-black text-navy mb-10 tracking-tightest leading-[0.95] max-w-4xl">
+                    <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-navy mb-6 tracking-tightest leading-[0.95] max-w-4xl">
                         From chaos to <br />
-                        <span className="text-olynk italic font-serif font-normal">autonomous order.</span>
+                        <span className="text-olynk italic font-serif font-normal text-4xl sm:text-5xl lg:text-6xl">autonomous order.</span>
                     </h2>
-                    <p className="text-lg lg:text-xl text-steel font-medium leading-relaxed max-w-2xl">
+                    <p className="text-base sm:text-lg lg:text-xl text-steel font-medium leading-relaxed max-w-2xl px-2 sm:px-0">
                         Olynk is an intelligent operating layer that sits above your apps. We <span className="text-navy font-bold underline decoration-beige decoration-4 underline-offset-4">link</span> your data, <span className="text-navy font-bold underline decoration-beige decoration-4 underline-offset-4">think</span> through your problems, and <span className="text-navy font-bold underline decoration-beige decoration-4 underline-offset-4">execute</span> the fixes.
                     </p>
                 </div>
@@ -126,7 +126,7 @@ const HowItWorks = () => {
                                 </div>
 
                                 {/* Content Card */}
-                                <div className="bg-white/40 backdrop-blur-xl border border-white rounded-[40px] p-10 lg:p-12 shadow-sm hover:shadow-2xl hover:border-olynk/10 transition-all duration-700 group/card relative overflow-hidden flex flex-col flex-1 h-full">
+                                <div className="bg-white/40 backdrop-blur-xl border border-white rounded-[32px] sm:rounded-[40px] p-6 sm:p-10 lg:p-12 shadow-sm hover:shadow-2xl hover:border-olynk/10 transition-all duration-700 group/card relative overflow-hidden flex flex-col flex-1 h-full">
                                     {/* Card ID Mask */}
                                     <div className="absolute top-0 right-0 p-8 opacity-5 group-hover/card:opacity-10 transition-opacity">
                                         <span className="text-6xl font-black font-mono tracking-tighter">{protocol.id}</span>
@@ -182,7 +182,7 @@ const HowItWorks = () => {
                     {/* Time Pod */}
                     <div className="flex items-center gap-10 p-10 bg-navy rounded-[40px] text-white shadow-2xl relative overflow-hidden group/pod">
                         <div className="flex flex-col">
-                            <span className="text-7xl font-black tracking-tightest leading-none mb-2">15:00</span>
+                            <span className="text-5xl sm:text-7xl font-black tracking-tightest leading-none mb-2">15:00</span>
                             <span className="text-[10px] font-bold text-white/40 uppercase tracking-[0.4em] font-mono">Minutes_to_deploy</span>
                         </div>
                         <div className="h-20 w-[1px] bg-white/20" />
@@ -197,12 +197,12 @@ const HowItWorks = () => {
 
                     {/* Security Pod */}
                     <div className="flex items-center gap-10 p-10 bg-white border border-beige rounded-[40px] shadow-sm hover:shadow-xl transition-all duration-500 group/pod relative overflow-hidden">
-                        <div className="w-16 h-16 rounded-2xl bg-emerald-50 flex items-center justify-center shrink-0">
-                            <ShieldCheck className="w-8 h-8 text-emerald-600" />
+                        <div className="w-12 h-12 sm:w-16 sm:h-16 rounded-2xl bg-emerald-50 flex items-center justify-center shrink-0">
+                            <ShieldCheck className="w-6 h-6 sm:w-8 sm:h-8 text-emerald-600" />
                         </div>
-                        <div className="space-y-2">
-                            <h4 className="text-xl font-black text-navy tracking-tight">Enterprise-grade security.</h4>
-                            <p className="text-steel font-medium">
+                        <div className="space-y-1 sm:space-y-2">
+                            <h4 className="text-lg sm:text-xl font-black text-navy tracking-tight">Enterprise-grade security.</h4>
+                            <p className="text-sm sm:text-base text-steel font-medium">
                                 Your data is protected by bank-level encryption. <span className="text-navy font-bold">SOC 2 Type II Certified.</span>
                             </p>
                         </div>

@@ -164,7 +164,7 @@ const Insight = () => {
                             <Zap className="w-3 h-3" />
                             Intelligence Layer
                         </div>
-                        <h1 className="text-5xl sm:text-6xl lg:text-7xl font-black text-navy leading-[1.1] tracking-tight mb-8">
+                        <h1 className="text-4xl sm:text-6xl lg:text-7xl font-black text-navy leading-[1.1] tracking-tight mb-8">
                             See clearly. <br />
                             <span className="text-olynk">Decide confidently.</span>
                         </h1>
@@ -183,7 +183,7 @@ const Insight = () => {
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
                         transition={{ duration: 0.8, delay: 0.2 }}
-                        className="relative rounded-[40px] overflow-hidden shadow-[0_32px_80px_-16px_rgba(30,41,59,0.1)] border border-beige bg-white"
+                        className="relative rounded-[32px] sm:rounded-[40px] overflow-hidden shadow-[0_32px_80px_-16px_rgba(30,41,59,0.1)] border border-beige bg-white"
                     >
                         {/* Browser/Window Header */}
                         <div className="h-16 border-b border-beige bg-cream/30 backdrop-blur-md flex items-center px-6 lg:px-8 justify-between">
@@ -211,7 +211,7 @@ const Insight = () => {
                                     <div className="flex items-center justify-between">
                                         <div className="space-y-1.5">
                                             <h3 className="text-xs font-black text-navy/60 uppercase tracking-widest">Revenue Forecast</h3>
-                                            <div className="text-5xl font-mono font-black text-navy tracking-tighter">$2,482,190 <span className="text-emerald-500 text-xl align-top font-bold ml-2">+12.4%</span></div>
+                                            <div className="text-3xl sm:text-4xl lg:text-5xl font-mono font-black text-navy tracking-tighter">$2,482,190 <span className="text-emerald-500 text-lg sm:text-xl align-top font-bold ml-2">+12.4%</span></div>
                                         </div>
                                         <div className="flex gap-2 bg-navy/5 p-1 rounded-xl">
                                             {['1D', '1W', '1M', '1Y'].map(t => (
@@ -221,18 +221,18 @@ const Insight = () => {
                                     </div>
 
                                     {/* Code-based Predictive Pulse Visual - Light Theme */}
-                                    <div className="h-[400px] w-full bg-white rounded-[32px] border border-beige overflow-hidden relative group shadow-inner">
+                                    <div className="h-[300px] sm:h-[400px] w-full bg-white rounded-[24px] sm:rounded-[32px] border border-beige overflow-hidden relative group shadow-inner">
                                         <PredictivePulse />
                                     </div>
 
-                                    <div className="grid grid-cols-2 gap-8">
-                                        <div className="bg-white border border-beige p-8 rounded-3xl shadow-sm hover:shadow-md transition-shadow">
+                                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-8">
+                                        <div className="bg-white border border-beige p-6 sm:p-8 rounded-2xl sm:rounded-3xl shadow-sm hover:shadow-md transition-shadow">
                                             <div className="text-[10px] font-black text-navy/60 uppercase tracking-widest mb-2">Model Accuracy</div>
-                                            <div className="text-3xl font-mono font-black text-navy">98.4%</div>
+                                            <div className="text-2xl sm:text-3xl font-mono font-black text-navy">98.4%</div>
                                         </div>
-                                        <div className="bg-white border border-beige p-8 rounded-3xl shadow-sm hover:shadow-md transition-shadow">
+                                        <div className="bg-white border border-beige p-6 sm:p-8 rounded-2xl sm:rounded-3xl shadow-sm hover:shadow-md transition-shadow">
                                             <div className="text-[10px] font-black text-navy/60 uppercase tracking-widest mb-2">Anomalies Detected</div>
-                                            <div className="text-3xl font-mono font-black text-olynk">12 Active</div>
+                                            <div className="text-2xl sm:text-3xl font-mono font-black text-olynk">12 Active</div>
                                         </div>
                                     </div>
                                 </div>
@@ -296,7 +296,7 @@ const Insight = () => {
             {/* Feature Capabilities Showcase */}
             <section className="py-16 lg:py-24 bg-cream border-t border-beige relative">
                 <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-                    <div className="grid md:grid-cols-3 gap-16">
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-12 sm:gap-16">
                         {[
                             {
                                 icon: TrendingUp,

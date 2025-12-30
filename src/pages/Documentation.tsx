@@ -18,11 +18,11 @@ const Documentation = () => {
                             <span className="text-[10px] font-black uppercase tracking-[0.2em] text-navy font-mono">DEVELOPER_RESOURCES</span>
                         </div>
 
-                        <h1 className="text-5xl lg:text-7xl font-black text-navy mb-6 tracking-tight">
+                        <h1 className="text-4xl sm:text-5xl lg:text-7xl font-black text-navy mb-6 tracking-tight leading-tightest">
                             Documentation
                         </h1>
 
-                        <p className="text-xl text-steel font-medium max-w-3xl mx-auto">
+                        <p className="text-lg sm:text-xl text-steel font-medium max-w-3xl mx-auto px-4 sm:px-0">
                             Everything you need to integrate Olynk into your operational stack.
                         </p>
                     </motion.div>
@@ -91,8 +91,8 @@ const Documentation = () => {
                                     </div>
                                     <span className="text-[8px] font-mono font-black text-tan uppercase tracking-widest">{item.badge}</span>
                                 </div>
-                                <h3 className="text-2xl font-black text-navy mb-4 uppercase tracking-tight">{item.title}</h3>
-                                <p className="text-steel font-medium leading-relaxed">{item.desc}</p>
+                                <h3 className="text-xl sm:text-2xl font-black text-navy mb-4 uppercase tracking-tight">{item.title}</h3>
+                                <p className="text-sm sm:text-base text-steel font-medium leading-relaxed">{item.desc}</p>
                             </motion.a>
                         ))}
                     </div>
@@ -102,13 +102,13 @@ const Documentation = () => {
             {/* CTA Section */}
             <section className="py-24 px-6 bg-navy text-white text-center">
                 <div className="max-w-4xl mx-auto">
-                    <h2 className="text-4xl lg:text-5xl font-black mb-6 tracking-tight">
+                    <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black mb-6 tracking-tight leading-tightest">
                         Need Help Getting Started?
                     </h2>
                     <p className="text-lg text-white/80 mb-10">
                         Our technical team is here to support your integration.
                     </p>
-                    <button className="bg-olynk text-white px-12 py-6 rounded-2xl text-xs font-black uppercase tracking-widest hover:bg-white hover:text-navy transition-all shadow-2xl">
+                    <button className="bg-olynk text-white px-8 sm:px-12 py-5 sm:py-6 rounded-2xl text-[10px] sm:text-xs font-black uppercase tracking-widest hover:bg-white hover:text-navy transition-all shadow-2xl">
                         Contact Technical Support
                     </button>
                 </div>

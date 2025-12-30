@@ -17,7 +17,7 @@ const AboutUs = () => {
                             <span className="text-[10px] font-black uppercase tracking-[0.2em] text-navy font-mono">COMPANY_OVERVIEW</span>
                         </div>
 
-                        <h1 className="text-5xl lg:text-7xl font-black text-navy mb-6 tracking-tight">
+                        <h1 className="text-4xl sm:text-6xl lg:text-7xl font-black text-navy mb-6 tracking-tight">
                             About <span className="text-olynk italic font-serif font-normal">Olynk</span>
                         </h1>
 
@@ -31,11 +31,11 @@ const AboutUs = () => {
             {/* Mission Section */}
             <section className="py-20 px-6 bg-white">
                 <div className="max-w-7xl mx-auto">
-                    <div className="grid md:grid-cols-2 gap-16 items-center">
+                    <div className="flex flex-col lg:grid lg:grid-cols-2 gap-12 sm:gap-16 items-center">
                         <div>
                             <div className="flex items-center gap-3 mb-6">
                                 <Target className="w-6 h-6 text-olynk" />
-                                <h2 className="text-4xl font-black text-navy">Our Mission</h2>
+                                <h2 className="text-3xl sm:text-4xl font-black text-navy">Our Mission</h2>
                             </div>
                             <p className="text-lg text-steel leading-relaxed mb-6">
                                 Olynk exists to eliminate operational friction and unlock autonomous intelligence for modern businesses. We believe that companies shouldn't waste resources on manual coordination between systems—they should focus on growth.
@@ -58,11 +58,11 @@ const AboutUs = () => {
             <section className="py-20 px-6 bg-cream">
                 <div className="max-w-7xl mx-auto">
                     <div className="text-center mb-16">
-                        <h2 className="text-4xl lg:text-5xl font-black text-navy mb-4">Our Values</h2>
+                        <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-navy mb-4">Our Values</h2>
                         <p className="text-lg text-steel">The principles that guide everything we build.</p>
                     </div>
 
-                    <div className="grid md:grid-cols-3 gap-8">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
                         {[
                             {
                                 icon: Lightbulb,
@@ -101,7 +101,7 @@ const AboutUs = () => {
             {/* CTA Section */}
             <section className="py-24 px-6 bg-navy text-white text-center">
                 <div className="max-w-4xl mx-auto">
-                    <h2 className="text-4xl lg:text-5xl font-black mb-6 tracking-tight">
+                    <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black mb-6 tracking-tight">
                         Join Our Mission
                     </h2>
                     <p className="text-lg text-white/80 mb-10">

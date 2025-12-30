@@ -109,7 +109,7 @@ const Core = () => {
                             <Brain className="w-3.5 h-3.5" />
                             Cognitive Layer
                         </div>
-                        <h1 className="text-5xl lg:text-7xl font-black text-navy leading-[1.05] tracking-tightest mb-8">
+                        <h1 className="text-4xl sm:text-5xl lg:text-7xl font-black text-navy leading-[1.05] tracking-tightest mb-8">
                             Reason, learn, <br /><span className="text-olynk">and automate.</span>
                         </h1>
                         <p className="text-xl text-steel max-w-2xl mx-auto leading-relaxed font-medium mb-12">
@@ -197,7 +197,7 @@ const Core = () => {
                         </div>
 
                         {/* Output Actions Pulse */}
-                        <div className="grid grid-cols-3 gap-6 max-w-4xl mx-auto mt-16">
+                        <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 max-w-4xl mx-auto mt-16">
                             {outputActions.map((action, i) => (
                                 <motion.div
                                     key={i}
@@ -221,7 +221,7 @@ const Core = () => {
             {/* Functional Showcase */}
             <section className="py-16 lg:py-20 bg-cream border-t border-beige relative">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                    <div className="grid md:grid-cols-3 gap-12">
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
                         {[
                             {
                                 icon: Sparkles,
