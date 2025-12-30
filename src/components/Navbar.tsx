@@ -1,14 +1,22 @@
 import { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
-import { ChevronDown, ArrowRight, Menu, X } from 'lucide-react';
+import { Link, useNavigate } from 'react-router-dom';
+import { ChevronDown, ArrowRight, Menu, X, LogOut, User } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import Logo from './Logo';
+import { useAuth } from '../contexts/AuthContext';
 
 const Navbar = () => {
+    const { user, profile, signOut, isAdmin } = useAuth();
+    const navigate = useNavigate();
     const [scrolled, setScrolled] = useState(false);
     const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
     const [isMenuOpen, setIsMenuOpen] = useState(false);
     const [activeMobileSection, setActiveMobileSection] = useState<string | null>(null);
+
+    const handleLogout = async () => {
+        await signOut();
+        navigate('/');
+    };
 
     useEffect(() => {
         const handleScroll = () => {
@@ -135,20 +143,48 @@ const Navbar = () => {
 
                 {/* Right Actions & Menu Toggle */}
                 <div className="flex items-center gap-4 lg:gap-6 ml-auto pl-6 relative z-50">
-                    <Link
-                        to="/login"
-                        className="hidden sm:block text-navy font-bold text-[13px] uppercase tracking-wide hover:text-olynk transition-colors"
-                    >
-                        Log In
-                    </Link>
-                    <Link
-                        to="/waitlist"
-                        className="bg-olynk text-white px-5 lg:px-6 py-2.5 lg:py-3 rounded-full text-[11px] lg:text-[12px] font-black uppercase tracking-widest hover:bg-olynk/90 transition-all hover:shadow-lg hover:-translate-y-0.5 flex items-center gap-2"
-                    >
-                        <span className="hidden xs:inline">Get a Demo</span>
-                        <span className="xs:hidden">Demo</span>
-                        <ArrowRight className="w-3.5 h-3.5" />
-                    </Link>
+                    {user ? (
+                        <div className="flex items-center gap-4">
+                            {isAdmin && (
+                                <Link
+                                    to="/admin/dashboard"
+                                    className="hidden md:block text-olynk font-bold text-[13px] uppercase tracking-wide hover:text-navy transition-colors"
+                                >
+                                    Admin
+                                </Link>
+                            )}
+                            <div className="flex items-center gap-2 px-3 py-1.5 bg-navy/5 rounded-full border border-navy/10">
+                                <User className="w-3.5 h-3.5 text-navy" />
+                                <span className="text-[11px] font-black text-navy uppercase tracking-widest truncate max-w-[100px]">
+                                    {profile?.full_name || user.email?.split('@')[0]}
+                                </span>
+                            </div>
+                            <button
+                                onClick={handleLogout}
+                                className="hidden sm:flex items-center gap-2 text-navy font-bold text-[13px] uppercase tracking-wide hover:text-red-600 transition-colors"
+                            >
+                                <LogOut className="w-4 h-4" />
+                                <span className="hidden lg:inline">Sign Out</span>
+                            </button>
+                        </div>
+                    ) : (
+                        <>
+                            <Link
+                                to="/login"
+                                className="hidden sm:block text-navy font-bold text-[13px] uppercase tracking-wide hover:text-olynk transition-colors"
+                            >
+                                Log In
+                            </Link>
+                            <Link
+                                to="/waitlist"
+                                className="bg-olynk text-white px-5 lg:px-6 py-2.5 lg:py-3 rounded-full text-[11px] lg:text-[12px] font-black uppercase tracking-widest hover:bg-olynk/90 transition-all hover:shadow-lg hover:-translate-y-0.5 flex items-center gap-2"
+                            >
+                                <span className="hidden xs:inline">Get a Demo</span>
+                                <span className="xs:hidden">Demo</span>
+                                <ArrowRight className="w-3.5 h-3.5" />
+                            </Link>
+                        </>
+                    )}
 
                     {/* Mobile Menu Toggle */}
                     <button
@@ -217,20 +253,54 @@ const Navbar = () => {
                             ))}
 
                             <div className="pt-8">
-                                <Link
-                                    to="/login"
-                                    onClick={() => setIsMenuOpen(false)}
-                                    className="block w-full text-center py-4 text-lg font-bold text-navy border-2 border-beige rounded-2xl mb-4"
-                                >
-                                    Log In
-                                </Link>
-                                <Link
-                                    to="/waitlist"
-                                    onClick={() => setIsMenuOpen(false)}
-                                    className="block w-full text-center py-5 text-lg font-black text-white bg-olynk rounded-2xl shadow-xl shadow-olynk/20"
-                                >
-                                    Get a Demo
-                                </Link>
+                                {user ? (
+                                    <>
+                                        <div className="flex items-center gap-3 p-4 bg-navy/5 rounded-2xl mb-4">
+                                            <div className="w-10 h-10 bg-navy text-white rounded-full flex items-center justify-center">
+                                                <User className="w-6 h-6" />
+                                            </div>
+                                            <div>
+                                                <div className="text-sm font-black text-navy">{profile?.full_name || user.email}</div>
+                                                <div className="text-[10px] text-tan uppercase tracking-widest">{profile?.role || 'USER'}</div>
+                                            </div>
+                                        </div>
+                                        {isAdmin && (
+                                            <Link
+                                                to="/admin/dashboard"
+                                                onClick={() => setIsMenuOpen(false)}
+                                                className="block w-full text-center py-4 text-lg font-bold text-olynk border-2 border-olynk/20 rounded-2xl mb-4"
+                                            >
+                                                Admin Dashboard
+                                            </Link>
+                                        )}
+                                        <button
+                                            onClick={() => {
+                                                handleLogout();
+                                                setIsMenuOpen(false);
+                                            }}
+                                            className="block w-full text-center py-4 text-lg font-bold text-red-600 border-2 border-red-100 rounded-2xl mb-4"
+                                        >
+                                            Sign Out
+                                        </button>
+                                    </>
+                                ) : (
+                                    <>
+                                        <Link
+                                            to="/login"
+                                            onClick={() => setIsMenuOpen(false)}
+                                            className="block w-full text-center py-4 text-lg font-bold text-navy border-2 border-beige rounded-2xl mb-4"
+                                        >
+                                            Log In
+                                        </Link>
+                                        <Link
+                                            to="/waitlist"
+                                            onClick={() => setIsMenuOpen(false)}
+                                            className="block w-full text-center py-5 text-lg font-black text-white bg-olynk rounded-2xl shadow-xl shadow-olynk/20"
+                                        >
+                                            Get a Demo
+                                        </Link>
+                                    </>
+                                )}
                             </div>
 
                             <div className="pt-12 text-center text-[10px] font-mono font-black text-tan uppercase tracking-[0.3em]">
