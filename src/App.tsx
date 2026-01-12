@@ -63,6 +63,9 @@ import ContactFormDashboard from './components/ContactFormDashboard';
 import AdminDashboard from './components/AdminDashboard';
 import DatabaseChecker from './components/DatabaseChecker';
 
+// Upload Components
+import AvatarUpload from './components/AvatarUpload';
+
 const App = () => {
   return (
     <ThemeProvider>
@@ -402,6 +405,21 @@ const App = () => {
                     <DatabaseChecker />
                   </ProtectedRoute>
                 } 
+              />
+
+              {/* Avatar Upload Route */}
+              <Route
+                path="/avatar/upload"
+                element={
+                  <div className="relative">
+                    <Navbar />
+                    <InteractiveBackground />
+                    <div className="container mx-auto px-4 py-12">
+                      <AvatarUpload />
+                    </div>
+                    <Footer />
+                  </div>
+                }
               />
             </Routes>
           </div>
