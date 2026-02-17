@@ -14,7 +14,7 @@ const Logo: React.FC<LogoProps> = ({ size = 'md', className = '' }) => {
 
   return (
     <img
-      src="/assets/Olynk_Logo_New.png"
+      src="/assets/Olynk_Logo.png"
       alt="Olynk Logo"
       className={`${sizeClasses[size]} object-contain transform rotate-45 ${className}`}
     />
