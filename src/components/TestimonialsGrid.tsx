@@ -12,9 +12,9 @@ import karanImg from '../assets/testimonials/karan.png';
 const TESTIMONIALS_ROW_1 = [
     {
         id: 1,
-        content: "Honestly, @olynk is the only tool that actually helps me track my commerce margins accurately. No more spreadsheet hell.",
+        content: "@olynk finally gave us one governed operating picture across ERP, commerce, and network inventory. Executive reviews start with facts, not reconciliation debates.",
         author: "Arjun Mehta",
-        handle: "@arjun_m",
+        handle: "VP Operations · Multi-brand retail",
         avatar: arjunImg,
         likes: "1.2k",
         comments: "84",
@@ -24,9 +24,9 @@ const TESTIMONIALS_ROW_1 = [
     },
     {
         id: 2,
-        content: "The stockout alerts on @olynk saved us during the festive season. Highly recommended for any commerce executive.",
+        content: "We run a high-mix network; @olynk surfaces revenue-at-risk and service-level exposure early enough for procurement and fulfillment to align before commitments lock.",
         author: "Priya Sharma",
-        handle: "@priya_ecommerce",
+        handle: "Head of Supply Chain · Manufacturing",
         avatar: priyaImg,
         likes: "850",
         comments: "42",
@@ -36,9 +36,9 @@ const TESTIMONIALS_ROW_1 = [
     },
     {
         id: 3,
-        content: "We switched from manual tracking to @olynk and our operations leg-work dropped by 60%. It's wild.",
+        content: "Approval paths and execution logs in @olynk are what our audit and finance partners needed—we scaled cross-functional playbooks without adding coordination headcount.",
         author: "Vikram Singh",
-        handle: "@vikkys",
+        handle: "Director of Operations · Health & wellness",
         avatar: vikramImg,
         likes: "2k",
         comments: "150",
@@ -48,9 +48,9 @@ const TESTIMONIALS_ROW_1 = [
     },
     {
         id: 4,
-        content: "Finally an AI tool that actually 'does' things instead of just showing charts. Great work @olynk team.",
+        content: "@olynk is the first layer we trusted to orchestrate actions across systems—not another dashboard. Policy-bound automation is the differentiator.",
         author: "Ananya Iyer",
-        handle: "@ananya_i",
+        handle: "Chief of Staff · Omnichannel commerce",
         avatar: ananyaImg,
         likes: "1.1k",
         comments: "56",
@@ -63,9 +63,9 @@ const TESTIMONIALS_ROW_1 = [
 const TESTIMONIALS_ROW_2 = [
     {
         id: 5,
-        content: "Managing 3 commerce operations was a nightmare until @olynk. The unified view is exactly what we needed.",
+        content: "Three business units, one @olynk control tower: regional SLA, working-capital signals, and a single execution queue our BU leads actually use.",
         author: "Rahul Kapoor",
-        handle: "@rahul_k",
+        handle: "SVP Operations · Consumer durables",
         avatar: rahulImg,
         likes: "900",
         comments: "38",
@@ -75,9 +75,9 @@ const TESTIMONIALS_ROW_2 = [
     },
     {
         id: 6,
-        content: "The ROI we've seen since implementing @olynk is insane. It paid for itself in the first month.",
+        content: "Board-level narrative improved materially: @olynk quantifies margin protection and revenue-at-risk reduction with the rigor our investors expect.",
         author: "Siddharth Jha",
-        handle: "@sid_jha",
+        handle: "CFO · EdTech platform",
         avatar: siddharthImg,
         likes: "1.5k",
         comments: "92",
@@ -87,9 +87,9 @@ const TESTIMONIALS_ROW_2 = [
     },
     {
         id: 7,
-        content: "Simple, powerful, and very intuitive. @olynk is definitely the future of operations.",
+        content: "Enterprise procurement loved the SOC 2 story; ops loved that @olynk reduced handoffs between planning, finance, and fulfillment without bypassing governance.",
         author: "Ishita Gupta",
-        handle: "@ishita_g",
+        handle: "VP Transformation · Logistics",
         avatar: ishitaImg,
         likes: "2.3k",
         comments: "210",
@@ -99,9 +99,9 @@ const TESTIMONIALS_ROW_2 = [
     },
     {
         id: 8,
-        content: "@olynk dashboard is my first check every morning now. Can't imagine running the business without it.",
+        content: "Our leadership stand-up runs off @olynk—network health, exception queue, and what is waiting on approvals. It is the closest thing we have to an operating system for scale.",
         author: "Karan Verma",
-        handle: "@karan_v",
+        handle: "GM Operations · National fulfillment network",
         avatar: karanImg,
         likes: "1.2k",
         comments: "65",
@@ -126,7 +126,7 @@ const TestimonialCard = ({ testimonial }: { testimonial: typeof TESTIMONIALS_ROW
             </div>
 
             {/* Content */}
-            <p className="text-sm lg:text-[15px] leading-relaxed text-navy h-[70px] lg:h-[80px] overflow-hidden">
+            <p className="text-sm lg:text-[15px] leading-relaxed text-navy min-h-[5.5rem] lg:min-h-[6.25rem] line-clamp-5">
                 {testimonial.content.split(/(@\w+)/g).map((part, i) => (
                     part.startsWith('@') ? <span key={i} className="text-olynk font-semibold">{part}</span> : part
                 ))}

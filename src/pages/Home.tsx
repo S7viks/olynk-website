@@ -87,7 +87,7 @@ const Home = () => {
 
             {/* Subheadline */}
             <p className="text-steel text-lg lg:text-xl leading-relaxed max-w-2xl mx-auto">
-              Not just numbers. <span className="text-navy font-semibold">An AI that does the work for you.</span> It spots problems, makes decisions, and fixes things before they cost you money.
+              Not just numbers. <span className="text-navy font-semibold">An AI that does the work for you.</span> It eliminates operational blind spots across your supply chain and gives your leadership team a unified intelligence layer.
             </p>
 
             {/* CTA Buttons */}
@@ -162,8 +162,8 @@ const Home = () => {
 
         {/* Background Subtle Labels - Tone-on-Tone Reveal */}
         <div className="absolute top-0 right-0 p-10 opacity-0 group-hover:opacity-100 transition-opacity duration-700 select-none pointer-events-none text-right z-0">
-          <span className="text-[120px] font-black font-mono text-beige leading-none tracking-tightest uppercase block">DIAGNOSTIC_SCAN</span>
-          <span className="text-[120px] font-black font-mono text-beige leading-none tracking-tightest uppercase block opacity-40">RUNNING</span>
+          <span className="text-[120px] font-black font-mono text-beige leading-none tracking-tightest uppercase block">OPERATIONS</span>
+          <span className="text-[120px] font-black font-mono text-beige leading-none tracking-tightest uppercase block opacity-40">OVERVIEW</span>
         </div>
         <div className="max-w-7xl mx-auto relative z-10">
           {/* Section Header */}
@@ -172,7 +172,7 @@ const Home = () => {
               Stop <span className="text-olynk italic font-serif font-normal">guessing</span> what's wrong.
             </h2>
             <p className="text-lg text-steel leading-relaxed font-medium">
-              Most tools just show you what happened. Olynk is different—it actually <span className="text-olynk font-bold">runs the fixes for you</span>. We turn your data into direct action.
+              Most tools only report the past. Olynk is an <span className="text-olynk font-bold">execution layer</span>—it aligns procurement, inventory, finance, and fulfillment under one governed policy engine so decisions ship with audit trails, not ad hoc heroics.
             </p>
           </div>
 
@@ -182,46 +182,46 @@ const Home = () => {
               {
                 id: '01',
                 icon: Search,
-                symptom: "Your data is scattered everywhere",
-                quote: "I check 12 tools every morning.",
-                detail: "Shopify, ERP, Ads, and Logistics remain isolated. You're forced to be the only data bridge.",
-                costLabel: "Wasted Time & Effort",
+                symptom: "Fragmented systems obscure the real picture",
+                quote: "We reconcile three ERPs and still debate which number is authoritative.",
+                detail: "Commerce, ERP, WMS, and finance systems stay out of sync. Leadership lacks one governed view of margin, service level, and exposure across regions and business units.",
+                costLabel: "Governance & latency",
                 costMetrics: [
-                  { label: "Data Lag", val: "24-48 hrs", color: "text-red-600" },
-                  { label: "Lost Time", val: "15 hrs/wk", color: "text-red-500" }
+                  { label: "Decision lag", val: "24–48 hrs", color: "text-red-600" },
+                  { label: "Manual bridges", val: "High", color: "text-red-500" }
                 ],
-                intervention: "Get one master view",
-                solution: "No more checking 12 tools. Just one screen that shows you exactly how much money you’re making.",
+                intervention: "Unified intelligence layer",
+                solution: "Eliminate operational blind spots across your supply chain—one control plane with lineage from signal to action, so your leadership team debates strategy, not spreadsheets.",
                 accent: "navy"
               },
               {
                 id: "02",
                 icon: Brain,
-                symptom: "Getting surprised by bad news",
-                quote: "I keep getting surprises.",
-                detail: "Stockouts and cash crunches happen suddenly. By the time you notice, it's already too late to fix.",
-                costLabel: "Money Lost",
+                symptom: "Risk surfaces too late for orderly response",
+                quote: "By the time the board sees it, we are already in firefight mode.",
+                detail: "Exceptions show up as revenue-at-risk, stockouts, or working-capital strain without enough lead time to align procurement, network inventory, and commercial plans.",
+                costLabel: "Strategic exposure",
                 costMetrics: [
-                  { label: "Revenue Leak", val: "12-18%", color: "text-red-600" },
-                  { label: "Current Risk", val: "High", color: "text-red-500" }
+                  { label: "Revenue at risk", val: "12–18%", color: "text-red-600" },
+                  { label: "Forecast horizon", val: "Short", color: "text-red-500" }
                 ],
-                intervention: "Prevent losses automatically",
-                solution: "See problems 30 days before they hit. We fix them while you’re asleep.",
+                intervention: "Early, governed intervention",
+                solution: "Surface cross-functional risk with 30/60/90-day context, confidence scores, and policy-based playbooks so teams coordinate before commitments harden—not after.",
                 accent: "olynk"
               },
               {
                 id: '03',
                 icon: CreditCard,
-                symptom: "Drowning in boring busywork",
-                quote: "I'm buried in admin.",
-                detail: "Creating purchase orders and checking payments takes up 40% of your day.",
-                costLabel: "Executive Burnout",
+                symptom: "Manual coordination taxes scale",
+                quote: "Our teams chase status across email, tickets, and side channels.",
+                detail: "High-scale operations still depend on tribal knowledge and handoffs between procurement, finance, and fulfillment—slowing execution and weakening auditability.",
+                costLabel: "Coordination load",
                 costMetrics: [
-                  { label: "Admin Work", val: "20+ hrs/wk", color: "text-red-600" },
-                  { label: "Human Error", val: "Frequent", color: "text-red-500" }
+                  { label: "Handoffs / wk", val: "100+", color: "text-red-600" },
+                  { label: "Policy drift", val: "Elevated", color: "text-red-500" }
                 ],
-                intervention: "AI handles the paperwork",
-                solution: "Olynk handles the boring admin work so you can focus on growing your enterprise.",
+                intervention: "Autonomous execution across systems",
+                solution: "Eliminate manual coordination overhead—Olynk orchestrates approved actions across your stack with roles, thresholds, and immutable logs so the organization scales without adding coordination tax.",
                 accent: "navy"
               }
             ].map((pattern, idx) => (

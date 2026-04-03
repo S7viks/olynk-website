@@ -46,6 +46,19 @@ const ALL_TOOLS = [
     { name: "Tally", domain: "tallysolutions.com" },
 ];
 
+/** Enterprise-grade systems first in carousels; remainder keep stable order. */
+const ENTERPRISE_FIRST_NAMES = [
+    "Salesforce", "NetSuite", "Tableau", "Power BI", "Odoo", "Tally",
+    "Zoho Inventory", "Zoho Books", "HubSpot", "Zendesk", "Pipedrive", "Stripe",
+    "Google Analytics", "Mailchimp", "Razorpay", "PayU", "Cashfree", "Paytm",
+    "Unicommerce", "WooCommerce", "Shopify", "Figma", "WhatsApp",
+];
+
+const ALL_TOOLS_ORDERED = [
+    ...ENTERPRISE_FIRST_NAMES.map((name) => ALL_TOOLS.find((t) => t.name === name)).filter((t): t is (typeof ALL_TOOLS)[number] => Boolean(t)),
+    ...ALL_TOOLS.filter((t) => !ENTERPRISE_FIRST_NAMES.includes(t.name)),
+];
+
 // Domains that consistently fail with favicon APIs - use ui-avatars directly
 const PROBLEMATIC_DOMAINS = new Set([
     'meesho.com', 'myntra.com', 'analytics.google.com', 'ecomexpress.in',
@@ -98,8 +111,8 @@ const HorizontalMarquee = ({ tools, reverse = false }: { tools: typeof ALL_TOOLS
 );
 
 const IntegrationsShowcase = () => {
-    const row1 = ALL_TOOLS.slice(0, Math.ceil(ALL_TOOLS.length / 2));
-    const row2 = ALL_TOOLS.slice(Math.ceil(ALL_TOOLS.length / 2));
+    const row1 = ALL_TOOLS_ORDERED.slice(0, Math.ceil(ALL_TOOLS_ORDERED.length / 2));
+    const row2 = ALL_TOOLS_ORDERED.slice(Math.ceil(ALL_TOOLS_ORDERED.length / 2));
 
     return (
         <section className="group py-20 bg-transparent border-t border-beige relative overflow-hidden">

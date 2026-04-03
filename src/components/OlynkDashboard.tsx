@@ -44,24 +44,45 @@ const OlynkDashboard = () => {
                     <div className="flex items-center gap-4 sm:gap-6">
                         <div className="flex items-center gap-2">
                             <div className="w-2 h-2 rounded-full bg-emerald-500 shadow-[0_0_8px_rgba(16,185,129,0.2)]" />
-                            <span className="text-[10px] font-black text-navy uppercase tracking-widest font-mono">System_Active</span>
+                            <span className="text-[10px] font-black text-navy uppercase tracking-widest font-mono">Control_Tower</span>
                         </div>
                         <div className="hidden sm:block h-3 w-[1px] bg-beige" />
                         <div className="hidden sm:flex items-center gap-2">
                             <Cpu className="w-3.5 h-3.5 text-navy opacity-40" />
-                            <span className="text-[10px] font-black text-navy uppercase tracking-widest font-mono">Model:A9-D3</span>
+                            <span className="text-[10px] font-black text-navy uppercase tracking-widest font-mono">Policy_Sync_OK</span>
                         </div>
                     </div>
                     <div className="flex items-center gap-4 sm:gap-6">
                         <div className="flex items-center gap-2">
                             <Clock className="w-3.5 h-3.5 text-tan" />
-                            <span className="text-[10px] font-black text-tan uppercase tracking-widest font-mono">14:02:11</span>
+                            <span className="text-[10px] font-black text-tan uppercase tracking-widest font-mono">14:02:11 UTC</span>
                         </div>
-                        <div className="hidden sm:flex items-center gap-2 text-emerald-600">
-                            <Activity className="w-3.5 h-3.5 text-emerald-500" />
-                            <span className="text-[10px] font-black uppercase tracking-widest font-mono">0.04ms</span>
+                        <div className="hidden sm:flex items-center gap-2 text-navy/50">
+                            <Activity className="w-3.5 h-3.5 text-navy/40" />
+                            <span className="text-[10px] font-black uppercase tracking-widest font-mono">Last_audit 4m</span>
                         </div>
                     </div>
+                </div>
+
+                {/* 1b. EXECUTIVE KPI STRIP */}
+                <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 border-b border-beige bg-white">
+                    {[
+                        { label: 'Revenue at risk', sub: 'Monitored', val: '₹42Cr', tone: 'text-navy' },
+                        { label: 'Working capital', sub: 'Exposure', val: '−8.2%', tone: 'text-amber-600' },
+                        { label: 'Service level', sub: 'Forecast', val: '97.2%', tone: 'text-emerald-600' },
+                        { label: 'Open decisions', sub: 'Execution queue', val: '14', tone: 'text-navy' },
+                        { label: 'SLA breach risk', sub: 'By region', val: '2 elevated', tone: 'text-amber-600' },
+                        { label: 'Recommendations', sub: 'Mean confidence', val: '94.8%', tone: 'text-emerald-600' },
+                    ].map((k, i) => (
+                        <div
+                            key={i}
+                            className="px-3 py-3 sm:px-4 sm:py-3.5 border-b border-beige/80 sm:border-b-0 sm:border-r sm:border-beige/80 last:sm:border-r-0"
+                        >
+                            <span className="text-[8px] font-black text-tan uppercase tracking-widest block leading-tight">{k.label}</span>
+                            <span className="text-[7px] font-bold text-navy/35 uppercase tracking-tighter block mt-0.5">{k.sub}</span>
+                            <span className={`text-sm sm:text-base font-black font-mono tracking-tight mt-1.5 block ${k.tone}`}>{k.val}</span>
+                        </div>
+                    ))}
                 </div>
 
                 <div className="grid grid-cols-12 min-h-0 lg:min-h-[460px]">
@@ -76,10 +97,10 @@ const OlynkDashboard = () => {
 
                             <div className="space-y-4">
                                 {[
-                                    { label: 'Inventory', status: 'ALERT', val: 65, color: '#D97706' },
-                                    { label: 'Capital', status: 'STABLE', val: 92, color: '#059669' },
+                                    { label: 'Supply risk', status: 'ELEVATED', val: 65, color: '#D97706' },
+                                    { label: 'Capital', status: 'ON_TARGET', val: 92, color: '#059669' },
                                     { label: 'Fulfillment', status: 'NOMINAL', val: 45, color: '#001B3D' },
-                                    { label: 'Node Status', status: 'ACTIVE', val: 98, color: '#2B5288' }
+                                    { label: 'Network', status: 'SYNCED', val: 98, color: '#2B5288' }
                                 ].map((item, idx) => (
                                     <div key={idx} className="space-y-2.5">
                                         <div className="flex items-center justify-between text-[11px]">
@@ -123,20 +144,24 @@ const OlynkDashboard = () => {
                                         <Brain className="w-4.5 h-4.5 text-white" />
                                     </div>
                                     <div className="flex flex-col">
-                                        <span className="text-[10px] font-black text-navy uppercase tracking-[0.4em] leading-none mb-1">Automatic problem solving</span>
-                                        <span className="text-[9px] text-navy/20 font-mono font-bold uppercase tracking-tight">SOLVER_MODE</span>
+                                        <span className="text-[10px] font-black text-navy uppercase tracking-[0.4em] leading-none mb-1">Network orchestration</span>
+                                        <span className="text-[9px] text-navy/20 font-mono font-bold uppercase tracking-tight">COMMAND_VIEW</span>
                                     </div>
                                 </div>
                                 <div className="space-y-4">
-                                    <div className="flex items-center gap-2">
-                                        <span className="text-[10px] font-black text-navy uppercase tracking-[0.3em] font-mono bg-cream px-2 py-0.5 rounded border border-beige">Action Required</span>
+                                    <div className="flex flex-wrap items-center gap-2">
+                                        <span className="text-[10px] font-black text-navy uppercase tracking-[0.3em] font-mono bg-cream px-2 py-0.5 rounded border border-beige">Cross-functional queue</span>
+                                        <span className="text-[10px] font-black text-navy/45 uppercase tracking-[0.25em] font-mono">Approval pending · Finance</span>
                                     </div>
                                     <h2 className="text-xl sm:text-2xl lg:text-3xl font-black text-navy leading-tight tracking-tightest">
-                                        SKU-214 will run out of stock in <span className="text-olynk italic font-serif">6 days.</span>
+                                        North India fulfillment risk is rising due to a supplier delay. Category <span className="text-olynk italic font-serif">service-level exposure</span> is elevated across three regions.
                                     </h2>
+                                    <p className="text-xs sm:text-sm text-steel font-medium leading-relaxed">
+                                        Recommended actions are queued across procurement, inventory allocation, and campaign pacing—awaiting policy-approved release.
+                                    </p>
                                     <div className="flex items-center gap-2.5">
-                                        <div className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
-                                        <span className="text-[11px] font-black text-emerald-600 uppercase tracking-[0.2em] font-mono">Status: Fixing it now</span>
+                                        <div className="w-2 h-2 rounded-full bg-olynk/80" />
+                                        <span className="text-[11px] font-black text-navy/60 uppercase tracking-[0.2em] font-mono">Execution in progress · Governance OK</span>
                                     </div>
                                 </div>
                             </div>
@@ -145,34 +170,34 @@ const OlynkDashboard = () => {
                                 <div className="p-5 rounded-2xl bg-white border border-beige shadow-sm">
                                     <div className="flex items-center gap-3 mb-3">
                                         <Zap className="w-4 h-4 text-olynk" strokeWidth={3} />
-                                        <span className="text-[9px] font-black text-tan uppercase tracking-widest">OP_CORE_A</span>
+                                        <span className="text-[9px] font-black text-tan uppercase tracking-widest">ALLOCATION_RUN</span>
                                     </div>
                                     <p className="text-navy text-sm font-black leading-tight">
-                                        Reallocating 450 units from <span className="text-olynk">WH-B</span> to <span className="text-olynk">WH-A</span>
+                                        Rebalancing inventory across <span className="text-olynk">12 network nodes</span> to protect regional service levels.
                                     </p>
                                 </div>
                                 <div className="p-5 rounded-2xl bg-white border border-beige shadow-sm">
                                     <div className="flex items-center gap-3 mb-3">
                                         <Activity className="w-4 h-4 text-olynk" strokeWidth={3} />
-                                        <span className="text-[9px] font-black text-tan uppercase tracking-widest">OP_CORE_B</span>
+                                        <span className="text-[9px] font-black text-tan uppercase tracking-widest">PROCUREMENT_PACK</span>
                                     </div>
                                     <p className="text-navy text-sm font-black leading-tight">
-                                        Partial Reorder: 2.5k units [Supplier-2]
+                                        Procurement action pack generated for the <span className="text-olynk">supplier network</span> (multi-source, policy-bound).
                                     </p>
                                 </div>
                             </div>
 
                             <div className="space-y-6">
                                 <div className="flex items-center justify-between text-[10px] font-black text-navy/20 uppercase tracking-[0.4em]">
-                                    <span>Deployment Sequence</span>
+                                    <span>Execution trace</span>
                                     <div className="flex items-center gap-4">
                                         <div className="flex items-center gap-1.5 text-emerald-600">
                                             <CheckCircle2 className="w-3.5 h-3.5" strokeWidth={3} />
-                                            <span>SH_ACK</span>
+                                            <span>POLICY_OK</span>
                                         </div>
-                                        <div className="flex items-center gap-1.5 text-emerald-600">
+                                        <div className="flex items-center gap-1.5 text-navy/35">
                                             <CheckCircle2 className="w-3.5 h-3.5" strokeWidth={3} />
-                                            <span>EDI_OK</span>
+                                            <span>FIN_PENDING</span>
                                         </div>
                                     </div>
                                 </div>
@@ -298,18 +323,26 @@ const OlynkDashboard = () => {
 
                 {/* 5. BOTTOM IMPACT STRIP */}
                 <div className="px-4 sm:px-10 py-6 bg-navy flex flex-col lg:flex-row items-center justify-between gap-8 lg:gap-12 border-t border-white/5">
-                    <div className="grid grid-cols-2 md:grid-cols-4 lg:flex lg:items-center gap-8 lg:gap-16 w-full lg:w-auto">
+                    <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-8 lg:gap-12 xl:gap-16 w-full lg:max-w-5xl">
 
                         <div className="space-y-1.5 flex flex-col">
-                            <span className="text-[9px] lg:text-[10px] font-black text-white/30 uppercase tracking-[0.3em] font-mono">Impact_Rescued</span>
+                            <span className="text-[9px] lg:text-[10px] font-black text-white/30 uppercase tracking-[0.3em] font-mono">Margin_Protected</span>
                             <div className="flex items-baseline gap-2">
-                                <span className="text-2xl lg:text-3xl font-black text-emerald-400 font-mono tracking-tighter">₹8.4L</span>
+                                <span className="text-2xl lg:text-3xl font-black text-emerald-400 font-mono tracking-tighter">2.4%</span>
                                 <ArrowUpRight className="w-4 h-4 text-emerald-400 opacity-40" />
                             </div>
                         </div>
 
                         <div className="space-y-1.5 flex flex-col">
-                            <span className="text-[9px] lg:text-[10px] font-black text-white/30 uppercase tracking-[0.3em] font-mono">Efficiency_Gain</span>
+                            <span className="text-[9px] lg:text-[10px] font-black text-white/30 uppercase tracking-[0.3em] font-mono">Rev_at_Risk_Reduced</span>
+                            <div className="flex items-baseline gap-2">
+                                <span className="text-2xl lg:text-3xl font-black text-emerald-400 font-mono tracking-tighter">₹8.4Cr</span>
+                                <ArrowUpRight className="w-4 h-4 text-emerald-400 opacity-40" />
+                            </div>
+                        </div>
+
+                        <div className="space-y-1.5 flex flex-col">
+                            <span className="text-[9px] lg:text-[10px] font-black text-white/30 uppercase tracking-[0.3em] font-mono">Network_Efficiency</span>
                             <div className="flex items-baseline gap-2">
                                 <span className="text-2xl lg:text-3xl font-black text-emerald-400 font-mono tracking-tighter">+22.4%</span>
                                 <Activity className="w-4 h-4 text-emerald-400 opacity-40" />
@@ -317,7 +350,7 @@ const OlynkDashboard = () => {
                         </div>
 
                         <div className="space-y-1.5 flex flex-col">
-                            <span className="text-[9px] lg:text-[10px] font-black text-white/30 uppercase tracking-[0.3em] font-mono">Precision_Score</span>
+                            <span className="text-[9px] lg:text-[10px] font-black text-white/30 uppercase tracking-[0.3em] font-mono">Model_Confidence</span>
                             <div className="flex items-baseline gap-2">
                                 <span className="text-2xl lg:text-3xl font-black text-emerald-400 font-mono tracking-tighter">94.8%</span>
                                 <Target className="w-4 h-4 text-emerald-400 opacity-40" />
@@ -335,13 +368,13 @@ const OlynkDashboard = () => {
 
                     <div className="flex items-center gap-4 lg:gap-6 w-full lg:w-auto bg-white/5 p-4 rounded-2xl border border-white/10 overflow-hidden">
                         <div className="flex flex-col items-start lg:items-end flex-1 lg:flex-none">
-                            <span className="text-[8px] lg:text-[9px] font-black text-white/40 uppercase tracking-widest mb-1">Forecast_Scope</span>
-                            <span className="text-[10px] lg:text-xs font-black text-white uppercase tracking-tighter px-2 lg:px-3 py-1 bg-white/10 rounded-md whitespace-nowrap">14-DAY_WINDOW</span>
+                            <span className="text-[8px] lg:text-[9px] font-black text-white/40 uppercase tracking-widest mb-1">Planning_Horizon</span>
+                            <span className="text-[10px] lg:text-xs font-black text-white uppercase tracking-tighter px-2 lg:px-3 py-1 bg-white/10 rounded-md whitespace-nowrap">30 · 60 · 90 DAY</span>
                         </div>
                         <div className="h-10 w-[1px] bg-white/10 shrink-0"></div>
                         <div className="flex items-center gap-3 shrink-0">
                             <Gauge className="w-4 h-4 lg:w-5 h-5 text-emerald-400" />
-                            <span className="text-[9px] lg:text-[10px] font-black text-white uppercase tracking-widest leading-none">Optimal<br />Status</span>
+                            <span className="text-[9px] lg:text-[10px] font-black text-white uppercase tracking-widest leading-none">Within<br />policy</span>
                         </div>
                     </div>
                 </div>

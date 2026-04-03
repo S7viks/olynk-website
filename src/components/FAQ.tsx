@@ -2,20 +2,20 @@ import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Plus, Minus, Lock, ShieldCheck, Zap, Database, Cpu, Fingerprint } from 'lucide-react';
 
-type FAQCategory = 'General' | 'Integration' | 'Security';
+type FAQCategory = 'Overview' | 'Integration' | 'Security';
 
 const FAQ_CATEGORIES: Record<FAQCategory, { label: string; icon: any; questions: Array<{ q: string; a: string }> }> = {
-  General: {
-    label: "General Capabilities",
+  Overview: {
+    label: "Capability overview",
     icon: Cpu,
     questions: [
       {
-        q: "How accurate is the AI really?",
-        a: "Our demand forecasting achieves 85%+ accuracy after 30 days of learning your business. We show confidence scores for every prediction, and you can see our track record in real-time."
+        q: "What forecasting accuracy and confidence specifications does the platform meet?",
+        a: "Demand and supply models ship with explicit confidence intervals and calibration reports. After a structured learning window, most deployments hold forecast error within agreed bands; every recommendation carries a scored confidence signal and audit trail for review."
       },
       {
         q: "What if the AI makes wrong recommendations?",
-        a: "AI provides reasoning for every suggestion. You approve major actions (like large orders) while routine tasks (like customer updates) happen automatically. We guarantee ₹5L+ value or full refund."
+        a: "Each suggestion includes rationale, data lineage, and policy context. Tiered approvals apply to material decisions while routine, low-risk actions can run within guardrails you define. Commercial terms are aligned during enterprise onboarding, including success criteria and escalation paths."
       },
       {
         q: "How does AI learn our specific business?",
@@ -117,7 +117,7 @@ const FAQItem = ({ question, answer, isOpen, onClick, idx }: { question: string,
 };
 
 const FAQ = () => {
-  const [activeTab, setActiveTab] = useState<FAQCategory>('General');
+  const [activeTab, setActiveTab] = useState<FAQCategory>('Overview');
   const [openIndex, setOpenIndex] = useState<number | null>(0);
 
   return (
