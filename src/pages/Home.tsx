@@ -22,7 +22,6 @@ import { motion } from 'framer-motion';
 import { ArrowRight, CheckCircle, ArrowDown, Search, Brain, CreditCard, Zap } from 'lucide-react';
 import Navbar from '../components/Navbar';
 import OlynkDashboard from '../components/OlynkDashboard';
-import InfiniteMarquee from '../components/InfiniteMarquee';
 import IntegrationsShowcase from '../components/IntegrationsShowcase';
 import HowItWorks from '../components/HowItWorks';
 import InteractiveBackground from '../components/InteractiveBackground';
@@ -138,15 +137,7 @@ const Home = () => {
         </button>
       </section>
 
-      {/* SECTION 2: Trust Bar */}
-      <section className="group w-full bg-transparent border-t border-beige relative">
-        <div className="absolute top-1/2 -translate-y-1/2 right-10 opacity-0 group-hover:opacity-100 transition-opacity duration-700 select-none pointer-events-none z-0">
-          <span className="text-[80px] font-black font-mono text-beige leading-none tracking-tightest uppercase">NETWORK_HANDSHAKE_VALID</span>
-        </div>
-        <InfiniteMarquee />
-      </section>
-
-      {/* SECTION 3: The Diagnostic Matrix (Refined Clinical) */}
+      {/* SECTION 2: The Diagnostic Matrix (Refined Clinical) */}
       <section ref={diagnosticRef} className="group py-16 lg:py-24 px-4 sm:px-6 lg:px-8 bg-cream border-t border-beige relative overflow-hidden">
         {/* 1. Dynamic Background Layer (Blur Blobs) */}
         <div className="absolute inset-0 overflow-hidden pointer-events-none z-0">

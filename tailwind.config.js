@@ -76,8 +76,6 @@ export default {
         'shimmer': 'shimmer 2s infinite',
         'float': 'float 3s ease-in-out infinite',
         'pulse-slow': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
-        'marquee': 'marquee 60s linear infinite',
-        'marquee2': 'marquee2 60s linear infinite',
       },
       keyframes: {
         fadeIn: {
@@ -106,14 +104,6 @@ export default {
         float: {
           '0%, 100%': { transform: 'translateY(0px)' },
           '50%': { transform: 'translateY(-10px)' },
-        },
-        marquee: {
-          '0%': { transform: 'translateX(0%)' },
-          '100%': { transform: 'translateX(-100%)' },
-        },
-        marquee2: {
-          '0%': { transform: 'translateX(100%)' },
-          '100%': { transform: 'translateX(0%)' },
         },
       },
       screens: {
