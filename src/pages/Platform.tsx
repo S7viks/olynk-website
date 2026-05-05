@@ -28,7 +28,7 @@ const Platform = () => {
                             Total Intelligence.
                         </h1>
                         <p className="text-base sm:text-xl lg:text-2xl text-steel max-w-3xl mx-auto leading-relaxed font-medium mb-12">
-                            The enterprise-grade AI operating system for modern commerce.
+                            The enterprise-grade operating system for modern operations.
                             No fragmentation. <span className="text-navy font-black">Just Unified Performance.</span>
                         </p>
                     </motion.div>
@@ -42,36 +42,36 @@ const Platform = () => {
                         {[
                             {
                                 id: 'fabric',
-                                name: 'Olynk Fabric',
+                                name: 'Trita Fabric',
                                 role: 'Unified Data Infrastructure',
-                                desc: 'Eliminates data fragmentation across 50+ enterprise protocols.',
+                                desc: 'Eliminates data fragmentation across ERP, WMS, CRM, finance, and warehouse systems.',
                                 icon: Database,
                                 color: 'text-navy',
                                 bg: 'bg-cream'
                             },
                             {
                                 id: 'insight',
-                                name: 'Olynk Insight',
+                                name: 'Trita Insight',
                                 role: 'Predictive Intelligence Layer',
-                                desc: '87.4% accuracy in high-velocity demand forecasting.',
+                                desc: 'Forecasts risk, throughput, and constraint violations before they hit your P&L.',
                                 icon: Brain,
                                 color: 'text-olynk',
                                 bg: 'bg-beige'
                             },
                             {
                                 id: 'core',
-                                name: 'Olynk Core',
+                                name: 'Trita Core',
                                 role: 'Autonomous Execution',
-                                desc: 'Executes thousands of operational decisions daily.',
+                                desc: 'Executes governed decisions across procurement, inventory, finance, and fulfilment.',
                                 icon: Zap,
                                 color: 'text-tan',
                                 bg: 'bg-cream'
                             },
                             {
                                 id: 'orbit',
-                                name: 'Olynk Orbit',
+                                name: 'Trita Orbit',
                                 role: 'Operational Governance',
-                                desc: 'Unified interface for total operational control.',
+                                desc: 'A single interface to ask, audit, and steer decisions across the system.',
                                 icon: MessageSquare,
                                 color: 'text-navy',
                                 bg: 'bg-beige'
@@ -138,13 +138,13 @@ const Platform = () => {
                             Unified Data Layer
                         </div>
                         <h2 className="text-3xl sm:text-4xl lg:text-6xl font-black text-navy tracking-tightest leading-none uppercase">
-                            Olynk Fabric
+                            Trita Fabric
                         </h2>
                         <h3 className="text-xl lg:text-2xl text-steel font-medium leading-tight">
                             The end of scattered spreadsheets.
                         </h3>
                         <p className="text-lg text-steel/80 leading-relaxed">
-                            Your data is currently trapped in Shopify, ERPs, Ad Managers, and logistics portals.
+                            Your data is currently trapped across ERPs, CRMs, finance systems, warehouses, and line-of-business tools.
                             Fabric connects them all in real-time, creating a single source of truth without manual exports or CSV hell.
                         </p>
                         <ul className="space-y-4 pt-4">
@@ -163,7 +163,7 @@ const Platform = () => {
                         </ul>
                         <div className="pt-6">
                             <Link to="/platform/fabric" className="inline-flex items-center gap-2 text-navy font-black hover:gap-4 transition-all group uppercase tracking-widest text-xs font-mono">
-                                Deep Dive: Olynk Fabric
+                                Deep Dive: Trita Fabric
                                 <ArrowRight className="w-4 h-4" />
                             </Link>
                         </div>
@@ -180,14 +180,14 @@ const Platform = () => {
                             Intelligence Layer
                         </div>
                         <h2 className="text-3xl sm:text-4xl lg:text-6xl font-black text-navy tracking-tightest leading-none uppercase">
-                            Olynk Insight
+                            Trita Insight
                         </h2>
                         <h3 className="text-xl lg:text-2xl text-steel font-medium leading-tight">
                             Predict problems before they happen.
                         </h3>
                         <p className="text-lg text-steel/80 leading-relaxed">
                             Most tools show you what happened yesterday. Insight tells you what will happen next month.
-                            It predicts Stockouts, cash flow dips, and delivery risks with causal reasoning, not just correlation.
+                            It predicts Stockouts, production delays, cash flow dips, SLA breaches, and delivery risks with causal reasoning, not just correlation.
                         </p>
                         <div className="flex items-center gap-6 pt-4">
                             <div className="pr-6 border-r border-beige">
@@ -201,7 +201,7 @@ const Platform = () => {
                         </div>
                         <div className="pt-6">
                             <Link to="/platform/insight" className="inline-flex items-center gap-2 text-olynk font-black hover:gap-4 transition-all group uppercase tracking-widest text-xs font-mono">
-                                Explore Olynk Insight
+                                Explore Trita Insight
                                 <ArrowRight className="w-4 h-4" />
                             </Link>
                         </div>
@@ -345,13 +345,13 @@ const Platform = () => {
                             Execution Layer
                         </div>
                         <h2 className="text-3xl sm:text-4xl lg:text-6xl font-black text-navy tracking-tightest leading-none uppercase">
-                            Olynk Core
+                            Trita Core
                         </h2>
                         <h3 className="text-xl lg:text-2xl text-steel font-medium leading-tight">
                             Autonomous action, 24/7.
                         </h3>
                         <p className="text-lg text-steel/80 leading-relaxed">
-                            Why just see the problem? Core fixes it. Based on Insight's predictions, Core runs independent workflows to reorder stock, adjust ad spend, or flag risks - while you sleep.
+                            Why just see the problem? Core fixes it. Based on Insight's predictions, Core runs workflows to rebalance inventory, re-time procurement, reallocate capacity, or flag risk for approval — while you sleep.
                         </p>
                         <ul className="space-y-4 pt-4">
                             {[
@@ -369,7 +369,7 @@ const Platform = () => {
                         </ul>
                         <div className="pt-6">
                             <Link to="/platform/core" className="inline-flex items-center gap-2 text-tan font-black hover:gap-4 transition-all group uppercase tracking-widest text-xs font-mono">
-                                See Olynk Core in Action
+                                See Trita Core in Action
                                 <ArrowRight className="w-4 h-4" />
                             </Link>
                         </div>
@@ -389,7 +389,7 @@ const Platform = () => {
                             Interface Layer
                         </div>
                         <h2 className="text-3xl sm:text-4xl lg:text-6xl font-black text-white tracking-tightest leading-none uppercase">
-                            Olynk Orbit
+                            Trita Orbit
                         </h2>
                         <h3 className="text-xl lg:text-2xl text-white/80 font-medium leading-tight">
                             Just ask.
@@ -399,7 +399,7 @@ const Platform = () => {
                         </p>
                         <div className="pt-6">
                             <Link to="/platform/orbit" className="inline-flex items-center gap-2 text-cream font-black hover:gap-4 transition-all group uppercase tracking-widest text-xs font-mono">
-                                Talk to Olynk Orbit
+                                Talk to Trita Orbit
                                 <ArrowRight className="w-4 h-4" />
                             </Link>
                         </div>
@@ -461,7 +461,7 @@ const Platform = () => {
                         It sits above your tools.
                     </h2>
                     <p className="text-lg text-steel leading-relaxed">
-                        OLynk doesn't replace your ERP, CRM, or shop system. It connects them to form a higher-level intelligence layer. No rip-and-replace required.
+                        Trita doesn't replace your ERP, CRM, finance, or commerce stack. It connects them to form a higher-level intelligence layer. No rip-and-replace required.
                     </p>
                     {/* Tech Stack Visual */}
                     <div className="relative max-w-3xl mx-auto">
@@ -478,7 +478,7 @@ const Platform = () => {
                                 <div className="relative z-10 flex items-center justify-between">
                                     <div className="text-left">
                                         <div className="text-[10px] lg:text-xs font-mono font-black uppercase tracking-widest opacity-80 mb-1">Intelligence Layer</div>
-                                        <div className="text-xl lg:text-2xl font-black tracking-tight">OLynk AI Platform</div>
+                                        <div className="text-xl lg:text-2xl font-black tracking-tight">Trita by Olynk</div>
                                     </div>
                                     <Brain className="w-8 h-8 lg:w-10 lg:h-10 opacity-40" />
                                 </div>
@@ -508,12 +508,15 @@ const Platform = () => {
                                 className="grid grid-cols-2 sm:grid-cols-3 gap-4"
                             >
                                 {[
-                                    { name: 'Shopify', label: 'eCommerce' },
+                                    { name: 'SAP / Oracle', label: 'ERP' },
                                     { name: 'NetSuite', label: 'ERP' },
                                     { name: 'Salesforce', label: 'CRM' },
-                                    { name: 'Meta Ads', label: 'Marketing' },
+                                    { name: 'Zoho', label: 'CRM' },
+                                    { name: 'Shopify', label: 'Commerce' },
                                     { name: 'ShipRocket', label: 'Logistics' },
-                                    { name: 'Razorpay', label: 'Payments' }
+                                    { name: 'Razorpay', label: 'Payments' },
+                                    { name: 'Tally', label: 'Finance' },
+                                    { name: 'Unicommerce', label: 'WMS' }
                                 ].map((tool, i) => (
                                     <motion.div
                                         key={tool.name}

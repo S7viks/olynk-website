@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { ArrowRight, ShoppingCart, Package, TrendingUp, CheckCircle2, BarChart3, Users2, Zap, Activity } from 'lucide-react';
+import { ArrowRight, ShoppingCart, Package, TrendingUp, CheckCircle2, BarChart3, Users2, Zap, Activity, Factory, GraduationCap } from 'lucide-react';
 
 const Solutions = () => {
   return (
@@ -22,7 +22,7 @@ const Solutions = () => {
               <span className="text-olynk">High-Velocity Operations.</span>
             </h1>
             <p className="text-xl lg:text-2xl text-steel max-w-3xl mx-auto leading-relaxed font-medium">
-              If operational complexity is your biggest bottleneck, OLynk is your unfair advantage.
+              If operational complexity is your biggest bottleneck, Trita is your unfair advantage.
               Built for enterprises that have outgrown spreadsheets.
             </p>
           </motion.div>
@@ -45,9 +45,9 @@ const Solutions = () => {
               <h3 className="text-2xl font-black text-navy tracking-tight">The "I Need This" Moment</h3>
               <ul className="space-y-4">
                 {[
-                  "Stockouts are costing you >$10k/mo",
+                  "Exceptions are costing you >$10k/mo",
                   "Your team spends 4+ hours/day in Excel",
-                  "You sell on 3+ channels simultaneously",
+                  "You run 3+ systems that disagree with each other",
                   "Cash flow feels like a black box"
                 ].map((item, i) => (
                   <li key={i} className="flex gap-3 text-steel font-medium text-sm">
@@ -63,14 +63,14 @@ const Solutions = () => {
               <div className="absolute top-0 right-0 p-6 opacity-[0.1] text-white">
                 <Users2 className="w-20 h-20" />
               </div>
-              <h3 className="text-2xl font-black text-white tracking-tight relative z-10">Industries We Scale</h3>
+              <h3 className="text-2xl font-black text-white tracking-tight relative z-10">Where This Fits</h3>
               <div className="space-y-2 relative z-10">
                 {[
-                  "Digital-First Commerce",
-                  "Multi-channel Retail",
+                  "Commerce & Retail",
                   "B2B Distribution",
-                  "Marketplace Conglomerates",
-                  "Digital-First Manufacturing"
+                  "Manufacturing & Supply Networks",
+                  "EdTech & Service Operations",
+                  "Marketplace & Multi-entity Ops"
                 ].map((item, i) => (
                   <div key={i} className="py-3 border-b border-white/10 text-white/80 font-bold text-sm">
                     {item}
@@ -117,19 +117,19 @@ const Solutions = () => {
             {/* Solution 1 */}
             <div className="p-8 sm:p-12 border-b md:border-b-0 md:border-r border-beige hover:bg-cream/20 transition-colors group">
               <div className="w-14 h-14 rounded-2xl bg-cream flex items-center justify-center mb-8 group-hover:scale-110 transition-transform">
-                <ShoppingCart className="w-7 h-7 text-olynk" />
+                <Activity className="w-7 h-7 text-olynk" />
               </div>
-              <h3 className="text-2xl font-black text-navy mb-4 tracking-tight">Channel Synchronization</h3>
+              <h3 className="text-2xl font-black text-navy mb-4 tracking-tight">Operational Unification</h3>
               <p className="text-steel leading-relaxed mb-8">
-                Selling everywhere but seeing nowhere? We unify inventory, orders, and pricing across every sales touchpoint.
+                Systems disagree. Teams reconcile. Decisions stall. We unify signals across ERP, WMS, CRM, finance, and commerce so the business runs off one truth.
               </p>
               <div className="space-y-3">
                 <div className="text-[10px] font-black text-tan uppercase tracking-widest">Key Outcomes:</div>
                 <div className="text-sm font-bold text-navy flex items-center gap-2">
-                  <Zap className="w-3 h-3 text-olynk" /> Zero Overselling
+                  <Zap className="w-3 h-3 text-olynk" /> Fewer manual bridges
                 </div>
                 <div className="text-sm font-bold text-navy flex items-center gap-2">
-                  <Zap className="w-3 h-3 text-olynk" /> Real-time Price Sync
+                  <Zap className="w-3 h-3 text-olynk" /> Faster decisions with audit trails
                 </div>
               </div>
             </div>
@@ -137,19 +137,19 @@ const Solutions = () => {
             {/* Solution 2 */}
             <div className="p-12 border-b md:border-b-0 md:border-r border-beige hover:bg-cream/20 transition-colors group">
               <div className="w-14 h-14 rounded-2xl bg-cream flex items-center justify-center mb-8 group-hover:scale-110 transition-transform">
-                <Package className="w-7 h-7 text-olynk" />
+                <Factory className="w-7 h-7 text-olynk" />
               </div>
-              <h3 className="text-2xl font-black text-navy mb-4 tracking-tight">Supply Elasticity</h3>
+              <h3 className="text-2xl font-black text-navy mb-4 tracking-tight">Constraint Forecasting</h3>
               <p className="text-steel leading-relaxed mb-8">
-                Prediction is better than reaction. We automate procurement cycles based on demand velocity and lead times.
+                Predict the constraints that will break your week: capacity, material availability, SLA risk, and lead-time shocks. Then simulate the options before you act.
               </p>
               <div className="space-y-3">
                 <div className="text-[10px] font-black text-tan uppercase tracking-widest">Key Outcomes:</div>
                 <div className="text-sm font-bold text-navy flex items-center gap-2">
-                  <Zap className="w-3 h-3 text-olynk" /> -40% Stockouts
+                  <Zap className="w-3 h-3 text-olynk" /> Earlier risk visibility
                 </div>
                 <div className="text-sm font-bold text-navy flex items-center gap-2">
-                  <Zap className="w-3 h-3 text-olynk" /> Auto-Generated POs
+                  <Zap className="w-3 h-3 text-olynk" /> Governed interventions
                 </div>
               </div>
             </div>
@@ -157,19 +157,19 @@ const Solutions = () => {
             {/* Solution 3 */}
             <div className="p-8 sm:p-12 hover:bg-cream/20 transition-colors group">
               <div className="w-14 h-14 rounded-2xl bg-cream flex items-center justify-center mb-8 group-hover:scale-110 transition-transform">
-                <TrendingUp className="w-7 h-7 text-olynk" />
+                <GraduationCap className="w-7 h-7 text-olynk" />
               </div>
-              <h3 className="text-2xl font-black text-navy mb-4 tracking-tight">Capital Intelligence</h3>
+              <h3 className="text-2xl font-black text-navy mb-4 tracking-tight">Decision Governance</h3>
               <p className="text-steel leading-relaxed mb-8">
-                Unlock cash trapped in inventory. We optimize working capital through precision forecasting and RTO mitigation.
+                Align execution with policy. Track why a decision was taken, what it changed, and what it prevented — across teams, systems, and time.
               </p>
               <div className="space-y-3">
                 <div className="text-[10px] font-black text-tan uppercase tracking-widest">Key Outcomes:</div>
                 <div className="text-sm font-bold text-navy flex items-center gap-2">
-                  <Zap className="w-3 h-3 text-olynk" /> +25% Working Capital
+                  <Zap className="w-3 h-3 text-olynk" /> Policy consistency at scale
                 </div>
                 <div className="text-sm font-bold text-navy flex items-center gap-2">
-                  <Zap className="w-3 h-3 text-olynk" /> Automated Reconciliation
+                  <Zap className="w-3 h-3 text-olynk" /> Clear accountability and traceability
                 </div>
               </div>
             </div>
