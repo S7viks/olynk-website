@@ -43,7 +43,7 @@ const Waitlist = () => {
                             <span className="inline-block px-4 py-1.5 rounded-full bg-navy/5 border border-navy/10 text-xs font-black uppercase tracking-widest text-navy mb-6">
                                 Limited Access Beta
                             </span>
-                            <h1 className="text-5xl lg:text-7xl font-black text-navy tracking-tightest mb-6">
+                            <h1 className="page-hero-title mb-6">
                                 Queue for the <br className="hidden lg:block" />
                                 <span className="text-olynk">Operating System.</span>
                             </h1>

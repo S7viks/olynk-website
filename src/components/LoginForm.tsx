@@ -80,10 +80,10 @@ const LoginForm: React.FC<LoginFormProps> = ({
           setError(error.message || 'Login failed');
         } else {
           setSuccess('Login successful!');
-          // Wait a bit for profile to load, then redirect to waitlist
+          // Wait a bit for auth state to settle, then route to onboarding
           setTimeout(() => {
             onSuccess?.();
-            navigate('/waitlist');
+            navigate('/more-info');
           }, 1500);
         }
       } else if (mode === 'signup' || mode === 'waitlist') {
@@ -100,13 +100,13 @@ const LoginForm: React.FC<LoginFormProps> = ({
         if (error) {
           setError(error.message || 'Signup failed');
         } else {
-          setSuccess(mode === 'waitlist' 
-            ? 'Successfully joined the waitlist! Check your email to confirm your account.' 
-            : 'Account created successfully! Check your email to confirm your account.'
+          setSuccess(mode === 'waitlist'
+            ? 'Successfully joined the waitlist.'
+            : 'Account created successfully!'
           );
           setTimeout(() => {
             onSuccess?.();
-            navigate('/waitlist');
+            navigate('/more-info');
           }, 2000);
         }
       }

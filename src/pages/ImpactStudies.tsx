@@ -11,7 +11,7 @@ const ImpactStudies = () => {
                             <Award className="w-3 h-3 text-navy" />
                             <span className="text-[10px] font-black uppercase tracking-[0.2em] text-navy font-mono">CASE_STUDIES</span>
                         </div>
-                        <h1 className="text-4xl sm:text-5xl lg:text-7xl font-black text-navy mb-6 tracking-tight leading-tightest">Impact Studies</h1>
+                        <h1 className="page-hero-title mb-6">Impact Studies</h1>
                         <p className="text-xl text-steel font-medium">Real results from businesses using Olynk.</p>
                     </motion.div>
                 </div>

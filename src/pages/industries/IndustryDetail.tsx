@@ -219,7 +219,7 @@ const IndustryDetail = () => {
                                 <span className={`text-[10px] font-black uppercase tracking-[0.2em] ${data.accent} font-mono`}>VERTICAL_CORE // {id?.toUpperCase() || 'COMMERCE'}</span>
                             </div>
 
-                            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-black text-navy leading-[1.1] tracking-tight mb-8">
+                            <h1 className="page-hero-title mb-8">
                                 {data.headline.top} <br />
                                 <span className="text-olynk">{data.headline.bottom}</span>
                             </h1>

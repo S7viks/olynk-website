@@ -160,7 +160,7 @@ const Fabric = () => {
                             <Database className="w-3 h-3" />
                             Data Layer
                         </div>
-                        <h1 className="text-3xl sm:text-6xl lg:text-7xl font-black text-navy leading-[1.1] tracking-tight mb-6 lg:mb-8 uppercase">
+                        <h1 className="page-hero-title mb-6 lg:mb-8 uppercase">
                             Connect and <br />
                             <span className="text-olynk">unify everything.</span>
                         </h1>

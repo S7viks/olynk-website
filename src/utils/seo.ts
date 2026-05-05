@@ -137,7 +137,7 @@ export const SEO_KEYWORDS = {
   ],
   about: [
     `${COMPANY_NAME} company`,
-    "operational intelligence India",
+    "operational intelligence",
     "autonomous commerce technology",
     "retail AI solutions",
     "operations automation"
@@ -154,7 +154,7 @@ export const SEO_KEYWORDS = {
     `${PLATFORM_NAME} pricing`,
     "AI operations cost",
     "autonomous commerce pricing",
-    "retail AI pricing India",
+    "retail AI pricing",
     "operational intelligence cost"
   ],
   contact: [

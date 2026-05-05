@@ -110,7 +110,7 @@ const UserDashboard: React.FC = () => {
         <div className="bg-white/80 backdrop-blur-xl rounded-[48px] shadow-2xl p-8 lg:p-12 border border-beige mb-8">
           <div className="flex items-center justify-between mb-8">
             <div>
-              <h1 className="text-4xl font-black text-navy mb-2 uppercase tracking-tight">
+              <h1 className="page-hero-title mb-2 uppercase">
                 Dashboard
               </h1>
               <p className="text-steel font-medium">

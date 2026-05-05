@@ -11,7 +11,7 @@ const TritaExplained = () => {
                             <BookOpen className="w-3 h-3 text-navy" />
                             <span className="text-[10px] font-black uppercase tracking-[0.2em] text-navy font-mono">RESOURCES</span>
                         </div>
-                        <h1 className="text-5xl lg:text-7xl font-black text-navy mb-6 tracking-tight">Explained</h1>
+                        <h1 className="page-hero-title mb-6">Explained</h1>
                         <p className="text-xl text-steel font-medium">Deep-dives coming soon.</p>
                     </motion.div>
                 </div>

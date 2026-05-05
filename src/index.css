@@ -159,6 +159,14 @@ p {
 
 /* Micro-Interactions */
 @layer components {
+    .page-hero-title {
+        @apply text-4xl sm:text-5xl lg:text-7xl font-black text-navy leading-[1.05];
+        letter-spacing: -0.04em;
+    }
+
+    .page-hero-accent {
+        @apply text-olynk italic font-serif font-normal;
+    }
 
     /* Card Lift Effect */
     .card-interactive {

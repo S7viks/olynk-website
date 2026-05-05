@@ -5,7 +5,7 @@ const verticals = [
   {
     id: 'commerce',
     title: 'D2C & commerce',
-    desc: 'RTO, SLAs, promos, and inventory truth across marketplaces and your own store - built for Indian fulfilment reality.',
+    desc: 'RTO, SLAs, promos, and inventory truth across marketplaces and your own store - built for multi-market fulfilment reality.',
     icon: ShoppingBag,
     href: '/industries/commerce',
   },
@@ -23,8 +23,8 @@ const Industries = () => {
     <main className="relative z-10 pt-24 lg:pt-28 pb-20 px-4 sm:px-6">
       <div className="max-w-3xl mx-auto text-center mb-14 space-y-4">
         <p className="text-[11px] font-black text-tan uppercase tracking-[0.25em]">Industries</p>
-        <h1 className="text-4xl sm:text-5xl font-black text-navy tracking-tightest leading-[1.05]">
-          Built for <span className="text-olynk">Indian operations</span> first
+        <h1 className="page-hero-title">
+          Built for <span className="text-olynk">global operations</span>
         </h1>
         <p className="text-steel text-lg font-medium leading-relaxed">
           Pick a vertical to see how OLynk maps pain to decisions - from COD & RTO in commerce to supply shocks in manufacturing.

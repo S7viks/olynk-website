@@ -132,7 +132,7 @@ const Orbit = () => {
                             <Eye className="w-3.5 h-3.5" />
                             Governance Layer
                         </div>
-                        <h1 className="text-4xl sm:text-5xl lg:text-7xl font-black text-navy leading-[1.05] tracking-tightest mb-8">
+                        <h1 className="page-hero-title mb-8">
                             Deploy, secure, <br /><span className="text-olynk">and monitor.</span>
                         </h1>
                         <p className="text-xl text-steel max-w-2xl mx-auto leading-relaxed font-medium mb-12">

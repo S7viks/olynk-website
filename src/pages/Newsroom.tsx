@@ -11,7 +11,7 @@ const Newsroom = () => {
                             <Newspaper className="w-3 h-3 text-navy" />
                             <span className="text-[10px] font-black uppercase tracking-[0.2em] text-navy font-mono">PRESS_RELEASES</span>
                         </div>
-                        <h1 className="text-5xl lg:text-7xl font-black text-navy mb-6 tracking-tight">Newsroom</h1>
+                        <h1 className="page-hero-title mb-6">Newsroom</h1>
                         <p className="text-xl text-steel font-medium">Updates and announcements coming soon.</p>
                     </motion.div>
                 </div>

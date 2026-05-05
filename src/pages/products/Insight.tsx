@@ -164,7 +164,7 @@ const Insight = () => {
                             <Zap className="w-3 h-3" />
                             Intelligence Layer
                         </div>
-                        <h1 className="text-4xl sm:text-6xl lg:text-7xl font-black text-navy leading-[1.1] tracking-tight mb-8">
+                        <h1 className="page-hero-title mb-8">
                             See clearly. <br />
                             <span className="text-olynk">Decide confidently.</span>
                         </h1>

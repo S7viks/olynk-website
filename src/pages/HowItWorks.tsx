@@ -139,7 +139,7 @@ const HowItWorks = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
           >
-            <h1 className="text-4xl lg:text-8xl font-black text-navy leading-[1.05] tracking-tightest mb-8 uppercase">
+            <h1 className="page-hero-title mb-8 uppercase">
               LINK. THINK.<br />
               <span className="text-olynk">ACT.</span>
             </h1>

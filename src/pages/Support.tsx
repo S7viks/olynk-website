@@ -11,7 +11,7 @@ const Support = () => {
                             <Headphones className="w-3 h-3 text-navy" />
                             <span className="text-[10px] font-black uppercase tracking-[0.2em] text-navy font-mono">CUSTOMER_SUPPORT</span>
                         </div>
-                        <h1 className="text-5xl lg:text-7xl font-black text-navy mb-6 tracking-tight">Contact Support</h1>
+                        <h1 className="page-hero-title mb-6">Contact Support</h1>
                         <p className="text-xl text-steel font-medium">We're here to help you succeed with Olynk.</p>
                     </motion.div>
                 </div>

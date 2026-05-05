@@ -92,7 +92,7 @@ const Home = () => {
           <div className="text-center max-w-5xl mx-auto space-y-10 mb-12 relative z-20">
 
             {/* Headline */}
-            <h1 className="text-4xl sm:text-5xl lg:text-7xl font-black text-navy leading-[1.1] tracking-tightest">
+            <h1 className="page-hero-title">
               <span className="block mb-2">Predict</span>
               <div className="flex w-full items-center justify-center overflow-hidden relative h-[1.3em] text-5xl sm:text-7xl lg:text-8xl my-2">
                 <AnimatePresence mode="popLayout">
@@ -142,7 +142,7 @@ const Home = () => {
               </div>
               <div className="flex items-center gap-2">
                 <CheckCircle className="w-5 h-5 text-emerald-500" />
-                <span>Pilot programs with scaled operators in India</span>
+                <span>Pilot programs with scaled operators across markets</span>
               </div>
             </div>
           </div>

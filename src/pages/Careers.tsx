@@ -11,8 +11,8 @@ const Careers = () => {
                             <Briefcase className="w-3 h-3 text-navy" />
                             <span className="text-[10px] font-black uppercase tracking-[0.2em] text-navy font-mono">JOIN_THE_TEAM</span>
                         </div>
-                        <h1 className="text-5xl lg:text-7xl font-black text-navy mb-6 tracking-tight">
-                            Careers at <span className="text-olynk italic font-serif font-normal">Olynk</span>
+                        <h1 className="page-hero-title mb-6">
+                            Careers at <span className="page-hero-accent">Olynk</span>
                         </h1>
                         <p className="text-xl text-steel font-medium">
                             Build the future of autonomous commerce operations.

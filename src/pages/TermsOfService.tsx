@@ -18,7 +18,7 @@ const TermsOfService = () => {
                             <span className="text-[10px] font-black uppercase tracking-[0.2em] text-navy font-mono">LEGAL_TERMS</span>
                         </div>
 
-                        <h1 className="text-5xl lg:text-7xl font-black text-navy mb-6 tracking-tight">
+                        <h1 className="page-hero-title mb-6">
                             Terms of Service
                         </h1>
 

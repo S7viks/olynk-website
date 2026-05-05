@@ -43,7 +43,7 @@ const INDUSTRY_PRESETS: Record<
 > = {
     d2c: {
         label: 'D2C / commerce',
-        sub: 'Pilot dataset · Indian fulfilment',
+        sub: 'Pilot dataset · multi-market fulfilment',
         revenueAtRiskCr: 42,
         workingCapPct: -8.2,
         serviceLevelPct: 97.2,
@@ -630,7 +630,7 @@ const TritaDashboard = () => {
                     </div>
                     <div className="flex items-center gap-2 text-[9px] font-black text-tan uppercase tracking-[0.25em]">
                         <ArrowUpRight className="w-3.5 h-3.5" />
-                        Built for India commerce
+                        Built for global commerce
                     </div>
                 </div>
             </div>

@@ -17,8 +17,8 @@ const AboutUs = () => {
                             <span className="text-[10px] font-black uppercase tracking-[0.2em] text-navy font-mono">COMPANY_OVERVIEW</span>
                         </div>
 
-                        <h1 className="text-4xl sm:text-6xl lg:text-7xl font-black text-navy mb-6 tracking-tight">
-                            About <span className="text-olynk italic font-serif font-normal">Olynk</span>
+                        <h1 className="page-hero-title mb-6">
+                            About <span className="page-hero-accent">Olynk</span>
                         </h1>
 
                         <p className="text-xl text-steel font-medium leading-relaxed">

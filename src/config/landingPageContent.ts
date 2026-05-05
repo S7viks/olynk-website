@@ -263,5 +263,5 @@ export const CONTACT_INFO = {
 export const PAGE_METADATA = {
     title: "Stop Discovering Stockouts When Your Customers Do | Trita by Olynk",
     description: "Trita predicts operational problems 10 days before they happen. Stop losing ₹2-5L monthly to Stockouts, RTO failures, and ad waste. Built for modern commerce.",
-    keywords: "Commerce operations, stockout prediction, RTO prevention, ROAS monitoring, inventory management, Retail AI India"
+    keywords: "Commerce operations, stockout prediction, RTO prevention, ROAS monitoring, inventory management, Retail AI"
 };

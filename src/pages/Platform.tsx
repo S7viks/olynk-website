@@ -22,7 +22,7 @@ const Platform = () => {
                         <div className="inline-block mb-6 px-4 py-1.5 rounded-full border border-olynk/30 bg-cream">
                             <span className="text-[10px] font-black text-tan uppercase tracking-[0.2em] font-mono">Architecture_Schema // v2.04</span>
                         </div>
-                        <h1 className="text-3xl sm:text-5xl lg:text-7xl font-black text-navy leading-[1.05] tracking-tightest mb-8 uppercase">
+                        <h1 className="page-hero-title mb-8 uppercase">
                             One Platform. <br />
                             <span className="text-olynk">Four Engines.</span> <br />
                             Total Intelligence.

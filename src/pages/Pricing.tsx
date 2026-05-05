@@ -12,9 +12,9 @@ const Pricing = () => {
             <span className="text-[10px] font-black text-olynk uppercase tracking-[0.5em] font-mono">Commercials</span>
             <div className="w-8 h-[1px] bg-olynk/40 font-mono" />
           </div>
-          <h1 className="text-4xl sm:text-5xl lg:text-7xl font-black text-navy tracking-tightest leading-[1.05]">
+          <h1 className="page-hero-title">
             Pricing that matches <br />
-            <span className="text-olynk italic font-serif font-normal">how you operate.</span>
+            <span className="page-hero-accent">how you operate.</span>
           </h1>
           <p className="text-steel text-lg lg:text-xl font-medium leading-relaxed max-w-2xl mx-auto">
             Every deployment is scoped to your GMV, stack complexity, and execution surface. <span className="text-navy font-bold">Commercials align to outcomes</span> - not seats.

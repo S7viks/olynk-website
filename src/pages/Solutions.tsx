@@ -17,7 +17,7 @@ const Solutions = () => {
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.8 }}
           >
-            <h1 className="text-4xl sm:text-6xl lg:text-8xl font-black text-navy leading-[1.05] tracking-tightest mb-8">
+            <h1 className="page-hero-title mb-8">
               Built for<br />
               <span className="text-olynk">High-Velocity Operations.</span>
             </h1>

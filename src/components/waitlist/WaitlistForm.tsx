@@ -76,16 +76,13 @@ export default function WaitlistForm() {
 
             if (supabaseError) throw supabaseError;
 
-            // Simulate email trigger
-            console.log('Triggering email for:', data.email);
-
             setSuccess(true);
         } catch (err: any) {
             console.error('Waitlist error:', err);
             
             // Handle duplicate email error
             if (err.code === '23505' || err.message?.includes('duplicate key') || err.message?.includes('unique constraint')) {
-                setError('This email is already registered on our waitlist. Please check your inbox for your confirmation email.');
+                setError('This email is already registered on our waitlist.');
             } else {
                 setError(err.message || 'Something went wrong. Please try again.');
             }
@@ -115,7 +112,7 @@ export default function WaitlistForm() {
                 </div>
                 <h2 className="text-3xl font-black text-navy mb-4">You're on the list.</h2>
                 <p className="text-steel mb-8 leading-relaxed">
-                    We've secured your spot in the queue. A confirmation email is on its way with your exclusive entry code.
+                    We've secured your spot in the queue.
                 </p>
 
                 <div className="bg-cream border border-beige rounded-xl p-6 mb-8 relative overflow-hidden group">

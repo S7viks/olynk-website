@@ -31,6 +31,7 @@ import LoginForm from './components/LoginForm';
 import PasswordReset from './pages/PasswordReset';
 import UserDashboard from './pages/UserDashboard';
 import WaitlistDashboard from './components/WaitlistDashboard';
+import MoreInfo from './pages/MoreInfo';
 
 // New Pages
 import AboutUs from './pages/AboutUs';
@@ -222,6 +223,17 @@ const App = () => {
                   <PageShell>
                     <LoginForm mode="signup" />
                   </PageShell>
+                }
+              />
+
+              <Route
+                path="/more-info"
+                element={
+                  <ProtectedRoute>
+                    <PageShell>
+                      <MoreInfo />
+                    </PageShell>
+                  </ProtectedRoute>
                 }
               />
 

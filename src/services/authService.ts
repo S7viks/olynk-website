@@ -38,6 +38,11 @@ export interface WaitlistUser {
   updated_at: string;
 }
 
+export interface EnsureWaitlistOptions {
+  referral_source?: string;
+  additional_notes?: string;
+}
+
 export interface LoginCredentials {
   email: string;
   password: string;
@@ -209,6 +214,84 @@ class AuthService {
       .single();
 
     return { waitlistUser: data, error };
+  }
+
+  /**
+   * Ensure the currently authenticated user is marked as a waitlist user.
+   * - Best-effort updates `user_profiles.role` to `waitlist` (if RLS allows)
+   * - Upserts into `waitlist_users`
+   */
+  async ensureWaitlistOnAuth(options: EnsureWaitlistOptions = {}): Promise<{ error: any }> {
+    const currentUser = await this.getCurrentUser();
+    if (!currentUser) return { error: 'No authenticated user' };
+
+    // 1) Ensure role is waitlist (best effort)
+    try {
+      await supabase
+        .from('user_profiles')
+        .update({ role: 'waitlist' })
+        .eq('id', currentUser.id);
+    } catch {
+      // ignore (RLS may block this)
+    }
+
+    // 2) Ensure waitlist_users record exists
+    try {
+      const { data: existing, error: existingError } = await supabase
+        .from('waitlist_users')
+        .select('id')
+        .eq('id', currentUser.id)
+        .maybeSingle();
+
+      if (existingError) {
+        // fall through and try insert anyway
+        console.warn('waitlist_users select failed:', existingError);
+      }
+
+      if (existing?.id) {
+        const { error } = await supabase
+          .from('waitlist_users')
+          .update({
+            referral_source: options.referral_source,
+            additional_notes: options.additional_notes,
+            updated_at: new Date().toISOString(),
+          })
+          .eq('id', currentUser.id);
+        return { error };
+      }
+
+      // Attempt insert with defaults.
+      const insertPayload: Partial<WaitlistUser> & { id: string } = {
+        id: currentUser.id,
+        // priority_level defaults to normal in most schemas; provide a sane fallback:
+        priority_level: 'normal',
+        referral_source: options.referral_source,
+        additional_notes: options.additional_notes,
+      };
+
+      const { error: insertError } = await supabase.from('waitlist_users').insert(insertPayload);
+      if (!insertError) return { error: null };
+
+      // Fallback for schemas that require explicit waitlist_position.
+      const { data: lastRow, error: lastError } = await supabase
+        .from('waitlist_users')
+        .select('waitlist_position')
+        .order('waitlist_position', { ascending: false })
+        .limit(1)
+        .maybeSingle();
+
+      if (lastError) return { error: insertError };
+
+      const nextPosition = (lastRow?.waitlist_position || 0) + 1;
+      const { error: insertWithPosError } = await supabase.from('waitlist_users').insert({
+        ...insertPayload,
+        waitlist_position: nextPosition,
+      });
+
+      return { error: insertWithPosError };
+    } catch (error: any) {
+      return { error: error?.message || error };
+    }
   }
 
   // Check if user is admin

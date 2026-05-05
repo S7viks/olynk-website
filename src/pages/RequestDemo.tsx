@@ -24,7 +24,7 @@ const RequestDemo = () => {
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.8 }}
           >
-            <h1 className="text-5xl lg:text-8xl font-black text-navy leading-[1.05] tracking-tightest mb-8">
+            <h1 className="page-hero-title mb-8">
               Initialize<br />
               <span className="text-olynk">Deployment.</span>
             </h1>

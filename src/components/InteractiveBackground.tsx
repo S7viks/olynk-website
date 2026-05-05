@@ -36,12 +36,12 @@ const InteractiveBackground = () => {
             x: number; 
             y: number;
 
-            constructor() {
+            constructor({ minRadiusMultiplier = 0.35, radiusSpanMultiplier = 0.5, speedMultiplier = 1 }: { minRadiusMultiplier?: number; radiusSpanMultiplier?: number; speedMultiplier?: number } = {}) {
                 this.angle = Math.random() * Math.PI * 2;
                 // Place them outside the central mandala to form a visible ring network
-                const minRadius = Math.min(width, height) * 0.35;
-                this.radius = minRadius + Math.random() * (Math.max(width, height) * 0.5);
-                this.speed = (Math.random() * 0.0006 + 0.0001) * (Math.random() > 0.5 ? 1 : -1);
+                const minRadius = Math.min(width, height) * minRadiusMultiplier;
+                this.radius = minRadius + Math.random() * (Math.max(width, height) * radiusSpanMultiplier);
+                this.speed = ((Math.random() * 0.0006 + 0.0001) * (Math.random() > 0.5 ? 1 : -1)) * speedMultiplier;
                 
                 this.hasText = Math.random() > 0.6; // Only 40% have text to prevent overlapping
                 this.word = strategyWords[Math.floor(Math.random() * strategyWords.length)];
@@ -170,10 +170,18 @@ const InteractiveBackground = () => {
         }
 
         const nodes: OrbitNode[] = [];
-        // Increased density to create a highly visible, interconnected web
-        const nodeCount = Math.floor((width * height) / 12000); 
-        for (let i = 0; i < nodeCount; i++) {
-            nodes.push(new OrbitNode());
+        const outerNodes: OrbitNode[] = [];
+
+        // Density scales with viewport area; capped to keep perf predictable.
+        const baseCount = Math.min(240, Math.floor((width * height) / 8000));
+        const outerCount = Math.min(180, Math.floor(baseCount * 0.7));
+
+        for (let i = 0; i < baseCount; i++) {
+            nodes.push(new OrbitNode({ minRadiusMultiplier: 0.32, radiusSpanMultiplier: 0.55, speedMultiplier: 1 }));
+        }
+        // A second, slightly larger ring network for "more networks" feel.
+        for (let i = 0; i < outerCount; i++) {
+            outerNodes.push(new OrbitNode({ minRadiusMultiplier: 0.55, radiusSpanMultiplier: 0.65, speedMultiplier: 0.7 }));
         }
 
         // Center exactly in the middle of the screen
@@ -189,39 +197,42 @@ const InteractiveBackground = () => {
             yantra.update(centerX, centerY);
             yantra.draw();
 
-            // Connect nearby orbiting nodes to form the causal network around the mantra circle
-            for (let i = 0; i < nodes.length; i++) {
-                const nodeA = nodes[i];
-                nodeA.update(centerX, centerY);
-                nodeA.draw();
+            const drawNetwork = (arr: OrbitNode[], { connectDistance, baseLineOpacity }: { connectDistance: number; baseLineOpacity: number }) => {
+                for (let i = 0; i < arr.length; i++) {
+                    const nodeA = arr[i];
+                    nodeA.update(centerX, centerY);
+                    nodeA.draw();
 
-                for (let j = i + 1; j < nodes.length; j++) {
-                    const nodeB = nodes[j];
-                    const dx = nodeA.x - nodeB.x;
-                    const dy = nodeA.y - nodeB.y;
-                    const dist = Math.sqrt(dx * dx + dy * dy);
+                    for (let j = i + 1; j < arr.length; j++) {
+                        const nodeB = arr[j];
+                        const dx = nodeA.x - nodeB.x;
+                        const dy = nodeA.y - nodeB.y;
+                        const dist = Math.sqrt(dx * dx + dy * dy);
 
-                    // Connect close nodes (Increased distance so the network is heavily connected)
-                    if (dist < 220) {
-                        const dxMouse = mouse.x - nodeA.x;
-                        const dyMouse = mouse.y - nodeA.y;
-                        const distMouse = Math.sqrt(dxMouse * dxMouse + dyMouse * dyMouse);
-                        
-                        // Higher base visibility for the network lines
-                        let baseOpacity = (1 - dist / 220) * 0.25; 
-                        if (distMouse < 250) {
-                            baseOpacity += (1 - distMouse / 250) * 0.35; // Brightens when hovered
+                        if (dist < connectDistance) {
+                            const dxMouse = mouse.x - nodeA.x;
+                            const dyMouse = mouse.y - nodeA.y;
+                            const distMouse = Math.sqrt(dxMouse * dxMouse + dyMouse * dyMouse);
+
+                            let opacity = (1 - dist / connectDistance) * baseLineOpacity;
+                            if (distMouse < 260) {
+                                opacity += (1 - distMouse / 260) * 0.25;
+                            }
+
+                            ctx.beginPath();
+                            ctx.moveTo(nodeA.x, nodeA.y);
+                            ctx.lineTo(nodeB.x, nodeB.y);
+                            ctx.strokeStyle = `rgba(${DEEP_BLUE}, ${opacity})`;
+                            ctx.lineWidth = 1;
+                            ctx.stroke();
                         }
-
-                        ctx.beginPath();
-                        ctx.moveTo(nodeA.x, nodeA.y);
-                        ctx.lineTo(nodeB.x, nodeB.y);
-                        ctx.strokeStyle = `rgba(${DEEP_BLUE}, ${baseOpacity})`;
-                        ctx.lineWidth = 1;
-                        ctx.stroke();
                     }
                 }
-            }
+            };
+
+            // Two overlapping networks: inner denser + outer softer.
+            drawNetwork(nodes, { connectDistance: 260, baseLineOpacity: 0.22 });
+            drawNetwork(outerNodes, { connectDistance: 320, baseLineOpacity: 0.12 });
 
             requestAnimationFrame(animate);
         };
