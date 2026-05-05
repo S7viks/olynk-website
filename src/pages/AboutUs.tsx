@@ -24,6 +24,10 @@ const AboutUs = () => {
                         <p className="text-xl text-steel font-medium leading-relaxed">
                             We're building the intelligence operating system for autonomous commerce.
                         </p>
+                        <p className="text-base text-steel/80 font-medium leading-relaxed mt-4 max-w-3xl mx-auto">
+                            <span className="text-navy font-bold">Trita</span> is our flagship system: it connects your operational data,
+                            simulates what’s likely to break next, and turns that into decisions your team can execute with full traceability.
+                        </p>
                     </motion.div>
                 </div>
             </section>

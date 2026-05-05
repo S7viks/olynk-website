@@ -165,7 +165,7 @@ p {
     }
 
     .page-hero-accent {
-        @apply text-olynk italic font-serif font-normal;
+        @apply text-olynk font-black not-italic font-sans;
     }
 
     /* Card Lift Effect */

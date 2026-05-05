@@ -12,11 +12,7 @@ const Solutions = () => {
         </div>
 
         <div className="max-w-7xl mx-auto text-center relative z-10">
-          <motion.div
-            initial={{ opacity: 0, scale: 0.95 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.8 }}
-          >
+          <div>
             <h1 className="page-hero-title mb-8">
               Built for<br />
               <span className="text-olynk">High-Velocity Operations.</span>
@@ -25,7 +21,7 @@ const Solutions = () => {
               If operational complexity is your biggest bottleneck, Trita is your unfair advantage.
               Built for enterprises that have outgrown spreadsheets.
             </p>
-          </motion.div>
+          </div>
         </div>
       </section>
 
