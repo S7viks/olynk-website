@@ -314,8 +314,16 @@
     CREATE OR REPLACE FUNCTION public.handle_new_user()
     RETURNS TRIGGER AS $$
     BEGIN
-        INSERT INTO public.user_profiles (id, email, full_name, role)
-        VALUES (NEW.id, NEW.email, NEW.raw_user_meta_data->>'full_name', 'waitlist');
+        INSERT INTO public.user_profiles (id, email, full_name, company, position, phone, role)
+        VALUES (
+            NEW.id,
+            NEW.email,
+            NEW.raw_user_meta_data->>'full_name',
+            NEW.raw_user_meta_data->>'company',
+            NEW.raw_user_meta_data->>'position',
+            NEW.raw_user_meta_data->>'phone',
+            'waitlist'
+        );
         
         -- Create waitlist user entry
         INSERT INTO public.waitlist_users (id, waitlist_position)

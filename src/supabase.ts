@@ -1,10 +1,5 @@
 import { createClient } from '@supabase/supabase-js'
 
-// Global check to prevent multiple GoTrueClient instances
-if (typeof window !== 'undefined' && (window as any).__SUPABASE_CLIENT_INITIALIZED__) {
-  console.warn('⚠️ Supabase client already initialized, reusing existing instance');
-}
-
 // Get Supabase URL and keys from environment variables
 // SECURITY: Never hardcode credentials - they will be exposed in client-side code
 const supabaseUrl = import.meta.env.VITE_SUPABASE_URL
@@ -40,18 +35,15 @@ function getSupabaseClient() {
 
     supabaseInstance = createClient(supabaseUrl, supabaseAnonKey, {
       auth: {
-        autoRefreshToken: true,
-        persistSession: true,
+        // Ephemeral sessions: forget on reload, require sign-in again.
+        autoRefreshToken: false,
+        persistSession: false,
         detectSessionInUrl: true,
-        storage: typeof window !== 'undefined' ? window.localStorage : undefined
+        storage: undefined
       }
     });
 
-    // Mark as initialized globally
-    if (typeof window !== 'undefined') {
-      (window as any).__SUPABASE_CLIENT_INITIALIZED__ = true;
-      (window as any).__SUPABASE_CLIENT_INSTANCE__ = supabaseInstance;
-    }
+    // Note: no global/window caching; keep auth ephemeral.
   }
   return supabaseInstance;
 }
