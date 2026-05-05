@@ -2,8 +2,8 @@ import { motion } from 'framer-motion';
 import { CAPABILITIES } from '../../config/landingPageContent';
 
 /**
- * What OLynk Does Section - Customer Development Landing Page
- * 
+ * What Trita Does Section - Customer Development Landing Page
+ *
  * No fluff. Clear explanation of the 3 core capabilities.
  * Simple language, real examples.
  */
@@ -55,12 +55,12 @@ const CapabilityCard = ({ capability, index }: CapabilityCardProps) => {
     );
 };
 
-const WhatOLynkDoes = () => {
+const WhatTritaDoes = () => {
     return (
         <section
-            id="what-olynk-does"
+            id="what-trita-does"
             className="py-20 px-4 bg-white"
-            data-section="what-olynk-does"
+            data-section="what-trita-does"
         >
             <div className="max-w-5xl mx-auto">
                 {/* Header */}
@@ -72,11 +72,11 @@ const WhatOLynkDoes = () => {
                     className="text-center mb-16"
                 >
                     <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
-                        What OLynk Actually Does
+                        What Trita Actually Does
                     </h2>
                     <p className="text-xl text-gray-700 max-w-3xl mx-auto leading-relaxed">
-                        OLynk watches your Shopify, inventory, shipping, and ads 24/7.
-                        When something's about to go wrong, it tells you—or just fixes it.
+                        Trita watches your commerce stack 24/7.
+                        When something's about to go wrong, it tells you - or just fixes it.
                     </p>
                 </motion.div>
 
@@ -114,13 +114,13 @@ const WhatOLynkDoes = () => {
                             if (window.gtag) {
                                 window.gtag('event', 'cta_click', {
                                     cta_type: 'capabilities_bottom',
-                                    location: 'what_olynk_does_section'
+                                    location: 'what_trita_does_section'
                                 });
                             }
                         }}
                         className="bg-red-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-red-700 transition-colors duration-200"
                     >
-                        Book a 15-Minute Call
+                        Book a 20-Minute Call
                     </button>
                 </motion.div>
             </div>
@@ -128,4 +128,5 @@ const WhatOLynkDoes = () => {
     );
 };
 
-export default WhatOLynkDoes;
+export default WhatTritaDoes;
+

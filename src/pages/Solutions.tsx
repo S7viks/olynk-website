@@ -4,7 +4,7 @@ import { ArrowRight, ShoppingCart, Package, TrendingUp, CheckCircle2, BarChart3,
 
 const Solutions = () => {
   return (
-    <div className="min-h-screen bg-transparent">
+    <div className="relative z-10 min-h-screen bg-transparent">
       {/* Hero Section */}
       <section className="pt-40 pb-20 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
         <div className="absolute top-20 left-10 opacity-[0.03] select-none pointer-events-none">

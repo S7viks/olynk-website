@@ -47,8 +47,8 @@ const Footer = () => {
                 </Link>
               </li>
               <li>
-                <Link to="/documentation" className="text-steel hover:text-navy transition-all duration-300">
-                  Documentation
+                <Link to="/pricing" className="text-steel hover:text-navy transition-all duration-300">
+                  Pricing
                 </Link>
               </li>
             </ul>
@@ -59,6 +59,11 @@ const Footer = () => {
             <h3 className="text-[11px] font-black text-navy uppercase tracking-[0.2em] mb-8">Industries</h3>
             <ul className="space-y-4 text-[13px] font-bold">
               <li>
+                <Link to="/industries" className="text-steel hover:text-navy transition-all duration-300">
+                  Overview
+                </Link>
+              </li>
+              <li>
                 <Link to="/industries/commerce" className="text-steel hover:text-navy transition-all duration-300">
                   Commerce
                 </Link>
@@ -66,16 +71,6 @@ const Footer = () => {
               <li>
                 <Link to="/industries/manufacturing" className="text-steel hover:text-navy transition-all duration-300">
                   Manufacturing
-                </Link>
-              </li>
-              <li>
-                <Link to="/industries/healthcare" className="text-steel hover:text-navy transition-all duration-300">
-                  Healthcare
-                </Link>
-              </li>
-              <li>
-                <Link to="/industries/edtech" className="text-steel hover:text-navy transition-all duration-300">
-                  EdTech
                 </Link>
               </li>
             </ul>
@@ -86,8 +81,13 @@ const Footer = () => {
             <h3 className="text-[11px] font-black text-navy uppercase tracking-[0.2em] mb-8">Company</h3>
             <ul className="space-y-4 text-[13px] font-bold">
               <li>
-                <Link to="/company" className="text-steel hover:text-navy transition-all duration-300">
+                <Link to="/about" className="text-steel hover:text-navy transition-all duration-300">
                   About Us
+                </Link>
+              </li>
+              <li>
+                <Link to="/company" className="text-steel hover:text-navy transition-all duration-300">
+                  Company
                 </Link>
               </li>
               <li>

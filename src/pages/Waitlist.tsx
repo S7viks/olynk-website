@@ -63,22 +63,6 @@ const Waitlist = () => {
                         <WaitlistMetrics />
                     </motion.div>
 
-                    {/* Trust / Social Proof */}
-                    <motion.div
-                        initial={{ opacity: 0 }}
-                        animate={{ opacity: 1 }}
-                        transition={{ delay: 0.8 }}
-                        className="mt-20 text-center"
-                    >
-                        <p className="text-xs font-black text-tan uppercase tracking-widest mb-8">Processing Data For</p>
-                        <div className="flex flex-wrap justify-center gap-12 opacity-60 grayscale mix-blend-multiply items-center">
-                            {/* Simple text placeholders matching the aesthetic */}
-                            <span className="font-serif italic font-bold text-3xl text-navy">Shopify</span>
-                            <span className="font-mono font-bold text-2xl text-navy tracking-tighter">NETSUITE</span>
-                            <span className="font-sans font-black text-3xl text-navy tracking-tight">salesforce</span>
-                            <span className="font-serif font-bold text-2xl text-navy">Big<span className="text-olynk">Commerce</span></span>
-                        </div>
-                    </motion.div>
                 </div>
             </div>
         </div>

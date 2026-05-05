@@ -7,8 +7,8 @@ const PROTOCOLS = [
     {
         id: "LINK",
         label: "Unified feed",
-        title: "Connect your apps in 15 minutes.",
-        description: "Plug into Shopify, your ERP, and ad platforms effortlessly. We see everything without changing your existing tools.",
+        title: "Start pulling live data in under 15 minutes.",
+        description: "Pre-built connectors for Shopify, Amazon, and 40+ tools. Enterprise ERPs (SAP, NetSuite) use our guided connector wizard - most go live within one sprint.",
         icon: Database,
         status: "READY",
         statusLight: "bg-emerald-500",
@@ -28,7 +28,7 @@ const PROTOCOLS = [
         id: "ACT",
         label: "Instant action",
         title: "Approve decisions in one click.",
-        description: "Wake up to ready-to-execute actions. Approve a restock or pause a campaign—we handle the paperwork and execution.",
+        description: "Wake up to ready-to-execute actions. Approve a restock or pause a campaign - we handle the paperwork and execution.",
         icon: Zap,
         status: "WAITING",
         statusLight: "bg-tan",
@@ -148,7 +148,7 @@ const HowItWorks = () => {
                                             <div className="flex flex-col items-end">
                                                 <div className="flex items-center gap-2">
                                                     <div className={`w-1.5 h-1.5 rounded-full ${protocol.statusLight} animate-pulse`} />
-                                                    <span className="text-[8px] lg:text-[9px] font-black text-navy tracking-widest">{protocol.status}</span>
+                                                    <span className="text-[10px] lg:text-[11px] font-black text-navy tracking-widest">{protocol.status}</span>
                                                 </div>
                                             </div>
                                         </div>
@@ -183,12 +183,13 @@ const HowItWorks = () => {
                     {/* Time Pod */}
                     <div className="flex flex-col sm:flex-row items-start sm:items-center gap-6 lg:gap-10 p-8 lg:p-10 bg-navy rounded-3xl lg:rounded-[40px] text-white shadow-2xl relative overflow-hidden group/pod">
                         <div className="flex flex-col">
-                            <span className="text-5xl lg:text-7xl font-black tracking-tightest leading-none mb-2">15:00</span>
-                            <span className="text-[8px] lg:text-[10px] font-bold text-white/40 uppercase tracking-[0.4em] font-mono">Minutes_to_deploy</span>
+                            <span className="text-5xl lg:text-7xl font-black tracking-tightest leading-none mb-2 text-white">15:00</span>
+                            <span className="text-[9px] lg:text-[10px] font-bold text-white/60 uppercase tracking-[0.4em] font-mono">Minutes_to_deploy</span>
+                            <span className="text-[8px] text-white/40 font-mono mt-1 block">*Median for pre-built connectors. Enterprise ERPs: 1–2 sprints.</span>
                         </div>
                         <div className="hidden sm:block h-20 w-[1px] bg-white/20" />
-                        <div className="max-w-full sm:max-w-[180px]">
-                            <p className="text-sm lg:text-base font-bold leading-tight opacity-70 group-hover/pod:opacity-100 transition-opacity">
+                        <div className="max-w-full sm:max-w-[200px]">
+                            <p className="text-sm lg:text-base font-bold leading-tight text-white/70 group-hover/pod:text-white transition-colors">
                                 Zero-friction setup. Start linking your datasets instantly.
                             </p>
                         </div>
@@ -203,7 +204,7 @@ const HowItWorks = () => {
                         <div className="space-y-1 lg:space-y-2">
                             <h4 className="text-base lg:text-xl font-black text-navy tracking-tight">Enterprise-grade security.</h4>
                             <p className="text-xs lg:text-base text-steel font-medium">
-                                Your data is protected by bank-level encryption. <span className="text-navy font-bold">SOC 2 Type II Certified.</span>
+                                Your data is protected by bank-level encryption and <span className="text-navy font-bold">enterprise-grade security.</span>
                             </p>
                         </div>
                     </div>

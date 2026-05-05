@@ -25,7 +25,7 @@ const Features = () => {
     {
       title: 'AI Data Unification Engine',
       subtitle: 'Single Source of Truth That Never Lies',
-      description: 'Connects all your systems—Shopify, Amazon, WhatsApp Business, spreadsheets, payment gateways—into one accurate, real-time view.',
+      description: 'Connects all your systems - Shopify, Amazon, WhatsApp Business, spreadsheets, payment gateways - into one accurate, real-time view.',
       icon: Database,
       gradient: 'from-teal-500 to-cyan-500',
       impact: '99.8% accuracy guarantee',
@@ -34,7 +34,7 @@ const Features = () => {
     {
       title: 'Smart Integration Orchestration',
       subtitle: 'Your 8 Apps Finally Work as One',
-      description: 'AI connects everything—inventory, orders, customers, suppliers, payments, shipping—into one intelligent dashboard.',
+      description: 'AI connects everything - inventory, orders, customers, suppliers, payments, shipping - into one intelligent dashboard.',
       icon: Zap,
       gradient: 'from-cyan-500 to-blue-500',
       impact: '95% reduction in app switching',

@@ -3,7 +3,7 @@ import { Briefcase } from 'lucide-react';
 
 const Careers = () => {
     return (
-        <div className="relative min-h-screen bg-transparent flex items-center justify-center">
+        <div className="relative z-10 min-h-screen bg-transparent flex items-center justify-center">
             <section className="relative px-6">
                 <div className="max-w-4xl mx-auto text-center">
                     <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }}>

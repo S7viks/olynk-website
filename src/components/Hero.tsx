@@ -43,7 +43,7 @@ const Hero = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
           >
-            Olynk predicts operational friction before it happens — and tells you exactly how to fix it.
+            Olynk predicts operational friction before it happens - and tells you exactly how to fix it.
             <span className="text-navy font-black"> Stop losing millions</span> to inventory drift, shipping delays, and data fragmentation.
           </motion.p>
 

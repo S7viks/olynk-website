@@ -3,7 +3,7 @@ import { Shield, Target, Users, Heart, Award, Globe, Briefcase } from 'lucide-re
 
 const Company = () => {
   return (
-    <div className="min-h-screen bg-transparent">
+    <div className="relative z-10 min-h-screen bg-transparent">
       {/* Hero Section */}
       <section className="pt-40 pb-20 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
         <div className="absolute top-20 left-10 opacity-[0.03] select-none pointer-events-none">
@@ -109,7 +109,7 @@ const Company = () => {
         <div className="max-w-5xl mx-auto grid md:grid-cols-3 gap-8 relative z-10">
           {[
             { icon: Shield, title: "Data Sovereignty", desc: "Your data is never used to train models for other customers." },
-            { icon: Award, title: "Global Compliance", desc: "Strict adherence to GDPR, SOC 2 Type II, and local privacy laws." },
+            { icon: Award, title: "Global Compliance", desc: "Strict adherence to GDPR, international security protocols, and local privacy laws." },
             { icon: Heart, title: "Reliability", desc: "99.99% system uptime via decentralized compute infrastructure." }
           ].map((item, i) => (
             <div key={i} className="p-10 rounded-[40px] border border-beige/60 bg-white hover:shadow-xl transition-all group">

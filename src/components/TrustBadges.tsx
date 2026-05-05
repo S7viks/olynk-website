@@ -4,8 +4,8 @@ import { Shield, Zap, Users, Award } from "lucide-react";
 const badges = [
   {
     icon: Shield,
-    label: "SOC2 Ready",
-    subtitle: "Enterprise Security"
+    label: "Bank-Grade",
+    subtitle: "Data Security"
   },
   {
     icon: Zap,

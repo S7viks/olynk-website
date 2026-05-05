@@ -3,7 +3,7 @@ import { Users, Target, Lightbulb, Globe } from 'lucide-react';
 
 const AboutUs = () => {
     return (
-        <div className="relative min-h-screen bg-transparent">
+        <div className="relative z-10 min-h-screen bg-transparent">
             {/* Hero Section */}
             <section className="relative pt-32 pb-20 px-6">
                 <div className="max-w-4xl mx-auto text-center">
@@ -38,7 +38,7 @@ const AboutUs = () => {
                                 <h2 className="text-3xl sm:text-4xl font-black text-navy">Our Mission</h2>
                             </div>
                             <p className="text-lg text-steel leading-relaxed mb-6">
-                                Olynk exists to eliminate operational friction and unlock autonomous intelligence for modern businesses. We believe that companies shouldn't waste resources on manual coordination between systems—they should focus on growth.
+                                Olynk exists to eliminate operational friction and unlock autonomous intelligence for modern businesses. We believe that companies shouldn't waste resources on manual coordination between systems - they should focus on growth.
                             </p>
                             <p className="text-lg text-steel leading-relaxed">
                                 By creating an irreducible operational layer that sits above existing tools, we enable businesses to execute decisions in real-time with full visibility and control.

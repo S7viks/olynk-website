@@ -1,7 +1,8 @@
-import { useParams } from 'react-router-dom';
+import { useEffect } from 'react';
+import { useNavigate, useParams } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { useState } from 'react';
-import { Cpu, Microscope, GraduationCap, ShoppingCart, ArrowRight, Activity, ShieldCheck } from 'lucide-react';
+import { Cpu, Microscope, ShoppingCart, ArrowRight, Activity, ShieldCheck } from 'lucide-react';
 import CommerceSection from '../../components/CommerceSection';
 import FixMechanismModal from '../../components/FixMechanismModal';
 
@@ -132,136 +133,18 @@ const industriesData: Record<string, any> = {
             }
         ]
     },
-    healthcare: {
-        title: "Healthcare",
-        role: "Clinical Operational Layer",
-        desc: "Secure, real-time data orchestration for clinical research and healthcare logistics management.",
-        icon: Microscope,
-        accent: "text-emerald-600",
-        bg: "bg-white",
-        layers: [
-            {
-                id: "PROTOCOL_COMPLIANCE",
-                title: "Protocol Compliance",
-                desc: "Automated verification of clinical protocols across distributed nodes."
-            },
-            {
-                id: "REAL_TIME_ORCHESTRATION",
-                title: "Orchestration",
-                desc: "Precision timing for specimen logistics and clinical resource allocation."
-            },
-            {
-                id: "DATA_INTEGRITY",
-                title: "Data Integrity",
-                desc: "Immutable audit trails for high-compliance operational data streams."
-            }
-        ],
-        tools: [
-            { name: "Epic", domain: "epic.com" },
-            { name: "Cerner", domain: "cerner.com" },
-            { name: "Athena", domain: "athenahealth.com" },
-            { name: "Allscripts", domain: "allscripts.com" },
-            { name: "Meditech", domain: "meditech.com" },
-            { name: "GE Health", domain: "gehealthcare.com" },
-            { name: "Philips", domain: "philips.com" },
-            { name: "DrChrono", domain: "drchrono.com" }
-        ],
-        headline: {
-            top: "Clinical causal.",
-            bottom: "Data integrity."
-        },
-        bgLabel: "SYSTEM_CORE // CLINICAL",
-        heroStats: [
-            {
-                label: "Protocol Match",
-                value: "100%",
-                subLabel: "Compliance: VERIFIED",
-                color: "bg-emerald-500",
-                icon: "activity"
-            },
-            {
-                label: "Resource Util",
-                value: "94%",
-                subLabel: "Allocation Efficiency",
-                color: "bg-emerald-600",
-                icon: "trending"
-            },
-            {
-                label: "Data Privacy",
-                value: "SECURE",
-                subLabel: "HIPAA/GDPR Active",
-                color: "text-navy",
-                icon: "shield"
-            }
-        ]
-    },
-    edtech: {
-        title: "EdTech",
-        role: "Adaptive Learning Infrastructure",
-        desc: "Intelligent data frameworks for adaptive learning systems and institutional operational efficiency.",
-        icon: GraduationCap,
-        accent: "text-olynk",
-        bg: "bg-white",
-        layers: [
-            {
-                id: "LEARNING_LOGIC",
-                title: "Learning Logic",
-                desc: "Autonomous content delivery based on real-time student performance vectors."
-            },
-            {
-                id: "INSTITUTIONAL_SYNC",
-                title: "Institutional Sync",
-                desc: "Seamless integration between administrative systems and learning environments."
-            },
-            {
-                id: "SUCCESS_METRICS",
-                title: "Success Metrics",
-                desc: "Predictive analytics for student retention and academic performance."
-            }
-        ],
-        tools: [
-            { name: "Canvas", domain: "instructure.com" },
-            { name: "Blackboard", domain: "blackboard.com" },
-            { name: "Moodle", domain: "moodle.org" },
-            { name: "Google", domain: "edu.google.com" },
-            { name: "Coursera", domain: "coursera.org" },
-            { name: "Udemy", domain: "udemy.com" },
-            { name: "Schoology", domain: "schoology.com" },
-            { name: "PowerSchool", domain: "powerschool.com" }
-        ],
-        headline: {
-            top: "Instructional logic.",
-            bottom: "Adaptive sync."
-        },
-        bgLabel: "SYSTEM_CORE // EDTECH",
-        heroStats: [
-            {
-                label: "Engagement",
-                value: "High",
-                subLabel: "Student Participation",
-                color: "bg-emerald-500",
-                icon: "activity"
-            },
-            {
-                label: "Retention",
-                value: "+15%",
-                subLabel: "vs. Previous Term",
-                color: "bg-olynk",
-                icon: "trending"
-            },
-            {
-                label: "Data Integrity",
-                value: "SYNCED",
-                subLabel: "SIS/LMS Unified",
-                color: "text-navy",
-                icon: "shield"
-            }
-        ]
-    },
 };
 
 const IndustryDetail = () => {
     const { id } = useParams();
+    const navigate = useNavigate();
+
+    useEffect(() => {
+        if (id && !industriesData[id]) {
+            navigate('/industries', { replace: true });
+        }
+    }, [id, navigate]);
+
     const data = industriesData[id || 'commerce'] || industriesData.commerce;
     const isCommerce = (id || 'commerce') === 'commerce';
     const [isModalOpen, setIsModalOpen] = useState(false);
@@ -273,7 +156,7 @@ const IndustryDetail = () => {
     };
 
     return (
-        <div className="relative min-h-screen bg-transparent">
+        <div className="relative z-10 min-h-screen bg-transparent">
 
             {/* Signature Background Label Pattern - Subtle/Small */}
             <div className="absolute top-20 left-0 w-full flex justify-center opacity-[0.03] select-none pointer-events-none z-0 overflow-hidden">
@@ -346,10 +229,16 @@ const IndustryDetail = () => {
                             </p>
 
                             <div className="flex flex-wrap justify-center gap-4 mb-2">
-                                <button className="bg-navy text-white px-10 py-5 rounded-2xl text-xs font-black uppercase tracking-widest hover:bg-olynk transition-all shadow-xl hover:-translate-y-1">
+                                <button
+                                    onClick={() => navigate('/waitlist')}
+                                    className="bg-navy text-white px-10 py-5 rounded-2xl text-xs font-black uppercase tracking-widest hover:bg-olynk transition-all shadow-xl hover:-translate-y-1"
+                                >
                                     Register for Demo
                                 </button>
-                                <button className="bg-white border border-beige text-navy px-10 py-5 rounded-2xl text-xs font-black uppercase tracking-widest hover:bg-cream transition-all">
+                                <button
+                                    onClick={() => navigate('/platform')}
+                                    className="bg-white border border-beige text-navy px-10 py-5 rounded-2xl text-xs font-black uppercase tracking-widest hover:bg-cream transition-all"
+                                >
                                     Technical Specs
                                 </button>
                             </div>

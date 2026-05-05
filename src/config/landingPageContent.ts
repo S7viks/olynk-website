@@ -1,7 +1,7 @@
 /**
  * Landing Page Content Configuration
  * 
- * This file contains all content for the OLynk customer development landing page.
+ * This file contains all content for the Trita customer development landing page.
  * Easy to edit and swap content for A/B testing without touching component code.
  */
 
@@ -12,27 +12,27 @@
 export const HEADLINES = {
     // Version A: Shock Value
     A: {
-        main: "You're losing ₹8 lakhs every month to stockouts and RTO.",
+        main: "You're losing ₹8 lakhs every month to Stockouts and RTO.",
         emphasis: "You just don't know it yet.",
-        subheadline: "OLynk tells you 10 days before a stockout happens—and creates the PO automatically. No dashboards. No firefighting. Just intelligent operations that run themselves."
+        subheadline: "Trita tells you 10 days before a Stockout happens - and creates the PO automatically. No dashboards. No firefighting. Just intelligent operations that run themselves."
     },
     // Version B: Empathetic (DEFAULT for V1)
     B: {
-        main: "Stop discovering stockouts when",
+        main: "Stop discovering Stockouts when",
         emphasis: "your customers do",
-        subheadline: "OLynk predicts operational problems 10 days before they happen—and tells you exactly how to fix them. No dashboards to check. No data to reconcile. Just operations that run themselves."
+        subheadline: "Trita predicts operational problems 10 days before they happen - and tells you exactly how to fix them. No dashboards to check. No data to reconcile. Just operations that run themselves."
     },
     // Version C: Problem-Focused
     C: {
         main: "Your operations are bleeding money",
         emphasis: "while you sleep",
-        subheadline: "Stockouts. RTO failures. Ad budget waste. OLynk catches them before they cost you ₹2-5L monthly. Predictive operations intelligence that actually works."
+        subheadline: "Stockouts. RTO failures. Ad budget waste. Trita catches them before they cost you ₹2-5L monthly. Predictive operations intelligence that actually works."
     },
     // Version D: Relatable
     D: {
         main: "Modern commerce operations shouldn't feel like",
         emphasis: "fighting fires 24/7",
-        subheadline: "OLynk watches your commerce stack, inventory, shipping, and ads 24/7. When something's about to go wrong, it tells you—or just fixes it. Stop reacting. Start preventing."
+        subheadline: "Trita watches your commerce stack, inventory, shipping, and ads 24/7. When something's about to go wrong, it tells you - or just fixes it. Stop reacting. Start preventing."
     }
 };
 
@@ -59,14 +59,14 @@ export const PAIN_POINTS = [
         title: "The Sunday Night Stockout Panic",
         story: "It's 11 PM on Sunday. A customer just posted on Instagram that your hero SKU is out of stock. You had no idea. Tomorrow, you'll lose ₹2L in sales while you scramble to fix it.",
         impact: "Average cost: ₹2-5L per stockout incident",
-        quote: "You find out about stockouts when customers do—after they've already bounced to competitors."
+        quote: "You find out about Stockouts when customers do - after they've already bounced to competitors."
     },
     {
         id: 2,
         title: "The RTO Black Hole",
         story: "You're losing 15-30% of every month's revenue to COD returns. Bad addresses. Failed deliveries. Repeat offenders. You know it's happening. You just can't predict which orders will fail.",
         impact: "Average loss: ₹3-8L monthly for ₹50L revenue operations",
-        quote: "Every RTO costs you 2X—once for shipping, again for lost sale and customer."
+        quote: "Every RTO costs you 2X - once for shipping, again for lost sale and customer."
     },
     {
         id: 3,
@@ -85,7 +85,7 @@ export const PAIN_POINTS = [
 ];
 
 // ============================================================================
-// WHAT OLYNK DOES (No fluff, clear explanation)
+// WHAT TRITA DOES (No fluff, clear explanation)
 // ============================================================================
 
 export const CAPABILITIES = [
@@ -97,7 +97,7 @@ export const CAPABILITIES = [
             "Tells you \"SKU X will stockout in 10 days\"",
             "Creates the PO automatically (if you want)"
         ],
-        realExample: "Prevented 3 stockouts in first 2 weeks for pilot enterprise A"
+        realExample: "Prevented 3 Stockouts in first 2 weeks for pilot enterprise A"
     },
     {
         id: 2,
@@ -114,7 +114,7 @@ export const CAPABILITIES = [
         title: "Catches ROAS Bleeds in Real-Time",
         explanation: [
             "Monitors your ad spend every hour",
-            "\"Campaign Y dropped from 3.2X to 1.8X ROAS—pausing now\"",
+            "\"Campaign Y dropped from 3.2X to 1.8X ROAS - pausing now\"",
             "Reallocates budget to what's working"
         ],
         realExample: "Caught a ROAS bleed before it cost ₹5L for pilot enterprise C"
@@ -128,11 +128,11 @@ export const CAPABILITIES = [
 export const FAQ_ITEMS = [
     {
         question: "Is this just another dashboard?",
-        answer: "No. Dashboards show you what already happened. OLynk tells you what will happen—and fixes it before you have to think about it."
+        answer: "No. Dashboards show you what already happened. Trita tells you what will happen - and fixes it before you have to think about it."
     },
     {
         question: "How is this different from Triple Whale or Northbeam?",
-        answer: "Those are analytics tools. They're great at telling you why ROAS dropped. OLynk is an operating system. It prevents the ROAS drop from happening."
+        answer: "Those are analytics tools. They're great at telling you why ROAS dropped. Trita is an operating system. It prevents the ROAS drop from happening."
     },
     {
         question: "What if the predictions are wrong?",
@@ -140,11 +140,11 @@ export const FAQ_ITEMS = [
     },
     {
         question: "How long until I see results?",
-        answer: "Depends what you want to see results in:\n• Stockout predictions: 7 days (after OLynk learns your patterns)\n• RTO flagging: Immediately (works on first order)\n• ROAS monitoring: Real-time (starts the day you connect Meta)"
+        answer: "Depends what you want to see results in:\n• Stockout predictions: 7 days (after Trita learns your patterns)\n• RTO flagging: Immediately (works on first order)\n• ROAS monitoring: Real-time (starts the day you connect Meta)"
     },
     {
         question: "Do I need a tech team?",
-        answer: "No. If you can connect your Shopify store to a payment gateway, you can set up OLynk. It's 3 clicks per integration."
+        answer: "No. If you can connect your Shopify store to a payment gateway, you can set up Trita. It's 3 clicks per integration."
     },
     {
         question: "What does this actually cost?",
@@ -160,7 +160,7 @@ export const SOCIAL_PROOF = {
     approach: "pilot", // "pilot" | "testimonials"
     pilotMessage: "We're working with pilot enterprises to validate this. Here's what they're seeing so far:",
     pilotResults: [
-        "Operation A: Prevented 3 stockouts in the first 2 weeks",
+        "Operation A: Prevented 3 Stockouts in the first 2 weeks",
         "Operation B: Flagged ₹2.1L in high-risk RTO orders",
         "Operation C: Caught a ROAS bleed before it cost them ₹5L"
     ],
@@ -219,7 +219,7 @@ export const CTA_CONFIG: {
     secondary: {
         show: true,
         text: "Not ready yet? Get the one-pager",
-        link: "mailto:hello@olynk.ai?subject=Send me the OLynk one-pager"
+        link: "mailto:hello@olynk.ai?subject=Send me the Trita one-pager"
     }
 };
 
@@ -234,7 +234,7 @@ export const DEMO_CONFIG = {
         description: "A 15-second demo showing:",
         steps: [
             "Real Shopify data flowing in",
-            "OLynk detecting a stockout risk 10 days out",
+            "Trita detecting a stockout risk 10 days out",
             "Auto-creating a PO in real-time",
             "Operations team getting a Slack notification: \"Stockout prevented for Blue T-Shirt (M)\""
         ]
@@ -261,7 +261,7 @@ export const CONTACT_INFO = {
 // ============================================================================
 
 export const PAGE_METADATA = {
-    title: "Stop Discovering Stockouts When Your Customers Do | OLynk",
-    description: "OLynk predicts operational problems 10 days before they happen. Stop losing ₹2-5L monthly to stockouts, RTO failures, and ad waste. Built for modern commerce.",
+    title: "Stop Discovering Stockouts When Your Customers Do | Trita by Olynk",
+    description: "Trita predicts operational problems 10 days before they happen. Stop losing ₹2-5L monthly to Stockouts, RTO failures, and ad waste. Built for modern commerce.",
     keywords: "Commerce operations, stockout prediction, RTO prevention, ROAS monitoring, inventory management, Retail AI India"
 };

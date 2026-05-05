@@ -1,7 +1,7 @@
 {
-  "name": "OLYNK | Predict Problems. Automate Decisions.",
-  "short_name": "OLYNK",
-  "description": "Stop discovering stockouts when your customers do. OLYNK predicts operational problems 10 days before they happen.",
+  "name": "Trita by Olynk | Rehearse the future before you live it",
+  "short_name": "Trita",
+  "description": "Trita helps founders rehearse the future before they live it. Simulation-first operational intelligence built by Olynk.",
   "start_url": "/",
   "display": "standalone",
   "background_color": "#F3EAE0",

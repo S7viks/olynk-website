@@ -5,7 +5,15 @@ import reactRefresh from 'eslint-plugin-react-refresh';
 import tseslint from 'typescript-eslint';
 
 export default tseslint.config(
-  { ignores: ['dist'] },
+  {
+    ignores: [
+      'dist',
+      // Vercel serverless functions are deployed separately and often use Node globals.
+      'api/**',
+      // Legacy embedded subtree with different linting conventions.
+      'src/olnyk-loss-foreseer-main/**',
+    ],
+  },
   {
     extends: [js.configs.recommended, ...tseslint.configs.recommended],
     files: ['**/*.{ts,tsx}'],
@@ -23,6 +31,11 @@ export default tseslint.config(
         'warn',
         { allowConstantExport: true },
       ],
+      // This repo contains intentional rapid-prototype code; keep lint actionable, not blocking.
+      'no-unused-vars': 'off',
+      '@typescript-eslint/no-unused-vars': 'warn',
+      '@typescript-eslint/no-explicit-any': 'warn',
+      'prefer-const': 'warn',
     },
   }
 );

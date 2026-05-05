@@ -3,7 +3,7 @@ import { TrendingUp, Award } from 'lucide-react';
 
 const ImpactStudies = () => {
     return (
-        <div className="relative min-h-screen bg-transparent">
+        <div className="relative z-10 min-h-screen bg-transparent">
             <section className="relative pt-32 pb-20 px-6">
                 <div className="max-w-4xl mx-auto text-center">
                     <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }}>
@@ -21,8 +21,7 @@ const ImpactStudies = () => {
                 <div className="max-w-5xl mx-auto space-y-8">
                     {[
                         { company: "Leading D2C Brand", metric: "85% Reduction", desc: "in operational overhead within 3 months", vertical: "COMMERCE" },
-                        { company: "Manufacturing Company", metric: "$2.4M Saved", desc: "in first year through downtime prevention", vertical: "INDUSTRIAL" },
-                        { company: "Healthcare Provider", metric: "99.9% Compliance", desc: "achieved across all protocols", vertical: "CLINICAL" }
+                        { company: "Manufacturing Company", metric: "$2.4M Saved", desc: "in first year through downtime prevention", vertical: "INDUSTRIAL" }
                     ].map((study, i) => (
                         <motion.div key={i} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ delay: i * 0.1 }}
                             className="p-6 sm:p-10 rounded-[32px] sm:rounded-[40px] bg-cream border-2 border-beige">

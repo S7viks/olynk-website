@@ -5,7 +5,7 @@ import { ArrowRight, Database, Brain, Zap, MessageSquare, CheckCircle2 } from 'l
 
 const Platform = () => {
     return (
-        <div className="min-h-screen bg-transparent pt-24">
+        <div className="relative z-10 min-h-screen bg-transparent pt-24">
 
             {/* SECTION 1: HERO - Category Clarity */}
             <section className="relative px-4 sm:px-6 lg:px-8 pt-16 pb-20 lg:pt-24 lg:pb-28 overflow-hidden">
@@ -187,7 +187,7 @@ const Platform = () => {
                         </h3>
                         <p className="text-lg text-steel/80 leading-relaxed">
                             Most tools show you what happened yesterday. Insight tells you what will happen next month.
-                            It predicts stockouts, cash flow dips, and delivery risks with causal reasoning, not just correlation.
+                            It predicts Stockouts, cash flow dips, and delivery risks with causal reasoning, not just correlation.
                         </p>
                         <div className="flex items-center gap-6 pt-4">
                             <div className="pr-6 border-r border-beige">
@@ -351,7 +351,7 @@ const Platform = () => {
                             Autonomous action, 24/7.
                         </h3>
                         <p className="text-lg text-steel/80 leading-relaxed">
-                            Why just see the problem? Core fixes it. Based on Insight's predictions, Core runs independent workflows to reorder stock, adjust ad spend, or flag risks—while you sleep.
+                            Why just see the problem? Core fixes it. Based on Insight's predictions, Core runs independent workflows to reorder stock, adjust ad spend, or flag risks - while you sleep.
                         </p>
                         <ul className="space-y-4 pt-4">
                             {[

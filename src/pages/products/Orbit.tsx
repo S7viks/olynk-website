@@ -166,7 +166,7 @@ const Orbit = () => {
 
                                 <div className="space-y-3 lg:space-y-4 max-w-md mx-auto sm:mx-0">
                                     {[
-                                        { icon: Lock, label: "SOC 2 Type II Compliant", status: "VERIFIED" },
+                                        { icon: Lock, label: "Enterprise Security", status: "VERIFIED" },
                                         { icon: Server, label: "Data Residency: US-East-1", status: "LOCKED" },
                                         { icon: FileCheck, label: "Audit Logs Immutability", status: "ENABLED" }
                                     ].map((item, i) => (
@@ -241,7 +241,7 @@ const Orbit = () => {
                             {
                                 icon: Globe,
                                 title: "Global Compliance",
-                                desc: "GDPR, CCPA, and SOC 2 ready out of the box.",
+                                desc: "GDPR, CCPA, and Global Privacy ready out of the box.",
                                 animation: (
                                     <div className="h-44 bg-white border border-beige rounded-3xl relative overflow-hidden flex flex-col items-center justify-center shadow-sm">
                                         <div className="relative">
@@ -255,7 +255,7 @@ const Orbit = () => {
                                             </div>
                                         </div>
                                         <div className="mt-4 flex gap-2">
-                                            {["GDPR", "SOC2", "CCPA"].map(tag => (
+                                            {["GDPR", "SECURE", "CCPA"].map(tag => (
                                                 <span key={tag} className="text-[8px] font-black px-2 py-0.5 bg-navy/5 rounded text-navy/40 uppercase tracking-widest">{tag}</span>
                                             ))}
                                         </div>

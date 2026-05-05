@@ -215,7 +215,7 @@ const HowItWorks = () => {
                 <span className="text-olynk italic font-serif font-normal capitalize">Think.</span>
               </h2>
               <p className="text-base lg:text-lg text-steel leading-relaxed font-medium">
-                Our models don't just process data—they understand causality.
+                Our models don't just process data - they understand causality.
                 We map the relationship between ads, inventory, and cash flow.
               </p>
               <div className="grid grid-cols-2 gap-4 lg:gap-6">
@@ -259,7 +259,7 @@ const HowItWorks = () => {
               </h2>
               <p className="text-base lg:text-lg text-white/60 leading-relaxed font-medium">
                 Insight without action is just overhead. OLynk executes fixes directly
-                in your systems—while you're asleep.
+                in your systems - while you're asleep.
               </p>
               <ul className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-1 gap-3 lg:gap-4 text-left">
                 {[

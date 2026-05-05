@@ -154,7 +154,7 @@ const IntegrationsShowcase = () => {
             <div className="max-w-7xl mx-auto px-4 mb-12 lg:mb-16 text-center relative z-10">
                 <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-navy mb-6 lg:mb-8 tracking-tighter leading-[0.95]">
                     Olynk connects to your <br />
-                    <span className="text-olynk underline decoration-tan decoration-4 lg:decoration-8 underline-offset-4 lg:underline-offset-8 text-2xl sm:text-4xl lg:text-5xl">existing apps in minutes.</span>
+                    <span className="text-olynk underline decoration-tan decoration-4 lg:decoration-8 underline-offset-4 lg:underline-offset-8 text-2xl sm:text-4xl lg:text-5xl">entire stack - no migration.</span>
                 </h2>
             </div>
 

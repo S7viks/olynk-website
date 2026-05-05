@@ -51,7 +51,7 @@ const FAQ_CATEGORIES: Record<FAQCategory, { label: string; icon: any; questions:
     questions: [
       {
         q: "What about data security and privacy?",
-        a: "Enterprise-grade security with end-to-end encryption. Your data trains models specifically for your business and is never shared. We're SOC2 Type II compliant with regular security audits."
+        a: "Enterprise-grade security with end-to-end encryption. Your data trains models specifically for your business and is never shared. We maintain strict security protocols with regular internal and external audits."
       },
       {
         q: "Do you own our data?",
@@ -169,8 +169,8 @@ const FAQ = () => {
                 <ShieldCheck className="w-5 h-5 lg:w-6 h-6" />
               </div>
               <div className="space-y-0.5 lg:space-y-1">
-                <span className="text-[8px] lg:text-[10px] font-black text-tan uppercase tracking-[0.2em] font-mono block">Certificate_Valid</span>
-                <span className="text-xs lg:text-sm font-bold text-navy">SOC 2 Type II Certified</span>
+                <span className="text-[8px] lg:text-[10px] font-black text-tan uppercase tracking-[0.2em] font-mono block">Security_Protocol</span>
+                <span className="text-xs lg:text-sm font-bold text-navy">Enterprise Security Ready</span>
               </div>
             </div>
           </div>

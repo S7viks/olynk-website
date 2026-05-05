@@ -1,7 +1,7 @@
 /**
  * Home Page - Diagnostic-First Architecture
  * 
- * Purpose: Help user self-identify operational patterns, THEN show how OLynk thinks
+ * Purpose: Help user self-identify operational patterns, THEN show how Trita thinks
  * User Intent: "Is this for me?" → "What does this do?"
  * 
  * Structure:
@@ -9,7 +9,7 @@
  * 1. Interactive Demo Container (contextualized by diagnostic)
  * 2. Orientation (What you just saw)
  * 3. Problem Context (Why this matters)
- * 4. What OLynk Is (High-level explanation)
+ * 4. What Trita Is (High-level explanation)
  * 5. How It Fits (Mental safety)
  * 6. Who This Is For (Recognition)
  * 7. Next Steps (Conversion)
@@ -17,22 +17,38 @@
 
 
 import { Link } from 'react-router-dom';
-import { useState, useRef } from 'react';
-import { motion } from 'framer-motion';
-import { ArrowRight, CheckCircle, ArrowDown, Search, Brain, CreditCard, Zap } from 'lucide-react';
-import Navbar from '../components/Navbar';
-import OlynkDashboard from '../components/OlynkDashboard';
+import { useState, useRef, useEffect } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { ArrowRight, CheckCircle, ArrowDown, Search, Brain, CreditCard, Zap, Play, X } from 'lucide-react';
+import TritaDashboard from '../components/TritaDashboard';
 import IntegrationsShowcase from '../components/IntegrationsShowcase';
 import HowItWorks from '../components/HowItWorks';
-import InteractiveBackground from '../components/InteractiveBackground';
 import TestimonialsGrid from '../components/TestimonialsGrid';
 import FAQ from '../components/FAQ';
 import FixMechanismModal from '../components/FixMechanismModal';
 
+const operationalProblems = [
+  "Stockouts",
+  "Production delays",
+  "RTO failures",
+  "Supply chain shocks",
+  "Dead stock",
+  "BOM shortages"
+];
+
 const Home = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [showWalkthrough, setShowWalkthrough] = useState(false);
   const [activeIndustry, setActiveIndustry] = useState<{ title: string; layers: any[] }>({ title: 'Operational Intelligence', layers: [] });
+  const [problemIndex, setProblemIndex] = useState(0);
   const diagnosticRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setProblemIndex((current) => (current + 1) % operationalProblems.length);
+    }, 1500);
+    return () => clearInterval(interval);
+  }, []);
 
   const scrollToDiagnostic = () => {
     diagnosticRef.current?.scrollIntoView({ behavior: 'smooth' });
@@ -52,7 +68,7 @@ const Home = () => {
     {
       id: 'SUPPLY_CHAIN_LOGIC',
       title: 'Core Engine',
-      desc: 'Automatically executes the best operational decisions—from inventory reallocation to supplier reordering—without human intervention.'
+      desc: 'Automatically executes the best operational decisions - from inventory reallocation to supplier reordering - without human intervention.'
     }
   ];
 
@@ -65,29 +81,39 @@ const Home = () => {
   };
 
   return (
-    <div className="min-h-screen bg-cream">
-      <Navbar />
-      <InteractiveBackground />
+    <div className="min-h-screen bg-transparent relative z-10">
       {/* HERO SECTION - Executive Daylight Theme */}
       <section className="group min-h-screen relative overflow-hidden">
 
-        {/* Main Content Container - Centered Stack */}
-        <div className="relative z-10 container-custom pt-24 pb-16 lg:pt-32 lg:pb-20 min-h-screen flex flex-col items-center justify-center">
+        {/* Main Content Container - Natural Flow */}
+        <div className="relative z-10 container-custom pt-32 pb-16 lg:pt-40 lg:pb-20 flex flex-col items-center">
 
           {/* 1. Header Copy Block (Centered) */}
-          <div className="text-center max-w-4xl mx-auto space-y-8 mb-8 relative z-20">
+          <div className="text-center max-w-5xl mx-auto space-y-10 mb-12 relative z-20">
 
             {/* Headline */}
             <h1 className="text-4xl sm:text-5xl lg:text-7xl font-black text-navy leading-[1.1] tracking-tightest">
-              An AI that runs
-              <span className="block mt-2 text-gradient">
-                your operations.
-              </span>
+              <span className="block mb-2">Predict</span>
+              <div className="flex w-full items-center justify-center overflow-hidden relative h-[1.3em] text-5xl sm:text-7xl lg:text-8xl my-2">
+                <AnimatePresence mode="popLayout">
+                  <motion.span
+                    key={problemIndex}
+                    initial={{ y: 80, opacity: 0 }}
+                    animate={{ y: 0, opacity: 1 }}
+                    exit={{ y: -80, opacity: 0 }}
+                    transition={{ duration: 0.5, type: "spring", stiffness: 300, damping: 30 }}
+                    className="text-olynk whitespace-nowrap block font-sanskrit"
+                  >
+                    {operationalProblems[problemIndex]}
+                  </motion.span>
+                </AnimatePresence>
+              </div>
+              <span className="block mt-2">10 days early.</span>
             </h1>
 
             {/* Subheadline */}
-            <p className="text-steel text-lg lg:text-xl leading-relaxed max-w-2xl mx-auto">
-              Not just numbers. <span className="text-navy font-semibold">An AI that does the work for you.</span> It eliminates operational blind spots across your supply chain and gives your leadership team a unified intelligence layer.
+            <p className="text-navy text-xl lg:text-2xl leading-relaxed max-w-4xl mx-auto font-medium">
+              Trita connects your entire operation - <span className="font-bold">ERP, Production, Warehouse, and Sales</span> - into one system that spots supply chain risks, prevents Stockouts, and executes fixes across your stack without waiting for a human in the loop.
             </p>
 
             {/* CTA Buttons */}
@@ -99,30 +125,31 @@ const Home = () => {
                 Request Demo
                 <ArrowRight className="ml-2 h-5 w-5" />
               </Link>
-              <Link
-                to="/platform"
-                className="px-8 py-4 bg-transparent text-olynk border-2 border-olynk rounded-lg font-semibold hover:bg-olynk hover:text-white transition-all inline-flex items-center justify-center text-lg min-w-[180px]"
+              <button
+                onClick={() => setShowWalkthrough(true)}
+                className="px-8 py-4 bg-transparent text-olynk border-2 border-olynk rounded-lg font-semibold hover:bg-olynk/5 transition-all inline-flex items-center justify-center text-lg min-w-[180px]"
               >
-                Explore Platform
-              </Link>
+                <Play className="mr-2 h-5 w-5" />
+                Watch 2-Min Walkthrough
+              </button>
             </div>
 
-            {/* Trust Indicators */}
+            {/* Trust Indicators - avoid unverifiable claims */}
             <div className="flex flex-wrap items-center justify-center gap-x-8 gap-y-4 pt-4 text-sm font-bold text-steel">
               <div className="flex items-center gap-2">
                 <CheckCircle className="w-5 h-5 text-emerald-500" />
-                <span>SOC 2 Type II Certified</span>
+                <span>Security-first · audit-friendly execution logs</span>
               </div>
               <div className="flex items-center gap-2">
                 <CheckCircle className="w-5 h-5 text-emerald-500" />
-                <span>150+ Businesses</span>
+                <span>Pilot programs with scaled operators in India</span>
               </div>
             </div>
           </div>
 
           {/* 2. Command Center Visual */}
           <div className="w-full max-w-full mx-auto relative px-4 lg:px-6">
-            <OlynkDashboard />
+            <TritaDashboard />
           </div>
 
         </div>
@@ -172,7 +199,7 @@ const Home = () => {
               Stop <span className="text-olynk italic font-serif font-normal">guessing</span> what's wrong.
             </h2>
             <p className="text-lg text-steel leading-relaxed font-medium">
-              Most tools only report the past. Olynk is an <span className="text-olynk font-bold">execution layer</span>—it aligns procurement, inventory, finance, and fulfillment under one governed policy engine so decisions ship with audit trails, not ad hoc heroics.
+              Most tools only report the past. Trita is an <span className="text-olynk font-bold">execution layer</span> - it aligns procurement, inventory, finance, and fulfillment under one governed policy engine so decisions ship with audit trails, not ad hoc heroics.
             </p>
           </div>
 
@@ -191,7 +218,7 @@ const Home = () => {
                   { label: "Manual bridges", val: "High", color: "text-red-500" }
                 ],
                 intervention: "Unified intelligence layer",
-                solution: "Eliminate operational blind spots across your supply chain—one control plane with lineage from signal to action, so your leadership team debates strategy, not spreadsheets.",
+                solution: "Eliminate operational blind spots across your supply chain - one control plane with lineage from signal to action, so your leadership team debates strategy, not spreadsheets.",
                 accent: "navy"
               },
               {
@@ -199,14 +226,14 @@ const Home = () => {
                 icon: Brain,
                 symptom: "Risk surfaces too late for orderly response",
                 quote: "By the time the board sees it, we are already in firefight mode.",
-                detail: "Exceptions show up as revenue-at-risk, stockouts, or working-capital strain without enough lead time to align procurement, network inventory, and commercial plans.",
+                detail: "Exceptions show up as supply chain risk, Stockouts, or production bottlenecks without enough lead time to align procurement, plant schedules, and commercial plans.",
                 costLabel: "Strategic exposure",
                 costMetrics: [
                   { label: "Revenue at risk", val: "12–18%", color: "text-red-600" },
                   { label: "Forecast horizon", val: "Short", color: "text-red-500" }
                 ],
                 intervention: "Early, governed intervention",
-                solution: "Surface cross-functional risk with 30/60/90-day context, confidence scores, and policy-based playbooks so teams coordinate before commitments harden—not after.",
+                solution: "Surface cross-functional risk with 30/60/90-day context, confidence scores, and policy-based playbooks so teams coordinate before commitments harden - not after.",
                 accent: "olynk"
               },
               {
@@ -214,14 +241,14 @@ const Home = () => {
                 icon: CreditCard,
                 symptom: "Manual coordination taxes scale",
                 quote: "Our teams chase status across email, tickets, and side channels.",
-                detail: "High-scale operations still depend on tribal knowledge and handoffs between procurement, finance, and fulfillment—slowing execution and weakening auditability.",
+                detail: "High-scale operations still depend on tribal knowledge and handoffs between procurement, finance, and fulfillment - slowing execution and weakening auditability.",
                 costLabel: "Coordination load",
                 costMetrics: [
                   { label: "Handoffs / wk", val: "100+", color: "text-red-600" },
                   { label: "Policy drift", val: "Elevated", color: "text-red-500" }
                 ],
                 intervention: "Autonomous execution across systems",
-                solution: "Eliminate manual coordination overhead—Olynk orchestrates approved actions across your stack with roles, thresholds, and immutable logs so the organization scales without adding coordination tax.",
+                solution: "Eliminate manual coordination overhead - Trita orchestrates approved actions across your stack with roles, thresholds, and immutable logs so the organization scales without adding coordination tax.",
                 accent: "navy"
               }
             ].map((pattern, idx) => (
@@ -259,7 +286,7 @@ const Home = () => {
                         <div className="flex gap-8 lg:gap-10">
                           {pattern.costMetrics.map((m, mi) => (
                             <div key={mi} className="space-y-1">
-                              <span className="text-[9px] lg:text-[10px] font-bold text-navy/20 block uppercase tracking-tighter">{m.label}</span>
+                              <span className="text-[9px] lg:text-[10px] font-bold text-navy/50 block uppercase tracking-tighter">{m.label}</span>
                               <span className={`text-lg lg:text-xl font-black ${m.color === 'text-red-400' ? 'text-red-600' : 'text-red-500'} font-mono tracking-tighter`}>{m.val}</span>
                             </div>
                           ))}
@@ -269,7 +296,7 @@ const Home = () => {
                   </div>
                 </div>
 
-                {/* Side B: The Intervention (The Olynk Shift) */}
+                {/* Side B: The Intervention (The Trita Shift) */}
                 <div className="lg:col-span-5 p-6 lg:p-10 bg-white flex flex-col justify-center relative lg:border-l border-beige/40">
                   <div className="relative z-10 space-y-6 lg:space-y-8">
                     <div className="flex items-center gap-4">
@@ -303,7 +330,45 @@ const Home = () => {
       {/* SECTION 4: Integrations Showcase */}
       <IntegrationsShowcase />
 
-      {/* SECTION 4.5: TESTIMONIALS */}
+      {/* SECTION 4.5: ICP QUALIFIER - Who This Is For */}
+      <section className="py-20 lg:py-28 px-4 border-t border-beige bg-white/30 relative overflow-hidden">
+        <div className="absolute inset-0 opacity-[0.03] pointer-events-none"
+          style={{ backgroundImage: 'radial-gradient(circle at 2px 2px, #001B3D 1px, transparent 0)', backgroundSize: '32px 32px' }} />
+        <div className="max-w-5xl mx-auto text-center space-y-12 relative z-10">
+          <div className="space-y-4">
+            <span className="text-[10px] font-black text-olynk uppercase tracking-[0.5em] font-mono">Ideal Customer Profile</span>
+            <h2 className="text-3xl lg:text-4xl font-black text-navy tracking-tightest">
+              Built for operations teams doing<br />
+              <span className="text-olynk">₹50Cr+ in annual GMV.</span>
+            </h2>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8">
+            <div className="p-8 rounded-2xl border border-beige bg-white/60 backdrop-blur-sm hover:shadow-lg transition-all">
+              <div className="text-4xl font-black text-navy mb-3">5+</div>
+              <div className="text-sm text-steel font-bold leading-relaxed">
+                Connected systems - ERP, WMS, marketplace, payments
+              </div>
+            </div>
+            <div className="p-8 rounded-2xl border border-beige bg-white/60 backdrop-blur-sm hover:shadow-lg transition-all">
+              <div className="text-4xl font-black text-navy mb-3">₹50Cr+</div>
+              <div className="text-sm text-steel font-bold leading-relaxed">
+                Annual GMV with multi-channel or multi-warehouse operations
+              </div>
+            </div>
+            <div className="p-8 rounded-2xl border border-beige bg-white/60 backdrop-blur-sm hover:shadow-lg transition-all">
+              <div className="text-4xl font-black text-navy mb-3">10+</div>
+              <div className="text-sm text-steel font-bold leading-relaxed">
+                Ops team members coordinating across tools daily
+              </div>
+            </div>
+          </div>
+          <p className="text-steel text-base max-w-2xl mx-auto">
+            Starting at <span className="font-black text-navy">₹20,000/month</span>. Enterprise plans with custom SLAs available.
+          </p>
+        </div>
+      </section>
+
+      {/* SECTION 5: TESTIMONIALS */}
       <TestimonialsGrid />
 
       {/* SECTION 5: HOW IT WORKS (The Engine) */}
@@ -356,6 +421,34 @@ const Home = () => {
         layers={activeIndustry.layers}
         industryTitle={activeIndustry.title}
       />
+
+      {/* Walkthrough Video Modal */}
+      {showWalkthrough && (
+        <div className="fixed inset-0 z-[100] flex items-center justify-center bg-navy/80 backdrop-blur-sm" onClick={() => setShowWalkthrough(false)}>
+          <div className="relative w-full max-w-4xl mx-4 aspect-video bg-navy rounded-2xl shadow-2xl overflow-hidden" onClick={(e) => e.stopPropagation()}>
+            <button
+              onClick={() => setShowWalkthrough(false)}
+              className="absolute top-4 right-4 z-10 w-10 h-10 bg-white/10 hover:bg-white/20 rounded-full flex items-center justify-center transition-colors"
+            >
+              <X className="w-5 h-5 text-white" />
+            </button>
+            <div className="w-full h-full flex items-center justify-center">
+              <div className="text-center space-y-6 p-8">
+                <div className="w-20 h-20 rounded-full bg-olynk/20 flex items-center justify-center mx-auto">
+                  <Play className="w-8 h-8 text-olynk" />
+                </div>
+                <div className="space-y-2">
+                  <h3 className="text-2xl font-black text-white">Walkthrough Coming Soon</h3>
+                  <p className="text-white/60 text-base max-w-md mx-auto">
+                    We're recording a 2-minute product walkthrough. In the meantime, 
+                    <Link to="/waitlist" className="text-olynk font-bold hover:underline ml-1" onClick={() => setShowWalkthrough(false)}>request a live demo</Link> to see Trita in action.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
     </div >
   );
 };

@@ -32,24 +32,23 @@ const Navbar = () => {
             type: "dropdown",
             items: [
                 { name: "Platform Overview", href: "/platform", desc: "Full Architecture" },
-                { name: "Olynk Insight", href: "/platform/insight", desc: "Predictive AI" },
-                { name: "Olynk Fabric", href: "/platform/fabric", desc: "Unified Data" },
-                { name: "Olynk Core", href: "/platform/core", desc: "Decision Intelligence" },
-                { name: "Olynk Orbit", href: "/platform/orbit", desc: "Business Logic" },
-                { name: "Documentation", href: "/documentation", desc: "API & Guides" }
+                { name: "Trita Insight", href: "/platform/insight", desc: "Predictive AI" },
+                { name: "Trita Fabric", href: "/platform/fabric", desc: "Unified Data" },
+                { name: "Trita Core", href: "/platform/core", desc: "Decision Intelligence" },
+                { name: "Trita Orbit", href: "/platform/orbit", desc: "Business Logic" }
             ]
         },
         {
             title: "Industries",
             type: "dropdown",
             items: [
+                { name: "Overview", href: "/industries", desc: "All verticals" },
                 { name: "Commerce", href: "/industries/commerce", desc: "Retail & E-commerce" },
-                { name: "Manufacturing", href: "/industries/manufacturing", desc: "Industrial Logic" },
-                { name: "Healthcare", href: "/industries/healthcare", desc: "Clinical Precision" },
-                { name: "EdTech", href: "/industries/edtech", desc: "Adaptive Learning" }
+                { name: "Manufacturing", href: "/industries/manufacturing", desc: "Industrial Logic" }
             ]
         },
         { title: "Solutions", href: "/solutions" },
+        { title: "Pricing", href: "/pricing" },
         { title: "How It Works", href: "/how-it-works" },
         {
             title: "Company",
@@ -65,8 +64,9 @@ const Navbar = () => {
             title: "Resources",
             type: "dropdown",
             items: [
+                { name: "Trita Imagined", href: "/imagined", desc: "Visionary Brand Comics" },
                 { name: "Impact Studies", href: "/resources/impact-studies", desc: "Real Results" },
-                { name: "Olynk Explained", href: "/resources/explained", desc: "Deep Dives" },
+                { name: "Trita Explained", href: "/resources/explained", desc: "Deep Dives" },
                 { name: "Privacy Policy", href: "/privacy", desc: "Legal Data" },
                 { name: "Terms of Service", href: "/terms", desc: "Usage Terms" }
             ]
@@ -86,7 +86,7 @@ const Navbar = () => {
                 {/* Logo */}
                 <Link to="/" className="flex items-center shrink-0 mr-12 block group z-50 gap-3">
                     <Logo size="md" />
-                    <span className="text-2xl font-black text-navy tracking-tightest">OLYNK</span>
+                    <span className="text-2xl font-black text-navy tracking-tightest">TRITA</span>
                 </Link>
 
                 {/* Desktop Navigation Links */}
@@ -338,7 +338,7 @@ const Navbar = () => {
                             </div>
 
                             <div className="pt-12 text-center text-[10px] font-mono font-black text-tan uppercase tracking-[0.3em]">
-                                OLYNK_AI // OPERATIONAL_OS_V1.0
+                                TRITA // OPERATIONAL_OS_V1.0
                             </div>
                         </div>
                     </motion.div>

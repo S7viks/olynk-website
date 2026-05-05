@@ -3,7 +3,7 @@ import { Shield, Lock, Eye, FileText } from 'lucide-react';
 
 const PrivacyPolicy = () => {
     return (
-        <div className="relative min-h-screen bg-transparent">
+        <div className="relative z-10 min-h-screen bg-transparent">
             {/* Hero Section */}
             <section className="relative pt-32 pb-20 px-6">
                 <div className="max-w-4xl mx-auto">
@@ -144,7 +144,7 @@ const PrivacyPolicy = () => {
                                 If you have questions or comments about this Privacy Policy, please contact us at:
                             </p>
                             <div className="text-navy font-bold">
-                                <p>Email: info@olynk.com</p>
+                                <p>Email: info@olynkai.com</p>
                                 <p>Phone: +91 7993359150</p>
                             </div>
                         </div>

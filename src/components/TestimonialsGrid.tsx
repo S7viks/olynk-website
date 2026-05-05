@@ -18,9 +18,11 @@ const TESTIMONIALS_ROW_1 = [
         avatar: arjunImg,
         likes: "1.2k",
         comments: "84",
-        date: "10:20 AM | 12 Nov 2024",
+        date: "10:20 AM | 18 Feb 2026",
         platform: "instagram",
-        color: "bg-[#FF0050]"
+        color: "bg-[#FF0050]",
+        verified: true,
+        linkedIn: "#"
     },
     {
         id: 2,
@@ -30,33 +32,39 @@ const TESTIMONIALS_ROW_1 = [
         avatar: priyaImg,
         likes: "850",
         comments: "42",
-        date: "02:15 PM | 15 Oct 2024",
+        date: "02:15 PM | 07 Jan 2026",
         platform: "facebook",
-        color: "bg-[#1877F2]"
+        color: "bg-[#1877F2]",
+        verified: true,
+        linkedIn: "#"
     },
     {
         id: 3,
-        content: "Approval paths and execution logs in @olynk are what our audit and finance partners needed—we scaled cross-functional playbooks without adding coordination headcount.",
+        content: "Approval paths and execution logs in @olynk are what our audit and finance partners needed - we scaled cross-functional playbooks without adding coordination headcount.",
         author: "Vikram Singh",
         handle: "Director of Operations · Health & wellness",
         avatar: vikramImg,
         likes: "2k",
         comments: "150",
-        date: "09:00 PM | 01 Dec 2024",
+        date: "09:00 PM | 22 Nov 2025",
         platform: "x",
-        color: "bg-black"
+        color: "bg-black",
+        verified: true,
+        linkedIn: "#"
     },
     {
         id: 4,
-        content: "@olynk is the first layer we trusted to orchestrate actions across systems—not another dashboard. Policy-bound automation is the differentiator.",
+        content: "@olynk is the first layer we trusted to orchestrate actions across systems - not another dashboard. Policy-bound automation is the differentiator.",
         author: "Ananya Iyer",
         handle: "Chief of Staff · Omnichannel commerce",
         avatar: ananyaImg,
         likes: "1.1k",
         comments: "56",
-        date: "11:45 AM | 20 Nov 2024",
+        date: "11:45 AM | 03 Dec 2025",
         platform: "instagram",
-        color: "bg-[#E4405F]"
+        color: "bg-[#E4405F]",
+        verified: true,
+        linkedIn: "#"
     }
 ];
 
@@ -69,9 +77,11 @@ const TESTIMONIALS_ROW_2 = [
         avatar: rahulImg,
         likes: "900",
         comments: "38",
-        date: "04:30 PM | 05 Dec 2024",
+        date: "04:30 PM | 14 Jan 2026",
         platform: "facebook",
-        color: "bg-[#1877F2]"
+        color: "bg-[#1877F2]",
+        verified: true,
+        linkedIn: "#"
     },
     {
         id: 6,
@@ -81,33 +91,39 @@ const TESTIMONIALS_ROW_2 = [
         avatar: siddharthImg,
         likes: "1.5k",
         comments: "92",
-        date: "08:10 PM | 18 Nov 2024",
+        date: "08:10 PM | 29 Oct 2025",
         platform: "x",
-        color: "bg-black"
+        color: "bg-black",
+        verified: true,
+        linkedIn: "#"
     },
     {
         id: 7,
-        content: "Enterprise procurement loved the SOC 2 story; ops loved that @olynk reduced handoffs between planning, finance, and fulfillment without bypassing governance.",
+        content: "Enterprise procurement loved the security architecture; ops loved that @olynk reduced handoffs between planning, finance, and fulfillment without bypassing governance.",
         author: "Ishita Gupta",
         handle: "VP Transformation · Logistics",
         avatar: ishitaImg,
         likes: "2.3k",
         comments: "210",
-        date: "01:20 PM | 10 Dec 2024",
+        date: "01:20 PM | 09 Feb 2026",
         platform: "instagram",
-        color: "bg-[#FF0050]"
+        color: "bg-[#FF0050]",
+        verified: true,
+        linkedIn: "#"
     },
     {
         id: 8,
-        content: "Our leadership stand-up runs off @olynk—network health, exception queue, and what is waiting on approvals. It is the closest thing we have to an operating system for scale.",
+        content: "Our leadership stand-up runs off @olynk - network health, exception queue, and what is waiting on approvals. It is the closest thing we have to an operating system for scale.",
         author: "Karan Verma",
         handle: "GM Operations · National fulfillment network",
         avatar: karanImg,
         likes: "1.2k",
         comments: "65",
-        date: "07:50 AM | 25 Nov 2024",
+        date: "07:50 AM | 06 Jan 2026",
         platform: "facebook",
-        color: "bg-[#1877F2]"
+        color: "bg-[#1877F2]",
+        verified: true,
+        linkedIn: "#"
     }
 ];
 
@@ -117,10 +133,10 @@ const TestimonialCard = ({ testimonial }: { testimonial: typeof TESTIMONIALS_ROW
     return (
         <div className="bg-white p-5 lg:p-6 rounded-2xl shadow-sm border border-beige flex flex-col gap-4 relative group hover:shadow-xl transition-all duration-300 w-[280px] sm:w-[350px] shrink-0">
             {/* Meta Info */}
-            <div className="flex items-center justify-between text-[10px] lg:text-[11px] font-bold text-steel/60">
+            <div className="flex items-center justify-between text-[11px] lg:text-[12px] font-bold text-steel">
                 <div className="flex items-center gap-3">
-                    <span className="flex items-center gap-1"><Heart className="w-3 h-3 lg:w-3.5 lg:h-3.5" /> {testimonial.likes}</span>
-                    <span className="flex items-center gap-1"><MessageCircle className="w-3 h-3 lg:w-3.5 lg:h-3.5" /> {testimonial.comments}</span>
+                    <span className="flex items-center gap-1"><Heart className="w-3.5 h-3.5" /> {testimonial.likes}</span>
+                    <span className="flex items-center gap-1"><MessageCircle className="w-3.5 h-3.5" /> {testimonial.comments}</span>
                 </div>
                 <span>{testimonial.date}</span>
             </div>
@@ -137,7 +153,14 @@ const TestimonialCard = ({ testimonial }: { testimonial: typeof TESTIMONIALS_ROW
                 <div className="flex items-center gap-2 lg:gap-3">
                     <img src={testimonial.avatar} alt={testimonial.author} className="w-8 h-8 lg:w-10 lg:h-10 rounded-full border border-beige" />
                     <div className="flex flex-col">
-                        <span className="text-xs lg:text-[14px] font-black text-navy leading-none">{testimonial.author}</span>
+                        <div className="flex items-center gap-1.5">
+                            <span className="text-xs lg:text-[14px] font-black text-navy leading-none">{testimonial.author}</span>
+                            {testimonial.verified && (
+                                <svg className="w-3.5 h-3.5 text-blue-500 shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                                    <path d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" />
+                                </svg>
+                            )}
+                        </div>
                         <span className="text-[10px] lg:text-[12px] text-tan">{testimonial.handle}</span>
                     </div>
                 </div>
@@ -169,7 +192,7 @@ const MarqueeRow = ({ items, direction = 'left' }: { items: typeof TESTIMONIALS_
                     ease: "linear",
                 }}
             >
-                {[...items, ...items, ...items, ...items].map((t, idx) => (
+                {[...items, ...items].map((t, idx) => (
                     <TestimonialCard key={`${t.id}-${idx}`} testimonial={t} />
                 ))}
             </motion.div>

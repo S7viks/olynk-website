@@ -10,7 +10,7 @@ const insights = [
   },
   {
     icon: Package,
-    text: "₹34K oversell risk detected — Shopify updated",
+    text: "₹34K oversell risk detected - Shopify updated",
     color: "text-red-400"
   },
   {

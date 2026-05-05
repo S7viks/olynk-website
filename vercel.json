@@ -3,6 +3,13 @@
   "outputDirectory": "dist",
   "framework": "vite",
   "installCommand": "npm install",
+  "redirects": [
+    { "source": "/demo", "destination": "/request-demo", "permanent": true },
+    { "source": "/use-cases", "destination": "/solutions", "permanent": true },
+    { "source": "/impact-studies", "destination": "/resources/impact-studies", "permanent": true },
+    { "source": "/olynk-explained", "destination": "/resources/explained", "permanent": true },
+    { "source": "/blog", "destination": "/resources/explained", "permanent": true }
+  ],
   "rewrites": [
     {
       "source": "/assets/(.*)",

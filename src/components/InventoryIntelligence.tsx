@@ -327,7 +327,7 @@ const InventoryIntelligence = () => {
                     <div className="text-xl font-bold text-red-600 mb-1 animate-pulse-smooth" style={{ animationDuration: '1.5s' }}>
                       ₹{(revenueAtRisk / 100000).toFixed(1)}L
                     </div>
-                    <p className="text-gray-600 text-xs">Potential loss from stockouts</p>
+                    <p className="text-gray-600 text-xs">Potential loss from Stockouts</p>
                     
                     <div className="mt-2 p-1 bg-gradient-to-r from-orange-50 to-red-50 rounded-lg border border-orange-200 animate-pulse-smooth" style={{ animationDuration: '1.5s' }}>
                       <div className="flex items-center justify-center space-x-1">

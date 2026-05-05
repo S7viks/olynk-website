@@ -10,7 +10,7 @@
  * - Request Demo (/request-demo)
  */
 
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import { ThemeProvider } from './contexts/ThemeContext';
 import { AuthProvider } from './contexts/AuthContext';
 
@@ -33,13 +33,15 @@ import UserDashboard from './pages/UserDashboard';
 import WaitlistDashboard from './components/WaitlistDashboard';
 
 // New Pages
-import Documentation from './pages/Documentation';
 import AboutUs from './pages/AboutUs';
 import Careers from './pages/Careers';
 import Newsroom from './pages/Newsroom';
 import Support from './pages/Support';
 import ImpactStudies from './pages/ImpactStudies';
-import OlynkExplained from './pages/OlynkExplained';
+import TritaExplained from './pages/TritaExplained';
+import Pricing from './pages/Pricing';
+import Industries from './pages/Industries';
+import TritaImagined from './pages/TritaImagined';
 import PrivacyPolicy from './pages/PrivacyPolicy';
 import TermsOfService from './pages/TermsOfService';
 
@@ -66,6 +68,19 @@ import DatabaseChecker from './components/DatabaseChecker';
 // Upload Components
 import AvatarUpload from './components/AvatarUpload';
 
+const PageShell = ({ children }: { children: React.ReactNode }) => {
+  return (
+    <div className="relative isolate">
+      <InteractiveBackground />
+      <div className="relative z-10">
+        <Navbar />
+        {children}
+        <Footer />
+      </div>
+    </div>
+  );
+};
+
 const App = () => {
   return (
     <ThemeProvider>
@@ -78,163 +93,153 @@ const App = () => {
               <Route
                 path="/"
                 element={
-                  <div className="relative">
-                    <Navbar />
-                    <InteractiveBackground />
+                  <PageShell>
                     <Home />
-                    <Footer />
-                  </div>
+                  </PageShell>
                 }
               />
 
               <Route
                 path="/platform"
                 element={
-                  <div className="relative">
-                    <Navbar />
-                    <InteractiveBackground />
+                  <PageShell>
                     <Platform />
-                    <Footer />
-                  </div>
+                  </PageShell>
                 }
               />
 
               <Route
                 path="/platform/fabric"
                 element={
-                  <div className="relative">
-                    <Navbar />
-                    <InteractiveBackground />
+                  <PageShell>
                     <Fabric />
-                    <Footer />
-                  </div>
+                  </PageShell>
                 }
               />
               <Route
                 path="/platform/insight"
                 element={
-                  <div className="relative">
-                    <Navbar />
-                    <InteractiveBackground />
+                  <PageShell>
                     <Insight />
-                    <Footer />
-                  </div>
+                  </PageShell>
                 }
               />
               <Route
                 path="/platform/core"
                 element={
-                  <div className="relative">
-                    <Navbar />
-                    <InteractiveBackground />
+                  <PageShell>
                     <Core />
-                    <Footer />
-                  </div>
+                  </PageShell>
                 }
               />
               <Route
                 path="/platform/orbit"
                 element={
-                  <div className="relative">
-                    <Navbar />
-                    <InteractiveBackground />
+                  <PageShell>
                     <Orbit />
-                    <Footer />
-                  </div>
+                  </PageShell>
                 }
               />
 
               <Route
                 path="/how-it-works"
                 element={
-                  <div className="relative">
-                    <Navbar />
-                    <InteractiveBackground />
+                  <PageShell>
                     <HowItWorksPage />
-                    <Footer />
-                  </div>
+                  </PageShell>
                 }
               />
               <Route
                 path="/solutions"
                 element={
-                  <div className="relative">
-                    <Navbar />
-                    <InteractiveBackground />
+                  <PageShell>
                     <Solutions />
-                    <Footer />
-                  </div>
+                  </PageShell>
                 }
               />
               <Route
                 path="/company"
                 element={
-                  <div className="relative">
-                    <Navbar />
-                    <InteractiveBackground />
+                  <PageShell>
                     <Company />
-                    <Footer />
-                  </div>
+                  </PageShell>
                 }
               />
               <Route
                 path="/request-demo"
                 element={
-                  <div className="relative">
-                    <Navbar />
-                    <InteractiveBackground />
+                  <PageShell>
                     <RequestDemo />
-                    <Footer />
-                  </div>
+                  </PageShell>
                 }
               />
 
+              <Route path="/demo" element={<Navigate to="/request-demo" replace />} />
+
+              <Route
+                path="/pricing"
+                element={
+                  <PageShell>
+                    <Pricing />
+                  </PageShell>
+                }
+              />
+
+              <Route path="/use-cases" element={<Navigate to="/solutions" replace />} />
+              <Route path="/impact-studies" element={<Navigate to="/resources/impact-studies" replace />} />
+              <Route path="/olynk-explained" element={<Navigate to="/resources/explained" replace />} />
+
+              <Route
+                path="/imagined"
+                element={
+                  <PageShell>
+                    <TritaImagined />
+                  </PageShell>
+                }
+              />
+
+              <Route
+                path="/industries"
+                element={
+                  <PageShell>
+                    <Industries />
+                  </PageShell>
+                }
+              />
 
               <Route
                 path="/login"
                 element={
-                  <div className="relative">
-                    <Navbar />
-                    <InteractiveBackground />
+                  <PageShell>
                     <LoginForm mode="login" />
-                    <Footer />
-                  </div>
+                  </PageShell>
                 }
               />
 
               <Route
                 path="/signup"
                 element={
-                  <div className="relative">
-                    <Navbar />
-                    <InteractiveBackground />
+                  <PageShell>
                     <LoginForm mode="signup" />
-                    <Footer />
-                  </div>
+                  </PageShell>
                 }
               />
 
               <Route
                 path="/waitlist"
                 element={
-                  <div className="relative">
-                    <Navbar />
-                    <InteractiveBackground />
+                  <PageShell>
                     <Waitlist />
-                    <Footer />
-                  </div>
+                  </PageShell>
                 }
               />
 
               <Route
                 path="/reset-password"
                 element={
-                  <div className="relative">
-                    <Navbar />
-                    <InteractiveBackground />
+                  <PageShell>
                     <PasswordReset />
-                    <Footer />
-                  </div>
+                  </PageShell>
                 }
               />
 
@@ -243,12 +248,9 @@ const App = () => {
                 path="/dashboard"
                 element={
                   <ProtectedRoute>
-                    <div className="relative">
-                      <Navbar />
-                      <InteractiveBackground />
+                    <PageShell>
                       <WaitlistDashboard />
-                      <Footer />
-                    </div>
+                    </PageShell>
                   </ProtectedRoute>
                 }
               />
@@ -257,12 +259,9 @@ const App = () => {
                 path="/user-dashboard"
                 element={
                   <ProtectedRoute>
-                    <div className="relative">
-                      <Navbar />
-                      <InteractiveBackground />
+                    <PageShell>
                       <UserDashboard />
-                      <Footer />
-                    </div>
+                    </PageShell>
                   </ProtectedRoute>
                 }
               />
@@ -271,113 +270,75 @@ const App = () => {
               <Route
                 path="/industries/:id"
                 element={
-                  <div className="relative">
-                    <Navbar />
-                    <InteractiveBackground />
+                  <PageShell>
                     <IndustryDetail />
-                    <Footer />
-                  </div>
+                  </PageShell>
                 }
               />
 
               {/* New Page Routes */}
               <Route
-                path="/documentation"
-                element={
-                  <div className="relative">
-                    <Navbar />
-                    <InteractiveBackground />
-                    <Documentation />
-                    <Footer />
-                  </div>
-                }
-              />
-              <Route
                 path="/about"
                 element={
-                  <div className="relative">
-                    <Navbar />
-                    <InteractiveBackground />
+                  <PageShell>
                     <AboutUs />
-                    <Footer />
-                  </div>
+                  </PageShell>
                 }
               />
               <Route
                 path="/careers"
                 element={
-                  <div className="relative">
-                    <Navbar />
-                    <InteractiveBackground />
+                  <PageShell>
                     <Careers />
-                    <Footer />
-                  </div>
+                  </PageShell>
                 }
               />
               <Route
                 path="/newsroom"
                 element={
-                  <div className="relative">
-                    <Navbar />
-                    <InteractiveBackground />
+                  <PageShell>
                     <Newsroom />
-                    <Footer />
-                  </div>
+                  </PageShell>
                 }
               />
               <Route
                 path="/support"
                 element={
-                  <div className="relative">
-                    <Navbar />
-                    <InteractiveBackground />
+                  <PageShell>
                     <Support />
-                    <Footer />
-                  </div>
+                  </PageShell>
                 }
               />
               <Route
                 path="/resources/impact-studies"
                 element={
-                  <div className="relative">
-                    <Navbar />
-                    <InteractiveBackground />
+                  <PageShell>
                     <ImpactStudies />
-                    <Footer />
-                  </div>
+                  </PageShell>
                 }
               />
               <Route
                 path="/resources/explained"
                 element={
-                  <div className="relative">
-                    <Navbar />
-                    <InteractiveBackground />
-                    <OlynkExplained />
-                    <Footer />
-                  </div>
+                  <PageShell>
+                    <TritaExplained />
+                  </PageShell>
                 }
               />
               <Route
                 path="/privacy"
                 element={
-                  <div className="relative">
-                    <Navbar />
-                    <InteractiveBackground />
+                  <PageShell>
                     <PrivacyPolicy />
-                    <Footer />
-                  </div>
+                  </PageShell>
                 }
               />
               <Route
                 path="/terms"
                 element={
-                  <div className="relative">
-                    <Navbar />
-                    <InteractiveBackground />
+                  <PageShell>
                     <TermsOfService />
-                    <Footer />
-                  </div>
+                  </PageShell>
                 }
               />
 
@@ -411,14 +372,11 @@ const App = () => {
               <Route
                 path="/avatar/upload"
                 element={
-                  <div className="relative">
-                    <Navbar />
-                    <InteractiveBackground />
+                  <PageShell>
                     <div className="container mx-auto px-4 py-12">
                       <AvatarUpload />
                     </div>
-                    <Footer />
-                  </div>
+                  </PageShell>
                 }
               />
             </Routes>
