@@ -29,6 +29,18 @@ const MoreInfo = () => {
     };
   }, [profile]);
 
+  const missing = useMemo(() => {
+    const isMissing = (v: string | undefined | null) => !v || v.trim().length === 0;
+    return {
+      full_name: isMissing(profile?.full_name),
+      company: isMissing(profile?.company),
+      position: isMissing(profile?.position),
+      phone: isMissing(profile?.phone),
+    };
+  }, [profile]);
+
+  const anyMissing = missing.full_name || missing.company || missing.position || missing.phone;
+
   const [form, setForm] = useState<MoreInfoForm>(initial);
 
   useEffect(() => {
@@ -65,13 +77,37 @@ const MoreInfo = () => {
     setSuccess(null);
 
     try {
-      const { error: profileError } = await authService.updateUserProfile({
-        full_name: form.full_name || undefined,
-        company: form.company || undefined,
-        position: form.position || undefined,
-        phone: form.phone || undefined,
+      if (anyMissing) {
+        const profilePatch: Record<string, string | undefined> = {};
+        if (missing.full_name) profilePatch.full_name = form.full_name || undefined;
+        if (missing.company) profilePatch.company = form.company || undefined;
+        if (missing.position) profilePatch.position = form.position || undefined;
+        if (missing.phone) profilePatch.phone = form.phone || undefined;
+
+        const { error: profileError } = await authService.updateUserProfile(profilePatch);
+        if (profileError) throw profileError;
+      }
+
+      const { tenantId, error: tenantError } = await authService.ensureTenantForCurrentUser();
+      if (tenantError) throw tenantError;
+      if (!tenantId) throw new Error('Failed to initialize workspace');
+
+      const answers = {
+        full_name: missing.full_name ? (form.full_name || null) : (profile?.full_name || null),
+        company: missing.company ? (form.company || null) : (profile?.company || null),
+        position: missing.position ? (form.position || null) : (profile?.position || null),
+        phone: missing.phone ? (form.phone || null) : (profile?.phone || null),
+      };
+
+      const { error: onboardingError } = await authService.upsertTenantOnboarding({
+        tenantId,
+        answers,
+        pilotRouting: {
+          source: 'more-info',
+          completed_at: new Date().toISOString(),
+        },
       });
-      if (profileError) throw profileError;
+      if (onboardingError) throw onboardingError;
 
       await authService.ensureWaitlistOnAuth({
         referral_source: 'auth',
@@ -126,58 +162,90 @@ const MoreInfo = () => {
             )}
 
             <form onSubmit={onSubmit} className="space-y-5">
-              <div className="space-y-2">
-                <label className="block text-[10px] font-black text-tan uppercase tracking-widest ml-1">Full name</label>
-                <div className="flex items-center gap-3 bg-cream rounded-2xl px-5 py-3 border-2 border-transparent focus-within:border-olynk transition-all">
-                  <User className="w-4 h-4 text-navy/50" />
-                  <input
-                    value={form.full_name}
-                    onChange={onChange('full_name')}
-                    className="w-full bg-transparent outline-none font-medium text-navy placeholder:text-navy/20"
-                    placeholder="Jane Doe"
-                    required
-                  />
+              {!anyMissing ? (
+                <div className="rounded-2xl border border-beige bg-cream/40 p-5">
+                  <p className="text-[10px] font-black text-tan uppercase tracking-widest mb-2">Already on file</p>
+                  <div className="space-y-2 text-sm text-navy">
+                    <div className="flex items-center justify-between gap-4">
+                      <span className="font-bold">Full name</span>
+                      <span className="font-medium text-navy/70">{profile?.full_name || '—'}</span>
+                    </div>
+                    <div className="flex items-center justify-between gap-4">
+                      <span className="font-bold">Company</span>
+                      <span className="font-medium text-navy/70">{profile?.company || '—'}</span>
+                    </div>
+                    <div className="flex items-center justify-between gap-4">
+                      <span className="font-bold">Role / title</span>
+                      <span className="font-medium text-navy/70">{profile?.position || '—'}</span>
+                    </div>
+                    <div className="flex items-center justify-between gap-4">
+                      <span className="font-bold">Phone</span>
+                      <span className="font-medium text-navy/70">{profile?.phone || '—'}</span>
+                    </div>
+                  </div>
                 </div>
-              </div>
+              ) : null}
 
-              <div className="space-y-2">
-                <label className="block text-[10px] font-black text-tan uppercase tracking-widest ml-1">Company</label>
-                <div className="flex items-center gap-3 bg-cream rounded-2xl px-5 py-3 border-2 border-transparent focus-within:border-olynk transition-all">
-                  <Building2 className="w-4 h-4 text-navy/50" />
-                  <input
-                    value={form.company}
-                    onChange={onChange('company')}
-                    className="w-full bg-transparent outline-none font-medium text-navy placeholder:text-navy/20"
-                    placeholder="Company name"
-                  />
+              {missing.full_name ? (
+                <div className="space-y-2">
+                  <label className="block text-[10px] font-black text-tan uppercase tracking-widest ml-1">Full name</label>
+                  <div className="flex items-center gap-3 bg-cream rounded-2xl px-5 py-3 border-2 border-transparent focus-within:border-olynk transition-all">
+                    <User className="w-4 h-4 text-navy/50" />
+                    <input
+                      value={form.full_name}
+                      onChange={onChange('full_name')}
+                      className="w-full bg-transparent outline-none font-medium text-navy placeholder:text-navy/20"
+                      placeholder="Jane Doe"
+                      required
+                    />
+                  </div>
                 </div>
-              </div>
+              ) : null}
 
-              <div className="space-y-2">
-                <label className="block text-[10px] font-black text-tan uppercase tracking-widest ml-1">Role / title</label>
-                <div className="flex items-center gap-3 bg-cream rounded-2xl px-5 py-3 border-2 border-transparent focus-within:border-olynk transition-all">
-                  <Briefcase className="w-4 h-4 text-navy/50" />
-                  <input
-                    value={form.position}
-                    onChange={onChange('position')}
-                    className="w-full bg-transparent outline-none font-medium text-navy placeholder:text-navy/20"
-                    placeholder="Founder, VP Ops, Supply Chain Lead…"
-                  />
+              {missing.company ? (
+                <div className="space-y-2">
+                  <label className="block text-[10px] font-black text-tan uppercase tracking-widest ml-1">Company</label>
+                  <div className="flex items-center gap-3 bg-cream rounded-2xl px-5 py-3 border-2 border-transparent focus-within:border-olynk transition-all">
+                    <Building2 className="w-4 h-4 text-navy/50" />
+                    <input
+                      value={form.company}
+                      onChange={onChange('company')}
+                      className="w-full bg-transparent outline-none font-medium text-navy placeholder:text-navy/20"
+                      placeholder="Company name"
+                    />
+                  </div>
                 </div>
-              </div>
+              ) : null}
 
-              <div className="space-y-2">
-                <label className="block text-[10px] font-black text-tan uppercase tracking-widest ml-1">Phone</label>
-                <div className="flex items-center gap-3 bg-cream rounded-2xl px-5 py-3 border-2 border-transparent focus-within:border-olynk transition-all">
-                  <Phone className="w-4 h-4 text-navy/50" />
-                  <input
-                    value={form.phone}
-                    onChange={onChange('phone')}
-                    className="w-full bg-transparent outline-none font-medium text-navy placeholder:text-navy/20"
-                    placeholder="+91…"
-                  />
+              {missing.position ? (
+                <div className="space-y-2">
+                  <label className="block text-[10px] font-black text-tan uppercase tracking-widest ml-1">Role / title</label>
+                  <div className="flex items-center gap-3 bg-cream rounded-2xl px-5 py-3 border-2 border-transparent focus-within:border-olynk transition-all">
+                    <Briefcase className="w-4 h-4 text-navy/50" />
+                    <input
+                      value={form.position}
+                      onChange={onChange('position')}
+                      className="w-full bg-transparent outline-none font-medium text-navy placeholder:text-navy/20"
+                      placeholder="Founder, VP Ops, Supply Chain Lead…"
+                    />
+                  </div>
                 </div>
-              </div>
+              ) : null}
+
+              {missing.phone ? (
+                <div className="space-y-2">
+                  <label className="block text-[10px] font-black text-tan uppercase tracking-widest ml-1">Phone</label>
+                  <div className="flex items-center gap-3 bg-cream rounded-2xl px-5 py-3 border-2 border-transparent focus-within:border-olynk transition-all">
+                    <Phone className="w-4 h-4 text-navy/50" />
+                    <input
+                      value={form.phone}
+                      onChange={onChange('phone')}
+                      className="w-full bg-transparent outline-none font-medium text-navy placeholder:text-navy/20"
+                      placeholder="+91…"
+                    />
+                  </div>
+                </div>
+              ) : null}
 
               <button
                 type="submit"

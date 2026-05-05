@@ -14,7 +14,7 @@ const LoginForm: React.FC<LoginFormProps> = ({
   onSuccess, 
   onCancel 
 }) => {
-  const { signIn, signUp, isLoading, profile } = useAuth();
+  const { signIn, signUp, isLoading } = useAuth();
   const navigate = useNavigate();
   const location = useLocation();
   
@@ -286,7 +286,7 @@ const LoginForm: React.FC<LoginFormProps> = ({
             {/* Submit Button */}
             <button
               type="submit"
-              disabled={isSubmitting || isLoading}
+              disabled={isSubmitting}
               className="w-full flex justify-center py-4 px-4 bg-navy text-white rounded-2xl font-black uppercase tracking-widest text-xs hover:bg-olynk transition-all shadow-xl hover:-translate-y-0.5 active:scale-95 disabled:opacity-50 disabled:cursor-not-allowed mt-8"
             >
               {isSubmitting ? (

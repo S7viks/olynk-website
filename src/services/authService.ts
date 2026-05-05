@@ -6,12 +6,41 @@ export interface UserProfile {
   email: string;
   full_name?: string;
   role: 'admin' | 'waitlist' | 'user';
+  tenant_id?: string | null;
   company?: string;
   position?: string;
   phone?: string;
   avatar_url?: string;
   is_active: boolean;
   last_login?: string;
+  created_at: string;
+  updated_at: string;
+}
+
+export interface Tenant {
+  id: string;
+  name: string;
+  slug?: string | null;
+  created_at: string;
+  updated_at: string;
+}
+
+export type TenantMembershipRole = 'owner' | 'admin' | 'member';
+
+export interface TenantMembership {
+  tenant_id: string;
+  user_id: string;
+  role: TenantMembershipRole;
+  created_at: string;
+  updated_at: string;
+}
+
+export interface OnboardingSubmission {
+  tenant_id: string;
+  created_by?: string | null;
+  answers: Record<string, unknown>;
+  pilot_key?: string | null;
+  pilot_routing?: Record<string, unknown> | null;
   created_at: string;
   updated_at: string;
 }
@@ -63,9 +92,21 @@ export interface UpdateProfileData {
   position?: string;
   phone?: string;
   avatar_url?: string;
+  tenant_id?: string | null;
 }
 
 class AuthService {
+  private deriveTenantName(profile: UserProfile | null, user: User): string {
+    const company = profile?.company?.trim();
+    if (company) return company;
+    const email = user.email?.trim();
+    if (email && email.includes('@')) {
+      const domain = email.split('@')[1];
+      if (domain) return domain;
+    }
+    return 'New workspace';
+  }
+
   // Get current user
   async getCurrentUser(): Promise<User | null> {
     const { data: { user } } = await supabase.auth.getUser();
@@ -178,6 +219,75 @@ class AuthService {
       .single();
 
     return { profile, error };
+  }
+
+  /**
+   * Ensure the current user has a tenant (workspace) attached.
+   * - If `user_profiles.tenant_id` already exists, return it.
+   * - Otherwise: create a tenant, create membership (owner), and update `user_profiles.tenant_id`.
+   */
+  async ensureTenantForCurrentUser(): Promise<{ tenantId: string | null; error: any }> {
+    const currentUser = await this.getCurrentUser();
+    if (!currentUser) return { tenantId: null, error: 'No authenticated user' };
+
+    const { profile, error: profileError } = await this.getUserProfile(currentUser.id);
+    if (profileError) return { tenantId: null, error: profileError };
+
+    const existingTenantId = profile?.tenant_id || null;
+    if (existingTenantId) return { tenantId: existingTenantId, error: null };
+
+    const tenantName = this.deriveTenantName(profile, currentUser);
+
+    const { data: tenantRow, error: tenantError } = await supabase
+      .from('tenants')
+      .insert({ name: tenantName })
+      .select('id')
+      .single();
+    if (tenantError) return { tenantId: null, error: tenantError };
+
+    const tenantId = tenantRow?.id as string | undefined;
+    if (!tenantId) return { tenantId: null, error: 'Failed to create tenant' };
+
+    const { error: membershipError } = await supabase.from('tenant_memberships').insert({
+      tenant_id: tenantId,
+      user_id: currentUser.id,
+      role: 'owner',
+    });
+    if (membershipError) return { tenantId: null, error: membershipError };
+
+    const { error: attachError } = await supabase
+      .from('user_profiles')
+      .update({ tenant_id: tenantId })
+      .eq('id', currentUser.id);
+    if (attachError) return { tenantId: null, error: attachError };
+
+    return { tenantId, error: null };
+  }
+
+  async upsertTenantOnboarding(input: {
+    tenantId: string;
+    answers: Record<string, unknown>;
+    pilotKey?: string | null;
+    pilotRouting?: Record<string, unknown> | null;
+  }): Promise<{ submission: OnboardingSubmission | null; error: any }> {
+    const currentUser = await this.getCurrentUser();
+    if (!currentUser) return { submission: null, error: 'No authenticated user' };
+
+    const payload = {
+      tenant_id: input.tenantId,
+      created_by: currentUser.id,
+      answers: input.answers,
+      pilot_key: input.pilotKey ?? null,
+      pilot_routing: input.pilotRouting ?? null,
+    };
+
+    const { data, error } = await supabase
+      .from('onboarding_submissions')
+      .upsert(payload, { onConflict: 'tenant_id' })
+      .select('*')
+      .single();
+
+    return { submission: data as OnboardingSubmission | null, error };
   }
 
   // Get admin user data

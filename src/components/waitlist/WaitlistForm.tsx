@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { supabase } from '../../lib/supabase';
+import { supabase } from '../../supabase';
 import { ChevronRight, ChevronLeft, CheckCircle2, Loader2, Building2, User, Target, Ticket } from 'lucide-react';
 
 const STEPS = [
