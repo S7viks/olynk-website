@@ -9,6 +9,9 @@ export default {
     extend: {
       fontFamily: {
         sans: ['Inter Tight', 'Inter', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'sans-serif'],
+        // Many components use `font-serif` for italic emphasis; map it to a consistent family
+        // instead of falling back to OS-dependent serif fonts.
+        serif: ['Inter Tight', 'Inter', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'serif'],
         mono: ['JetBrains Mono', 'Fira Code', 'monospace'],
       },
       colors: {
