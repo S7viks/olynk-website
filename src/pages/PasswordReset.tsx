@@ -42,7 +42,7 @@ const PasswordReset: React.FC = () => {
       if (error) {
         setError(error.message || 'Failed to send reset email');
       } else {
-        setSuccess('Password reset email sent! Check your inbox.');
+        setSuccess('Password reset link sent.');
       }
     } catch (err: any) {
       setError(err.message || 'An unexpected error occurred');

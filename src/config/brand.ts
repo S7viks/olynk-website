@@ -6,7 +6,7 @@ export const BRAND_LOCKUP = `${PLATFORM_NAME} by ${COMPANY_NAME}`;
 
 // Canonical host used for SEO canonical URLs and structured data.
 // Keep this as a single source of truth to avoid mixed-domain metadata.
-export const CANONICAL_BASE_URL = "https://olynk.ai";
+export const CANONICAL_BASE_URL = "https://www.olynkai.com";
 
 export function absoluteUrl(pathname: string): string {
   if (!pathname) return CANONICAL_BASE_URL;

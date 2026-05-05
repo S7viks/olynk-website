@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useAuth } from '../contexts/AuthContext';
 import { useNavigate, useLocation } from 'react-router-dom';
+import { Eye, EyeOff } from 'lucide-react';
 
 interface LoginFormProps {
   mode?: 'login' | 'signup' | 'waitlist';
@@ -30,6 +31,8 @@ const LoginForm: React.FC<LoginFormProps> = ({
   const [error, setError] = useState<string | null>(null);
   const [success, setSuccess] = useState<string | null>(null);
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [showPassword, setShowPassword] = useState(false);
+  const [showConfirmPassword, setShowConfirmPassword] = useState(false);
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
@@ -229,16 +232,26 @@ const LoginForm: React.FC<LoginFormProps> = ({
               <label htmlFor="password" className="block text-[10px] font-black text-tan uppercase tracking-widest ml-1">
                 Password
               </label>
-              <input
-                id="password"
-                name="password"
-                type="password"
-                required
-                value={formData.password}
-                onChange={handleInputChange}
-                className="w-full px-5 py-3 rounded-2xl bg-cream border-2 border-transparent focus:border-olynk outline-none transition-all font-medium text-navy placeholder:text-navy/20"
-                placeholder="Enter your password"
-              />
+              <div className="relative">
+                <input
+                  id="password"
+                  name="password"
+                  type={showPassword ? 'text' : 'password'}
+                  required
+                  value={formData.password}
+                  onChange={handleInputChange}
+                  className="w-full px-5 py-3 pr-12 rounded-2xl bg-cream border-2 border-transparent focus:border-olynk outline-none transition-all font-medium text-navy placeholder:text-navy/20"
+                  placeholder="Enter your password"
+                />
+                <button
+                  type="button"
+                  onClick={() => setShowPassword((v) => !v)}
+                  className="absolute inset-y-0 right-0 flex items-center px-4 text-navy/60 hover:text-navy transition-colors"
+                  aria-label={showPassword ? 'Hide password' : 'Show password'}
+                >
+                  {showPassword ? <EyeOff className="w-4 h-4" /> : <Eye className="w-4 h-4" />}
+                </button>
+              </div>
             </div>
 
             {/* Confirm Password (for signup/waitlist) */}
@@ -247,16 +260,26 @@ const LoginForm: React.FC<LoginFormProps> = ({
                 <label htmlFor="confirmPassword" className="block text-[10px] font-black text-tan uppercase tracking-widest ml-1">
                   Confirm Password
                 </label>
-                <input
-                  id="confirmPassword"
-                  name="confirmPassword"
-                  type="password"
-                  required
-                  value={formData.confirmPassword}
-                  onChange={handleInputChange}
-                  className="w-full px-5 py-3 rounded-2xl bg-cream border-2 border-transparent focus:border-olynk outline-none transition-all font-medium text-navy placeholder:text-navy/20"
-                  placeholder="Confirm your password"
-                />
+                <div className="relative">
+                  <input
+                    id="confirmPassword"
+                    name="confirmPassword"
+                    type={showConfirmPassword ? 'text' : 'password'}
+                    required
+                    value={formData.confirmPassword}
+                    onChange={handleInputChange}
+                    className="w-full px-5 py-3 pr-12 rounded-2xl bg-cream border-2 border-transparent focus:border-olynk outline-none transition-all font-medium text-navy placeholder:text-navy/20"
+                    placeholder="Confirm your password"
+                  />
+                  <button
+                    type="button"
+                    onClick={() => setShowConfirmPassword((v) => !v)}
+                    className="absolute inset-y-0 right-0 flex items-center px-4 text-navy/60 hover:text-navy transition-colors"
+                    aria-label={showConfirmPassword ? 'Hide confirm password' : 'Show confirm password'}
+                  >
+                    {showConfirmPassword ? <EyeOff className="w-4 h-4" /> : <Eye className="w-4 h-4" />}
+                  </button>
+                </div>
               </div>
             )}
 

@@ -111,7 +111,7 @@ const EarlyAccess = () => {
                   <Check className="h-8 w-8 text-white" />
                 </div>
                 <h4 className="text-xl font-bold text-white mb-2">Welcome to the Future!</h4>
-                <p className="text-gray-300">Check your email for next steps.</p>
+                <p className="text-gray-300">You’re on the list. We’ll reach out with next steps.</p>
               </div>
             )}
 
