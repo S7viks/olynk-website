@@ -37,6 +37,7 @@ import Industries from './pages/Industries';
 import TritaImagined from './pages/TritaImagined';
 import PrivacyPolicy from './pages/PrivacyPolicy';
 import TermsOfService from './pages/TermsOfService';
+import NotFound from './pages/NotFound';
 
 // Product Pages (The 4 Layers)
 import Fabric from './pages/products/Fabric';
@@ -51,6 +52,7 @@ import IndustryDetail from './pages/industries/IndustryDetail';
 import Navbar from './components/Navbar';
 import InteractiveBackground from './components/InteractiveBackground';
 import ScrollToTop from './components/ScrollToTop';
+import WaitlistFunnel from './components/WaitlistFunnel';
 
 const PageShell = ({ children }: { children: React.ReactNode }) => {
   return (
@@ -70,7 +72,7 @@ const App = () => {
     <ThemeProvider>
       <Router future={{ v7_startTransition: true, v7_relativeSplatPath: true }}>
         <ScrollToTop />
-        <div className="min-h-screen bg-cream">
+        <div className="min-h-screen bg-transparent">
           <Routes>
               {/* Main Website Routes */}
               <Route
@@ -199,6 +201,15 @@ const App = () => {
                 }
               />
 
+              <Route
+                path="/waitlist-funnel"
+                element={
+                  <PageShell>
+                    <WaitlistFunnel />
+                  </PageShell>
+                }
+              />
+
               {/* Industry Vertical Routes */}
               <Route
                 path="/industries/:id"
@@ -271,6 +282,15 @@ const App = () => {
                 element={
                   <PageShell>
                     <TermsOfService />
+                  </PageShell>
+                }
+              />
+
+              <Route
+                path="*"
+                element={
+                  <PageShell>
+                    <NotFound />
                   </PageShell>
                 }
               />
