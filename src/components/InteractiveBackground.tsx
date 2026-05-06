@@ -17,8 +17,8 @@ export const networkVisualDefaults = {
     connectionDistance: 155,
     /** Multiplier for drift velocity */
     baseSpeed: 0.42,
-    maxLineOpacity: 0.2,
-    nodeRadius: 1.6,
+    maxLineOpacity: 0.175,
+    nodeRadius: 2.25,
 } as const;
 
 type Particle = { x: number; y: number; vx: number; vy: number };
@@ -125,7 +125,7 @@ const InteractiveBackground = () => {
                     ctx.moveTo(a.x, a.y);
                     ctx.lineTo(b.x, b.y);
                     ctx.strokeStyle = `rgba(${rgb}, ${Math.min(opacity, 0.45)})`;
-                    ctx.lineWidth = 1;
+                    ctx.lineWidth = 2;
                     ctx.stroke();
                 }
             }
