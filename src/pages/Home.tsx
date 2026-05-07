@@ -29,11 +29,11 @@ import FixMechanismModal from '../components/FixMechanismModal';
 
 const operationalProblems = [
   "Stockouts",
-  "Production delays",
-  "RTO failures",
-  "Supply chain shocks",
-  "Dead stock",
-  "BOM shortages"
+  "Capacity crunches",
+  "Supplier delays",
+  "SLA breaches",
+  "Cost overruns",
+  "Quality escapes",
 ];
 
 const Home = () => {
@@ -102,11 +102,7 @@ const Home = () => {
                     animate={{ y: 0, opacity: 1 }}
                     exit={{ y: -80, opacity: 0 }}
                     transition={{ duration: 0.5, type: "spring", stiffness: 300, damping: 30 }}
-                    className={
-                      operationalProblems[problemIndex] === 'Dead stock'
-                        ? 'text-olynk whitespace-nowrap block font-deadstock font-normal tracking-[0.06em] sm:tracking-[0.08em]'
-                        : 'text-olynk whitespace-nowrap block font-deadstock font-normal tracking-[0.01em] sm:tracking-[0.02em]'
-                    }
+                    className="text-olynk whitespace-nowrap block font-deadstock font-normal tracking-[0.01em] sm:tracking-[0.02em]"
                   >
                     {operationalProblems[problemIndex]}
                   </motion.span>
@@ -117,7 +113,7 @@ const Home = () => {
 
             {/* Subheadline */}
             <p className="text-navy text-xl lg:text-2xl leading-relaxed max-w-4xl mx-auto font-medium">
-              Trita connects your entire operation - <span className="font-bold">ERP, Production, Warehouse, and Sales</span> - into one system that spots supply chain risks, prevents Stockouts, and executes fixes across your stack without waiting for a human in the loop.
+              Trita connects your systems - <span className="font-bold">ERP, planning, execution, warehouse, and revenue</span> - into one governed intelligence layer that spots risk early and executes fixes across your stack without waiting for a human in the loop.
             </p>
 
             {/* CTA Buttons */}
@@ -203,7 +199,7 @@ const Home = () => {
               Stop <span className="text-olynk italic font-serif font-normal">guessing</span> what's wrong.
             </h2>
             <p className="text-lg text-steel leading-relaxed font-medium">
-              Most tools only report the past. Trita is an <span className="text-olynk font-bold">execution layer</span> - it aligns procurement, inventory, finance, and fulfillment under one governed policy engine so decisions ship with audit trails, not ad hoc heroics.
+              Most tools only report the past. Trita is an <span className="text-olynk font-bold">execution layer</span> - it aligns planning, resources, finance, and delivery under one governed policy engine so decisions ship with audit trails, not ad hoc heroics.
             </p>
           </div>
 
@@ -214,27 +210,27 @@ const Home = () => {
                 id: '01',
                 icon: Search,
                 symptom: "Fragmented systems obscure the real picture",
-                quote: "We reconcile three ERPs and still debate which number is authoritative.",
-                detail: "Commerce, ERP, WMS, and finance systems stay out of sync. Leadership lacks one governed view of margin, service level, and exposure across regions and business units.",
+                quote: "We reconcile three systems of record and still debate which number is authoritative.",
+                detail: "ERP, planning, delivery, and finance rarely share one governed view. Leadership lacks a single line of sight into capacity, cost, commitments, and exposure across regions and business units.",
                 costLabel: "Governance & latency",
                 costMetrics: [
                   { label: "Decision lag", val: "24–48 hrs", color: "text-red-600" },
                   { label: "Manual bridges", val: "High", color: "text-red-500" }
                 ],
                 intervention: "Unified intelligence layer",
-                solution: "Eliminate operational blind spots across your supply chain - one control plane with lineage from signal to action, so your leadership team debates strategy, not spreadsheets.",
+                solution: "Replace blind spots with one control plane - lineage from signal to action - so executives align on outcomes and tradeoffs, not conflicting spreadsheets.",
                 accent: "navy"
               },
               {
                 id: "02",
                 icon: Brain,
                 symptom: "Risk surfaces too late for orderly response",
-                quote: "By the time the board sees it, we are already in firefight mode.",
-                detail: "Exceptions show up as supply chain risk, Stockouts, or production bottlenecks without enough lead time to align procurement, plant schedules, and commercial plans.",
-                costLabel: "Strategic exposure",
+                quote: "By the time leadership sees it, we are already in firefight mode.",
+                detail: "Exceptions land as capacity strain, missed milestones, supplier or resource constraints, or quality and compliance pressure - without enough runway to align schedules, budgets, and owners.",
+                costLabel: "Operating exposure",
                 costMetrics: [
-                  { label: "Revenue at risk", val: "12–18%", color: "text-red-600" },
-                  { label: "Forecast horizon", val: "Short", color: "text-red-500" }
+                  { label: "Response window", val: "Too short", color: "text-red-600" },
+                  { label: "Cross-team visibility", val: "Low", color: "text-red-500" }
                 ],
                 intervention: "Early, governed intervention",
                 solution: "Surface cross-functional risk with 30/60/90-day context, confidence scores, and policy-based playbooks so teams coordinate before commitments harden - not after.",
@@ -245,14 +241,14 @@ const Home = () => {
                 icon: CreditCard,
                 symptom: "Manual coordination taxes scale",
                 quote: "Our teams chase status across email, tickets, and side channels.",
-                detail: "High-scale operations still depend on tribal knowledge and handoffs between procurement, finance, and fulfillment - slowing execution and weakening auditability.",
+                detail: "Scaling still depends on tribal knowledge and handoffs between functions - planning, delivery, finance, and customer-facing teams - slowing execution and weakening audit trails.",
                 costLabel: "Coordination load",
                 costMetrics: [
                   { label: "Handoffs / wk", val: "100+", color: "text-red-600" },
                   { label: "Policy drift", val: "Elevated", color: "text-red-500" }
                 ],
                 intervention: "Autonomous execution across systems",
-                solution: "Eliminate manual coordination overhead - Trita orchestrates approved actions across your stack with roles, thresholds, and immutable logs so the organization scales without adding coordination tax.",
+                solution: "Reduce coordination tax - Trita orchestrates approved actions across your stack with roles, thresholds, and immutable logs so the organization scales without adding manual glue work.",
                 accent: "navy"
               }
             ].map((pattern, idx) => (

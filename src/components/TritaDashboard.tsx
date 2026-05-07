@@ -598,16 +598,16 @@ const TritaDashboard = () => {
                         </div>
 
                         {/* KPI Summary Grid */}
-                        <div className="mt-auto pt-6 border-t border-beige grid grid-cols-2 gap-3">
+                        <div className="mt-auto pt-6 border-t border-beige grid min-w-0 gap-3 grid-cols-1 sm:grid-cols-[repeat(2,minmax(0,1fr))]">
                             {[
                                 { label: 'Revenue Risk', val: formatCr(kpis.revenueAtRiskCr) },
                                 { label: 'Net Capital', val: `${kpis.workingCapPct >= 0 ? '+' : ''}${kpis.workingCapPct.toFixed(1)}%` },
                                 { label: 'SLA Forecast', val: `${kpis.serviceLevelPct.toFixed(1)}%` },
                                 { label: 'Queue', val: kpis.openDecisions }
                             ].map(k => (
-                                <div key={k.label} className="p-3 bg-white border border-beige rounded-xl">
-                                    <p className="text-[8px] font-black text-tan uppercase tracking-widest">{k.label}</p>
-                                    <p className="text-xs font-black text-navy mt-1 font-mono tracking-tight">{k.val}</p>
+                                <div key={k.label} className="min-w-0 p-3 bg-white border border-beige rounded-xl">
+                                    <p className="text-[8px] font-black text-tan uppercase tracking-widest break-words leading-tight">{k.label}</p>
+                                    <p className="text-xs font-black text-navy mt-1 font-mono tracking-tight break-words leading-tight">{k.val}</p>
                                 </div>
                             ))}
                         </div>
