@@ -105,7 +105,7 @@ const Home = () => {
                     className={
                       operationalProblems[problemIndex] === 'Dead stock'
                         ? 'text-olynk whitespace-nowrap block font-deadstock font-normal tracking-[0.06em] sm:tracking-[0.08em]'
-                        : 'text-olynk whitespace-nowrap block font-sanskrit'
+                        : 'text-olynk whitespace-nowrap block font-deadstock font-normal tracking-[0.01em] sm:tracking-[0.02em]'
                     }
                   >
                     {operationalProblems[problemIndex]}

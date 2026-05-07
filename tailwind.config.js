@@ -8,8 +8,7 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        /** Focal label in hero rotator — stark display contrast vs Yatra One */
-        deadstock: ['"Bebas Neue"', 'Inter Tight', 'Inter', 'sans-serif'],
+        deadstock: ['"Space Grotesk"', 'Inter Tight', 'Inter', 'sans-serif'],
         sans: ['Inter Tight', 'Inter', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'sans-serif'],
         // Many components use `font-serif` for italic emphasis; map it to a consistent family
         // instead of falling back to OS-dependent serif fonts.
