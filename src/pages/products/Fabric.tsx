@@ -44,9 +44,9 @@ const DataPipeline = () => {
                 {/* Input Nodes Cluster */}
                 <g transform="translate(100, 200)">
                     {[
-                        { y: -100, label: "SHOPIFY_API", icon: Globe },
-                        { y: 0, label: "NETSUITE_ERP", icon: Database },
-                        { y: 100, label: "META_ADS", icon: Zap }
+                        { y: -100, label: "WMS_STREAM", icon: Globe },
+                        { y: 0, label: "ERP_MASTER", icon: Database },
+                        { y: 100, label: "MES_SIGNALS", icon: Zap }
                     ].map((node, i) => (
                         <g key={i} transform={`translate(0, ${node.y})`}>
                             <rect x="-50" y="-40" width="100" height="80" rx="16" className="fill-white stroke-navy/10" strokeWidth="1" />
@@ -98,7 +98,7 @@ const DataPipeline = () => {
                 <g transform="translate(700, 200)">
                     {[
                         { y: -100, label: "REAL_TIME_INV", icon: Box },
-                        { y: 100, label: "UNIFIED_P&L", icon: BarChart3 }
+                        { y: 100, label: "UNIFIED_LEDGER", icon: BarChart3 }
                     ].map((node, i) => (
                         <g key={i} transform={`translate(0, ${node.y})`}>
                             <rect x="-50" y="-40" width="100" height="80" rx="16" className="fill-white stroke-emerald-500/20" strokeWidth="1" />
@@ -165,7 +165,7 @@ const Fabric = () => {
                             <span className="text-olynk">unify everything.</span>
                         </h1>
                         <p className="text-base sm:text-xl text-steel max-w-2xl mx-auto leading-relaxed font-medium mb-10 lg:mb-12">
-                            Break down silos between Shopify, ERPs, and Logistics. Olynk Fabric creates a single, real-time blueprint of your entire multi-channel operation.
+                            Break down silos between ERPs, plants, warehouses, labs, and logistics. Olynk Fabric creates a single, real-time blueprint of your operational truth across any vertical.
                         </p>
                     </motion.div>
                 </div>

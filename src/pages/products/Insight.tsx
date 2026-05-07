@@ -65,8 +65,8 @@ const PredictivePulse = () => {
 
                 {/* Pulsing Data Nodes */}
                 {[
-                    { x: 300, y: 150, label: "DEMAND_SPIKE" },
-                    { x: 600, y: 120, label: "STOCKOUT_RISK" }
+                    { x: 300, y: 150, label: "CAPACITY_RISK" },
+                    { x: 600, y: 120, label: "SERVICE_RISK" }
                 ].map((node, i) => (
                     <g key={i}>
                         <motion.circle
@@ -108,18 +108,18 @@ const PredictivePulse = () => {
 
 const Insight = () => {
     const [signals, setSignals] = useState([
-        { id: 1, type: 'risk', time: 'Just now', title: 'Stockout Risk: SKU-124', desc: 'Inventory < 2 days coverage', icon: Activity, color: 'text-red-500', bg: 'bg-red-50' },
-        { id: 2, type: 'trend', time: '15 min ago', title: 'Demand Spike Detected', desc: '+45% vs avg in West Coast', icon: ArrowUpRight, color: 'text-emerald-600', bg: 'bg-emerald-50' }
+        { id: 1, type: 'risk', time: 'Just now', title: 'Constraint Risk: Line-3', desc: 'Capacity < 4 hrs buffer', icon: Activity, color: 'text-red-500', bg: 'bg-red-50' },
+        { id: 2, type: 'trend', time: '15 min ago', title: 'Service Risk Detected', desc: 'OTIF drift in West region', icon: ArrowUpRight, color: 'text-emerald-600', bg: 'bg-emerald-50' }
     ]);
 
     useEffect(() => {
         const AVAILABLE_SIGNALS = [
-            { type: 'trend', title: 'Price Optimization', desc: 'Suggest +4% Margin Increase', icon: DollarSign, color: 'text-olynk', bg: 'bg-blue-50' },
-            { type: 'risk', title: 'Logistics Alert', desc: 'Delay at Port_Mumbai', icon: AlertTriangle, color: 'text-amber-500', bg: 'bg-amber-50' },
-            { type: 'trend', title: 'Ad Spend Efficiency', desc: 'ROAS dropped below 2.5x', icon: TrendingUp, color: 'text-red-500', bg: 'bg-red-50' },
-            { type: 'trend', title: 'Competitor Insight', desc: 'Competitor dropped price by 10%', icon: Target, color: 'text-navy', bg: 'bg-gray-100' },
-            { type: 'risk', title: 'Payment Gateway', desc: 'High failure rate detected (2%)', icon: AlertTriangle, color: 'text-red-500', bg: 'bg-red-50' },
-            { type: 'trend', title: 'Conversion Spike', desc: 'Mobile conversion up by 12%', icon: Zap, color: 'text-emerald-600', bg: 'bg-emerald-50' }
+            { type: 'trend', title: 'Yield Opportunity', desc: 'Suggest +1.8% scrap reduction', icon: DollarSign, color: 'text-olynk', bg: 'bg-blue-50' },
+            { type: 'risk', title: 'Logistics Alert', desc: 'Delay at Hub_Mumbai', icon: AlertTriangle, color: 'text-amber-500', bg: 'bg-amber-50' },
+            { type: 'trend', title: 'Energy Drift', desc: 'kWh / unit above baseline', icon: TrendingUp, color: 'text-red-500', bg: 'bg-red-50' },
+            { type: 'trend', title: 'Supplier Signal', desc: 'Lead time volatility rising', icon: Target, color: 'text-navy', bg: 'bg-gray-100' },
+            { type: 'risk', title: 'Quality Hold', desc: 'QC hold rate increased (2%)', icon: AlertTriangle, color: 'text-red-500', bg: 'bg-red-50' },
+            { type: 'trend', title: 'Throughput Spike', desc: 'Shift output up by 12%', icon: Zap, color: 'text-emerald-600', bg: 'bg-emerald-50' }
         ];
 
         const interval = setInterval(() => {
@@ -169,7 +169,7 @@ const Insight = () => {
                             <span className="text-olynk">Decide confidently.</span>
                         </h1>
                         <p className="text-lg sm:text-xl text-steel max-w-2xl mx-auto leading-relaxed font-medium mb-12">
-                            Transform scattered data into a single source of truth. Detect anomalies, predict demand, and optimize operations with surgical precision.
+                            Transform scattered signals into a governed intelligence layer. Detect anomalies, forecast constraints, and optimize operations with audit-ready precision.
                         </p>
                     </motion.div>
                 </div>
@@ -210,8 +210,8 @@ const Insight = () => {
                                 <div className="lg:col-span-2 space-y-8 lg:space-y-10">
                                     <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 lg:gap-0">
                                         <div className="space-y-1.5">
-                                            <h3 className="text-[10px] lg:text-xs font-black text-navy/60 uppercase tracking-widest">Revenue Forecast</h3>
-                                            <div className="text-2xl sm:text-4xl lg:text-5xl font-mono font-black text-navy tracking-tighter">$2,482,190 <span className="text-emerald-500 text-base sm:text-xl align-top font-bold ml-2">+12.4%</span></div>
+                                            <h3 className="text-[10px] lg:text-xs font-black text-navy/60 uppercase tracking-widest">Service Forecast</h3>
+                                            <div className="text-2xl sm:text-4xl lg:text-5xl font-mono font-black text-navy tracking-tighter">96.8% <span className="text-emerald-500 text-base sm:text-xl align-top font-bold ml-2">+0.9%</span></div>
                                         </div>
                                         <div className="flex gap-1 lg:gap-2 bg-navy/5 p-1 rounded-xl w-fit">
                                             {['1D', '1W', '1M', '1Y'].map(t => (
@@ -281,7 +281,7 @@ const Insight = () => {
                                         </div>
                                         <div className="relative z-10">
                                             <div className="text-[10px] font-black text-olynk uppercase tracking-[0.2em] mb-3">Proactive Guard</div>
-                                            <p className="text-xs font-bold leading-relaxed mb-6">Core engine is standing by to execute remediation for Stockout Risk.</p>
+                                            <p className="text-xs font-bold leading-relaxed mb-6">Core engine is standing by to execute remediation for a constraint breach.</p>
                                             <button className="w-full text-[11px] font-black py-3 bg-white text-navy rounded-xl uppercase tracking-widest hover:bg-olynk hover:text-white transition-all shadow-lg active:scale-95">Apply Remediation</button>
                                         </div>
                                     </div>

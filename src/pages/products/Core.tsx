@@ -84,12 +84,12 @@ const Core = () => {
     }, []);
 
     const thinkingSteps = [
-        { label: "OBSERVE", text: "Inventory for SKU-991 is below 20 day coverage." },
-        { label: "THINK", text: "Q4 surge expected. Supplier lead time is 14 days. Reorder risk is High." },
-        { label: "ACT", text: "Drafted PO #4002 for 500 units. Sent to Slack for approval." }
+        { label: "OBSERVE", text: "Line-3 capacity is below 4 hour buffer for the next shift." },
+        { label: "THINK", text: "Downstream SLA risk is High. Alternate routing and overtime window are within policy." },
+        { label: "ACT", text: "Drafted a mitigation plan: shift swap + expedited RM + updated schedule. Sent for approval." }
     ];
 
-    const outputActions = ['Slack Notification', 'NetSuite PO', 'Email Vendor'];
+    const outputActions = ['Approval Request', 'ERP Update', 'Supplier Notify'];
 
     return (
         <div className="min-h-screen bg-transparent">
@@ -246,7 +246,7 @@ const Core = () => {
                                             className="bg-navy text-white text-[9px] font-mono font-black px-4 py-1.5 rounded-full flex items-center gap-2 uppercase tracking-widest shadow-lg"
                                         >
                                             <Play className="w-2 h-2 fill-emerald-500 text-emerald-500" />
-                                            ACTION: PAUSE_CAMPAIGN
+                                            ACTION: ENFORCE_POLICY
                                         </motion.div>
                                     </div>
                                 )

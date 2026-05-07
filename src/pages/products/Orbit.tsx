@@ -87,13 +87,13 @@ const Orbit = () => {
     const [logs, setLogs] = useState([
         { time: "10:42:01", event: "User_Login: admin@olynk.ai", status: "SUCCESS" },
         { time: "10:41:55", event: "Policy_Check: PO_Approval > $10k", status: "ENFORCED" },
-        { time: "10:40:22", event: "Data_Access: Inventory_Table", status: "LOGGED" },
-        { time: "10:38:15", event: "Model_Inference: Stockout_Pred", status: "COMPLETE" }
+        { time: "10:40:22", event: "Data_Access: Operations_Ledger", status: "LOGGED" },
+        { time: "10:38:15", event: "Model_Inference: Constraint_Risk", status: "COMPLETE" }
     ]);
 
     useEffect(() => {
         const events = [
-            "SQL_Query: Customer_Lifetime_Value",
+            "SQL_Query: Service_Level_Trend",
             "Access_Granted: Partner_Node_B",
             "Model_Update: Logistic_Regression_v4",
             "Threat_Detected: IP_Shadow_Deflected",

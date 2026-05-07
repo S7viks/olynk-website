@@ -88,8 +88,8 @@ const InferenceGrid = () => (
 const ExecutionQueue = () => {
   const jobs = [
     { op: "PO_CREATE", status: "SUCCESS", color: "bg-emerald-500" },
-    { op: "ADS_ADJUST", status: "EXECUTING", color: "bg-olynk" },
-    { op: "STOCK_REORDER", status: "QUEUED", color: "bg-tan" }
+    { op: "SCHEDULE_ADJUST", status: "EXECUTING", color: "bg-olynk" },
+    { op: "RM_REORDER", status: "QUEUED", color: "bg-tan" }
   ];
 
   return (
@@ -145,7 +145,7 @@ const HowItWorks = () => {
             </h1>
             <p className="text-lg lg:text-2xl text-steel max-w-3xl mx-auto leading-relaxed font-medium">
               How fragmentation becomes intelligence. The three-phase architecture that powers
-              autonomous commerce operations.
+              governed, autonomous operations across retail, manufacturing, chemicals, and pharma.
             </p>
           </motion.div>
         </div>
@@ -175,7 +175,7 @@ const HowItWorks = () => {
               <div className="p-4 lg:p-6 rounded-3xl bg-cream/30 border border-beige/40">
                 <div className="text-[9px] lg:text-[10px] font-black text-tan uppercase tracking-widest mb-4">Integrated Nodes</div>
                 <div className="flex flex-wrap gap-2 lg:gap-3 justify-center lg:justify-start">
-                  {["Shopify", "NetSuite", "Shiprocket", "Razorpay", "Meta Ads", "Google Ads"].map((tool, i) => (
+                  {["SAP / Oracle ERP", "NetSuite", "WMS", "MES / LIMS", "Snowflake", "Payments Rail"].map((tool, i) => (
                     <div key={i} className="px-3 lg:px-4 py-1.5 lg:py-2 rounded-xl bg-white border border-beige/60 text-[10px] lg:text-xs font-bold text-navy shadow-sm">
                       {tool}
                     </div>
@@ -215,19 +215,19 @@ const HowItWorks = () => {
                 <span className="text-olynk italic font-serif font-normal capitalize">Think.</span>
               </h2>
               <p className="text-base lg:text-lg text-steel leading-relaxed font-medium">
-                Our models don't just process data - they understand causality.
-                We map the relationship between ads, inventory, and cash flow.
+                Our models do not stop at dashboards: they encode causality across your constraints.
+                We map how procurement, production, logistics, finance, and service levels move together.
               </p>
               <div className="grid grid-cols-2 gap-4 lg:gap-6">
                 <div className="space-y-2">
                   <div className="text-[9px] lg:text-[10px] font-black text-tan uppercase tracking-widest">Processing Logic</div>
-                  <div className="text-xs lg:text-sm font-bold text-navy">Demand Forecasting</div>
-                  <div className="text-xs lg:text-sm font-bold text-navy">Risk Analysis</div>
+                  <div className="text-xs lg:text-sm font-bold text-navy">Constraint forecasting</div>
+                  <div className="text-xs lg:text-sm font-bold text-navy">Risk and SLA analysis</div>
                 </div>
                 <div className="space-y-2">
                   <div className="text-[9px] lg:text-[10px] font-black text-tan uppercase tracking-widest">Outcomes</div>
-                  <div className="text-xs lg:text-sm font-bold text-emerald-500 font-mono">P&L_PREDICTION</div>
-                  <div className="text-xs lg:text-sm font-bold text-emerald-500 font-mono">STOCK_VELOCITY</div>
+                  <div className="text-xs lg:text-sm font-bold text-emerald-500 font-mono">OTIF_FORECAST</div>
+                  <div className="text-xs lg:text-sm font-bold text-emerald-500 font-mono">CAPACITY_LOAD</div>
                 </div>
               </div>
             </div>
@@ -258,15 +258,15 @@ const HowItWorks = () => {
                 <span className="text-emerald-400 italic font-serif font-normal capitalize">Act.</span>
               </h2>
               <p className="text-base lg:text-lg text-white/60 leading-relaxed font-medium">
-                Insight without action is just overhead. OLynk executes fixes directly
-                in your systems - while you're asleep.
+                Insight without action is just overhead. Olynk executes policy-bound fixes directly
+                in your systems—with approvals and audit trails where it matters.
               </p>
               <ul className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-1 gap-3 lg:gap-4 text-left">
                 {[
-                  "Auto-Adjust Ad Spends",
-                  "Trigger Supplier POs",
-                  "Execute RTO Blocks",
-                  "Notify Warehouse Priorities"
+                  "Enforce policy thresholds & escalation",
+                  "Trigger supplier POs & expedites",
+                  "Rebalance schedules & allocations",
+                  "Notify plants, DCs, and finance in one trace"
                 ].map((action, i) => (
                   <li key={i} className="flex items-center gap-3 font-bold text-sm lg:text-base">
                     <div className="w-1.5 h-1.5 lg:w-2 lg:h-2 rounded-full bg-emerald-400" />
