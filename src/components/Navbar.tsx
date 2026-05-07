@@ -78,7 +78,7 @@ const Navbar = () => {
                 {/* Logo */}
                 <Link to="/" className="flex items-center shrink-0 mr-12 block group z-50 gap-3">
                     <Logo size="md" />
-                    <span className="text-2xl font-black text-navy tracking-tightest">TRITA</span>
+                    <span className="text-2xl font-black text-navy tracking-tightest">OLYNK</span>
                 </Link>
 
                 {/* Desktop Navigation Links */}
@@ -221,7 +221,7 @@ const Navbar = () => {
                             </div>
 
                             <div className="pt-12 text-center text-[10px] font-mono font-black text-tan uppercase tracking-[0.3em]">
-                                TRITA // OPERATIONAL_OS_V1.0
+                                OLYNK // OPERATIONAL_OS_V1.0
                             </div>
                         </div>
                     </motion.div>

@@ -102,7 +102,11 @@ const Home = () => {
                     animate={{ y: 0, opacity: 1 }}
                     exit={{ y: -80, opacity: 0 }}
                     transition={{ duration: 0.5, type: "spring", stiffness: 300, damping: 30 }}
-                    className="text-olynk whitespace-nowrap block font-sanskrit"
+                    className={
+                      operationalProblems[problemIndex] === 'Dead stock'
+                        ? 'text-olynk whitespace-nowrap block font-deadstock font-normal tracking-[0.06em] sm:tracking-[0.08em]'
+                        : 'text-olynk whitespace-nowrap block font-sanskrit'
+                    }
                   >
                     {operationalProblems[problemIndex]}
                   </motion.span>
