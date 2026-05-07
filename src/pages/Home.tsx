@@ -17,8 +17,8 @@
 
 
 import { Link } from 'react-router-dom';
-import { useState, useRef, useEffect } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { useState, useRef } from 'react';
+import { motion } from 'framer-motion';
 import { ArrowRight, CheckCircle, ArrowDown, Search, Brain, CreditCard, Zap, Play, X } from 'lucide-react';
 import TritaDashboard from '../components/TritaDashboard';
 import IntegrationsShowcase from '../components/IntegrationsShowcase';
@@ -27,28 +27,11 @@ import TestimonialsGrid from '../components/TestimonialsGrid';
 import FAQ from '../components/FAQ';
 import FixMechanismModal from '../components/FixMechanismModal';
 
-const operationalProblems = [
-  "Stockouts",
-  "Capacity crunches",
-  "Supplier delays",
-  "SLA breaches",
-  "Cost overruns",
-  "Quality escapes",
-];
-
 const Home = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [showWalkthrough, setShowWalkthrough] = useState(false);
   const [activeIndustry, setActiveIndustry] = useState<{ title: string; layers: any[] }>({ title: 'Operational Intelligence', layers: [] });
-  const [problemIndex, setProblemIndex] = useState(0);
   const diagnosticRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setProblemIndex((current) => (current + 1) % operationalProblems.length);
-    }, 1500);
-    return () => clearInterval(interval);
-  }, []);
 
   const scrollToDiagnostic = () => {
     diagnosticRef.current?.scrollIntoView({ behavior: 'smooth' });
@@ -93,27 +76,21 @@ const Home = () => {
 
             {/* Headline */}
             <h1 className="page-hero-title">
-              <span className="block mb-2">Predict</span>
-              <div className="flex w-full items-center justify-center overflow-hidden relative h-[1.3em] text-5xl sm:text-7xl lg:text-8xl my-2">
-                <AnimatePresence mode="popLayout">
-                  <motion.span
-                    key={problemIndex}
-                    initial={{ y: 80, opacity: 0 }}
-                    animate={{ y: 0, opacity: 1 }}
-                    exit={{ y: -80, opacity: 0 }}
-                    transition={{ duration: 0.5, type: "spring", stiffness: 300, damping: 30 }}
-                    className="text-olynk whitespace-nowrap block font-deadstock font-normal tracking-[0.01em] sm:tracking-[0.02em]"
-                  >
-                    {operationalProblems[problemIndex]}
-                  </motion.span>
-                </AnimatePresence>
-              </div>
-              <span className="block mt-2">10 days early.</span>
+              <span className="block text-navy tracking-tightest leading-[1.05] mb-2 sm:mb-3 text-3xl sm:text-5xl lg:text-6xl font-black">
+                The Connected Intelligence Layer
+              </span>
+              <span className="block text-olynk text-5xl sm:text-7xl lg:text-8xl leading-[1.05] font-black tracking-tightest">
+                For Modern Commerce
+              </span>
             </h1>
 
-            {/* Subheadline */}
-            <p className="text-navy text-xl lg:text-2xl leading-relaxed max-w-4xl mx-auto font-medium">
-              Trita connects your systems - <span className="font-bold">ERP, planning, execution, warehouse, and revenue</span> - into one governed intelligence layer that spots risk early and executes fixes across your stack without waiting for a human in the loop.
+            <p className="text-navy text-xl sm:text-2xl lg:text-3xl font-bold leading-snug max-w-4xl mx-auto tracking-tight">
+              See Operational Problems Before They Become Financial Problems
+            </p>
+
+            {/* Supporting copy */}
+            <p className="text-steel text-lg lg:text-xl leading-relaxed max-w-3xl mx-auto font-medium">
+              Olynk turns fragmented operational data into real-time decisions across inventory, returns, cash flow, logistics, and growth.
             </p>
 
             {/* CTA Buttons */}
@@ -338,27 +315,27 @@ const Home = () => {
           <div className="space-y-4">
             <span className="text-[10px] font-black text-olynk uppercase tracking-[0.5em] font-mono">Ideal Customer Profile</span>
             <h2 className="text-3xl lg:text-4xl font-black text-navy tracking-tightest">
-              Built for operations teams doing<br />
-              <span className="text-olynk">₹50Cr+ in annual GMV.</span>
+              Built for complex operations teams<br />
+              <span className="text-olynk">across any vertical.</span>
             </h2>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8">
             <div className="p-8 rounded-2xl border border-beige bg-white/60 backdrop-blur-sm hover:shadow-lg transition-all">
               <div className="text-4xl font-black text-navy mb-3">5+</div>
               <div className="text-sm text-steel font-bold leading-relaxed">
-                Connected systems - ERP, WMS, marketplace, payments
+                Connected systems - ERP, WMS, MES, LIMS, payments, marketplace
               </div>
             </div>
             <div className="p-8 rounded-2xl border border-beige bg-white/60 backdrop-blur-sm hover:shadow-lg transition-all">
-              <div className="text-4xl font-black text-navy mb-3">₹50Cr+</div>
+              <div className="text-4xl font-black text-navy mb-3">Multi-site</div>
               <div className="text-sm text-steel font-bold leading-relaxed">
-                Annual GMV with multi-channel or multi-warehouse operations
+                Multiple plants, warehouses, labs, or regions with shared inventory constraints
               </div>
             </div>
             <div className="p-8 rounded-2xl border border-beige bg-white/60 backdrop-blur-sm hover:shadow-lg transition-all">
               <div className="text-4xl font-black text-navy mb-3">10+</div>
               <div className="text-sm text-steel font-bold leading-relaxed">
-                Ops team members coordinating across tools daily
+                Cross-functional teams coordinating procurement, production, finance, and fulfillment daily
               </div>
             </div>
           </div>

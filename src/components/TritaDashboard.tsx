@@ -13,7 +13,7 @@ import {
     Zap,
 } from 'lucide-react';
 
-type IndustryKey = 'd2c' | 'manufacturing';
+type IndustryKey = 'd2c' | 'manufacturing' | 'chemicals' | 'pharma';
 
 type DecisionStatus = 'open' | 'accepted' | 'rejected' | 'snoozed';
 
@@ -42,8 +42,8 @@ const INDUSTRY_PRESETS: Record<
     }
 > = {
     d2c: {
-        label: 'D2C / commerce',
-        sub: 'Pilot dataset · multi-market fulfilment',
+        label: 'Retail & E-commerce',
+        sub: 'Commerce',
         revenueAtRiskCr: 42,
         workingCapPct: -8.2,
         serviceLevelPct: 97.2,
@@ -55,7 +55,7 @@ const INDUSTRY_PRESETS: Record<
     },
     manufacturing: {
         label: 'Manufacturing',
-        sub: 'Pilot dataset · BOM + network',
+        sub: 'Industrial Logic',
         revenueAtRiskCr: 31,
         workingCapPct: -5.4,
         serviceLevelPct: 95.6,
@@ -64,12 +64,62 @@ const INDUSTRY_PRESETS: Record<
         ndrCarrier: 'Blue Dart',
         ndrScore: 71,
         recoveryLakh90: 185,
+    },
+    chemicals: {
+        label: 'Chemicals',
+        sub: 'Hazmat & Batch Logic',
+        revenueAtRiskCr: 28,
+        workingCapPct: -6.1,
+        serviceLevelPct: 96.4,
+        openDecisions: 9,
+        baseRtoPct: 2.8,
+        ndrCarrier: 'Safexpress',
+        ndrScore: 68,
+        recoveryLakh90: 162,
+    },
+    pharma: {
+        label: 'Pharma',
+        sub: 'Serialization & Cold Chain',
+        revenueAtRiskCr: 36,
+        workingCapPct: -7.0,
+        serviceLevelPct: 98.1,
+        openDecisions: 13,
+        baseRtoPct: 1.9,
+        ndrCarrier: 'Snowman Logistics',
+        ndrScore: 78,
+        recoveryLakh90: 215,
     }
 };
 
 function formatCr(n: number): string {
     return `₹${n.toFixed(1)}Cr`;
 }
+
+const SYSTEM_HEALTH_LABELS: Record<
+    IndustryKey,
+    { primary: string; bridge: string; inference: string }
+> = {
+    d2c: {
+        primary: 'Shopify API',
+        bridge: 'Tally Bridge',
+        inference: 'Inference Node',
+    },
+    manufacturing: {
+        primary: 'Unicommerce OMS',
+        bridge: 'SAP B1 Bridge',
+        inference: 'MES inference',
+    },
+    chemicals: {
+        primary: 'Batch MES API',
+        bridge: 'ERP / SDS link',
+        inference: 'Lot-risk models',
+    },
+    pharma: {
+        primary: 'Track & trace API',
+        bridge: 'LIMS bridge',
+        inference: 'Cold-chain AI',
+    },
+};
 
 const TritaDashboard = () => {
     const [industry, setIndustry] = useState<IndustryKey>('d2c');
@@ -95,7 +145,11 @@ const TritaDashboard = () => {
         "Verifying Razorpay payout integrity...",
         "Optimizing RM-AL-12 lead time vectors...",
         "Scanning Maharashtra factory OEE delta...",
-        "Recalculating capital waterfall policy..."
+        "Recalculating capital waterfall policy...",
+        "Validating SDS lineage for batch CHEM-AX-22...",
+        "Reconciling hazmat storage caps at DC-North...",
+        "Checking serialization aggregation for lot PHX-1182...",
+        "Modeling cold-chain excursion risk on biologic SKU-947..."
     ], []);
 
     useEffect(() => {
@@ -137,63 +191,156 @@ const TritaDashboard = () => {
         };
     }, [preset, riskAppetite, budgetCeiling, velocityPriority, decisions]);
 
-    const decisionDeck: DecisionItem[] = useMemo(
-        () =>
-            industry === 'd2c'
-                ? [
-                      {
-                          id: 'd1',
-                          band: 'Urgent',
-                          title: 'Reorder SKU-047 · Oat Milk 1L',
-                          exposure: '₹2.3L exposure · 11 days of cover',
-                          detail: 'Demand spike on Meta + creator push; safety stock breached in NCR.',
-                          supplier: 'Pristine Organics · Lead 8d',
-                      },
-                      {
-                          id: 'd2',
-                          band: 'High',
-                          title: 'Pause dispatch · 23 COD orders',
-                          exposure: 'Predicted RTO 78%+ · ₹4.1L recoverable',
-                          detail: 'Repeat NDR pin codes + velocity mismatch on prepaid incentives.',
-                          supplier: 'Carrier: Delhivery · NDR queue',
-                      },
-                      {
-                          id: 'd3',
-                          band: 'Standard',
-                          title: 'Working capital release · AP pool',
-                          exposure: '−6.2 days DPO opportunity · ₹1.1Cr',
-                          detail: 'Three vendors inside policy for early settlement discount.',
-                          supplier: 'Tally + Razorpay payouts',
-                      },
-                  ]
-                : [
-                        {
-                            id: 'm1',
-                            band: 'Urgent',
-                            title: 'Expedite RM-AL-12 · alloy feed',
-                            exposure: 'Plant risk in 6 MRP runs · ₹6.8L',
-                            detail: 'Supplier SL slip; alternate source 4% premium within budget guardrail.',
-                            supplier: 'JM alloys · PO draft ready',
-                        },
-                        {
-                            id: 'm2',
-                            band: 'High',
-                            title: 'Rebalance DC-West · slow movers',
-                            exposure: 'Working capital drag · ₹38L',
-                            detail: 'Freight-optimal transfer to South DC improves turns 0.4x.',
-                            supplier: 'Unicommerce allocation',
-                        },
-                        {
-                            id: 'm3',
-                            band: 'Standard',
-                            title: 'Approve cap-ex maintenance window',
-                            exposure: 'SLA buffer 2.1% · night shift only',
-                            detail: 'Finance threshold met; customer commitment window tight.',
-                            supplier: 'MES + CMMS',
-                        },
-                    ],
-        [industry]
-    );
+    const systemHealth = useMemo(() => {
+        const labels = SYSTEM_HEALTH_LABELS[industry];
+        const svcDrift = (preset.serviceLevelPct - 96.5) * 0.035;
+        const uptime = Math.min(
+            99.9,
+            Math.max(
+                98.8,
+                99.72 + (velocityPriority + budgetCeiling - riskAppetite) / 420 + svcDrift
+            )
+        );
+        const primaryPct = uptime.toFixed(1);
+        const bridgeIdle =
+            industry === 'pharma' ? 'Validated' : industry === 'chemicals' ? 'Stable' : 'Synced';
+        return [
+            {
+                id: 'primary' as const,
+                label: labels.primary,
+                val: `${primaryPct}%`,
+                statusClass: uptime >= 99.5 ? 'text-emerald-600' : 'text-amber-600',
+            },
+            {
+                id: 'bridge' as const,
+                label: labels.bridge,
+                val: isSimulating ? 'Syncing' : bridgeIdle,
+                statusClass: isSimulating ? 'text-amber-600' : 'text-emerald-600',
+                pulse: isSimulating,
+            },
+            {
+                id: 'inference' as const,
+                label: labels.inference,
+                val: isSimulating ? 'Busy' : 'Active',
+                statusClass: isSimulating ? 'text-amber-600' : 'text-emerald-600',
+            },
+        ];
+    }, [industry, preset.serviceLevelPct, riskAppetite, budgetCeiling, velocityPriority, isSimulating]);
+
+    const decisionDeck: DecisionItem[] = useMemo(() => {
+        switch (industry) {
+            case 'd2c':
+                return [
+                    {
+                        id: 'd1',
+                        band: 'Urgent',
+                        title: 'Reorder SKU-047 · Oat Milk 1L',
+                        exposure: '₹2.3L exposure · 11 days of cover',
+                        detail: 'Demand spike on Meta + creator push; safety stock breached in NCR.',
+                        supplier: 'Pristine Organics · Lead 8d',
+                    },
+                    {
+                        id: 'd2',
+                        band: 'High',
+                        title: 'Pause dispatch · 23 COD orders',
+                        exposure: 'Predicted RTO 78%+ · ₹4.1L recoverable',
+                        detail: 'Repeat NDR pin codes + velocity mismatch on prepaid incentives.',
+                        supplier: 'Carrier: Delhivery · NDR queue',
+                    },
+                    {
+                        id: 'd3',
+                        band: 'Standard',
+                        title: 'Working capital release · AP pool',
+                        exposure: '−6.2 days DPO opportunity · ₹1.1Cr',
+                        detail: 'Three vendors inside policy for early settlement discount.',
+                        supplier: 'Tally + Razorpay payouts',
+                    },
+                ];
+            case 'manufacturing':
+                return [
+                    {
+                        id: 'm1',
+                        band: 'Urgent',
+                        title: 'Expedite RM-AL-12 · alloy feed',
+                        exposure: 'Plant risk in 6 MRP runs · ₹6.8L',
+                        detail: 'Supplier SL slip; alternate source 4% premium within budget guardrail.',
+                        supplier: 'JM alloys · PO draft ready',
+                    },
+                    {
+                        id: 'm2',
+                        band: 'High',
+                        title: 'Rebalance DC-West · slow movers',
+                        exposure: 'Working capital drag · ₹38L',
+                        detail: 'Freight-optimal transfer to South DC improves turns 0.4x.',
+                        supplier: 'Unicommerce allocation',
+                    },
+                    {
+                        id: 'm3',
+                        band: 'Standard',
+                        title: 'Approve cap-ex maintenance window',
+                        exposure: 'SLA buffer 2.1% · night shift only',
+                        detail: 'Finance threshold met; customer commitment window tight.',
+                        supplier: 'MES + CMMS',
+                    },
+                ];
+            case 'chemicals':
+                return [
+                    {
+                        id: 'c1',
+                        band: 'Urgent',
+                        title: 'Hold dispatch · Batch CHEM-AX-22',
+                        exposure: 'SDS mismatch · ₹5.4L exposure',
+                        detail: 'Label revision out of sync with current SDS revision; downstream recall risk if released.',
+                        supplier: 'Plant-2 QC · SAP batch hold',
+                    },
+                    {
+                        id: 'c2',
+                        band: 'High',
+                        title: 'Reroute Solvent-X · DC-North storage cap',
+                        exposure: 'Hazmat limit breach in 36h · ₹2.7L',
+                        detail: 'Class 3 storage threshold projected to exceed; transfer window to DC-East still open.',
+                        supplier: 'Sphera limits + AVEVA WMS',
+                    },
+                    {
+                        id: 'c3',
+                        band: 'Standard',
+                        title: 'Approve early settlement · 4 vendors',
+                        exposure: 'Inside REACH-policy window · ₹62L',
+                        detail: 'Compliant suppliers eligible for 1.5% prompt-pay discount under finance policy.',
+                        supplier: 'SAP AP + treasury feed',
+                    },
+                ];
+            case 'pharma':
+                return [
+                    {
+                        id: 'p1',
+                        band: 'Urgent',
+                        title: 'Quarantine review · Batch PHX-1182',
+                        exposure: 'Cold-chain excursion · ₹8.2L exposure',
+                        detail: 'Two temperature deviations on Mumbai-Chennai leg; QA disposition required before release.',
+                        supplier: 'TraceLink + cold-chain logger',
+                    },
+                    {
+                        id: 'p2',
+                        band: 'High',
+                        title: 'Resolve aggregation gap · Lot SER-9034',
+                        exposure: 'DSCSA exception · 4,200 units held',
+                        detail: 'Parent-child serialization mismatch detected at 3PL handoff; auto-rebuild proposed.',
+                        supplier: 'TraceLink · 3PL aggregation feed',
+                    },
+                    {
+                        id: 'p3',
+                        band: 'Standard',
+                        title: 'Allocate cold-chain capacity · SKU-947',
+                        exposure: 'Biologic launch · ₹1.4Cr revenue at stake',
+                        detail: 'Reserve 18% additional 2-8°C lanes ahead of forecast pull-through; Snowman SLA confirmed.',
+                        supplier: 'Snowman + Veeva planning',
+                    },
+                ];
+            default:
+                return [];
+        }
+    }, [industry]);
 
     useEffect(() => {
         setDecisions({});
@@ -236,7 +383,40 @@ const TritaDashboard = () => {
         setTimeout(() => setShareHint(null), 4200);
     }, [buildShareUrl]);
 
-    const flaggedRto = Math.max(12, Math.round(18 + (100 - velocityPriority) / 8));
+    const disruptionCard = useMemo(() => {
+        const baseByIndustry: Record<IndustryKey, number> = {
+            d2c: 18,
+            manufacturing: 14,
+            chemicals: 16,
+            pharma: 15,
+        };
+
+        const labelByIndustry: Record<IndustryKey, string> = {
+            d2c: 'RTO Prob.',
+            manufacturing: 'Disruption Prob.',
+            chemicals: 'Spill / Delay Prob.',
+            pharma: 'Excursion Prob.',
+        };
+
+        const unitByIndustry: Record<IndustryKey, string> = {
+            d2c: 'preventions',
+            manufacturing: 'interlocks',
+            chemicals: 'guards',
+            pharma: 'controls',
+        };
+
+        const base = baseByIndustry[industry];
+        const velocityLoad = Math.round((100 - velocityPriority) / 8);
+        const riskLoad = Math.round((Math.max(0, 55 - riskAppetite)) / 10);
+        const rtoLoad = Math.round(preset.baseRtoPct * 0.6);
+        const activeCount = Math.max(8, base + velocityLoad + riskLoad + rtoLoad);
+
+        return {
+            label: labelByIndustry[industry],
+            activeCount,
+            unit: unitByIndustry[industry],
+        };
+    }, [industry, preset.baseRtoPct, riskAppetite, velocityPriority]);
 
     return (
         <motion.div
@@ -289,7 +469,12 @@ const TritaDashboard = () => {
                         {/* Industry Selection */}
                         <div className="space-y-4">
                             <div className="flex items-center justify-between">
-                                <p className="text-[10px] font-black text-tan uppercase tracking-widest">Vertical Context</p>
+                                <div className="flex flex-col">
+                                    <p className="text-[10px] font-black text-tan uppercase tracking-widest">Industries</p>
+                                    <p className="text-[9px] font-mono font-bold text-navy/40 uppercase tracking-[0.2em]">
+                                        Overview · All verticals
+                                    </p>
+                                </div>
                                 <Activity className={`w-3 h-3 text-tan/40 ${isSimulating ? 'animate-spin' : ''}`} />
                             </div>
                             <div className="grid grid-cols-2 lg:grid-cols-1 gap-2">
@@ -304,7 +489,14 @@ const TritaDashboard = () => {
                                                 : 'bg-white text-navy/60 border-beige hover:border-tan'
                                         }`}
                                     >
-                                        {INDUSTRY_PRESETS[key].label}
+                                        <div className="flex flex-col gap-1">
+                                            <span>{INDUSTRY_PRESETS[key].label}</span>
+                                            <span className={`text-[9px] font-mono font-bold tracking-tight normal-case ${
+                                                industry === key ? 'text-white/60' : 'text-navy/40'
+                                            }`}>
+                                                {INDUSTRY_PRESETS[key].sub}
+                                            </span>
+                                        </div>
                                     </button>
                                 ))}
                             </div>
@@ -349,7 +541,7 @@ const TritaDashboard = () => {
                                 <div className="flex items-center justify-between mb-3">
                                     <div className="flex items-center gap-2">
                                         <TrendingDown className="w-3.5 h-3.5 text-emerald-600" />
-                                        <p className="text-[9px] font-black text-navy uppercase tracking-widest">RTO Prob.</p>
+                                        <p className="text-[9px] font-black text-navy uppercase tracking-widest">{disruptionCard.label}</p>
                                     </div>
                                     <span className={`text-[8px] font-mono font-bold px-1.5 py-0.5 rounded ${isSimulating ? 'bg-amber-50 text-amber-600 animate-pulse' : 'bg-emerald-50 text-emerald-600'}`}>
                                         {isSimulating ? 'SIM' : 'OK'}
@@ -359,7 +551,7 @@ const TritaDashboard = () => {
                                     {kpis.rtoPct.toFixed(1)}%
                                 </div>
                                 <p className="text-[9px] text-steel mt-1.5 leading-tight font-medium">
-                                    <strong className="text-navy">{flaggedRto} preventions</strong> active.
+                                    <strong className="text-navy">{disruptionCard.activeCount} {disruptionCard.unit}</strong> active.
                                 </p>
                             </div>
                         </div>
@@ -584,14 +776,14 @@ const TritaDashboard = () => {
                                 </div>
                             </div>
                             <div className="space-y-3">
-                                {[
-                                    { label: 'Shopify API', val: '99.9%', status: 'text-emerald-600' },
-                                    { label: 'Tally Bridge', val: 'Syncing', status: 'text-amber-600' },
-                                    { label: 'Inference Node', val: 'Active', status: 'text-emerald-600' }
-                                ].map(item => (
-                                    <div key={item.label} className="flex justify-between items-center text-[10px] font-medium border-t border-beige/40 pt-2.5 first:border-0 first:pt-0">
+                                {systemHealth.map((item) => (
+                                    <div key={item.id} className="flex justify-between items-center text-[10px] font-medium border-t border-beige/40 pt-2.5 first:border-0 first:pt-0">
                                         <span className="text-steel">{item.label}</span>
-                                        <span className={`font-mono font-bold ${item.status}`}>{item.val}</span>
+                                        <span
+                                            className={`font-mono font-bold ${item.statusClass}${item.pulse ? ' animate-pulse' : ''}`}
+                                        >
+                                            {item.val}
+                                        </span>
                                     </div>
                                 ))}
                             </div>

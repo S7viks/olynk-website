@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { ArrowRight, Factory, ShoppingBag } from 'lucide-react';
+import { ArrowRight, Factory, FlaskConical, Pill, ShoppingBag } from 'lucide-react';
 
 const verticals = [
   {
@@ -15,6 +15,20 @@ const verticals = [
     desc: 'Procurement, network inventory, and plant-to-DC alignment with governed execution trails.',
     icon: Factory,
     href: '/industries/manufacturing',
+  },
+  {
+    id: 'chemicals',
+    title: 'Chemical industry',
+    desc: 'Hazmat-grade inventory truth, batch traceability, and compliance-aware execution across plants, warehouses, and distributors.',
+    icon: FlaskConical,
+    href: '/industries/chemicals',
+  },
+  {
+    id: 'pharma',
+    title: 'Pharma industry',
+    desc: 'Serialization, cold-chain integrity, and batch-to-patient traceability - built for regulated, exception-heavy supply networks.',
+    icon: Pill,
+    href: '/industries/pharma',
   },
 ];
 

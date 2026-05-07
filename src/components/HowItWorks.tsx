@@ -8,7 +8,7 @@ const PROTOCOLS = [
         id: "LINK",
         label: "Unified feed",
         title: "Start pulling live data in under 15 minutes.",
-        description: "Pre-built connectors for Shopify, Amazon, and 40+ tools. Enterprise ERPs (SAP, NetSuite) use our guided connector wizard - most go live within one sprint.",
+        description: "Pre-built connectors for ERPs, WMS, OMS, MES, and data warehouses. Enterprise stacks (SAP, Oracle, NetSuite) use our guided connector wizard - most go live within one sprint.",
         icon: Database,
         status: "READY",
         statusLight: "bg-emerald-500",
@@ -18,7 +18,7 @@ const PROTOCOLS = [
         id: "THINK",
         label: "Live mapping",
         title: "Build a live map of your business.",
-        description: "We connect the dots between your sales and operations to spot risks and opportunities before they happen.",
+        description: "We connect the dots across procurement, production, inventory, logistics, and finance to surface risks before commitments harden.",
         icon: Brain,
         status: "ACTIVE",
         statusLight: "bg-blue-500",
@@ -28,7 +28,7 @@ const PROTOCOLS = [
         id: "ACT",
         label: "Instant action",
         title: "Approve decisions in one click.",
-        description: "Wake up to ready-to-execute actions. Approve a restock or pause a campaign - we handle the paperwork and execution.",
+        description: "Wake up to ready-to-execute actions. Rebalance inventory, expedite supply, adjust safety stock, or enforce policy thresholds - with an audit trail end-to-end.",
         icon: Zap,
         status: "WAITING",
         statusLight: "bg-tan",
@@ -89,7 +89,7 @@ const HowItWorks = () => {
                         <span className="text-olynk italic font-serif font-normal text-4xl sm:text-5xl lg:text-6xl">autonomous order.</span>
                     </h2>
                     <p className="text-base sm:text-lg lg:text-xl text-steel font-medium leading-relaxed max-w-2xl px-2 sm:px-0">
-                        Olynk is an intelligent operating layer that sits above your apps. We <span className="text-navy font-bold underline decoration-beige decoration-4 underline-offset-4">link</span> your data, <span className="text-navy font-bold underline decoration-beige decoration-4 underline-offset-4">think</span> through your problems, and <span className="text-navy font-bold underline decoration-beige decoration-4 underline-offset-4">execute</span> the fixes.
+                        Olynk is an intelligent operating layer that sits above your stack. We <span className="text-navy font-bold underline decoration-beige decoration-4 underline-offset-4">link</span> operational data, <span className="text-navy font-bold underline decoration-beige decoration-4 underline-offset-4">think</span> through constraints, and <span className="text-navy font-bold underline decoration-beige decoration-4 underline-offset-4">execute</span> fixes across any vertical.
                     </p>
                 </div>
 

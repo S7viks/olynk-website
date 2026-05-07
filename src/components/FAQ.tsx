@@ -4,14 +4,30 @@ import { Plus, Minus, Lock, ShieldCheck, Zap, Database, Cpu, Fingerprint } from 
 
 type FAQCategory = 'Overview' | 'Integration' | 'Security';
 
-const FAQ_CATEGORIES: Record<FAQCategory, { label: string; icon: any; questions: Array<{ q: string; a: string }> }> = {
+type IndustryFilter = 'all' | 'retail' | 'manufacturing' | 'chemicals' | 'pharma';
+
+type FAQQuestion = {
+  q: string;
+  a: string;
+  industries?: IndustryFilter[];
+};
+
+const INDUSTRY_FILTERS: Array<{ id: IndustryFilter; label: string }> = [
+  { id: 'all', label: 'All verticals' },
+  { id: 'retail', label: 'Retail & E-commerce' },
+  { id: 'manufacturing', label: 'Manufacturing' },
+  { id: 'chemicals', label: 'Chemicals' },
+  { id: 'pharma', label: 'Pharma' },
+];
+
+const FAQ_CATEGORIES: Record<FAQCategory, { label: string; icon: any; questions: FAQQuestion[] }> = {
   Overview: {
     label: "Capability overview",
     icon: Cpu,
     questions: [
       {
         q: "What forecasting accuracy and confidence specifications does the platform meet?",
-        a: "Demand and supply models ship with explicit confidence intervals and calibration reports. After a structured learning window, most deployments hold forecast error within agreed bands; every recommendation carries a scored confidence signal and audit trail for review."
+        a: "Demand, supply, and risk models ship with explicit confidence intervals and calibration reports. After a structured learning window, most deployments hold error within agreed bands; every recommendation carries a scored confidence signal and audit trail for review."
       },
       {
         q: "What if the AI makes wrong recommendations?",
@@ -19,7 +35,7 @@ const FAQ_CATEGORIES: Record<FAQCategory, { label: string; icon: any; questions:
       },
       {
         q: "How does AI learn our specific business?",
-        a: "We analyze your historical sales, seasonal patterns, customer behavior, and external factors. The system continuously learns from outcomes and gets smarter about your unique business dynamics."
+        a: "We analyze historical throughput, seasonality, constraints, and outcomes across your operation. The system continuously learns from decisions and results, improving recommendations against your unique policies and service targets."
       }
     ]
   },
@@ -29,15 +45,15 @@ const FAQ_CATEGORIES: Record<FAQCategory, { label: string; icon: any; questions:
     questions: [
       {
         q: "How does AI handle data conflicts between systems?",
-        a: "Our AI applies your business rules to resolve conflicts automatically. For example, if Shopify shows 50 units but warehouse shows 45, AI uses the more recent/reliable source and updates all systems. You can see exactly how decisions are made."
+        a: "Our AI applies your business rules to resolve conflicts automatically. For example, if one system shows 50 units but WMS shows 45, we use the most recent/reliable source and surface the reconciliation logic with lineage. You can see exactly how decisions are made."
       },
       {
         q: "What if our systems can't integrate?",
-        a: "We connect to 200+ platforms via APIs, webhooks, and smart data sync. For systems without direct integration, we can set up automated data flows through CSV imports, email parsing, or custom connectors."
+        a: "We connect to common platforms via APIs, webhooks, and smart data sync. For systems without direct integration, we can set up automated flows through files (CSV/SFTP), database replication, or custom connectors."
       },
       {
         q: "How long does integration setup take?",
-        a: "Most businesses are fully connected within 48-72 hours. We handle all technical setup while you focus on your business. Our team has integrated with virtually every tool modern commerce enterprises use."
+        a: "Most teams are connected within days for standard stacks; enterprise ERPs and plant systems typically take 1–2 sprints. We handle the technical setup while you validate policies, roles, and thresholds."
       },
       {
         q: "What happens if integration breaks?",
@@ -118,7 +134,14 @@ const FAQItem = ({ question, answer, isOpen, onClick, idx }: { question: string,
 
 const FAQ = () => {
   const [activeTab, setActiveTab] = useState<FAQCategory>('Overview');
+  const [activeIndustry, setActiveIndustry] = useState<IndustryFilter>('all');
   const [openIndex, setOpenIndex] = useState<number | null>(0);
+
+  const visibleQuestions = FAQ_CATEGORIES[activeTab].questions.filter((q) => {
+    if (activeIndustry === 'all') return true;
+    if (!q.industries || q.industries.length === 0) return true;
+    return q.industries.includes(activeIndustry);
+  });
 
   return (
     <section className="group py-16 lg:py-32 bg-cream relative overflow-hidden border-t border-beige">
@@ -156,7 +179,7 @@ const FAQ = () => {
             </div>
             <h2 className="text-3xl lg:text-5xl font-black text-navy tracking-tightest leading-tight mb-4 lg:mb-6">
               Questions from <br />
-              <span className="text-olynk text-2xl lg:text-5xl">modern commerce leaders.</span>
+              <span className="text-olynk text-2xl lg:text-5xl">modern operations leaders.</span>
             </h2>
             <p className="text-base lg:text-xl text-steel font-medium leading-relaxed max-w-2xl">
               Everything you need to know about integrating Olynk OS into your <span className="text-navy font-bold">existing operations</span>.
@@ -240,17 +263,40 @@ const FAQ = () => {
           {/* Questions Panel */}
           <div className="lg:col-span-8">
             <div className="space-y-2 lg:space-y-4 min-h-0 lg:min-h-[500px]">
+              {/* Industry Filters */}
+              <div className="flex flex-wrap items-center gap-2 pb-3">
+                {INDUSTRY_FILTERS.map((filter) => {
+                  const isActive = activeIndustry === filter.id;
+                  return (
+                    <button
+                      key={filter.id}
+                      type="button"
+                      onClick={() => {
+                        setActiveIndustry(filter.id);
+                        setOpenIndex(0);
+                      }}
+                      className={`px-3 py-1.5 rounded-full text-[10px] font-black uppercase tracking-widest border transition-all ${
+                        isActive
+                          ? 'bg-navy text-white border-navy'
+                          : 'bg-white/40 text-navy/70 border-beige hover:bg-white hover:border-tan'
+                      }`}
+                    >
+                      {filter.label}
+                    </button>
+                  );
+                })}
+              </div>
               <AnimatePresence mode="wait">
                 <motion.div
-                  key={activeTab}
+                  key={`${activeTab}-${activeIndustry}`}
                   initial={{ opacity: 0, x: 20 }}
                   animate={{ opacity: 1, x: 0 }}
                   exit={{ opacity: 0, x: -20 }}
                   transition={{ duration: 0.3 }}
                 >
-                  {FAQ_CATEGORIES[activeTab].questions.map((faq, index) => (
+                  {visibleQuestions.map((faq, index) => (
                     <FAQItem
-                      key={`${activeTab}-${index}`}
+                      key={`${activeTab}-${activeIndustry}-${index}`}
                       idx={index}
                       question={faq.q}
                       answer={faq.a}

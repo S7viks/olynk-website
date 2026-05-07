@@ -35,8 +35,10 @@ const Navbar = () => {
             type: "dropdown",
             items: [
                 { name: "Overview", href: "/industries", desc: "All verticals" },
-                { name: "Commerce", href: "/industries/commerce", desc: "Retail & E-commerce" },
-                { name: "Manufacturing", href: "/industries/manufacturing", desc: "Industrial Logic" }
+                { name: "Retail & E-commerce", href: "/industries/commerce", desc: "Commerce" },
+                { name: "Manufacturing", href: "/industries/manufacturing", desc: "Industrial Logic" },
+                { name: "Chemicals", href: "/industries/chemicals", desc: "Hazmat & Batch Logic" },
+                { name: "Pharma", href: "/industries/pharma", desc: "Serialization & Cold Chain" }
             ]
         },
         { title: "Solutions", href: "/solutions" },

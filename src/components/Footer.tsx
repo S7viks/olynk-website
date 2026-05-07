@@ -73,6 +73,16 @@ const Footer = () => {
                   Manufacturing
                 </Link>
               </li>
+              <li>
+                <Link to="/industries/chemicals" className="text-steel hover:text-navy transition-all duration-300">
+                  Chemicals
+                </Link>
+              </li>
+              <li>
+                <Link to="/industries/pharma" className="text-steel hover:text-navy transition-all duration-300">
+                  Pharma
+                </Link>
+              </li>
             </ul>
           </div>
 

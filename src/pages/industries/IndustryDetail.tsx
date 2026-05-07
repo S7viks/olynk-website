@@ -2,7 +2,7 @@ import { useEffect } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { useState } from 'react';
-import { Cpu, Microscope, ShoppingCart, ArrowRight, Activity, ShieldCheck } from 'lucide-react';
+import { Cpu, Microscope, ShoppingCart, ArrowRight, Activity, ShieldCheck, FlaskConical, Pill } from 'lucide-react';
 import CommerceSection from '../../components/CommerceSection';
 import FixMechanismModal from '../../components/FixMechanismModal';
 
@@ -128,6 +128,132 @@ const industriesData: Record<string, any> = {
                 label: "Safety Scan",
                 value: "ACTIVE",
                 subLabel: "Predictive Monitoring",
+                color: "text-navy",
+                icon: "shield"
+            }
+        ]
+    },
+    chemicals: {
+        title: "Chemicals",
+        role: "Regulated Supply Intelligence",
+        desc: "Unified operational visibility for hazardous and batch-managed materials - so inventory, SDS/compliance, and execution trails stay aligned across plant-to-DC-to-customer flows.",
+        icon: FlaskConical,
+        accent: "text-amber-700",
+        bg: "bg-white",
+        layers: [
+            {
+                id: "BATCH_LOT_TRACEABILITY",
+                title: "Batch & Lot Traceability",
+                desc: "Real-time lot genealogy across production, storage, transfers, and shipments - built for rapid containment and recall readiness."
+            },
+            {
+                id: "HAZMAT_INVENTORY_GOVERNANCE",
+                title: "Hazardous Inventory Governance",
+                desc: "Closes the gap between what is on-site and what your records or SDS library say - so ordering, storage limits, and reporting do not drift."
+            },
+            {
+                id: "FEEDSTOCK_SHOCK_RESPONSE",
+                title: "Feedstock & Demand Shock Response",
+                desc: "Predictive signals for supply disruptions, lead-time volatility, and demand swings - so procurement and allocation decisions happen early."
+            }
+        ],
+        tools: [
+            { name: "SAP", domain: "sap.com" },
+            { name: "Oracle", domain: "oracle.com" },
+            { name: "AVEVA", domain: "aveva.com" },
+            { name: "AspenTech", domain: "aspentech.com" },
+            { name: "Honeywell", domain: "honeywell.com" },
+            { name: "Sphera", domain: "sphera.com" },
+            { name: "Kinaxis", domain: "kinaxis.com" },
+            { name: "Blue Yonder", domain: "blueyonder.com" }
+        ],
+        headline: {
+            top: "Hazmat visibility.",
+            bottom: "Batch control."
+        },
+        bgLabel: "SYSTEM_CORE // CHEM",
+        heroStats: [
+            {
+                label: "Lot Trace",
+                value: "99.9%",
+                subLabel: "Genealogy: ACTIVE",
+                color: "bg-amber-500",
+                icon: "activity"
+            },
+            {
+                label: "Compliance Drift",
+                value: "-70%",
+                subLabel: "Exceptions Contained",
+                color: "bg-emerald-500",
+                icon: "trending"
+            },
+            {
+                label: "Incident Risk",
+                value: "PROTECTED",
+                subLabel: "Audit Trail: Continuous",
+                color: "text-navy",
+                icon: "shield"
+            }
+        ]
+    },
+    pharma: {
+        title: "Pharma",
+        role: "Quality & Traceability Intelligence",
+        desc: "Operational intelligence for serialization-heavy, cold-chain sensitive networks - linking batch, quality events, and partner handoffs into one governed execution layer.",
+        icon: Pill,
+        accent: "text-rose-600",
+        bg: "bg-white",
+        layers: [
+            {
+                id: "SERIALIZATION_EXECUTION",
+                title: "Serialization & Exception Execution",
+                desc: "Detects and resolves traceability breaks at handoffs - missing or invalid serials, aggregation issues, quarantine loops - before they block movement."
+            },
+            {
+                id: "COLD_CHAIN_INTEGRITY",
+                title: "Cold Chain Integrity Orchestration",
+                desc: "Monitors temperature-risk windows and SLA failure patterns - so interventions happen before product quality is compromised."
+            },
+            {
+                id: "BATCH_RELEASE_SIGNALS",
+                title: "Batch Release & Deviation Signals",
+                desc: "Early-warning patterns across suppliers, QA events, and inventory posture - reducing surprise holds, shortages, and expedited firefighting."
+            }
+        ],
+        tools: [
+            { name: "SAP", domain: "sap.com" },
+            { name: "Oracle", domain: "oracle.com" },
+            { name: "Veeva", domain: "veeva.com" },
+            { name: "TraceLink", domain: "tracelink.com" },
+            { name: "MasterControl", domain: "mastercontrol.com" },
+            { name: "Sparta Systems", domain: "sparta-systems.com" },
+            { name: "ServiceNow", domain: "servicenow.com" },
+            { name: "Snowflake", domain: "snowflake.com" }
+        ],
+        headline: {
+            top: "Quality continuity.",
+            bottom: "End-to-end trace."
+        },
+        bgLabel: "SYSTEM_CORE // PHARMA",
+        heroStats: [
+            {
+                label: "Traceability",
+                value: "99.95%",
+                subLabel: "Chain of Custody: LIVE",
+                color: "bg-rose-500",
+                icon: "activity"
+            },
+            {
+                label: "Cold Chain",
+                value: "INTACT",
+                subLabel: "Breach Risk: Monitored",
+                color: "bg-blue-500",
+                icon: "trending"
+            },
+            {
+                label: "Quarantine Load",
+                value: "-40%",
+                subLabel: "Exceptions: Resolved Fast",
                 color: "text-navy",
                 icon: "shield"
             }
