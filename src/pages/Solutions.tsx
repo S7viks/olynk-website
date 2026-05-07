@@ -62,7 +62,7 @@ const Solutions = () => {
               <h3 className="text-2xl font-black text-white tracking-tight relative z-10">Where This Fits</h3>
               <div className="space-y-2 relative z-10">
                 {[
-                  "Commerce & Retail",
+                  "Business & Retail",
                   "B2B Distribution",
                   "Manufacturing & Supply Networks",
                   "EdTech & Service Operations",
@@ -117,7 +117,7 @@ const Solutions = () => {
               </div>
               <h3 className="text-2xl font-black text-navy mb-4 tracking-tight">Operational Unification</h3>
               <p className="text-steel leading-relaxed mb-8">
-                Systems disagree. Teams reconcile. Decisions stall. We unify signals across ERP, WMS, CRM, finance, and commerce so the business runs off one truth.
+                Systems disagree. Teams reconcile. Decisions stall. We unify signals across ERP, WMS, CRM, finance, and business so the org runs off one truth.
               </p>
               <div className="space-y-3">
                 <div className="text-[10px] font-black text-tan uppercase tracking-widest">Key Outcomes:</div>

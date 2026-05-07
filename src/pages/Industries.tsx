@@ -4,7 +4,7 @@ import { ArrowRight, Factory, FlaskConical, Pill, ShoppingBag } from 'lucide-rea
 const verticals = [
   {
     id: 'commerce',
-    title: 'D2C & commerce',
+    title: 'D2C & business',
     desc: 'RTO, SLAs, promos, and inventory truth across marketplaces and your own store - built for multi-market fulfilment reality.',
     icon: ShoppingBag,
     href: '/industries/commerce',

@@ -461,7 +461,7 @@ const Platform = () => {
                         It sits above your tools.
                     </h2>
                     <p className="text-lg text-steel leading-relaxed">
-                        Trita doesn't replace your ERP, CRM, finance, or commerce stack. It connects them to form a higher-level intelligence layer. No rip-and-replace required.
+                        Trita doesn't replace your ERP, CRM, finance, or business stack. It connects them to form a higher-level intelligence layer. No rip-and-replace required.
                     </p>
                     {/* Tech Stack Visual */}
                     <div className="relative max-w-3xl mx-auto">
@@ -512,7 +512,7 @@ const Platform = () => {
                                     { name: 'NetSuite', label: 'ERP' },
                                     { name: 'Salesforce', label: 'CRM' },
                                     { name: 'Zoho', label: 'CRM' },
-                                    { name: 'Shopify', label: 'Commerce' },
+                                    { name: 'Shopify', label: 'Business' },
                                     { name: 'ShipRocket', label: 'Logistics' },
                                     { name: 'Razorpay', label: 'Payments' },
                                     { name: 'Tally', label: 'Finance' },

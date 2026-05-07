@@ -8,9 +8,9 @@ import FixMechanismModal from '../../components/FixMechanismModal';
 
 const industriesData: Record<string, any> = {
     commerce: {
-        title: "Commerce",
+        title: "Business",
         role: "Operational OS for Retail",
-        desc: "Autonomous inventory logic and real-time demand forecasting for high-velocity commerce entities.",
+        desc: "Autonomous inventory logic and real-time demand forecasting for high-velocity business entities.",
         icon: ShoppingCart,
         accent: "text-olynk",
         bg: "bg-white",
@@ -45,7 +45,7 @@ const industriesData: Record<string, any> = {
             top: "Demand intelligence.",
             bottom: "Supply autonomy."
         },
-        bgLabel: "SYSTEM_CORE // COMMERCE",
+        bgLabel: "SYSTEM_CORE // BUSINESS",
         heroStats: [
             {
                 label: "Global Stock",
@@ -342,7 +342,7 @@ const IndustryDetail = () => {
                         >
                             <div className="inline-flex items-center gap-2 px-4 py-2 bg-white border border-beige rounded-full mb-8 shadow-sm">
                                 <Activity className={`w-3 h-3 ${data.accent}`} />
-                                <span className={`text-[10px] font-black uppercase tracking-[0.2em] ${data.accent} font-mono`}>VERTICAL_CORE // {id?.toUpperCase() || 'COMMERCE'}</span>
+                                <span className={`text-[10px] font-black uppercase tracking-[0.2em] ${data.accent} font-mono`}>VERTICAL_CORE // {id === 'commerce' ? 'BUSINESS' : (id?.toUpperCase() || 'BUSINESS')}</span>
                             </div>
 
                             <h1 className="page-hero-title mb-8">
@@ -463,7 +463,7 @@ const IndustryDetail = () => {
                 </div>
             </section>
 
-            {/* Special Commerce Intelligence Section */}
+            {/* Special retail / business intelligence section */}
             {isCommerce && (
                 <div className="border-t border-beige">
                     <CommerceSection />
