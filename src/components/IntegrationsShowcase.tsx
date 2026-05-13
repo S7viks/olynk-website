@@ -153,8 +153,8 @@ const IntegrationsShowcase = () => {
 
             <div className="max-w-7xl mx-auto px-4 mb-12 lg:mb-16 text-center relative z-10">
                 <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-navy mb-6 lg:mb-8 tracking-tighter leading-[0.95]">
-                    Olynk connects to your <br />
-                    <span className="text-olynk underline decoration-tan decoration-4 lg:decoration-8 underline-offset-4 lg:underline-offset-8 text-2xl sm:text-4xl lg:text-5xl">entire stack - no migration.</span>
+                    Feed causal models from your <br />
+                    <span className="text-olynk underline decoration-tan decoration-4 lg:decoration-8 underline-offset-4 lg:underline-offset-8 text-2xl sm:text-4xl lg:text-5xl">entire stack—no migration.</span>
                 </h2>
             </div>
 
@@ -174,14 +174,14 @@ const IntegrationsShowcase = () => {
                     </div>
                     <div className="text-center sm:text-left space-y-3 lg:space-y-4 max-w-[280px] sm:max-w-[240px]">
                         <p className="text-sm lg:text-base font-black text-navy leading-relaxed">
-                            <span className="text-[10px] lg:text-[12px] font-mono text-olynk block mb-1 lg:mb-2 uppercase tracking-widest">Instant Intelligence</span>
-                            One unified layer that brings order to your fragmented tools.
+                            <span className="text-[10px] lg:text-[12px] font-mono text-olynk block mb-1 lg:mb-2 uppercase tracking-widest">Causal signal</span>
+                            One governed layer that turns fragmented tools into ranked drivers and actions—not another chart deck.
                         </p>
                     </div>
                     <div className="text-center sm:text-left space-y-3 lg:space-y-4 max-w-[280px] sm:max-w-[240px]">
                         <p className="text-sm lg:text-base font-black text-navy leading-relaxed">
-                            <span className="text-[10px] lg:text-[12px] font-mono text-olynk block mb-1 lg:mb-2 uppercase tracking-widest">Autonomous Action</span>
-                            Decide once. Olynk executes the logic across all your tools automatically.
+                            <span className="text-[10px] lg:text-[12px] font-mono text-olynk block mb-1 lg:mb-2 uppercase tracking-widest">Governed action</span>
+                            Decide policy once. Olynk executes interventions tied to causal playbooks across your tools—with immutable logs.
                         </p>
                     </div>
                 </div>

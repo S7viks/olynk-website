@@ -23,7 +23,7 @@ const Footer = () => {
               <Logo size="sm" className="opacity-100 group-hover:scale-105 transition-all" />
             </Link>
             <p className="text-steel text-sm font-medium leading-relaxed max-w-xs">
-              The intelligence operating system for autonomous business. Sit on top of your existing tools and execute decisions in real-time.
+              Causal intelligence for operations: sit above your stack, see what truly moves outcomes, and execute policy-safe actions in real time—with audit trails built in.
             </p>
           </div>
 

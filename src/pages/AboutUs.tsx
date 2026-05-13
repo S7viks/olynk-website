@@ -22,11 +22,11 @@ const AboutUs = () => {
                         </h1>
 
                         <p className="text-xl text-steel font-medium leading-relaxed">
-                            We're building the intelligence operating system for autonomous commerce.
+                            We're building the causal intelligence operating system for autonomous commerce.
                         </p>
                         <p className="text-base text-steel/80 font-medium leading-relaxed mt-4 max-w-3xl mx-auto">
-                            <span className="text-navy font-bold">Trita</span> is our flagship system: it connects your operational data,
-                            simulates what’s likely to break next, and turns that into decisions your team can execute with full traceability.
+                            <span className="text-navy font-bold">Trita</span> connects operational data, infers what actually moves outcomes,
+                            simulates interventions before you commit capital, and turns that into governed actions your team can audit end to end.
                         </p>
                     </motion.div>
                 </div>
@@ -42,10 +42,10 @@ const AboutUs = () => {
                                 <h2 className="text-3xl sm:text-4xl font-black text-navy">Our Mission</h2>
                             </div>
                             <p className="text-lg text-steel leading-relaxed mb-6">
-                                Olynk exists to eliminate operational friction and unlock autonomous intelligence for modern businesses. We believe that companies shouldn't waste resources on manual coordination between systems - they should focus on growth.
+                                Olynk exists to replace operational guesswork with causal clarity and governed execution. Companies should not burn cycles reconciling charts—they should know which interventions move service, margin, and cash together.
                             </p>
                             <p className="text-lg text-steel leading-relaxed">
-                                By creating an irreducible operational layer that sits above existing tools, we enable businesses to execute decisions in real-time with full visibility and control.
+                                By creating an irreducible causal layer above existing tools, we help teams rehearse outcomes, align on drivers, and execute with full visibility and control.
                             </p>
                         </div>
                         <div className="aspect-square rounded-[48px] bg-cream border-2 border-beige flex items-center justify-center">

@@ -67,7 +67,7 @@ export const generateOrganizationStructuredData = () => {
     "name": COMPANY_NAME,
     "url": CANONICAL_BASE_URL,
     "logo": absoluteUrl("/assets/olynk-social-preview.png"),
-    "description": `${BRAND_LOCKUP} is built for high-velocity commerce operations. Rehearse the future before you live it.`,
+    "description": `${BRAND_LOCKUP} delivers causal intelligence for commerce operations—drivers, counterfactuals, and governed execution with full lineage.`,
     "foundingDate": "2024",
     "address": {
       "@type": "PostalAddress",
@@ -94,7 +94,7 @@ export const generateSoftwareStructuredData = () => {
     "name": PLATFORM_NAME,
     "applicationCategory": "BusinessApplication",
     "operatingSystem": "Web",
-    "description": `${PLATFORM_NAME} is a simulation-first operating system for founders. Rehearse the future before you live it.`,
+    "description": `${PLATFORM_NAME} is a causal operating system for commerce teams. Know what moves outcomes—then rehearse and execute with full traceability.`,
     "publisher": {
       "@type": "Organization",
       "name": COMPANY_NAME,
@@ -112,13 +112,13 @@ export const generateSoftwareStructuredData = () => {
       }
     },
     "featureList": [
-      "AI Data Unification Engine",
-      "Smart Integration Orchestration",
-      "AI Inventory Intelligence",
-      "Smart Order Orchestration",
-      "AI Communication Engine",
-      "Operations Command Center",
-      "Learning & Memory System"
+      "Unified operational data graph",
+      "Causal driver ranking and counterfactuals",
+      "Policy-bound autonomous execution",
+      "Inventory and service intelligence",
+      "Order and fulfillment orchestration",
+      "Operations command center",
+      "Learning, calibration, and audit lineage"
     ]
   };
 };
@@ -126,14 +126,16 @@ export const generateSoftwareStructuredData = () => {
 // SEO keywords for different page types
 export const SEO_KEYWORDS = {
   home: [
-    "Autonomous commerce",
-    "operational intelligence",
-    "stockout prediction",
+    "Causal intelligence",
+    "causal inference for operations",
+    "commerce operations AI",
+    "stockout drivers",
     "RTO prevention",
     "ROAS monitoring",
-    "inventory management",
-    "AI operations",
-    "commerce OS"
+    "inventory intelligence",
+    "operational AI",
+    "Trita",
+    "Olynk"
   ],
   about: [
     `${COMPANY_NAME} company`,
@@ -176,8 +178,8 @@ export const SEO_KEYWORDS = {
 // Page-specific SEO configurations
 export const PAGE_SEO: Record<string, SEOProps> = {
   home: {
-    title: `${BRAND_LOCKUP} | Rehearse the future before you live it`,
-    description: `${PLATFORM_NAME} helps founders rehearse the future before they live it. Simulation-first operational intelligence for high-velocity commerce.`,
+    title: `${BRAND_LOCKUP} | Causal intelligence for commerce operations`,
+    description: `${PLATFORM_NAME} ranks the drivers behind inventory, service, and cash—then executes governed actions with full lineage. Causal operations, not chart theater.`,
     keywords: SEO_KEYWORDS.home,
     canonical: CANONICAL_BASE_URL,
     ogImage: absoluteUrl("/assets/olynk-social-preview.png"),
@@ -187,7 +189,7 @@ export const PAGE_SEO: Record<string, SEOProps> = {
   },
   about: {
     title: `About ${COMPANY_NAME} | The team behind ${PLATFORM_NAME}`,
-    description: `${COMPANY_NAME} builds ${PLATFORM_NAME}, a simulation-first operating system for founders. We turn scattered signals into decisions you can rehearse.`,
+    description: `${COMPANY_NAME} builds ${PLATFORM_NAME}, a causal intelligence operating system for commerce. We turn scattered signals into drivers you can rehearse and execute.`,
     keywords: SEO_KEYWORDS.about,
     canonical: absoluteUrl("/about"),
     ogImage: absoluteUrl("/assets/olynk-social-preview.png"),
@@ -196,7 +198,7 @@ export const PAGE_SEO: Record<string, SEOProps> = {
   },
   pricing: {
     title: `${PLATFORM_NAME} Pricing | Plans`,
-    description: `Pricing for ${PLATFORM_NAME}. Starting at ₹15K/month. Simulation-first operational intelligence for founders.`,
+    description: `Pricing for ${PLATFORM_NAME}. Starting at ₹15K/month. Causal intelligence and governed execution for operations teams.`,
     keywords: SEO_KEYWORDS.pricing,
     canonical: absoluteUrl("/pricing"),
     ogImage: absoluteUrl("/assets/olynk-social-preview.png"),
@@ -205,7 +207,7 @@ export const PAGE_SEO: Record<string, SEOProps> = {
   },
   contact: {
     title: `Contact ${COMPANY_NAME} | Book a demo of ${PLATFORM_NAME}`,
-    description: `Book a demo of ${PLATFORM_NAME}. Founder-facing, simulation-first operational intelligence.`,
+    description: `Book a demo of ${PLATFORM_NAME}. See causal drivers, counterfactuals, and governed actions on your own data.`,
     keywords: SEO_KEYWORDS.contact,
     canonical: absoluteUrl("/request-demo"),
     ogImage: absoluteUrl("/assets/olynk-social-preview.png"),
@@ -214,7 +216,7 @@ export const PAGE_SEO: Record<string, SEOProps> = {
   },
   waitlist: {
     title: `Join the ${PLATFORM_NAME} waitlist | Early access`,
-    description: `Early access to ${PLATFORM_NAME}. Simulation-first operational intelligence for founders.`,
+    description: `Early access to ${PLATFORM_NAME}. Causal intelligence for inventory, service, and cash—on your stack.`,
     keywords: SEO_KEYWORDS.home,
     canonical: absoluteUrl("/waitlist"),
     ogImage: absoluteUrl("/assets/olynk-social-preview.png"),
@@ -252,8 +254,8 @@ export const getPageSEO = (pageName: string, customSEO?: Partial<SEOProps>): SEO
 
 // Default SEO settings
 export const DEFAULT_SEO: SEOProps = {
-  title: `${BRAND_LOCKUP} | Rehearse the future before you live it`,
-  description: `${PLATFORM_NAME} helps founders rehearse the future before they live it. Simulation-first operational intelligence.`,
+  title: `${BRAND_LOCKUP} | Causal intelligence for commerce operations`,
+  description: `${PLATFORM_NAME} ranks what moves outcomes—then executes within policy. Causal operations for modern commerce.`,
   keywords: SEO_KEYWORDS.home,
   canonical: CANONICAL_BASE_URL,
   ogImage: absoluteUrl("/assets/olynk-social-preview.png"),

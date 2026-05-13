@@ -24,7 +24,7 @@ const Navbar = () => {
             type: "dropdown",
             items: [
                 { name: "Platform Overview", href: "/platform", desc: "Full Architecture" },
-                { name: "Trita Insight", href: "/platform/insight", desc: "Predictive AI" },
+                { name: "Trita Insight", href: "/platform/insight", desc: "Causal intelligence" },
                 { name: "Trita Fabric", href: "/platform/fabric", desc: "Unified Data" },
                 { name: "Trita Core", href: "/platform/core", desc: "Decision Intelligence" },
                 { name: "Trita Orbit", href: "/platform/orbit", desc: "Business Logic" }

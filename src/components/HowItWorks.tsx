@@ -16,9 +16,9 @@ const PROTOCOLS = [
     },
     {
         id: "THINK",
-        label: "Live mapping",
-        title: "Build a live map of your business.",
-        description: "We connect the dots across procurement, production, inventory, logistics, and finance to surface risks before commitments harden.",
+        label: "Causal mapping",
+        title: "Model drivers, not just dashboards.",
+        description: "We fuse procurement, production, inventory, logistics, and finance into causal views—ranked explanations, counterfactuals, and confidence—so you intervene before commitments harden.",
         icon: Brain,
         status: "ACTIVE",
         statusLight: "bg-blue-500",
@@ -85,11 +85,11 @@ const HowItWorks = () => {
                         <div className="w-12 h-[1px] bg-olynk/40 font-mono" />
                     </div>
                     <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-navy mb-6 tracking-tightest leading-[0.95] max-w-4xl">
-                        From chaos to <br />
-                        <span className="text-olynk italic font-serif font-normal text-4xl sm:text-5xl lg:text-6xl">autonomous order.</span>
+                        From correlation to <br />
+                        <span className="text-olynk italic font-serif font-normal text-4xl sm:text-5xl lg:text-6xl">causal clarity.</span>
                     </h2>
                     <p className="text-base sm:text-lg lg:text-xl text-steel font-medium leading-relaxed max-w-2xl px-2 sm:px-0">
-                        Olynk is an intelligent operating layer that sits above your stack. We <span className="text-navy font-bold underline decoration-beige decoration-4 underline-offset-4">link</span> operational data, <span className="text-navy font-bold underline decoration-beige decoration-4 underline-offset-4">think</span> through constraints, and <span className="text-navy font-bold underline decoration-beige decoration-4 underline-offset-4">execute</span> fixes across any vertical.
+                        Olynk is the causal operating layer above your stack. We <span className="text-navy font-bold underline decoration-beige decoration-4 underline-offset-4">link</span> governed data, <span className="text-navy font-bold underline decoration-beige decoration-4 underline-offset-4">infer</span> what actually moves KPIs, and <span className="text-navy font-bold underline decoration-beige decoration-4 underline-offset-4">execute</span> policy-bound fixes across any vertical.
                     </p>
                 </div>
 
@@ -229,7 +229,7 @@ const HowItWorks = () => {
             {/* Background Narrative Strip */}
             <div className="absolute bottom-0 left-0 w-full p-10 opacity-[0.02] select-none pointer-events-none border-t border-navy/10 flex justify-between items-center whitespace-nowrap overflow-hidden">
                 <span className="text-[14px] font-black text-navy font-mono tracking-[1em] uppercase">
-                    LINK_PROCESSOR_v4.2 // THINK_ENGINE_ENABLED // ACT_PROTOCOL_ACTIVE // READY_FOR_DEPLOYMENT
+                    LINK_PROCESSOR_v4.2 // CAUSAL_ENGINE_ENABLED // ACT_PROTOCOL_ACTIVE // READY_FOR_DEPLOYMENT
                 </span>
             </div>
         </section>

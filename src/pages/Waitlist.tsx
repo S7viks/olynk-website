@@ -17,12 +17,12 @@ const Waitlist = () => {
                                 Limited Access Beta
                             </span>
                             <h1 className="page-hero-title mb-6">
-                                Queue for the <br className="hidden lg:block" />
-                                <span className="text-olynk">Operating System.</span>
+                                Queue for <br className="hidden lg:block" />
+                                <span className="text-olynk">Causal Intelligence.</span>
                             </h1>
                             <p className="text-xl text-steel max-w-2xl mx-auto leading-relaxed">
-                                Join the visionary commerce leaders already using Olynk to automate their growth.
-                                Secure your spot today and unlock exclusive benefits.
+                                Join operators who want drivers and counterfactuals—not dashboards—governing how inventory, cash, and service move together.
+                                Secure your spot for the next pilot cohort.
                             </p>
                         </motion.div>
                     </div>

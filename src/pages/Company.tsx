@@ -18,11 +18,10 @@ const Company = () => {
           >
             <h1 className="page-hero-title mb-8">
               The Operating System<br />
-              <span className="text-olynk">for Global Commerce.</span>
+              <span className="text-olynk">for Causal Commerce.</span>
             </h1>
             <p className="text-xl lg:text-2xl text-steel max-w-3xl mx-auto leading-relaxed font-medium">
-              We believe that every business deserves a digital nervous system as intelligent
-              as the people who built it.
+              We believe every business deserves a digital nervous system that explains <span className="text-navy font-bold">why</span> outcomes move—not just what moved last quarter.
             </p>
           </motion.div>
         </div>
@@ -39,9 +38,8 @@ const Company = () => {
                   <span className="text-navy/40 italic font-serif font-normal text-3xl lg:text-5xl">Exist.</span>
                 </h2>
                 <p className="text-lg text-steel leading-relaxed font-medium">
-                  Modern commerce has become too complex for humans to manage alone.
-                  Data is everywhere, yet clarity is nowhere. We started OLynk to
-                  bridge the gap between information and action.
+                  Modern commerce has too many signals and too little causal clarity.
+                  Dashboards show motion; they rarely isolate levers. We started Olynk to close the gap between correlation and governed action.
                 </p>
               </div>
 

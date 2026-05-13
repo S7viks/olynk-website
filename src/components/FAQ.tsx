@@ -26,16 +26,16 @@ const FAQ_CATEGORIES: Record<FAQCategory, { label: string; icon: any; questions:
     icon: Cpu,
     questions: [
       {
-        q: "What forecasting accuracy and confidence specifications does the platform meet?",
-        a: "Demand, supply, and risk models ship with explicit confidence intervals and calibration reports. After a structured learning window, most deployments hold error within agreed bands; every recommendation carries a scored confidence signal and audit trail for review."
+        q: "How is causal intelligence different from forecasting or BI dashboards?",
+        a: "Dashboards and many ML models show what moved together; causal views estimate what would change if you pulled a specific lever—holding confounders explicit. Olynk ships ranked drivers, counterfactuals, and confidence with lineage so finance and ops can agree on interventions—not debate charts."
       },
       {
         q: "What if the AI makes wrong recommendations?",
-        a: "Each suggestion includes rationale, data lineage, and policy context. Tiered approvals apply to material decisions while routine, low-risk actions can run within guardrails you define. Commercial terms are aligned during enterprise onboarding, including success criteria and escalation paths."
+        a: "Each suggestion includes causal rationale, data lineage, and policy context. Tiered approvals apply to material decisions while routine, low-risk actions can run within guardrails you define. Commercial terms are aligned during enterprise onboarding, including success criteria and escalation paths."
       },
       {
         q: "How does AI learn our specific business?",
-        a: "We analyze historical throughput, seasonality, constraints, and outcomes across your operation. The system continuously learns from decisions and results, improving recommendations against your unique policies and service targets."
+        a: "We learn your seasonality, constraints, and business rules, then refine causal structure with feedback from decisions and outcomes—so recommendations reflect your policies and service targets, not generic benchmarks."
       }
     ]
   },
@@ -182,7 +182,7 @@ const FAQ = () => {
               <span className="text-olynk text-2xl lg:text-5xl">modern operations leaders.</span>
             </h2>
             <p className="text-base lg:text-xl text-steel font-medium leading-relaxed max-w-2xl">
-              Everything you need to know about integrating Olynk OS into your <span className="text-navy font-bold">existing operations</span>.
+              Everything you need to know about running <span className="text-navy font-bold">causal intelligence</span> on top of your existing operations stack.
             </p>
           </div>
 

@@ -12,7 +12,7 @@ import karanImg from '../assets/testimonials/karan.png';
 const TESTIMONIALS_ROW_1 = [
     {
         id: 1,
-        content: "@olynk finally gave us one governed operating picture across ERP, commerce, and network inventory. Executive reviews start with facts, not reconciliation debates.",
+        content: "@olynk finally gave us one governed operating picture—and causal narratives we can defend in exec reviews. Less 'what spiked,' more 'what lever to pull next.'",
         author: "Arjun Mehta",
         handle: "VP Operations · Multi-brand retail",
         avatar: arjunImg,
@@ -237,8 +237,8 @@ const TestimonialsGrid = () => {
                 {/* Header */}
                 <div className="text-center mb-20 space-y-6 px-4">
                     <h2 className="text-4xl lg:text-5xl font-black text-navy tracking-tighter leading-tight max-w-4xl mx-auto">
-                        Built for leaders running <br />
-                        <span className="text-olynk">high-scale operations.</span>
+                        Built for leaders who want <br />
+                        <span className="text-olynk">causal clarity at scale.</span>
                     </h2>
                 </div>
 

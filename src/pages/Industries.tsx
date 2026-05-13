@@ -38,10 +38,10 @@ const Industries = () => {
       <div className="max-w-3xl mx-auto text-center mb-14 space-y-4">
         <p className="text-[11px] font-black text-tan uppercase tracking-[0.25em]">Industries</p>
         <h1 className="page-hero-title">
-          Built for <span className="text-olynk">global operations</span>
+          Built for <span className="text-olynk">causal operations</span>
         </h1>
         <p className="text-steel text-lg font-medium leading-relaxed">
-          Pick a vertical to see how OLynk maps pain to decisions - from COD & RTO in commerce to supply shocks in manufacturing.
+          Pick a vertical to see how Olynk maps pain to drivers and governed actions—from COD and RTO in commerce to supply shocks in manufacturing.
         </p>
       </div>
 

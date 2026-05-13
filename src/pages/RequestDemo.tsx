@@ -29,8 +29,8 @@ const RequestDemo = () => {
               <span className="text-olynk">Deployment.</span>
             </h1>
             <p className="text-xl lg:text-2xl text-steel max-w-3xl mx-auto leading-relaxed font-medium">
-              Request a live protocol simulation with your actual data nodes.
-              Experience the future of autonomous commerce.
+              Request a live causal walkthrough on your actual data nodes—drivers, counterfactuals, and governed actions end to end.
+              See why teams choose causal intelligence over chart-only operations.
             </p>
           </motion.div>
         </div>
@@ -52,7 +52,7 @@ const RequestDemo = () => {
               <div className="space-y-8">
                 {[
                   { icon: Globe, title: "Data Audit", desc: "A clinical assessment of your current operational silos and fragmentation." },
-                  { icon: Zap, title: "Live Simulation", desc: "We run your data through our 4-engine core to show immediate ROI." },
+                  { icon: Zap, title: "Live causal simulation", desc: "We run your data through the four-engine stack to surface drivers, counterfactuals, and ROI-ranked interventions." },
                   { icon: Shield, title: "Security Scoping", desc: "A review of our data-isolation architecture and compliance mapping." }
                 ].map((step, i) => (
                   <div key={i} className="flex gap-6 group">

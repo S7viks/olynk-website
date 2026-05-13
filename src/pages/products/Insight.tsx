@@ -162,14 +162,14 @@ const Insight = () => {
                     >
                         <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-navy/5 border border-navy/10 text-xs font-mono font-bold text-navy uppercase tracking-widest mb-8">
                             <Zap className="w-3 h-3" />
-                            Intelligence Layer
+                            Causal intelligence layer
                         </div>
                         <h1 className="page-hero-title mb-8">
-                            See clearly. <br />
-                            <span className="text-olynk">Decide confidently.</span>
+                            Know the <span className="text-olynk">why</span>, not just the spike. <br />
+                            <span className="text-navy">Act before the lag.</span>
                         </h1>
                         <p className="text-lg sm:text-xl text-steel max-w-2xl mx-auto leading-relaxed font-medium mb-12">
-                            Transform scattered signals into a governed intelligence layer. Detect anomalies, forecast constraints, and optimize operations with audit-ready precision.
+                            Trita Insight fuses your signals into ranked drivers, counterfactuals, and confidence—so you intervene on root causes with audit-ready narratives, not dashboard whack-a-mole.
                         </p>
                     </motion.div>
                 </div>

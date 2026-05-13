@@ -41,17 +41,17 @@ const Home = () => {
     {
       id: 'MULTI_CHANNEL_SYNC',
       title: 'Fabric Layer',
-      desc: 'Unifies all your data streams into a single, high-fidelity source of truth. No more manual reconciliation.'
+      desc: 'Unifies every signal into one governed graph so downstream models see the same facts—no more reconciliation debates.'
     },
     {
       id: 'DEMAND_PREDICTION',
       title: 'Insight Layer',
-      desc: 'Analyzes patterns across your entire operation to predict stock-outs, revenue leaks, and demand spikes before they happen.'
+      desc: 'Builds causal views of demand, service, and margin: which levers actually move outcomes, with confidence and counterfactuals—not lagging correlations.'
     },
     {
       id: 'SUPPLY_CHAIN_LOGIC',
       title: 'Core Engine',
-      desc: 'Automatically executes the best operational decisions - from inventory reallocation to supplier reordering - without human intervention.'
+      desc: 'Executes policy-safe actions tied to those causal drivers—from reallocations to reorders—so automation follows the “why,” not the noise.'
     }
   ];
 
@@ -77,7 +77,7 @@ const Home = () => {
             {/* Headline */}
             <h1 className="page-hero-title">
               <span className="block text-navy tracking-tightest leading-[1.05] mb-2 sm:mb-3 text-3xl sm:text-5xl lg:text-6xl font-black">
-                The Connected Intelligence Layer
+                The Causal Intelligence Layer
               </span>
               <span className="block text-olynk text-5xl sm:text-7xl lg:text-8xl leading-[1.05] font-black tracking-tightest">
                 For Modern Commerce
@@ -85,12 +85,12 @@ const Home = () => {
             </h1>
 
             <p className="text-navy text-xl sm:text-2xl lg:text-3xl font-bold leading-snug max-w-4xl mx-auto tracking-tight">
-              See Operational Problems Before They Become Financial Problems
+              Know what actually drives margin, service, and risk—before the lag shows up in your P&L
             </p>
 
             {/* Supporting copy */}
             <p className="text-steel text-lg lg:text-xl leading-relaxed max-w-3xl mx-auto font-medium">
-              Olynk turns fragmented operational data into real-time decisions across inventory, returns, cash flow, logistics, and growth.
+              Olynk unifies your stack and reasons over drivers, interventions, and counterfactuals across inventory, returns, cash, logistics, and growth—so leaders act on root causes, not dashboards chasing symptoms.
             </p>
 
             {/* CTA Buttons */}
@@ -173,10 +173,10 @@ const Home = () => {
           {/* Section Header */}
           <div className="max-w-3xl mb-16">
             <h2 className="text-4xl lg:text-5xl font-black text-navy mb-6 tracking-tightest leading-tight">
-              Stop <span className="text-olynk italic font-serif font-normal">guessing</span> what's wrong.
+              Stop <span className="text-olynk italic font-serif font-normal">correlating</span> symptoms.
             </h2>
             <p className="text-lg text-steel leading-relaxed font-medium">
-              Most tools only report the past. Trita is an <span className="text-olynk font-bold">execution layer</span> - it aligns planning, resources, finance, and delivery under one governed policy engine so decisions ship with audit trails, not ad hoc heroics.
+              Most stacks show what moved—not <span className="text-navy font-bold">why it moved</span> or what would happen if you intervened. Trita is a <span className="text-olynk font-bold">causal execution layer</span>: one governed policy plane from signal → explanation → action, with lineage your audit and finance partners can trust.
             </p>
           </div>
 
@@ -367,11 +367,10 @@ const Home = () => {
           </div>
           <h2 className="text-5xl lg:text-7xl font-black text-navy tracking-tightest leading-[0.95]">
             Experience the<br />
-            <span className="text-olynk">Intelligence Gap.</span>
+            <span className="text-olynk">Causal Intelligence Gap.</span>
           </h2>
           <p className="text-xl text-steel font-medium max-w-2xl mx-auto leading-relaxed">
-            See how your business operates when every system is connected by a singular,
-            thinking layer.
+            See how your operation runs when every system shares one layer that explains <span className="text-navy font-bold">why</span> metrics move—and ships governed fixes across the stack.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link

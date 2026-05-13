@@ -13,26 +13,26 @@ export const HEADLINES = {
     // Version A: Shock Value
     A: {
         main: "You're losing ₹8 lakhs every month to Stockouts and RTO.",
-        emphasis: "You just don't know it yet.",
-        subheadline: "Trita tells you 10 days before a Stockout happens - and creates the PO automatically. No dashboards. No firefighting. Just intelligent operations that run themselves."
+        emphasis: "The dashboards never showed you why.",
+        subheadline: "Trita isolates the drivers, stress-tests interventions, and can create the PO automatically when policy allows. Causal operations—not another chart."
     },
     // Version B: Empathetic (DEFAULT for V1)
     B: {
         main: "Stop discovering Stockouts when",
         emphasis: "your customers do",
-        subheadline: "Trita predicts operational problems 10 days before they happen - and tells you exactly how to fix them. No dashboards to check. No data to reconcile. Just operations that run themselves."
+        subheadline: "Trita surfaces the causal drivers 10 days early—velocity, lead time, allocation, promos—and tells you exactly which lever to pull. No dashboards to babysit. No mystery moves."
     },
     // Version C: Problem-Focused
     C: {
         main: "Your operations are bleeding money",
-        emphasis: "while you sleep",
-        subheadline: "Stockouts. RTO failures. Ad budget waste. Trita catches them before they cost you ₹2-5L monthly. Predictive operations intelligence that actually works."
+        emphasis: "while correlations mislead you",
+        subheadline: "Stockouts. RTO failures. Ad waste. Trita ranks what actually moves cash and service before you spend another ₹2-5L chasing the wrong fix."
     },
     // Version D: Relatable
     D: {
         main: "Modern commerce operations shouldn't feel like",
-        emphasis: "fighting fires 24/7",
-        subheadline: "Trita watches your commerce stack, inventory, shipping, and ads 24/7. When something's about to go wrong, it tells you - or just fixes it. Stop reacting. Start preventing."
+        emphasis: "pattern-matching in the dark",
+        subheadline: "Trita watches your stack 24/7 with causal playbooks: when risk spikes, you see why—and what would change if you intervened. Stop reacting to noise. Start steering drivers."
     }
 };
 
@@ -44,9 +44,9 @@ export const ACTIVE_HEADLINE = 'B';
 // ============================================================================
 
 export const TRUST_MICROCOPY = {
-    primary: "Built for high-velocity commerce operations",
-    pilots: "Currently working with pilot enterprises to validate this approach",
-    timeline: "See results in 7-10 days, not months"
+    primary: "Built for teams that need causal clarity, not more dashboards",
+    pilots: "Currently working with pilot enterprises to validate driver models and governed actions",
+    timeline: "See ranked drivers and first interventions in 7-10 days, not months"
 };
 
 // ============================================================================
@@ -91,11 +91,11 @@ export const PAIN_POINTS = [
 export const CAPABILITIES = [
     {
         id: 1,
-        title: "Predicts Stockouts Before They Happen",
+        title: "Explains stockouts before they happen",
         explanation: [
-            "Looks at your sales velocity, lead times, current stock",
-            "Tells you \"SKU X will stockout in 10 days\"",
-            "Creates the PO automatically (if you want)"
+            "Models velocity, lead time, promos, and allocation as drivers—not single metrics",
+            "Returns \"SKU X stockout risk in 10 days because of A + B\" with confidence",
+            "Creates the PO automatically when your policy says it should"
         ],
         realExample: "Prevented 3 Stockouts in first 2 weeks for pilot enterprise A"
     },
@@ -128,15 +128,15 @@ export const CAPABILITIES = [
 export const FAQ_ITEMS = [
     {
         question: "Is this just another dashboard?",
-        answer: "No. Dashboards show you what already happened. Trita tells you what will happen - and fixes it before you have to think about it."
+        answer: "No. Dashboards replay history. Trita builds causal views—what would change if you pulled a lever—and can execute within guardrails so you fix drivers before they become write-offs."
     },
     {
         question: "How is this different from Triple Whale or Northbeam?",
-        answer: "Those are analytics tools. They're great at telling you why ROAS dropped. Trita is an operating system. It prevents the ROAS drop from happening."
+        answer: "Those tools excel at attribution and reporting. Trita is a causal operating system: it stress-tests interventions, ranks drivers with confidence, and can prevent the ROAS or service hit before it lands."
     },
     {
-        question: "What if the predictions are wrong?",
-        answer: "Fair question. Here's how it works: You see the prediction and the reasoning behind it. You decide if you trust it. Once you do, you can automate it. Until then, you're in full control."
+        question: "What if the causal read is wrong?",
+        answer: "Fair question. Every read ships with drivers, data lineage, and confidence. You review counterfactuals, tighten policies, and only automate what you trust. Humans stay on the hook for material decisions until you say otherwise."
     },
     {
         question: "How long until I see results?",
@@ -234,9 +234,9 @@ export const DEMO_CONFIG = {
         description: "A 15-second demo showing:",
         steps: [
             "Real Shopify data flowing in",
-            "Trita detecting a stockout risk 10 days out",
-            "Auto-creating a PO in real-time",
-            "Operations team getting a Slack notification: \"Stockout prevented for Blue T-Shirt (M)\""
+            "Trita isolates stockout drivers 10 days out with confidence",
+            "Auto-creating a PO when policy matches the causal read",
+            "Slack: \"Stockout prevented—here is the driver tree for Blue T-Shirt (M)\""
         ]
     },
     video: {
@@ -261,7 +261,7 @@ export const CONTACT_INFO = {
 // ============================================================================
 
 export const PAGE_METADATA = {
-    title: "Stop Discovering Stockouts When Your Customers Do | Trita by Olynk",
-    description: "Trita predicts operational problems 10 days before they happen. Stop losing ₹2-5L monthly to Stockouts, RTO failures, and ad waste. Built for modern commerce.",
-    keywords: "Commerce operations, stockout prediction, RTO prevention, ROAS monitoring, inventory management, Retail AI"
+    title: "Causal Intelligence for Commerce Operations | Trita by Olynk",
+    description: "Trita ranks what actually drives stockouts, RTO, cash, and service—then executes governed fixes. Causal intelligence for modern commerce, not chart theater.",
+    keywords: "Causal inference, causal AI, commerce operations, stockout drivers, RTO prevention, ROAS monitoring, inventory intelligence, operational AI, Trita, Olynk"
 };

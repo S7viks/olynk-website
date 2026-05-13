@@ -15,11 +15,10 @@ const Solutions = () => {
           <div>
             <h1 className="page-hero-title mb-8">
               Built for<br />
-              <span className="text-olynk">High-Velocity Operations.</span>
+              <span className="text-olynk">Causal Operations.</span>
             </h1>
             <p className="text-xl lg:text-2xl text-steel max-w-3xl mx-auto leading-relaxed font-medium">
-              If operational complexity is your biggest bottleneck, Trita is your unfair advantage.
-              Built for enterprises that have outgrown spreadsheets.
+              When complexity hides root causes, correlation is expensive. Trita is the unfair advantage for teams that need ranked drivers, counterfactuals, and governed execution—not another spreadsheet war room.
             </p>
           </div>
         </div>

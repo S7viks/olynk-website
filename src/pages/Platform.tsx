@@ -25,11 +25,11 @@ const Platform = () => {
                         <h1 className="page-hero-title mb-8 uppercase">
                             One Platform. <br />
                             <span className="text-olynk">Four Engines.</span> <br />
-                            Total Intelligence.
+                            Causal Intelligence.
                         </h1>
                         <p className="text-base sm:text-xl lg:text-2xl text-steel max-w-3xl mx-auto leading-relaxed font-medium mb-12">
-                            The enterprise-grade operating system for modern operations.
-                            No fragmentation. <span className="text-navy font-black">Just Unified Performance.</span>
+                            The enterprise-grade causal operating system for modern operations.
+                            No fragmentation. <span className="text-navy font-black">Drivers, counterfactuals, and governed execution in one plane.</span>
                         </p>
                     </motion.div>
                 </div>
@@ -52,8 +52,8 @@ const Platform = () => {
                             {
                                 id: 'insight',
                                 name: 'Trita Insight',
-                                role: 'Predictive Intelligence Layer',
-                                desc: 'Forecasts risk, throughput, and constraint violations before they hit your P&L.',
+                                role: 'Causal Intelligence Layer',
+                                desc: 'Surfaces ranked drivers, counterfactuals, and risk before outcomes harden in your P&L.',
                                 icon: Brain,
                                 color: 'text-olynk',
                                 bg: 'bg-beige'
@@ -177,17 +177,16 @@ const Platform = () => {
                     <div className="space-y-8">
                         <div className="flex items-center gap-3 text-olynk font-black uppercase tracking-widest text-xs font-mono">
                             <Brain className="w-4 h-4 text-tan" />
-                            Intelligence Layer
+                            Causal intelligence layer
                         </div>
                         <h2 className="text-3xl sm:text-4xl lg:text-6xl font-black text-navy tracking-tightest leading-none uppercase">
                             Trita Insight
                         </h2>
                         <h3 className="text-xl lg:text-2xl text-steel font-medium leading-tight">
-                            Predict problems before they happen.
+                            Rank drivers before outcomes harden.
                         </h3>
                         <p className="text-lg text-steel/80 leading-relaxed">
-                            Most tools show you what happened yesterday. Insight tells you what will happen next month.
-                            It predicts Stockouts, production delays, cash flow dips, SLA breaches, and delivery risks with causal reasoning, not just correlation.
+                            Most tools replay yesterday. Insight builds causal views of what will move service, margin, and cash—stockouts, delays, working-capital pressure, and SLA risk—with confidence, counterfactuals, and lineage you can defend in review.
                         </p>
                         <div className="flex items-center gap-6 pt-4">
                             <div className="pr-6 border-r border-beige">
@@ -461,7 +460,7 @@ const Platform = () => {
                         It sits above your tools.
                     </h2>
                     <p className="text-lg text-steel leading-relaxed">
-                        Trita doesn't replace your ERP, CRM, finance, or business stack. It connects them to form a higher-level intelligence layer. No rip-and-replace required.
+                        Trita doesn't replace your ERP, CRM, finance, or business stack. It connects them into one causal operating plane. No rip-and-replace required.
                     </p>
                     {/* Tech Stack Visual */}
                     <div className="relative max-w-3xl mx-auto">
@@ -477,7 +476,7 @@ const Platform = () => {
                                 <div className="absolute inset-0 bg-white/5 opacity-0 group-hover:opacity-100 transition-opacity" />
                                 <div className="relative z-10 flex items-center justify-between">
                                     <div className="text-left">
-                                        <div className="text-[10px] lg:text-xs font-mono font-black uppercase tracking-widest opacity-80 mb-1">Intelligence Layer</div>
+                                        <div className="text-[10px] lg:text-xs font-mono font-black uppercase tracking-widest opacity-80 mb-1">Causal intelligence layer</div>
                                         <div className="text-xl lg:text-2xl font-black tracking-tight">Trita by Olynk</div>
                                     </div>
                                     <Brain className="w-8 h-8 lg:w-10 lg:h-10 opacity-40" />

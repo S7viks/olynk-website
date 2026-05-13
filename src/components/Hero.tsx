@@ -31,9 +31,9 @@ const Hero = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
           >
-            Your Commerce Operations
+            Causal intelligence
             <span className="block text-gradient">
-              Just Got an AI Brain
+              for commerce operations
             </span>
           </motion.h1>
 
@@ -43,8 +43,8 @@ const Hero = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
           >
-            Olynk predicts operational friction before it happens - and tells you exactly how to fix it.
-            <span className="text-navy font-black"> Stop losing millions</span> to inventory drift, shipping delays, and data fragmentation.
+            Olynk separates drivers from coincidence—then prescribes governed fixes with full lineage.
+            <span className="text-navy font-black"> Stop optimizing noise</span> while inventory drift, delivery risk, and cash leaks compound in silence.
           </motion.p>
 
           {/* Live Insight Ticker */}
