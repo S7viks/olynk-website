@@ -1,9 +1,23 @@
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
+import { resolve } from 'path';
+import { copyFileSync } from 'fs';
+
+// Plugin to create 404.html for SPA fallback on static hosts
+const spa404Plugin = () => ({
+  name: 'spa-404',
+  closeBundle() {
+    // Copy index.html to 404.html for SPA routing fallback
+    copyFileSync(
+      resolve(__dirname, 'dist/index.html'),
+      resolve(__dirname, 'dist/404.html')
+    );
+  }
+});
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  plugins: [react()],
+  plugins: [react(), spa404Plugin()],
   envPrefix: ['VITE_', 'NEXT_PUBLIC_'],
   publicDir: 'public',
   build: {
