@@ -3,31 +3,31 @@ import { Users, Timer, Sparkles, Activity } from 'lucide-react';
 
 const METRICS = [
     {
-        label: "Current Queue",
-        value: "1,284",
+        label: "People Waiting",
+        value: "1,200+",
         icon: Users,
-        sub: "Enterprise Nodes",
+        sub: "And counting",
         color: "text-navy"
     },
     {
-        label: "Avg. Onboarding",
-        value: "14 Days",
+        label: "Setup Time",
+        value: "< 1 Week",
         icon: Timer,
-        sub: "Post-Validation",
+        sub: "Go live fast",
         color: "text-olynk"
     },
     {
-        label: "Waitlist Perk",
-        value: "60% OFF",
+        label: "Early Access",
+        value: "Priority",
         icon: Sparkles,
-        sub: "First 100 Founders",
+        sub: "Founding Members",
         color: "text-tan"
     },
     {
-        label: "Processing Peak",
-        value: "4.8k ops/s",
+        label: "Data Processed",
+        value: "4.8k/sec",
         icon: Activity,
-        sub: "Core Throughput",
+        sub: "Real-time sync",
         color: "text-steel"
     }
 ];

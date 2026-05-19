@@ -14,15 +14,15 @@ const Waitlist = () => {
                             transition={{ duration: 0.6 }}
                         >
                             <span className="inline-block px-4 py-1.5 rounded-full bg-navy/5 border border-navy/10 text-xs font-black uppercase tracking-widest text-navy mb-6">
-                                Limited Access Beta
+                                Early Access
                             </span>
                             <h1 className="page-hero-title mb-6">
-                                Queue for <br className="hidden lg:block" />
-                                <span className="text-olynk">Causal Intelligence.</span>
+                                Get Early Access to <br className="hidden lg:block" />
+                                <span className="text-olynk">Smarter Operations.</span>
                             </h1>
                             <p className="text-xl text-steel max-w-2xl mx-auto leading-relaxed">
-                                Join operators who want drivers and counterfactuals—not dashboards—governing how inventory, cash, and service move together.
-                                Secure your spot for the next pilot cohort.
+                                Be among the first to run your commerce on AI that actually understands cause and effect.
+                                No more spreadsheet chaos.
                             </p>
                         </motion.div>
                     </div>

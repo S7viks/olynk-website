@@ -95,23 +95,23 @@ const WaitlistFunnel: React.FC = () => {
   const solutions = [
     {
       icon: <Brain className="h-6 w-6 text-red-500" />,
-      title: "AI Forecast Engine",
-      description: "Learns from historical sales, seasonal trends, and external triggers to prevent stockouts and oversells"
+      title: "AI Forecasting",
+      description: "Predict demand before it happens. No more stockouts or dead inventory."
     },
     {
       icon: <BarChart3 className="h-6 w-6 text-blue-500" />,
-      title: "Omnichannel Inventory Manager",
-      description: "Unified dashboard syncing Shopify, marketplaces, ERPs, and 3PLs in real-time"
+      title: "One Dashboard",
+      description: "All your channels, systems, and data in one place. Finally."
     },
     {
       icon: <Target className="h-6 w-6 text-green-500" />,
-      title: "RTO Prediction Model",
-      description: "Scores orders on COD risk and size-fit likelihood before dispatch to reduce returns"
+      title: "Fewer Returns",
+      description: "Spot risky orders before they ship. Cut RTO rates dramatically."
     },
     {
       icon: <Shield className="h-6 w-6 text-purple-500" />,
-      title: "Smart Automation",
-      description: "Automated workflows and decision support to eliminate manual operations overhead"
+      title: "Auto-Pilot Mode",
+      description: "Set rules once, let the system handle the repetitive stuff."
     }
   ];
 
@@ -122,13 +122,13 @@ const WaitlistFunnel: React.FC = () => {
         <div className="min-h-screen bg-gradient-to-br from-amber-50 via-yellow-50 to-amber-100 flex items-center justify-center p-4">
         <div className="max-w-md w-full bg-white rounded-2xl shadow-xl p-8 text-center">
           <CheckCircle className="h-16 w-16 text-green-500 mx-auto mb-4" />
-          <h2 className="text-2xl font-bold text-gray-900 mb-2">Welcome to OLYNK!</h2>
+          <h2 className="text-2xl font-bold text-gray-900 mb-2">You're in!</h2>
           <p className="text-gray-600 mb-6">
-            You're now on the waitlist. We'll notify you when early access is available.
+            Our team will reach out to you shortly.
           </p>
           <div className="bg-green-50 rounded-lg p-4 mb-6">
             <p className="text-sm text-green-700">
-              🎉 You're one of the first to experience the future of inventory management!
+              You'll be among the first to get access when we launch.
             </p>
           </div>
           <button
@@ -159,13 +159,12 @@ const WaitlistFunnel: React.FC = () => {
           {/* Header */}
           <div className="text-center mb-12">
             <h1 className="text-5xl md:text-6xl font-bold text-gray-900 mb-6">
-              Stop Losing Money on
-              <span className="text-red-600 block">D2C Operations Chaos</span>
+              Run Your Operations
+              <span className="text-red-600 block">Smarter, Not Harder</span>
             </h1>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto mb-8">
-              D2C brands are losing 15-40% to RTOs, drowning in manual processes, and struggling with 
-              fragmented data across 5-7 tools. OLYNK's AI platform eliminates these losses through 
-              smart forecasting, automated workflows, and unified operations.
+              Tired of juggling spreadsheets, fighting stockouts, and chasing data across tools?
+              OLYNK brings AI-powered clarity to your entire operation.
             </p>
           </div>
 
@@ -190,10 +189,10 @@ const WaitlistFunnel: React.FC = () => {
               </div>
               
               <div className="bg-blue-50 rounded-lg p-6 mt-8">
-                <h3 className="font-semibold text-blue-900 mb-2">🎯 Perfect for D2C Brands</h3>
+                <h3 className="font-semibold text-blue-900 mb-2">Built for Growing Brands</h3>
                 <p className="text-blue-700 text-sm">
-                  Designed for ₹2–20 Cr brands managing 500+ SKUs across Shopify, Amazon, 
-                  Zepto, and retail. Modular AI with explainable recommendations.
+                  Whether you sell on Shopify, Amazon, or your own store.
+                  OLYNK scales with you.
                 </p>
               </div>
             </div>
@@ -297,11 +296,11 @@ const WaitlistFunnel: React.FC = () => {
                       className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-red-500 text-black bg-white"
                     >
                       <option value="">Select Size</option>
-                      <option value="1-10">1-10 employees</option>
-                      <option value="11-50">11-50 employees</option>
-                      <option value="51-200">51-200 employees</option>
-                      <option value="201-1000">201-1000 employees</option>
-                      <option value="1000+">1000+ employees</option>
+                      <option value="solo">Just me</option>
+                      <option value="2-10">2-10 people</option>
+                      <option value="11-50">11-50 people</option>
+                      <option value="51-200">51-200 people</option>
+                      <option value="200+">200+ people</option>
                     </select>
                   </div>
                 </div>

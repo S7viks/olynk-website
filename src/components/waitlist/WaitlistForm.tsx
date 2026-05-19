@@ -30,16 +30,16 @@ const INITIAL_DATA: FormData = {
 };
 
 const PAIN_POINTS = [
-    "Inventory Fragmentation",
-    "Demand Forecasting",
-    "Multi-Channel Sync",
-    "Supply Chain Visibility",
-    "Manual Data Entry",
+    "Stockouts & Oversells",
+    "Demand Planning",
+    "Channel Sync Issues",
+    "Supply Chain Chaos",
+    "Too Much Manual Work",
     "Other"
 ];
 
 const COMPANY_SIZES = [
-    "1-10", "11-50", "51-200", "201-500", "500+"
+    "Solo", "2-10", "11-50", "51-200", "200+"
 ];
 
 export default function WaitlistForm() {
@@ -110,18 +110,18 @@ export default function WaitlistForm() {
                 <div className="w-20 h-20 bg-emerald-100 rounded-full flex items-center justify-center mx-auto mb-6">
                     <CheckCircle2 className="w-10 h-10 text-emerald-600" />
                 </div>
-                <h2 className="text-3xl font-black text-navy mb-4">You're on the list.</h2>
+                <h2 className="text-3xl font-black text-navy mb-4">You're in!</h2>
                 <p className="text-steel mb-8 leading-relaxed">
-                    We've secured your spot in the queue.
+                    Our team will reach out to you shortly.
                 </p>
 
                 <div className="bg-cream border border-beige rounded-xl p-6 mb-8 relative overflow-hidden group">
                     <div className="absolute top-0 right-0 p-2 opacity-10">
                         <Ticket className="w-24 h-24 rotate-12" />
                     </div>
-                    <p className="text-xs font-black text-tan uppercase tracking-widest mb-2">Early Access Benefit</p>
-                    <div className="text-4xl font-black text-olynk mb-1">60% OFF</div>
-                    <p className="text-sm text-navy font-bold">First Year Subscription</p>
+                    <p className="text-xs font-black text-tan uppercase tracking-widest mb-2">What's Next</p>
+                    <div className="text-2xl font-black text-olynk mb-1">Priority Access</div>
+                    <p className="text-sm text-navy font-bold">You'll be among the first to try Olynk</p>
                 </div>
 
                 <button
@@ -184,9 +184,9 @@ export default function WaitlistForm() {
                         })}
                     </div>
                     <h2 className="text-3xl font-black text-navy">
-                        {currentStep === 0 && "Let's get acquainted."}
-                        {currentStep === 1 && "Tell us about your ops."}
-                        {currentStep === 2 && "What are you solving?"}
+                        {currentStep === 0 && "Let's meet!"}
+                        {currentStep === 1 && "About your business"}
+                        {currentStep === 2 && "What's your biggest headache?"}
                     </h2>
                 </div>
 
