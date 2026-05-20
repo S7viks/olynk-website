@@ -20,7 +20,7 @@ import { Link } from 'react-router-dom';
 import { useState, useRef } from 'react';
 import { motion } from 'framer-motion';
 import { ArrowRight, CheckCircle, ArrowDown, Search, Brain, CreditCard, Zap, Play, X } from 'lucide-react';
-import TritaDashboard from '../components/TritaDashboard';
+import ProductSnapshot from '../components/ProductSnapshot';
 import IntegrationsShowcase from '../components/IntegrationsShowcase';
 import HowItWorks from '../components/HowItWorks';
 import TestimonialsGrid from '../components/TestimonialsGrid';
@@ -30,7 +30,7 @@ import FixMechanismModal from '../components/FixMechanismModal';
 const Home = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [showWalkthrough, setShowWalkthrough] = useState(false);
-  const [activeIndustry, setActiveIndustry] = useState<{ title: string; layers: any[] }>({ title: 'Operational Intelligence', layers: [] });
+  const [activeIndustry, setActiveIndustry] = useState<{ title: string; layers: any[] }>({ title: 'Causal operational intelligence', layers: [] });
   const diagnosticRef = useRef<HTMLDivElement>(null);
 
   const scrollToDiagnostic = () => {
@@ -41,23 +41,23 @@ const Home = () => {
     {
       id: 'MULTI_CHANNEL_SYNC',
       title: 'Fabric Layer',
-      desc: 'Unifies every signal into one governed graph so downstream models see the same facts—no more reconciliation debates.'
+      desc: 'Unifies every signal into one governed graph so downstream models see the same facts, no more reconciliation debates.'
     },
     {
       id: 'DEMAND_PREDICTION',
       title: 'Insight Layer',
-      desc: 'Builds causal views of demand, service, and margin: which levers actually move outcomes, with confidence and counterfactuals—not lagging correlations.'
+      desc: 'Builds causal views of demand, service, and margin: which levers actually move outcomes, with confidence and counterfactuals, not lagging correlations.'
     },
     {
       id: 'SUPPLY_CHAIN_LOGIC',
       title: 'Core Engine',
-      desc: 'Executes policy-safe actions tied to those causal drivers—from reallocations to reorders—so automation follows the “why,” not the noise.'
+      desc: 'Executes policy-safe actions tied to those causal drivers, from reallocations to reorders, so automation follows the “why,” not the noise.'
     }
   ];
 
   const openModal = () => {
     setActiveIndustry({
-      title: 'Operational Intelligence',
+      title: 'Causal operational intelligence',
       layers: homeLayers
     });
     setIsModalOpen(true);
@@ -85,12 +85,12 @@ const Home = () => {
             </h1>
 
             <p className="text-navy text-xl sm:text-2xl lg:text-3xl font-bold leading-snug max-w-4xl mx-auto tracking-tight">
-              Know what actually drives margin, service, and risk—before the lag shows up in your P&L
+              Know what actually drives margin, service, and risk, before the lag shows up in your P&L
             </p>
 
             {/* Supporting copy */}
             <p className="text-steel text-lg lg:text-xl leading-relaxed max-w-3xl mx-auto font-medium">
-              Olynk unifies your stack and reasons over drivers, interventions, and counterfactuals across inventory, returns, cash, logistics, and growth—so leaders act on root causes, not dashboards chasing symptoms.
+              Olynk unifies your stack and reasons over drivers, interventions, and counterfactuals across inventory, returns, cash, logistics, and growth, so leaders act on root causes, not dashboards chasing symptoms.
             </p>
 
             {/* CTA Buttons */}
@@ -125,8 +125,8 @@ const Home = () => {
           </div>
 
           {/* 2. Command Center Visual */}
-          <div className="w-full max-w-full mx-auto relative px-4 lg:px-6">
-            <TritaDashboard />
+          <div className="w-full max-w-full mx-auto px-4 lg:px-6 transform-none">
+            <ProductSnapshot />
           </div>
 
         </div>
@@ -176,7 +176,7 @@ const Home = () => {
               Stop <span className="text-olynk italic font-serif font-normal">correlating</span> symptoms.
             </h2>
             <p className="text-lg text-steel leading-relaxed font-medium">
-              Most stacks show what moved—not <span className="text-navy font-bold">why it moved</span> or what would happen if you intervened. Trita is a <span className="text-olynk font-bold">causal execution layer</span>: one governed policy plane from signal → explanation → action, with lineage your audit and finance partners can trust.
+              Most stacks show what moved, not <span className="text-navy font-bold">why it moved</span> or what would happen if you intervened. Trita is a <span className="text-olynk font-bold">causal execution layer</span>: one governed policy plane from signal → explanation → action, with lineage your audit and finance partners can trust.
             </p>
           </div>
 
@@ -194,7 +194,7 @@ const Home = () => {
                   { label: "Decision lag", val: "24–48 hrs", color: "text-red-600" },
                   { label: "Manual bridges", val: "High", color: "text-red-500" }
                 ],
-                intervention: "Unified intelligence layer",
+                intervention: "Unified causal graph",
                 solution: "Replace blind spots with one control plane - lineage from signal to action - so executives align on outcomes and tradeoffs, not conflicting spreadsheets.",
                 accent: "navy"
               },
@@ -370,7 +370,7 @@ const Home = () => {
             <span className="text-olynk">Causal Intelligence Gap.</span>
           </h2>
           <p className="text-xl text-steel font-medium max-w-2xl mx-auto leading-relaxed">
-            See how your operation runs when every system shares one layer that explains <span className="text-navy font-bold">why</span> metrics move—and ships governed fixes across the stack.
+            See how your operation runs when every system shares one layer that explains <span className="text-navy font-bold">why</span> metrics move, and ships governed fixes across the stack.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link
