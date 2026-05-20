@@ -134,13 +134,10 @@ const TritaImagined = () => {
           aria-label="Comic frame viewer"
           onClick={() => setActiveIndex(null)}
         >
-          <div className="absolute top-6 right-6 flex items-center gap-2">
+          <div className="absolute top-6 right-6 z-[110] flex items-center gap-2 pointer-events-auto">
             <button
               type="button"
-              onClick={(e) => {
-                e.stopPropagation();
-                setActiveIndex(null);
-              }}
+              onClick={() => setActiveIndex(null)}
               className="w-11 h-11 rounded-full bg-white/10 border border-white/20 text-white flex items-center justify-center hover:bg-white/15 focus:outline-none focus-visible:ring-4 focus-visible:ring-white/30"
               aria-label="Close"
             >
@@ -149,20 +146,19 @@ const TritaImagined = () => {
           </div>
 
           <div
-            className="absolute inset-0 flex items-center justify-center px-4 sm:px-10 py-10"
-            onClick={(e) => e.stopPropagation()}
+            className="absolute inset-0 flex items-center justify-center px-4 sm:px-10 py-10 pointer-events-none"
           >
             <button
               type="button"
               onClick={() => setActiveIndex((prev) => (prev === null ? 0 : Math.max(prev - 1, 0)))}
-              className="hidden sm:flex mr-4 w-12 h-12 rounded-full bg-white/10 border border-white/20 text-white items-center justify-center hover:bg-white/15 focus:outline-none focus-visible:ring-4 focus-visible:ring-white/30 disabled:opacity-30 disabled:hover:bg-white/10"
+              className="hidden sm:flex mr-4 w-12 h-12 rounded-full bg-white/10 border border-white/20 text-white items-center justify-center hover:bg-white/15 focus:outline-none focus-visible:ring-4 focus-visible:ring-white/30 disabled:opacity-30 disabled:hover:bg-white/10 pointer-events-auto"
               disabled={safeIndex <= 0}
               aria-label="Previous frame"
             >
               <ChevronLeft size={22} />
             </button>
 
-            <div className="w-full max-w-6xl">
+            <div className="w-full max-w-6xl pointer-events-auto">
               <div className="flex items-center justify-between mb-3 text-white/80 text-[11px] font-black uppercase tracking-[0.25em]">
                 <span>Frame {safeIndex + 1} / {bscFrames.length}</span>
                 <span className="hidden sm:inline">Esc to close • ← / → to navigate</span>
@@ -181,7 +177,7 @@ const TritaImagined = () => {
               onClick={() =>
                 setActiveIndex((prev) => (prev === null ? 0 : Math.min(prev + 1, bscFrames.length - 1)))
               }
-              className="hidden sm:flex ml-4 w-12 h-12 rounded-full bg-white/10 border border-white/20 text-white items-center justify-center hover:bg-white/15 focus:outline-none focus-visible:ring-4 focus-visible:ring-white/30 disabled:opacity-30 disabled:hover:bg-white/10"
+              className="hidden sm:flex ml-4 w-12 h-12 rounded-full bg-white/10 border border-white/20 text-white items-center justify-center hover:bg-white/15 focus:outline-none focus-visible:ring-4 focus-visible:ring-white/30 disabled:opacity-30 disabled:hover:bg-white/10 pointer-events-auto"
               disabled={safeIndex >= bscFrames.length - 1}
               aria-label="Next frame"
             >

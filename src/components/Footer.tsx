@@ -123,8 +123,8 @@ const Footer = () => {
             <h3 className="text-[11px] font-black text-navy uppercase tracking-[0.2em] mb-8">Resources</h3>
             <ul className="space-y-4 text-[13px] font-bold">
               <li>
-                <Link to="/resources/impact-studies" className="text-steel hover:text-navy transition-all duration-300">
-                  Impact Studies
+                <Link to="/imagined" className="text-steel hover:text-navy transition-all duration-300">
+                  Trita Imagined
                 </Link>
               </li>
               <li>

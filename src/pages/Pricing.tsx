@@ -27,10 +27,10 @@ const Pricing = () => {
               Book a Scoping Call
             </Link>
             <Link
-              to="/resources/impact-studies"
+              to="/imagined"
               className="inline-flex items-center justify-center px-10 py-5 rounded-xl border-2 border-beige bg-white/50 backdrop-blur-sm text-navy text-sm font-black uppercase tracking-widest hover:border-navy transition-all hover:bg-white"
             >
-              Read Impact Studies
+              Explore Trita Imagined
             </Link>
           </div>
         </div>

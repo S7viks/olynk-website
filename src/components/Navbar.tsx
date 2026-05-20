@@ -59,7 +59,6 @@ const Navbar = () => {
             type: "dropdown",
             items: [
                 { name: "Trita Imagined", href: "/imagined", desc: "Visionary Brand Comics" },
-                { name: "Impact Studies", href: "/resources/impact-studies", desc: "Real Results" },
                 { name: "Trita Explained", href: "/resources/explained", desc: "Deep Dives" },
                 { name: "Privacy Policy", href: "/privacy", desc: "Legal Data" },
                 { name: "Terms of Service", href: "/terms", desc: "Usage Terms" }

@@ -30,7 +30,6 @@ import AboutUs from './pages/AboutUs';
 import Careers from './pages/Careers';
 import Newsroom from './pages/Newsroom';
 import Support from './pages/Support';
-import ImpactStudies from './pages/ImpactStudies';
 import TritaExplained from './pages/TritaExplained';
 import Pricing from './pages/Pricing';
 import Industries from './pages/Industries';
@@ -171,7 +170,8 @@ const App = () => {
               />
 
               <Route path="/use-cases" element={<Navigate to="/solutions" replace />} />
-              <Route path="/impact-studies" element={<Navigate to="/resources/impact-studies" replace />} />
+              <Route path="/impact-studies" element={<Navigate to="/imagined" replace />} />
+              <Route path="/resources/impact-studies" element={<Navigate to="/imagined" replace />} />
               <Route path="/olynk-explained" element={<Navigate to="/resources/explained" replace />} />
 
               <Route
@@ -250,14 +250,6 @@ const App = () => {
                 element={
                   <PageShell>
                     <Support />
-                  </PageShell>
-                }
-              />
-              <Route
-                path="/resources/impact-studies"
-                element={
-                  <PageShell>
-                    <ImpactStudies />
                   </PageShell>
                 }
               />

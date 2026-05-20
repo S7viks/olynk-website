@@ -9,7 +9,8 @@
   "redirects": [
     { "source": "/demo", "destination": "/request-demo", "permanent": true },
     { "source": "/use-cases", "destination": "/solutions", "permanent": true },
-    { "source": "/impact-studies", "destination": "/resources/impact-studies", "permanent": true },
+    { "source": "/impact-studies", "destination": "/imagined", "permanent": true },
+    { "source": "/resources/impact-studies", "destination": "/imagined", "permanent": true },
     { "source": "/olynk-explained", "destination": "/resources/explained", "permanent": true },
     { "source": "/blog", "destination": "/resources/explained", "permanent": true }
   ],
