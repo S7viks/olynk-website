@@ -41,7 +41,7 @@ const Industries = () => {
           Built for <span className="text-olynk">causal operations</span>
         </h1>
         <p className="text-steel text-lg font-medium leading-relaxed">
-          Pick a vertical to see how Olynk maps pain to drivers and governed actions—from COD and RTO in commerce to supply shocks in manufacturing.
+          Pick a vertical to see how Olynk maps pain to drivers and governed actions, from COD and RTO in commerce to supply shocks in manufacturing.
         </p>
       </div>
 
@@ -50,7 +50,7 @@ const Industries = () => {
           <Link
             key={v.id}
             to={v.href}
-            className="group rounded-3xl border border-beige bg-white p-8 shadow-sm hover:shadow-xl hover:border-olynk/30 transition-all flex flex-col"
+            className="group rounded-3xl border border-beige bg-noir p-8 shadow-sm hover:shadow-xl hover:border-olynk/30 transition-all flex flex-col"
           >
             <div className="w-12 h-12 rounded-2xl bg-cream border border-beige flex items-center justify-center mb-6 group-hover:bg-olynk/10 transition-colors">
               <v.icon className="w-6 h-6 text-navy" strokeWidth={2} />
@@ -80,7 +80,7 @@ const Industries = () => {
             </div>
             <Link
               to="/imagined"
-              className="bg-white text-navy px-8 py-4 rounded-full font-black text-[12px] uppercase tracking-widest hover:bg-olynk hover:text-white transition-all flex items-center gap-3 shrink-0"
+              className="bg-noir text-navy px-8 py-4 rounded-full font-black text-[12px] uppercase tracking-widest hover:bg-olynk hover:text-white transition-all flex items-center gap-3 shrink-0"
             >
               Explore the Comics
               <ArrowRight className="w-4 h-4" />

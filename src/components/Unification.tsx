@@ -188,7 +188,7 @@ const Unification = () => {
                     flex items-center justify-center w-8 h-8 rounded-full transition-all duration-400
                     ${index <= currentStep 
                       ? 'bg-gradient-to-r from-teal-500 to-cyan-500 text-white scale-4.5 shadow-md animate-pulse-gentle' 
-                      : 'bg-white dark:bg-gray-800 text-gray-400 dark:text-gray-500 shadow-sm hover:shadow-md'
+                      : 'bg-noir dark:bg-gray-800 text-gray-400 dark:text-gray-500 shadow-sm hover:shadow-md'
                     }
                   `}
                   style={{ transitionDelay: `${index * 60}ms` }}>
@@ -211,7 +211,7 @@ const Unification = () => {
 
           {/* Main Visualization */}
           <div className={`
-            bg-white/60 dark:bg-gray-800/60 backdrop-blur-sm rounded-xl shadow-lg p-4 mb-6 transition-all duration-800 transform
+            bg-noir/60 dark:bg-gray-800/60 backdrop-blur-sm rounded-xl shadow-lg p-4 mb-6 transition-all duration-800 transform
             ${visibleElements.has('main-container') 
               ? 'opacity-100 translate-y-0 scale-100' 
               : 'opacity-0 translate-y-8 scale-95'
@@ -235,7 +235,7 @@ const Unification = () => {
                   <div
                     key={index}
                     className={`
-                      bg-white dark:bg-gray-800 rounded-md p-2 shadow-sm border-2 transition-all duration-400 transform hover:scale-4.5
+                      bg-noir dark:bg-gray-800 rounded-md p-2 shadow-sm border-2 transition-all duration-400 transform hover:scale-4.5
                       ${currentStep >= 0 && dataFlowActive
                         ? 'border-red-200 bg-red-50 dark:bg-red-900/20 animate-shake' 
                         : 'border-gray-200 dark:border-gray-700 hover:border-teal-200'
@@ -301,14 +301,14 @@ const Unification = () => {
                   `}>
                     <Cpu className="w-8 h-8 text-white" />
                     {currentStep >= 1 && dataFlowActive && (
-                      <div className="absolute inset-0 bg-white/20 rounded-full animate-pulse"></div>
+                      <div className="absolute inset-0 bg-noir/20 rounded-full animate-pulse"></div>
                     )}
                   </div>
                 </div>
 
                 {/* AI Processing Status */}
                 {currentStep >= 1 && dataFlowActive && (
-                  <div className="bg-white dark:bg-gray-800 rounded-md p-3 shadow-sm animate-slide-up border border-teal-100 dark:border-teal-900">
+                  <div className="bg-noir dark:bg-gray-800 rounded-md p-3 shadow-sm animate-slide-up border border-teal-100 dark:border-teal-900">
                     <div className="text-center">
                       <h4 className="font-bold text-gray-800 dark:text-gray-100 mb-1.5 flex items-center justify-center gap-1.5">
                         <Target className="w-2.5 h-2.5 text-teal-500" />
@@ -405,7 +405,7 @@ const Unification = () => {
 
                 {/* Trust Indicator */}
                 {currentStep >= 4 && dataFlowActive && (
-                  <div className="bg-white dark:bg-gray-800 rounded-md p-2 shadow-sm border-2 border-green-200 dark:border-green-700 animate-trust-build">
+                  <div className="bg-noir dark:bg-gray-800 rounded-md p-2 shadow-sm border-2 border-green-200 dark:border-green-700 animate-trust-build">
                     <div className="flex items-center justify-between mb-1.5">
                       <div className="flex items-center gap-1.5">
                         <Shield className="w-3 h-3 text-green-500" />
@@ -435,7 +435,7 @@ const Unification = () => {
               <div
                 key={index}
                 className={`
-                  bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm rounded-md p-3 shadow-sm hover:shadow-md 
+                  bg-noir/80 dark:bg-gray-800/80 backdrop-blur-sm rounded-md p-3 shadow-sm hover:shadow-md 
                   transition-all duration-300 hover:scale-4.5 cursor-pointer transform
                   animate-feature-reveal border border-white/50 dark:border-gray-700 hover:border-teal-200
                 `}

@@ -38,7 +38,7 @@ const DemoForm: React.FC = () => {
   };
 
   return (
-    <div className="max-w-md mx-auto bg-white dark:bg-gray-800 rounded-lg shadow-lg p-6">
+    <div className="max-w-md mx-auto bg-noir dark:bg-gray-800 rounded-lg shadow-lg p-6">
       <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-6">
         Request AI Demo
       </h2>

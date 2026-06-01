@@ -261,7 +261,7 @@ const Orchestration: React.FC = () => {
         </SlideInComponent>
 
         <SlideInComponent isVisible={showOrderDetails} delay={300} direction="up">
-          <div className="bg-white/70 backdrop-blur-lg rounded-xl shadow-md border border-white/20 p-4 mb-4 hover:scale-[1.02] transition-all duration-300">
+          <div className="bg-noir/70 backdrop-blur-lg rounded-xl shadow-md border border-white/20 p-4 mb-4 hover:scale-[1.02] transition-all duration-300">
             <div className="flex items-center justify-between mb-3">
               <h2 className="text-lg font-bold text-gray-900 flex items-center">
                 <BouncingIcon delay={0}>
@@ -322,7 +322,7 @@ const Orchestration: React.FC = () => {
 
         <SlideInComponent isVisible={showAnalysis} delay={0} direction="left">
           {isAnalyzing && (
-            <div className="bg-white/70 backdrop-blur-lg rounded-xl shadow-md border border-white/20 p-4 mb-4">
+            <div className="bg-noir/70 backdrop-blur-lg rounded-xl shadow-md border border-white/20 p-4 mb-4">
               <h2 className="text-lg font-bold text-gray-900 mb-3 flex items-center">
                 <TrendingUp className="w-6 h-6 text-teal-600 mr-2" />
                 <TypewriterText text="AI Decision Analysis" />
@@ -362,7 +362,7 @@ const Orchestration: React.FC = () => {
                       )}
                       
                       {node.status === 'complete' && node.result && (
-                        <div className="bg-white/80 p-2 rounded-md border border-green-200 animate-fade-in">
+                        <div className="bg-noir/80 p-2 rounded-md border border-green-200 animate-fade-in">
                           <p className="text-green-800 font-medium text-xs">{node.result}</p>
                         </div>
                       )}
@@ -376,7 +376,7 @@ const Orchestration: React.FC = () => {
 
         <SlideInComponent isVisible={showRouteSelection} delay={0} direction="right">
           {showRouteSelection && (
-            <div className="bg-white/70 backdrop-blur-lg rounded-xl shadow-md border border-white/20 p-4 mb-4">
+            <div className="bg-noir/70 backdrop-blur-lg rounded-xl shadow-md border border-white/20 p-4 mb-4">
               <h2 className="text-lg font-bold text-gray-900 mb-3 flex items-center">
                 <Target className="w-6 h-6 text-teal-600 mr-2" />
                 <TypewriterText text="Optimal Route Selected" />
@@ -448,13 +448,13 @@ const Orchestration: React.FC = () => {
                 <TypewriterText text="Customer: 5/5 stars ⭐⭐⭐⭐⭐" speed={40} />
               </p>
               <div className="flex justify-center items-center space-x-2 flex-wrap">
-                <div className="bg-white/20 px-2 py-1 rounded-full text-xs font-bold">
+                <div className="bg-noir/20 px-2 py-1 rounded-full text-xs font-bold">
                   On-time
                 </div>
-                <div className="bg-white/20 px-2 py-1 rounded-full text-xs font-bold">
+                <div className="bg-noir/20 px-2 py-1 rounded-full text-xs font-bold">
                   Cost optimized
                 </div>
-                <div className="bg-white/20 px-2 py-1 rounded-full text-xs font-bold">
+                <div className="bg-noir/20 px-2 py-1 rounded-full text-xs font-bold">
                   VIP experience
                 </div>
               </div>

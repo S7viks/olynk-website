@@ -36,7 +36,7 @@ const Platform = () => {
             </section>
 
             {/* SECTION 2: THE FOUR ENGINES (Overview) */}
-            <section className="py-16 px-4 bg-white/50 border-t border-beige backdrop-blur-sm">
+            <section className="py-16 px-4 bg-noir/50 border-t border-beige backdrop-blur-sm">
                 <div className="max-w-7xl mx-auto">
                     <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
                         {[
@@ -77,8 +77,8 @@ const Platform = () => {
                                 bg: 'bg-beige'
                             }
                         ].map((engine) => (
-                            <a href={`#${engine.id}`} key={engine.name} className="group p-6 sm:p-8 rounded-2xl sm:rounded-3xl bg-white border border-beige hover:border-navy hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-1">
-                                <div className={`w-14 h-14 rounded-2xl ${engine.bg} border border-beige/40 flex items-center justify-center mb-6 group-hover:bg-white transition-colors`}>
+                            <a href={`#${engine.id}`} key={engine.name} className="group p-6 sm:p-8 rounded-2xl sm:rounded-3xl bg-noir border border-beige hover:border-navy hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-1">
+                                <div className={`w-14 h-14 rounded-2xl ${engine.bg} border border-beige/40 flex items-center justify-center mb-6 group-hover:bg-noir transition-colors`}>
                                     <engine.icon className={`w-7 h-7 ${engine.color}`} />
                                 </div>
                                 <h3 className="text-lg font-black text-navy mb-2 tracking-tight">{engine.name}</h3>
@@ -97,7 +97,7 @@ const Platform = () => {
                 <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-16 items-center">
                     <div className="order-2 lg:order-1 relative">
                         {/* Real Data Unification Image */}
-                        <div className="aspect-square sm:aspect-video lg:aspect-square rounded-3xl lg:rounded-[40px] bg-white border border-beige shadow-xl flex items-center justify-center relative overflow-hidden group/img">
+                        <div className="aspect-square sm:aspect-video lg:aspect-square rounded-3xl lg:rounded-[40px] bg-noir border border-beige shadow-xl flex items-center justify-center relative overflow-hidden group/img">
                             <div className="relative w-full h-full bg-cream/30 overflow-hidden flex items-center justify-center">
                                 <div className="absolute inset-y-0 left-1/2 w-px bg-navy/5 z-20" />
                                 <svg viewBox="0 0 400 400" className="w-full h-full relative z-10 p-4 lg:p-8">
@@ -135,23 +135,23 @@ const Platform = () => {
                     <div className="order-1 lg:order-2 space-y-8">
                         <div className="flex items-center gap-3 text-navy font-black uppercase tracking-widest text-xs font-mono">
                             <Database className="w-4 h-4 text-tan" />
-                            Unified Data Layer
+                            Governed data fabric
                         </div>
                         <h2 className="text-3xl sm:text-4xl lg:text-6xl font-black text-navy tracking-tightest leading-none uppercase">
                             Trita Fabric
                         </h2>
                         <h3 className="text-xl lg:text-2xl text-steel font-medium leading-tight">
-                            The end of scattered spreadsheets.
+                            One graph. Full lineage. Zero reconciliation theater.
                         </h3>
                         <p className="text-lg text-steel/80 leading-relaxed">
-                            Your data is currently trapped across ERPs, CRMs, finance systems, warehouses, and line-of-business tools.
-                            Fabric connects them all in real-time, creating a single source of truth without manual exports or CSV hell.
+                            Your data is trapped across ERPs, CRMs, finance, warehouses, and line-of-business tools.
+                            Fabric connects them in real time with immutable bridges, so Insight and Core reason on the same governed facts, not competing exports.
                         </p>
                         <ul className="space-y-4 pt-4">
                             {[
-                                "Real-time bi-directional sync",
-                                "Connects 50+ enterprise tools",
-                                "No-code integration setup"
+                                "Bi-directional sync with lineage",
+                                "50+ enterprise connectors",
+                                "No-code setup; policy-aware mappings"
                             ].map(item => (
                                 <li key={item} className="flex items-center gap-3 text-navy font-black text-sm uppercase tracking-wide">
                                     <div className="w-6 h-6 rounded-full bg-cream border border-beige flex items-center justify-center">
@@ -172,7 +172,7 @@ const Platform = () => {
             </section>
 
             {/* SECTION 4: INSIGHT (Deep Dive) */}
-            <section id="insight" className="py-16 lg:py-24 px-4 border-t border-beige bg-white relative overflow-hidden">
+            <section id="insight" className="py-16 lg:py-24 px-4 border-t border-beige bg-noir relative overflow-hidden">
                 <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-16 items-center">
                     <div className="space-y-8">
                         <div className="flex items-center gap-3 text-olynk font-black uppercase tracking-widest text-xs font-mono">
@@ -186,16 +186,16 @@ const Platform = () => {
                             Rank drivers before outcomes harden.
                         </h3>
                         <p className="text-lg text-steel/80 leading-relaxed">
-                            Most tools replay yesterday. Insight builds causal views of what will move service, margin, and cash—stockouts, delays, working-capital pressure, and SLA risk—with confidence, counterfactuals, and lineage you can defend in review.
+                            Most tools replay yesterday. Insight builds causal views of what will move service, margin, and cash, stockouts, delays, working-capital pressure, and SLA risk, with confidence, counterfactuals, and lineage you can defend in review.
                         </p>
                         <div className="flex items-center gap-6 pt-4">
                             <div className="pr-6 border-r border-beige">
                                 <div className="text-2xl lg:text-3xl font-black text-navy">87.4%</div>
-                                <div className="text-[10px] lg:text-xs font-bold text-steel uppercase tracking-wider">Forecast Accuracy</div>
+                                <div className="text-[10px] lg:text-xs font-bold text-steel uppercase tracking-wider">Calibration band</div>
                             </div>
                             <div>
                                 <div className="text-2xl lg:text-3xl font-black text-navy">2.4M+</div>
-                                <div className="text-[10px] lg:text-xs font-bold text-steel uppercase tracking-wider">Predictions Run</div>
+                                <div className="text-[10px] lg:text-xs font-bold text-steel uppercase tracking-wider">Causal reads run</div>
                             </div>
                         </div>
                         <div className="pt-6">
@@ -207,7 +207,7 @@ const Platform = () => {
                     </div>
                     <div className="relative">
                         {/* Premium Code-Based Predictive Visual */}
-                        <div className="aspect-video rounded-3xl lg:rounded-[40px] bg-white border border-beige shadow-xl flex items-center justify-center relative overflow-hidden group/img">
+                        <div className="aspect-video rounded-3xl lg:rounded-[40px] bg-noir border border-beige shadow-xl flex items-center justify-center relative overflow-hidden group/img">
                             <div className="relative w-full h-full bg-beige/30 overflow-hidden flex items-center justify-center p-4 group-hover:bg-beige/40 transition-colors duration-500">
                                 {/* Technical Grid Background */}
                                 <div className="absolute inset-0 opacity-20" style={{
@@ -270,7 +270,7 @@ const Platform = () => {
                 <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-16 items-center">
                     <div className="order-2 lg:order-1 relative">
                         {/* Real Automation Flow Image */}
-                        <div className="aspect-square rounded-3xl lg:rounded-[40px] bg-white border border-beige shadow-xl flex items-center justify-center relative overflow-hidden group/img">
+                        <div className="aspect-square rounded-3xl lg:rounded-[40px] bg-noir border border-beige shadow-xl flex items-center justify-center relative overflow-hidden group/img">
                             <div className="relative w-full h-full bg-cream/30 overflow-hidden flex flex-col items-center justify-center p-4 lg:p-8">
                                 {/* Visualizing the Logic Flow */}
                                 <div className="w-full space-y-6 lg:space-y-8 relative z-10">
@@ -278,7 +278,7 @@ const Platform = () => {
                                     <motion.div
                                         initial={{ opacity: 0, x: -20 }}
                                         whileInView={{ opacity: 1, x: 0 }}
-                                        className="flex items-center gap-3 lg:gap-4 bg-white/80 backdrop-blur-sm p-3 lg:p-4 rounded-2xl border border-beige shadow-sm"
+                                        className="flex items-center gap-3 lg:gap-4 bg-noir/80 backdrop-blur-sm p-3 lg:p-4 rounded-2xl border border-beige shadow-sm"
                                     >
                                         <div className="w-8 h-8 lg:w-10 lg:h-10 rounded-xl bg-tan/20 flex items-center justify-center text-tan">
                                             <Database className="w-4 h-4 lg:w-5 lg:h-5" />
@@ -307,7 +307,7 @@ const Platform = () => {
                                     <motion.div
                                         initial={{ opacity: 0, x: 20 }}
                                         whileInView={{ opacity: 1, x: 0 }}
-                                        className="flex items-center gap-3 lg:gap-4 bg-white/80 backdrop-blur-sm p-3 lg:p-4 rounded-2xl border border-olynk/20 shadow-lg"
+                                        className="flex items-center gap-3 lg:gap-4 bg-noir/80 backdrop-blur-sm p-3 lg:p-4 rounded-2xl border border-olynk/20 shadow-lg"
                                     >
                                         <div className="w-8 h-8 lg:w-10 lg:h-10 rounded-xl bg-olynk flex items-center justify-center text-white">
                                             <CheckCircle2 className="w-4 h-4 lg:w-5 lg:h-5" />
@@ -347,16 +347,16 @@ const Platform = () => {
                             Trita Core
                         </h2>
                         <h3 className="text-xl lg:text-2xl text-steel font-medium leading-tight">
-                            Autonomous action, 24/7.
+                            Policy-bound execution tied to drivers.
                         </h3>
                         <p className="text-lg text-steel/80 leading-relaxed">
-                            Why just see the problem? Core fixes it. Based on Insight's predictions, Core runs workflows to rebalance inventory, re-time procurement, reallocate capacity, or flag risk for approval — while you sleep.
+                            Core does not chase charts, it executes workflows grounded in Insight&apos;s causal reads: rebalance inventory, re-time procurement, reallocate capacity, or route to approval with driver trees and immutable logs.
                         </p>
                         <ul className="space-y-4 pt-4">
                             {[
-                                "Simulates outcomes before acting",
+                                "Counterfactual checks before high-impact acts",
                                 "Fully auditable decision logs",
-                                "Human-in-the-loop controls"
+                                "Human-in-the-loop thresholds you control"
                             ].map(item => (
                                 <li key={item} className="flex items-center gap-3 text-navy font-black text-sm uppercase tracking-wide">
                                     <div className="w-6 h-6 rounded-full bg-cream border border-beige flex items-center justify-center">
@@ -391,10 +391,10 @@ const Platform = () => {
                             Trita Orbit
                         </h2>
                         <h3 className="text-xl lg:text-2xl text-white/80 font-medium leading-tight">
-                            Just ask.
+                            Ask with context. Audit every answer.
                         </h3>
                         <p className="text-lg text-white/60 leading-relaxed">
-                            Conversational intelligence that understands your business context. Ask questions like "Why did margins drop yesterday?" or "Show cash flow forecast" and get instant, visualized answers.
+                            Orbit is the governance console for causal intelligence: natural-language queries over drivers, interventions, and lineage, e.g. why margins moved, which levers were pulled, and what would change if you re-ran the scenario.
                         </p>
                         <div className="pt-6">
                             <Link to="/platform/orbit" className="inline-flex items-center gap-2 text-cream font-black hover:gap-4 transition-all group uppercase tracking-widest text-xs font-mono">
@@ -444,7 +444,7 @@ const Platform = () => {
                                     })}
                                 </svg>
 
-                                <div className="absolute inset-x-0 bottom-0 p-4 lg:p-6 bg-white/10 backdrop-blur-md transform translate-y-full lg:group-hover/img:translate-y-0 transition-transform duration-500">
+                                <div className="absolute inset-x-0 bottom-0 p-4 lg:p-6 bg-noir/10 backdrop-blur-md transform translate-y-full lg:group-hover/img:translate-y-0 transition-transform duration-500">
                                     <p className="text-white text-[8px] lg:text-[10px] font-mono font-black uppercase tracking-[0.3em]">LAYER_04 // CROSS_DOMAIN_GOVERNANCE</p>
                                 </div>
                             </div>
@@ -473,7 +473,7 @@ const Platform = () => {
                                 transition={{ duration: 0.6 }}
                                 className="p-4 lg:p-6 rounded-2xl bg-gradient-to-r from-olynk to-navy text-white relative overflow-hidden group"
                             >
-                                <div className="absolute inset-0 bg-white/5 opacity-0 group-hover:opacity-100 transition-opacity" />
+                                <div className="absolute inset-0 bg-noir/5 opacity-0 group-hover:opacity-100 transition-opacity" />
                                 <div className="relative z-10 flex items-center justify-between">
                                     <div className="text-left">
                                         <div className="text-[10px] lg:text-xs font-mono font-black uppercase tracking-widest opacity-80 mb-1">Causal intelligence layer</div>
@@ -523,7 +523,7 @@ const Platform = () => {
                                         whileInView={{ opacity: 1, scale: 1 }}
                                         viewport={{ once: true }}
                                         transition={{ duration: 0.4, delay: 0.3 + i * 0.1 }}
-                                        className="p-4 rounded-xl bg-white border border-beige hover:border-navy/20 transition-all group/tool"
+                                        className="p-4 rounded-xl bg-noir border border-beige hover:border-navy/20 transition-all group/tool"
                                     >
                                         <div className="text-xs font-mono font-black text-tan uppercase tracking-wider mb-1">{tool.label}</div>
                                         <div className="text-sm font-black text-navy group-hover/tool:text-olynk transition-colors">{tool.name}</div>
@@ -550,7 +550,7 @@ const Platform = () => {
                     <div className="flex flex-col sm:flex-row gap-6 justify-center">
                         <Link
                             to="/how-it-works"
-                            className="px-8 py-4 bg-white text-navy border-2 border-beige rounded-xl font-bold hover:border-navy transition-all"
+                            className="px-8 py-4 bg-noir text-navy border-2 border-beige rounded-xl font-bold hover:border-navy transition-all"
                         >
                             See How It Works
                         </Link>

@@ -88,7 +88,7 @@ const Features = () => {
   ];
 
   return (
-    <section id="features" className="py-20 bg-white dark:bg-gray-900 relative z-20">
+    <section id="features" className="py-20 bg-noir dark:bg-gray-900 relative z-20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
         {/* Header */}
         <div className={`text-center mb-16 transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
@@ -101,7 +101,7 @@ const Features = () => {
           <p className="text-xl text-steel max-w-3xl mx-auto mb-8">
             Predict Problems. Automate Decisions. Explore how OLYNK transforms your operations with the intelligence engine for modern business.
           </p>
-          <div className="bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm border border-gray-200 dark:border-gray-700 rounded-2xl p-6 max-w-4xl mx-auto">
+          <div className="bg-noir/80 dark:bg-gray-800/80 backdrop-blur-sm border border-gray-200 dark:border-gray-700 rounded-2xl p-6 max-w-4xl mx-auto">
             <p className="text-lg text-gray-700 dark:text-gray-300 font-medium mb-4">
               💡 See the dramatic before/after transformation for each AI capability
             </p>
@@ -123,7 +123,7 @@ const Features = () => {
             return (
               <div
                 key={index}
-                className={`group bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 border border-gray-100 dark:border-gray-700 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+                className={`group bg-noir dark:bg-gray-800 rounded-2xl p-6 shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 border border-gray-100 dark:border-gray-700 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
                   }`}
                 style={{ transitionDelay: feature.delay }}
               >

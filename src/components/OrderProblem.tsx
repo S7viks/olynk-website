@@ -52,10 +52,10 @@ const OrderProblem = () => {
   }, []);
 
   return (
-    <div className="p-2 sm:p-3 bg-white dark:bg-gray-800 rounded-2xl w-full h-full overflow-auto">
+    <div className="p-2 sm:p-3 bg-noir dark:bg-gray-800 rounded-2xl w-full h-full overflow-auto">
       <div className="grid grid-cols-1 md:grid-cols-2 gap-3 sm:gap-4 h-full">
         {/* Chaos Side */}
-        <div className="bg-white rounded-xl p-2 sm:p-3 shadow-md border border-red-100 dark:bg-gray-700 dark:border-red-900 flex flex-col">
+        <div className="bg-noir rounded-xl p-2 sm:p-3 shadow-md border border-red-100 dark:bg-gray-700 dark:border-red-900 flex flex-col">
           <div className="flex items-center justify-between mb-2 sm:mb-3">
             <h2 className="text-base sm:text-lg font-bold text-red-600 flex items-center dark:text-red-400">
               <AlertTriangle className="w-4 h-4 mr-1.5 animate-pulse" />
@@ -164,7 +164,7 @@ const OrderProblem = () => {
             {/* Overlay Message */}
             {!isAnimating && (
               <div className="absolute inset-0 flex items-center justify-center">
-                <div className="text-center bg-white/90 p-1.5 rounded-md shadow-sm dark:bg-gray-800/90">
+                <div className="text-center bg-noir/90 p-1.5 rounded-md shadow-sm dark:bg-gray-800/90">
                   <div className="text-red-600 font-bold text-xs mb-1 dark:text-red-400">
                     "Where's My Order?"
                   </div>
@@ -201,7 +201,7 @@ const OrderProblem = () => {
         </div>
 
         {/* AI Intelligence Side */}
-        <div className="bg-white rounded-xl p-2 sm:p-3 shadow-md border border-teal-100 dark:bg-gray-700 dark:border-teal-900 flex flex-col">
+        <div className="bg-noir rounded-xl p-2 sm:p-3 shadow-md border border-teal-100 dark:bg-gray-700 dark:border-teal-900 flex flex-col">
           <div className="flex items-center justify-between mb-2 sm:mb-3">
             <h2 className="text-base sm:text-lg font-bold text-teal-600 flex items-center dark:text-teal-400">
               <CheckCircle className="w-4 h-4 mr-1.5 animate-pulse" />
@@ -315,7 +315,7 @@ const OrderProblem = () => {
             {/* Overlay Message */}
             {!isAnimating && (
               <div className="absolute inset-0 flex items-center justify-center">
-                <div className="text-center bg-white/90 p-1.5 rounded-md shadow-sm dark:bg-gray-800/90">
+                <div className="text-center bg-noir/90 p-1.5 rounded-md shadow-sm dark:bg-gray-800/90">
                   <div className="text-teal-600 font-bold text-xs mb-1 dark:text-teal-400">
                     "Perfect Every Time"
                   </div>

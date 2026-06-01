@@ -1,63 +1,51 @@
+import { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
-import { Users, Timer, Sparkles, Activity } from 'lucide-react';
-
-const METRICS = [
-    {
-        label: "People Waiting",
-        value: "1,200+",
-        icon: Users,
-        sub: "And counting",
-        color: "text-navy"
-    },
-    {
-        label: "Setup Time",
-        value: "< 1 Week",
-        icon: Timer,
-        sub: "Go live fast",
-        color: "text-olynk"
-    },
-    {
-        label: "Early Access",
-        value: "Priority",
-        icon: Sparkles,
-        sub: "Founding Members",
-        color: "text-tan"
-    },
-    {
-        label: "Data Processed",
-        value: "4.8k/sec",
-        icon: Activity,
-        sub: "Real-time sync",
-        color: "text-steel"
-    }
-];
+import { Users } from 'lucide-react';
+import { supabase } from '../../supabase';
 
 export default function WaitlistMetrics() {
+    const [count, setCount] = useState<number | null>(null);
+
+    useEffect(() => {
+        const fetchCount = async () => {
+            try {
+                const { count, error } = await supabase
+                    .from('waitlist')
+                    .select('*', { count: 'exact', head: true });
+                
+                if (!error && count !== null) {
+                    setCount(count);
+                }
+            } catch (err) {
+                console.error('Error fetching waitlist count:', err);
+            }
+        };
+
+        fetchCount();
+    }, []);
+
+    if (count === null) return null;
+
     return (
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 mt-12 lg:mt-24">
-            {METRICS.map((item, idx) => {
-                const Icon = item.icon;
-                return (
-                    <motion.div
-                        key={item.label}
-                        initial={{ opacity: 0, y: 20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ delay: 0.1 * idx, duration: 0.5 }}
-                        className="p-6 rounded-[32px] bg-white border border-beige shadow-sm hover:shadow-md transition-shadow group"
+        <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.5, duration: 0.8 }}
+            className="flex items-center justify-center gap-3 mt-8"
+        >
+            <div className="flex -space-x-2">
+                {[...Array(3)].map((_, i) => (
+                    <div 
+                        key={i} 
+                        className="w-8 h-8 rounded-full border-2 border-noir bg-cream flex items-center justify-center overflow-hidden"
                     >
-                        <div className="flex flex-col items-center text-center space-y-3">
-                            <div className={`w-12 h-12 rounded-2xl bg-cream flex items-center justify-center ${item.color} group-hover:scale-110 transition-transform`}>
-                                <Icon className="w-6 h-6" />
-                            </div>
-                            <div className="space-y-1">
-                                <div className="text-[10px] font-black text-tan uppercase tracking-widest">{item.label}</div>
-                                <div className={`text-2xl font-black ${item.color} tracking-tight`}>{item.value}</div>
-                                <div className="text-[10px] font-bold text-steel/50 uppercase tracking-tight">{item.sub}</div>
-                            </div>
-                        </div>
-                    </motion.div>
-                );
-            })}
-        </div>
+                        <Users className="w-4 h-4 text-navy/40" />
+                    </div>
+                ))}
+            </div>
+            <div className="text-sm font-medium text-steel">
+                Join <span className="text-navy font-bold">{count.toLocaleString()}</span> founders waiting for early access
+            </div>
+        </motion.div>
     );
 }

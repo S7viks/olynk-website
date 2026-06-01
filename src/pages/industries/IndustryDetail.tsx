@@ -9,26 +9,26 @@ import FixMechanismModal from '../../components/FixMechanismModal';
 const industriesData: Record<string, any> = {
     commerce: {
         title: "Business",
-        role: "Operational OS for Retail",
-        desc: "Autonomous inventory logic and real-time demand forecasting for high-velocity business entities.",
+        role: "Causal commerce operations",
+        desc: "Rank what drives stock, margin, and service across channels, then execute policy-bound fixes before write-offs land in the P&L.",
         icon: ShoppingCart,
         accent: "text-olynk",
-        bg: "bg-white",
+        bg: "bg-noir",
         layers: [
             {
                 id: "INVENTORY_AUTONOMY",
                 title: "Inventory Autonomy",
-                desc: "Unified cognitive layer that creates a single source of truth across all operational endpoints."
+                desc: "One governed operational graph with lineage from signal to decision, so finance, fulfillment, and merchandising align on the same facts."
             },
             {
                 id: "MULTI_CHANNEL_SYNC",
                 title: "Multi-Channel Sync",
-                desc: "Real-time orchestration of digital channels, physical nodes, and ERP systems."
+                desc: "Real-time orchestration of digital channels, physical nodes, and ERP systems with immutable bridges, not spreadsheet reconciliation."
             },
             {
                 id: "DEMAND_PREDICTION",
-                title: "Demand Prediction",
-                desc: "Predictive inference engines that identify disruption patterns before they affect service levels."
+                title: "Demand & service drivers",
+                desc: "Causal views of velocity, promos, lead time, and allocation, ranked drivers and confidence so you intervene before service or margin breaks."
             }
         ],
         tools: [
@@ -42,8 +42,8 @@ const industriesData: Record<string, any> = {
             { name: "Loop", domain: "loopreturns.com" }
         ],
         headline: {
-            top: "Demand intelligence.",
-            bottom: "Supply autonomy."
+            top: "Driver clarity.",
+            bottom: "Governed execution."
         },
         bgLabel: "SYSTEM_CORE // BUSINESS",
         heroStats: [
@@ -72,26 +72,26 @@ const industriesData: Record<string, any> = {
     },
     manufacturing: {
         title: "Manufacturing",
-        role: "Industrial Intelligence",
-        desc: "Unified operational visibility and predictive maintenance logic for complex industrial workflows.",
+        role: "Causal industrial operations",
+        desc: "Unified visibility plus driver-aware maintenance and flow logic, know why OEE or throughput moves, not only that a chart turned red.",
         icon: Cpu,
         accent: "text-steel",
-        bg: "bg-white",
+        bg: "bg-noir",
         layers: [
             {
                 id: "SUPPLY_CHAIN_LOGIC",
                 title: "Supply Chain Logic",
-                desc: "Intelligent orchestration of supply chain variables for maximum throughput."
+                desc: "Orchestration grounded in capacity, material, and logistics constraints, with counterfactuals when you re-sequence or re-source."
             },
             {
                 id: "FLOW_OPTIMIZATION",
                 title: "Flow Optimization",
-                desc: "Real-time adjustments to production flows based on predictive demand models."
+                desc: "Adjust production flows using driver-ranked scenarios (demand shifts, RM delays, labor), not single-metric autopilot."
             },
             {
                 id: "DOWNTIME_PREVENTION",
                 title: "Downtime Prevention",
-                desc: "Sensor-fused technical diagnostics to intercept maintenance needs."
+                desc: "Sensor-fused diagnostics tied to failure modes and lead indicators, maintenance queues explain why a line is at risk, not just that it is."
             }
         ],
         tools: [
@@ -127,7 +127,7 @@ const industriesData: Record<string, any> = {
             {
                 label: "Safety Scan",
                 value: "ACTIVE",
-                subLabel: "Predictive Monitoring",
+                subLabel: "Driver-aware monitoring",
                 color: "text-navy",
                 icon: "shield"
             }
@@ -135,11 +135,11 @@ const industriesData: Record<string, any> = {
     },
     chemicals: {
         title: "Chemicals",
-        role: "Regulated Supply Intelligence",
-        desc: "Unified operational visibility for hazardous and batch-managed materials - so inventory, SDS/compliance, and execution trails stay aligned across plant-to-DC-to-customer flows.",
+        role: "Regulated causal supply",
+        desc: "Governed visibility for hazardous and batch-managed materials, inventory, SDS/compliance, and execution trails stay aligned with causal lineage from plant to DC to customer.",
         icon: FlaskConical,
         accent: "text-amber-700",
-        bg: "bg-white",
+        bg: "bg-noir",
         layers: [
             {
                 id: "BATCH_LOT_TRACEABILITY",
@@ -154,7 +154,7 @@ const industriesData: Record<string, any> = {
             {
                 id: "FEEDSTOCK_SHOCK_RESPONSE",
                 title: "Feedstock & Demand Shock Response",
-                desc: "Predictive signals for supply disruptions, lead-time volatility, and demand swings - so procurement and allocation decisions happen early."
+                desc: "Early causal signals on supply disruptions, lead-time volatility, and demand shifts, so procurement and allocation move with ranked drivers, not lagging alerts."
             }
         ],
         tools: [
@@ -198,11 +198,11 @@ const industriesData: Record<string, any> = {
     },
     pharma: {
         title: "Pharma",
-        role: "Quality & Traceability Intelligence",
-        desc: "Operational intelligence for serialization-heavy, cold-chain sensitive networks - linking batch, quality events, and partner handoffs into one governed execution layer.",
+        role: "Quality & traceability (causal)",
+        desc: "Causal operational layer for serialization-heavy, cold-chain sensitive networks, batch, quality events, and partner handoffs linked into one governed execution plane with audit lineage.",
         icon: Pill,
         accent: "text-rose-600",
-        bg: "bg-white",
+        bg: "bg-noir",
         layers: [
             {
                 id: "SERIALIZATION_EXECUTION",
@@ -217,7 +217,7 @@ const industriesData: Record<string, any> = {
             {
                 id: "BATCH_RELEASE_SIGNALS",
                 title: "Batch Release & Deviation Signals",
-                desc: "Early-warning patterns across suppliers, QA events, and inventory posture - reducing surprise holds, shortages, and expedited firefighting."
+                desc: "Driver-ranked early warnings across suppliers, QA events, and inventory posture, so holds, shortages, and expedites are explained and prioritized, not guessed."
             }
         ],
         tools: [
@@ -340,7 +340,7 @@ const IndustryDetail = () => {
                             transition={{ duration: 0.8 }}
                             className="flex flex-col items-center"
                         >
-                            <div className="inline-flex items-center gap-2 px-4 py-2 bg-white border border-beige rounded-full mb-8 shadow-sm">
+                            <div className="inline-flex items-center gap-2 px-4 py-2 bg-noir border border-beige rounded-full mb-8 shadow-sm">
                                 <Activity className={`w-3 h-3 ${data.accent}`} />
                                 <span className={`text-[10px] font-black uppercase tracking-[0.2em] ${data.accent} font-mono`}>VERTICAL_CORE // {id === 'commerce' ? 'BUSINESS' : (id?.toUpperCase() || 'BUSINESS')}</span>
                             </div>
@@ -351,7 +351,7 @@ const IndustryDetail = () => {
                             </h1>
 
                             <p className="text-xl text-steel font-medium leading-relaxed max-w-2xl mb-10">
-                                {data.desc} Specifically architected to provide an <span className="text-navy font-bold">irreducible layer</span> of operational intelligence.
+                                {data.desc} Architected as an <span className="text-navy font-bold">irreducible causal layer</span>, drivers, counterfactuals, and governed execution with full lineage.
                             </p>
 
                             <div className="flex flex-wrap justify-center gap-4 mb-2">
@@ -363,7 +363,7 @@ const IndustryDetail = () => {
                                 </button>
                                 <button
                                     onClick={() => navigate('/platform')}
-                                    className="bg-white border border-beige text-navy px-10 py-5 rounded-2xl text-xs font-black uppercase tracking-widest hover:bg-cream transition-all"
+                                    className="bg-noir border border-beige text-navy px-10 py-5 rounded-2xl text-xs font-black uppercase tracking-widest hover:bg-cream transition-all"
                                 >
                                     Technical Specs
                                 </button>
@@ -377,7 +377,7 @@ const IndustryDetail = () => {
                         {/* Mobile Stats Grid */}
                         <div className="grid grid-cols-1 sm:grid-cols-2 lg:hidden gap-4 mb-12">
                             {data.heroStats?.map((stat: any, i: number) => (
-                                <div key={i} className="p-5 border border-beige rounded-2xl bg-white shadow-sm flex items-center justify-between">
+                                <div key={i} className="p-5 border border-beige rounded-2xl bg-noir shadow-sm flex items-center justify-between">
                                     <div>
                                         <div className="flex items-center gap-2 mb-1">
                                             <div className={`w-1.5 h-1.5 rounded-full ${stat.color} animate-pulse`} />
@@ -398,7 +398,7 @@ const IndustryDetail = () => {
                                     initial={{ opacity: 0, x: -50 }}
                                     whileInView={{ opacity: 1, x: 0 }}
                                     transition={{ delay: 0.5 }}
-                                    className="absolute top-[-380px] left-[5%] p-6 border border-beige rounded-3xl bg-white shadow-xl z-20 min-w-[180px]"
+                                    className="absolute top-[-380px] left-[5%] p-6 border border-beige rounded-3xl bg-noir shadow-xl z-20 min-w-[180px]"
                                 >
                                     <div className="flex items-center gap-2 mb-3">
                                         <div className={`w-2 h-2 rounded-full ${data.heroStats[0].color} animate-pulse`} />
@@ -415,7 +415,7 @@ const IndustryDetail = () => {
                                     initial={{ opacity: 0, x: 50 }}
                                     whileInView={{ opacity: 1, x: 0 }}
                                     transition={{ delay: 0.7 }}
-                                    className="absolute top-[-380px] right-[5%] p-6 border border-beige rounded-3xl bg-white shadow-xl z-20 min-w-[180px] text-right"
+                                    className="absolute top-[-380px] right-[5%] p-6 border border-beige rounded-3xl bg-noir shadow-xl z-20 min-w-[180px] text-right"
                                 >
                                     <div className="flex items-center gap-2 mb-3 justify-end">
                                         <span className="text-[10px] font-black text-tan uppercase tracking-widest">{data.heroStats[1].label}</span>
@@ -435,7 +435,7 @@ const IndustryDetail = () => {
                                     initial={{ opacity: 0, x: -30 }}
                                     whileInView={{ opacity: 1, x: 0 }}
                                     transition={{ delay: 0.9 }}
-                                    className="absolute top-[-150px] left-[0%] p-5 border border-beige rounded-3xl bg-white shadow-xl z-20 min-w-[170px]"
+                                    className="absolute top-[-150px] left-[0%] p-5 border border-beige rounded-3xl bg-noir shadow-xl z-20 min-w-[170px]"
                                 >
                                     <div className="flex items-center gap-2 mb-2">
                                         <ShieldCheck className={`w-3 h-3 ${data.heroStats[2].color}`} />
@@ -449,7 +449,7 @@ const IndustryDetail = () => {
 
                         {/* Tool Grid: Middle Right (Responsive) */}
                         {data.tools && (
-                            <div className="lg:absolute lg:top-[-150px] lg:right-[0%] grid grid-cols-4 sm:grid-cols-8 lg:grid-cols-4 gap-2 p-4 border border-beige rounded-3xl bg-white shadow-sm lg:shadow-xl z-20">
+                            <div className="lg:absolute lg:top-[-150px] lg:right-[0%] grid grid-cols-4 sm:grid-cols-8 lg:grid-cols-4 gap-2 p-4 border border-beige rounded-3xl bg-noir shadow-sm lg:shadow-xl z-20">
                                 {data.tools.map((tool: any, i: number) => (
                                     <div key={i} className="w-10 h-10 rounded-xl bg-cream border border-beige flex items-center justify-center grayscale hover:grayscale-0 transition-all cursor-crosshair">
                                         <img src={`https://www.google.com/s2/favicons?domain=${tool.domain}&sz=64`} alt={tool.name} className="w-5 h-5 object-contain" />
@@ -471,7 +471,7 @@ const IndustryDetail = () => {
             )}
 
             {/* Layers Section - Structural Refinement - Using Card Style from Platform.tsx */}
-            <section className="py-24 lg:py-32 px-6 bg-white border-y border-beige relative">
+            <section className="py-24 lg:py-32 px-6 bg-noir border-y border-beige relative">
                 <div className="max-w-7xl mx-auto">
                     <div className="mb-20 flex items-end justify-between">
                         <div>

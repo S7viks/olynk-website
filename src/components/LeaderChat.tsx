@@ -156,7 +156,7 @@ const LeaderChat = () => {
                         </div>
                         <div className="flex items-center justify-between relative z-10">
                             <div className="flex items-center space-x-6">
-                                <div className="text-5xl bg-white/20 p-4 rounded-2xl backdrop-blur-md">{currentLeaderData.avatar}</div>
+                                <div className="text-5xl bg-noir/20 p-4 rounded-2xl backdrop-blur-md">{currentLeaderData.avatar}</div>
                                 <div>
                                     <h3 className="text-2xl font-black tracking-tight">{currentLeaderData.name}</h3>
                                     <p className="text-white/70 font-bold uppercase text-xs tracking-widest">{currentLeaderData.role} @ {currentLeaderData.company}</p>
@@ -174,7 +174,7 @@ const LeaderChat = () => {
                     </div>
 
                     {/* Chat Messages */}
-                    <div className="bg-white rounded-[40px] border border-beige shadow-2xl p-8 lg:p-12 mb-12 min-h-[450px] relative overflow-hidden">
+                    <div className="bg-noir rounded-[40px] border border-beige shadow-2xl p-8 lg:p-12 mb-12 min-h-[450px] relative overflow-hidden">
                         <div className="absolute inset-0 opacity-[0.02] pointer-events-none bg-[radial-gradient(circle_at_2px_2px,navy_1px,transparent_0)] bg-[size:24px_24px]" />
 
                         {/* Context Message */}
@@ -199,9 +199,9 @@ const LeaderChat = () => {
                                     </p>
                                     {isTyping && (
                                         <div className="flex items-center gap-1.5 mt-6">
-                                            <div className="w-1.5 h-1.5 bg-white rounded-full animate-bounce"></div>
-                                            <div className="w-1.5 h-1.5 bg-white rounded-full animate-bounce" style={{ animationDelay: '0.1s' }}></div>
-                                            <div className="w-1.5 h-1.5 bg-white rounded-full animate-bounce" style={{ animationDelay: '0.2s' }}></div>
+                                            <div className="w-1.5 h-1.5 bg-noir rounded-full animate-bounce"></div>
+                                            <div className="w-1.5 h-1.5 bg-noir rounded-full animate-bounce" style={{ animationDelay: '0.1s' }}></div>
+                                            <div className="w-1.5 h-1.5 bg-noir rounded-full animate-bounce" style={{ animationDelay: '0.2s' }}></div>
                                         </div>
                                     )}
                                 </div>
@@ -215,7 +215,7 @@ const LeaderChat = () => {
                                     <div className="w-10 h-10 bg-navy rounded-full flex items-center justify-center text-white font-black text-xs shadow-md">
                                         AI
                                     </div>
-                                    <div className="bg-white border border-beige rounded-2xl p-6 lg:p-8 max-w-2xl shadow-sm">
+                                    <div className="bg-noir border border-beige rounded-2xl p-6 lg:p-8 max-w-2xl shadow-sm">
                                         <p className="text-navy text-lg font-medium leading-relaxed mb-6">
                                             {currentQuestionData.answer}
                                         </p>
@@ -263,13 +263,13 @@ const LeaderChat = () => {
                             <div className="flex flex-col sm:flex-row gap-6 justify-center">
                                 <Link
                                     to="/waitlist"
-                                    className="px-12 py-5 bg-white text-navy rounded-xl font-black uppercase tracking-widest text-sm hover:bg-cream transition-all duration-300 shadow-xl"
+                                    className="px-12 py-5 bg-noir text-navy rounded-xl font-black uppercase tracking-widest text-sm hover:bg-cream transition-all duration-300 shadow-xl"
                                 >
                                     Request Deployment Protocol
                                 </Link>
                                 <Link
                                     to="/platform"
-                                    className="px-12 py-5 bg-transparent border-2 border-white/20 text-white rounded-xl font-black uppercase tracking-widest text-sm hover:bg-white/10 transition-all duration-300"
+                                    className="px-12 py-5 bg-transparent border-2 border-white/20 text-white rounded-xl font-black uppercase tracking-widest text-sm hover:bg-noir/10 transition-all duration-300"
                                 >
                                     Explore Mechanism
                                 </Link>

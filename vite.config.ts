@@ -40,7 +40,7 @@ export default defineConfig({
     exclude: ['lucide-react'],
   },
   server: {
-    port: 3000,
+    port: 1234,
     host: true,
   },
   preview: {

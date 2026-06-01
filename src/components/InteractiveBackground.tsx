@@ -2,7 +2,7 @@ import { useEffect, useRef } from 'react';
 
 /**
  * Full-viewport moving network (nodes + proximity lines). Renders on canvas only
- * — no extra gradient/HTML layers. Exposed defaults so design can tune look & perf.
+ *, no extra gradient/HTML layers. Exposed defaults so design can tune look & perf.
  */
 export const networkVisualDefaults = {
     /** Solid fill behind the mesh (brand cream) */

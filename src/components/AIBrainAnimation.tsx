@@ -230,7 +230,7 @@ const AIBrainAnimation: React.FC = () => {
               {[...Array(8)].map((_, i) => (
                 <div
                   key={i}
-                  className="absolute w-2 h-2 bg-white rounded-full animate-ping"
+                  className="absolute w-2 h-2 bg-noir rounded-full animate-ping"
                   style={{
                     left: `${50 + Math.cos(i * Math.PI / 4) * 70}%`,
                     top: `${50 + Math.sin(i * Math.PI / 4) * 70}%`,
@@ -252,7 +252,7 @@ const AIBrainAnimation: React.FC = () => {
           return (
             <div
               key={card.id}
-              className="bg-white/95 backdrop-blur-sm rounded-xl px-4 py-3 shadow-xl border border-teal-100
+              className="bg-noir/95 backdrop-blur-sm rounded-xl px-4 py-3 shadow-xl border border-teal-100
                          animate-in slide-in-from-left-8 duration-1000 min-w-[180px]
                          hover:shadow-2xl transition-all"
               style={{ animationDelay: `${card.delay}ms` }}
@@ -275,7 +275,7 @@ const AIBrainAnimation: React.FC = () => {
           return (
             <div
               key={card.id}
-              className="bg-white/95 backdrop-blur-sm rounded-xl px-4 py-3 shadow-xl border border-teal-100
+              className="bg-noir/95 backdrop-blur-sm rounded-xl px-4 py-3 shadow-xl border border-teal-100
                          animate-in slide-in-from-right-8 duration-1000 min-w-[180px]
                          hover:shadow-2xl transition-all"
               style={{ animationDelay: `${card.delay}ms` }}

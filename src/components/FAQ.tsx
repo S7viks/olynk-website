@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Plus, Minus, Lock, ShieldCheck, Zap, Database, Cpu, Fingerprint } from 'lucide-react';
 
@@ -27,7 +28,7 @@ const FAQ_CATEGORIES: Record<FAQCategory, { label: string; icon: any; questions:
     questions: [
       {
         q: "How is causal intelligence different from forecasting or BI dashboards?",
-        a: "Dashboards and many ML models show what moved together; causal views estimate what would change if you pulled a specific lever—holding confounders explicit. Olynk ships ranked drivers, counterfactuals, and confidence with lineage so finance and ops can agree on interventions—not debate charts."
+        a: "Dashboards and many ML models show what moved together; causal views estimate what would change if you pulled a specific lever, holding confounders explicit. Olynk ships ranked drivers, counterfactuals, and confidence with lineage so finance and ops can agree on interventions, not debate charts."
       },
       {
         q: "What if the AI makes wrong recommendations?",
@@ -35,7 +36,7 @@ const FAQ_CATEGORIES: Record<FAQCategory, { label: string; icon: any; questions:
       },
       {
         q: "How does AI learn our specific business?",
-        a: "We learn your seasonality, constraints, and business rules, then refine causal structure with feedback from decisions and outcomes—so recommendations reflect your policies and service targets, not generic benchmarks."
+        a: "We learn your seasonality, constraints, and business rules, then refine causal structure with feedback from decisions and outcomes, so recommendations reflect your policies and service targets, not generic benchmarks."
       }
     ]
   },
@@ -87,7 +88,7 @@ const FAQItem = ({ question, answer, isOpen, onClick, idx }: { question: string,
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5, delay: idx * 0.1 }}
-      className={`border-b border-beige transition-all duration-500 rounded-xl lg:rounded-2xl mb-2 lg:mb-3 overflow-hidden ${isOpen ? 'bg-white shadow-sm' : 'hover:bg-white bg-white/40'}`}
+      className={`border-b border-beige transition-all duration-500 rounded-xl lg:rounded-2xl mb-2 lg:mb-3 overflow-hidden ${isOpen ? 'bg-noir shadow-sm' : 'hover:bg-noir bg-noir/40'}`}
     >
       <button
         onClick={onClick}
@@ -187,7 +188,7 @@ const FAQ = () => {
           </div>
 
           <div className="flex flex-col gap-4">
-            <div className="p-4 lg:p-6 bg-white border border-beige rounded-xl lg:rounded-2xl shadow-sm flex items-center gap-4 lg:gap-6 w-fit lg:w-auto">
+            <div className="p-4 lg:p-6 bg-noir border border-beige rounded-xl lg:rounded-2xl shadow-sm flex items-center gap-4 lg:gap-6 w-fit lg:w-auto">
               <div className="w-10 h-10 lg:w-12 lg:h-12 rounded-lg lg:rounded-xl bg-cream flex items-center justify-center text-navy font-bold border border-beige/40">
                 <ShieldCheck className="w-5 h-5 lg:w-6 h-6" />
               </div>
@@ -220,13 +221,13 @@ const FAQ = () => {
                           shrink-0 flex items-center gap-3 lg:gap-4 px-4 lg:px-6 py-3 lg:py-4 rounded-xl border transition-all duration-300 w-auto lg:w-full text-left group/tab
                           ${isActive
                           ? 'bg-navy border-navy shadow-lg text-white'
-                          : 'bg-white/40 border-beige text-navy hover:bg-white hover:border-tan/50'
+                          : 'bg-noir/40 border-beige text-navy hover:bg-noir hover:border-tan/50'
                         }
                         `}
                     >
                       <div className={`
                           w-8 h-8 lg:w-10 lg:h-10 rounded-lg flex items-center justify-center transition-colors duration-300
-                          ${isActive ? 'bg-white/10 text-white' : 'bg-cream text-navy/40 group-hover/tab:text-navy'}
+                          ${isActive ? 'bg-noir/10 text-white' : 'bg-cream text-navy/40 group-hover/tab:text-navy'}
                         `}>
                         <Icon className="w-4 h-4 lg:w-5 h-5" />
                       </div>
@@ -249,13 +250,13 @@ const FAQ = () => {
               </div>
 
               {/* Desktop-only Context Box */}
-              <div className="hidden lg:block mt-8 p-8 bg-white/40 border border-beige/40 rounded-3xl backdrop-blur-sm">
+              <div className="hidden lg:block mt-8 p-8 bg-noir/40 border border-beige/40 rounded-3xl backdrop-blur-sm">
                 <p className="text-sm text-steel leading-relaxed mb-4">
-                  Cant find what you're looking for? Our documentation covers detailed technical specifications.
+                  Can&apos;t find what you&apos;re looking for? Documentation covers APIs, lineage hooks, and how Fabric through Orbit fit your stack.
                 </p>
-                <a href="#" className="text-xs font-black text-navy uppercase tracking-widest border-b border-navy/20 hover:border-navy pb-1 transition-all">
+                <Link to="/documentation" className="text-xs font-black text-navy uppercase tracking-widest border-b border-navy/20 hover:border-navy pb-1 transition-all inline-block">
                   View_Documentation
-                </a>
+                </Link>
               </div>
             </div>
           </div>
@@ -278,7 +279,7 @@ const FAQ = () => {
                       className={`px-3 py-1.5 rounded-full text-[10px] font-black uppercase tracking-widest border transition-all ${
                         isActive
                           ? 'bg-navy text-white border-navy'
-                          : 'bg-white/40 text-navy/70 border-beige hover:bg-white hover:border-tan'
+                          : 'bg-noir/40 text-navy/70 border-beige hover:bg-noir hover:border-tan'
                       }`}
                     >
                       {filter.label}
@@ -323,7 +324,7 @@ const FAQ = () => {
                 Our operations experts are ready to walk you through Olynk OS with your own data.
               </p>
             </div>
-            <button className="w-full lg:w-auto px-8 py-4 lg:px-10 lg:py-5 bg-white text-navy rounded-xl font-black text-[11px] lg:text-[13px] uppercase tracking-widest hover:bg-cream transition-all duration-300 shadow-2xl active:scale-95 flex items-center justify-center lg:justify-start gap-3 lg:gap-4">
+            <button className="w-full lg:w-auto px-8 py-4 lg:px-10 lg:py-5 bg-noir text-navy rounded-xl font-black text-[11px] lg:text-[13px] uppercase tracking-widest hover:bg-cream transition-all duration-300 shadow-2xl active:scale-95 flex items-center justify-center lg:justify-start gap-3 lg:gap-4">
               Speak to an Expert
               <Plus className="w-4 h-4 rotate-45" />
             </button>

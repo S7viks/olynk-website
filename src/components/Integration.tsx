@@ -106,8 +106,8 @@ const Integration: React.FC = () => {
                 key={index}
                 className={`relative p-1 rounded-lg transition-all duration-500 transform cursor-pointer ${
                   activeApp === index
-                    ? 'scale-110 shadow-lg ring-2 ring-red-400 bg-white dark:bg-gray-800 animate-bounce'
-                    : 'scale-95 bg-white/80 dark:bg-gray-800/80 hover:bg-white dark:hover:bg-gray-800 hover:scale-100'
+                    ? 'scale-110 shadow-lg ring-2 ring-red-400 bg-noir dark:bg-gray-800 animate-bounce'
+                    : 'scale-95 bg-noir/80 dark:bg-gray-800/80 hover:bg-noir dark:hover:bg-gray-800 hover:scale-100'
                 }`}
                 style={{
                   animationDelay: `${index * 0.1}s`,
@@ -169,15 +169,15 @@ const Integration: React.FC = () => {
           </div>
 
           <div className="grid md:grid-cols-3 gap-2 max-w-xl mx-auto">
-            <div className="bg-white dark:bg-gray-800 rounded-xl p-2 shadow-lg transform hover:scale-105 transition-all duration-300 animate-bounce" style={{animationDelay: '0.2s'}}>
+            <div className="bg-noir dark:bg-gray-800 rounded-xl p-2 shadow-lg transform hover:scale-105 transition-all duration-300 animate-bounce" style={{animationDelay: '0.2s'}}>
               <div className="text-xl font-bold text-red-500 dark:text-red-400 mb-1">3.2 hrs</div>
               <div className="text-gray-600 dark:text-gray-400 text-xs">Daily Time Lost</div>
             </div>
-            <div className="bg-white dark:bg-gray-800 rounded-xl p-2 shadow-lg transform hover:scale-105 transition-all duration-300 animate-bounce" style={{animationDelay: '0.4s'}}>
+            <div className="bg-noir dark:bg-gray-800 rounded-xl p-2 shadow-lg transform hover:scale-105 transition-all duration-300 animate-bounce" style={{animationDelay: '0.4s'}}>
               <div className="text-xl font-bold text-orange-500 dark:text-orange-400 mb-1">16 hrs</div>
               <div className="text-gray-600 dark:text-gray-400 text-xs">Weekly Productivity Loss</div>
             </div>
-            <div className="bg-white dark:bg-gray-800 rounded-xl p-2 shadow-lg transform hover:scale-105 transition-all duration-300 animate-bounce" style={{animationDelay: '0.6s'}}>
+            <div className="bg-noir dark:bg-gray-800 rounded-xl p-2 shadow-lg transform hover:scale-105 transition-all duration-300 animate-bounce" style={{animationDelay: '0.6s'}}>
               <div className="text-xl font-bold text-red-500 dark:text-red-400 mb-1">$12K+</div>
               <div className="text-gray-600 dark:text-gray-400 text-xs">Monthly Revenue Impact</div>
             </div>
@@ -186,7 +186,7 @@ const Integration: React.FC = () => {
 
         {/* Unified Dashboard Preview */}
         <div className={`mt-6 transition-all duration-1000 ${showDashboard ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
-          <div className="bg-white dark:bg-gray-800 rounded-xl p-2 shadow-xl max-w-2xl mx-auto mb-4 transform hover:scale-105 transition-all duration-500">
+          <div className="bg-noir dark:bg-gray-800 rounded-xl p-2 shadow-xl max-w-2xl mx-auto mb-4 transform hover:scale-105 transition-all duration-500">
             <div className="grid md:grid-cols-3 gap-2 mb-3">
               <div className="bg-gradient-to-br from-teal-500 to-teal-600 rounded-lg p-2 text-white transform hover:scale-105 transition-all duration-300 animate-bounce">
                 <div className="flex items-center justify-between mb-1">
@@ -195,7 +195,7 @@ const Integration: React.FC = () => {
                 </div>
                 <p className="text-teal-100 text-[10px]">Today's Revenue</p>
                 <div className="mt-1 flex items-center space-x-1">
-                  <div className="w-1.5 h-1.5 bg-white rounded-full animate-pulse"></div>
+                  <div className="w-1.5 h-1.5 bg-noir rounded-full animate-pulse"></div>
                   <span className="text-[10px] text-teal-100">Live from Shopify</span>
                 </div>
               </div>
@@ -207,7 +207,7 @@ const Integration: React.FC = () => {
                 </div>
                 <p className="text-blue-100 text-[10px]">Active Conversations</p>
                 <div className="mt-1 flex items-center space-x-1">
-                  <div className="w-1.5 h-1.5 bg-white rounded-full animate-pulse"></div>
+                  <div className="w-1.5 h-1.5 bg-noir rounded-full animate-pulse"></div>
                   <span className="text-[10px] text-blue-100">WhatsApp + Support</span>
                 </div>
               </div>
@@ -219,7 +219,7 @@ const Integration: React.FC = () => {
                 </div>
                 <p className="text-purple-100 text-[10px]">Inventory Health</p>
                 <div className="mt-1 flex items-center space-x-1">
-                  <div className="w-1.5 h-1.5 bg-white rounded-full animate-pulse"></div>
+                  <div className="w-1.5 h-1.5 bg-noir rounded-full animate-pulse"></div>
                   <span className="text-[10px] text-purple-100">Real-time sync</span>
                 </div>
               </div>

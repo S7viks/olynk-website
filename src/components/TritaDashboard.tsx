@@ -102,22 +102,22 @@ const SYSTEM_HEALTH_LABELS: Record<
     d2c: {
         primary: 'Shopify API',
         bridge: 'Tally Bridge',
-        inference: 'Inference Node',
+        inference: 'Causal read node',
     },
     manufacturing: {
         primary: 'Unicommerce OMS',
         bridge: 'SAP B1 Bridge',
-        inference: 'MES inference',
+        inference: 'MES causal reads',
     },
     chemicals: {
         primary: 'Batch MES API',
         bridge: 'ERP / SDS link',
-        inference: 'Lot-risk models',
+        inference: 'Driver-risk models',
     },
     pharma: {
         primary: 'Track & trace API',
         bridge: 'LIMS bridge',
-        inference: 'Cold-chain AI',
+        inference: 'Cold-chain causal layer',
     },
 };
 
@@ -139,17 +139,17 @@ const TritaDashboard = () => {
     }, [riskAppetite, budgetCeiling, velocityPriority]);
 
     const reasoningLogs = useMemo(() => [
-        "Analyzing NCR cluster SKU-047 velocity...",
-        "Cross-referencing Delhivery NDR with Tally AP...",
-        "Simulating inventory buffer for West DC...",
-        "Verifying Razorpay payout integrity...",
-        "Optimizing RM-AL-12 lead time vectors...",
-        "Scanning Maharashtra factory OEE delta...",
-        "Recalculating capital waterfall policy...",
-        "Validating SDS lineage for batch CHEM-AX-22...",
-        "Reconciling hazmat storage caps at DC-North...",
+        "Isolating demand drivers on NCR cluster SKU-047...",
+        "Linking Delhivery NDR signals to Tally AP policy windows...",
+        "Counterfactual buffer for West DC under velocity +2σ...",
+        "Auditing Razorpay payout lineage vs finance guardrails...",
+        "Tracing RM-AL-12 lead-time drivers vs alternate PO paths...",
+        "Mapping Maharashtra OEE deltas to downtime root causes...",
+        "Re-evaluating capital waterfall under current budget ceiling...",
+        "Validating SDS lineage for batch CHEM-AX-22 before release...",
+        "Reconciling hazmat storage caps at DC-North vs transfer policy...",
         "Checking serialization aggregation for lot PHX-1182...",
-        "Modeling cold-chain excursion risk on biologic SKU-947..."
+        "Estimating cold-chain excursion drivers on biologic SKU-947..."
     ], []);
 
     useEffect(() => {
@@ -243,7 +243,7 @@ const TritaDashboard = () => {
                         id: 'd2',
                         band: 'High',
                         title: 'Pause dispatch · 23 COD orders',
-                        exposure: 'Predicted RTO 78%+ · ₹4.1L recoverable',
+                        exposure: 'Driver-weighted RTO 78%+ · ₹4.1L recoverable',
                         detail: 'Repeat NDR pin codes + velocity mismatch on prepaid incentives.',
                         supplier: 'Carrier: Delhivery · NDR queue',
                     },
@@ -333,7 +333,7 @@ const TritaDashboard = () => {
                         band: 'Standard',
                         title: 'Allocate cold-chain capacity · SKU-947',
                         exposure: 'Biologic launch · ₹1.4Cr revenue at stake',
-                        detail: 'Reserve 18% additional 2-8°C lanes ahead of forecast pull-through; Snowman SLA confirmed.',
+                        detail: 'Reserve 18% additional 2-8°C lanes ahead of demand-driver pull-through; Snowman SLA confirmed.',
                         supplier: 'Snowman + Veeva planning',
                     },
                 ];
@@ -392,7 +392,7 @@ const TritaDashboard = () => {
         };
 
         const labelByIndustry: Record<IndustryKey, string> = {
-            d2c: 'RTO Prob.',
+            d2c: 'Driver-weighted RTO',
             manufacturing: 'Disruption Prob.',
             chemicals: 'Spill / Delay Prob.',
             pharma: 'Excursion Prob.',
@@ -426,7 +426,7 @@ const TritaDashboard = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
         >
-            <div className="relative bg-white border border-beige shadow-[0_40px_80px_-20px_rgba(0,27,61,0.15)] rounded-[32px] overflow-hidden flex flex-col h-auto lg:h-[800px]">
+            <div className="relative bg-noir border border-beige shadow-[0_40px_80px_-20px_rgba(0,27,61,0.15)] rounded-[32px] overflow-hidden flex flex-col h-auto lg:h-[800px]">
                 {/* OS Top Bar */}
                 <div className="flex items-center justify-between px-6 h-14 border-b border-beige bg-cream/30 backdrop-blur-sm relative z-20 overflow-hidden">
                     <div className="absolute inset-0 overflow-hidden pointer-events-none opacity-50">
@@ -450,9 +450,9 @@ const TritaDashboard = () => {
                     </div>
 
                     <div className="hidden sm:flex items-center gap-6 relative z-10">
-                        <div className="flex items-center gap-2 text-[10px] font-black text-navy uppercase tracking-widest bg-white border border-beige px-3 py-1.5 rounded-full shadow-sm">
+                        <div className="flex items-center gap-2 text-[10px] font-black text-navy uppercase tracking-widest bg-noir border border-beige px-3 py-1.5 rounded-full shadow-sm">
                             <Radio className={`w-3 h-3 ${isSimulating ? 'text-olynk animate-pulse' : 'text-emerald-500'}`} />
-                            Live Operational Matrix
+                            Live causal ops matrix
                         </div>
                     </div>
 
@@ -486,7 +486,7 @@ const TritaDashboard = () => {
                                         className={`text-left px-4 py-3 rounded-xl text-[11px] font-black uppercase tracking-wider border transition-all ${
                                             industry === key
                                                 ? 'bg-navy text-white border-navy shadow-lg shadow-navy/10'
-                                                : 'bg-white text-navy/60 border-beige hover:border-tan'
+                                                : 'bg-noir text-navy/60 border-beige hover:border-tan'
                                         }`}
                                     >
                                         <div className="flex flex-col gap-1">
@@ -537,7 +537,7 @@ const TritaDashboard = () => {
 
                         {/* RTO Probability (Moved from Right) */}
                         <div className="pt-6 border-t border-beige">
-                            <div className="rounded-2xl border border-beige bg-white p-4 shadow-sm">
+                            <div className="rounded-2xl border border-beige bg-noir p-4 shadow-sm">
                                 <div className="flex items-center justify-between mb-3">
                                     <div className="flex items-center gap-2">
                                         <TrendingDown className="w-3.5 h-3.5 text-emerald-600" />
@@ -586,7 +586,7 @@ const TritaDashboard = () => {
                     </aside>
 
                     {/* Main Content: Decision Inbox */}
-                    <main className="flex-1 overflow-y-auto bg-white p-6 sm:p-8 scrollbar-hide flex flex-col relative">
+                    <main className="flex-1 overflow-y-auto bg-noir p-6 sm:p-8 scrollbar-hide flex flex-col relative">
                         <div className="flex items-center justify-between mb-8 pb-6 border-b border-beige">
                             <div className="flex items-center gap-5">
                                 <div>
@@ -618,7 +618,7 @@ const TritaDashboard = () => {
                                             animate={{ opacity: 1, x: 0 }}
                                             className={`rounded-2xl border p-5 transition-all ${
                                                 status === 'open'
-                                                    ? 'border-beige bg-white shadow-sm hover:shadow-md'
+                                                    ? 'border-beige bg-noir shadow-sm hover:shadow-md'
                                                     : status === 'accepted'
                                                     ? 'border-emerald-200 bg-emerald-50/40'
                                                     : status === 'snoozed'
@@ -668,7 +668,7 @@ const TritaDashboard = () => {
                                                         <button
                                                             type="button"
                                                             onClick={() => setDecision(d.id, 'snoozed')}
-                                                            className="px-4 py-2.5 rounded-xl border border-beige bg-white text-navy text-[10px] font-black uppercase tracking-widest hover:bg-cream transition-all"
+                                                            className="px-4 py-2.5 rounded-xl border border-beige bg-noir text-navy text-[10px] font-black uppercase tracking-widest hover:bg-cream transition-all"
                                                         >
                                                             Snooze
                                                         </button>
@@ -700,13 +700,13 @@ const TritaDashboard = () => {
                                 <div className="flex items-center justify-between mb-8">
                                     <div className="flex items-center gap-2.5">
                                         <div className="w-2 h-2 rounded-full bg-tan shadow-[0_0_8px_rgba(210,180,140,0.5)]"></div>
-                                        <p className="text-[10px] font-black uppercase tracking-[0.4em] text-tan/70">Recovery Intelligence</p>
+                                        <p className="text-[10px] font-black uppercase tracking-[0.4em] text-tan/70">Governed recovery readout</p>
                                     </div>
                                     <div className="text-[9px] font-mono font-bold text-white/40 border border-white/10 px-2 py-0.5 rounded-md">90D_ESTIMATION</div>
                                 </div>
 
                                 <div className="space-y-1">
-                                    <p className="text-[10px] font-bold text-white/30 uppercase tracking-widest">Inferred Value</p>
+                                    <p className="text-[10px] font-bold text-white/30 uppercase tracking-widest">Policy-adjusted upside</p>
                                     <div className="flex items-baseline gap-2">
                                         <span className="text-2xl font-bold text-tan/40 font-mono">₹</span>
                                         <motion.h3
@@ -728,7 +728,7 @@ const TritaDashboard = () => {
                                             initial={{ height: 0 }}
                                             animate={{ height: `${h}%` }}
                                             transition={{ delay: i * 0.05, duration: 0.5 }}
-                                            className={`flex-1 rounded-t-[1px] ${i === 11 ? 'bg-tan' : 'bg-white/10'}`}
+                                            className={`flex-1 rounded-t-[1px] ${i === 11 ? 'bg-tan' : 'bg-noir/10'}`}
                                         />
                                     ))}
                                 </div>
@@ -739,11 +739,11 @@ const TritaDashboard = () => {
 
                                 <div className="mt-10 grid grid-cols-2 gap-4 pt-6 border-t border-white/10">
                                     <div className="space-y-1">
-                                        <p className="text-[9px] font-bold text-white/40 uppercase tracking-wider">Leakage Plugged</p>
+                                        <p className="text-[9px] font-bold text-white/40 uppercase tracking-wider">Driver-linked recoveries</p>
                                         <p className="text-sm font-black text-white font-mono">₹{Math.round(kpis.recoveryLakh90 * 0.6)}L</p>
                                     </div>
                                     <div className="space-y-1">
-                                        <p className="text-[9px] font-bold text-white/40 uppercase tracking-wider">Yield Optimization</p>
+                                        <p className="text-[9px] font-bold text-white/40 uppercase tracking-wider">Policy yield lift</p>
                                         <p className="text-sm font-black text-tan font-mono">₹{Math.round(kpis.recoveryLakh90 * 0.4)}L</p>
                                     </div>
                                 </div>
@@ -751,7 +751,7 @@ const TritaDashboard = () => {
                                 <button
                                     type="button"
                                     onClick={copyShare}
-                                    className="mt-8 w-full flex items-center justify-center gap-2 py-4 rounded-2xl bg-white/5 hover:bg-white/10 text-white text-[10px] font-black uppercase tracking-[0.2em] transition-all border border-white/10 group/btn"
+                                    className="mt-8 w-full flex items-center justify-center gap-2 py-4 rounded-2xl bg-noir/5 hover:bg-noir/10 text-white text-[10px] font-black uppercase tracking-[0.2em] transition-all border border-white/10 group/btn"
                                 >
                                     <Share2 className="w-3.5 h-3.5 text-tan group-hover/btn:scale-110 transition-transform" />
                                     Generate Shareable Trace
@@ -768,7 +768,7 @@ const TritaDashboard = () => {
                         </div>
 
                         {/* System Health Summary */}
-                        <div className="rounded-2xl border border-beige bg-white p-5 shadow-sm">
+                        <div className="rounded-2xl border border-beige bg-noir p-5 shadow-sm">
                             <div className="flex items-center justify-between mb-4">
                                 <div className="flex items-center gap-2">
                                     <Activity className="w-4 h-4 text-tan" />
@@ -794,10 +794,10 @@ const TritaDashboard = () => {
                             {[
                                 { label: 'Revenue Risk', val: formatCr(kpis.revenueAtRiskCr) },
                                 { label: 'Net Capital', val: `${kpis.workingCapPct >= 0 ? '+' : ''}${kpis.workingCapPct.toFixed(1)}%` },
-                                { label: 'SLA Forecast', val: `${kpis.serviceLevelPct.toFixed(1)}%` },
+                                { label: 'SLA outlook (causal)', val: `${kpis.serviceLevelPct.toFixed(1)}%` },
                                 { label: 'Queue', val: kpis.openDecisions }
                             ].map(k => (
-                                <div key={k.label} className="min-w-0 p-3 bg-white border border-beige rounded-xl">
+                                <div key={k.label} className="min-w-0 p-3 bg-noir border border-beige rounded-xl">
                                     <p className="text-[8px] font-black text-tan uppercase tracking-widest break-words leading-tight">{k.label}</p>
                                     <p className="text-xs font-black text-navy mt-1 font-mono tracking-tight break-words leading-tight">{k.val}</p>
                                 </div>
@@ -807,7 +807,7 @@ const TritaDashboard = () => {
                 </div>
 
                 {/* Bottom Trace Bar */}
-                <div className="px-6 h-12 bg-white border-t border-beige flex items-center justify-between gap-4 relative z-10">
+                <div className="px-6 h-12 bg-noir border-t border-beige flex items-center justify-between gap-4 relative z-10">
                     <div className="flex items-center gap-3">
                         <Activity className={`w-3.5 h-3.5 ${isSimulating ? 'text-olynk animate-spin' : 'text-emerald-500'}`} />
                         <div className="text-[9px] font-black text-navy/40 uppercase tracking-[0.25em]">
@@ -817,7 +817,7 @@ const TritaDashboard = () => {
                     <div className="hidden md:flex items-center gap-6">
                         <div className="flex items-center gap-2 text-[9px] font-black text-olynk uppercase tracking-[0.25em]">
                             <CheckCircle2 className="w-3.5 h-3.5" />
-                            Connect → Fuse → Reason → Act
+                            Connect → Fuse → Infer → Act
                         </div>
                     </div>
                     <div className="flex items-center gap-2 text-[9px] font-black text-tan uppercase tracking-[0.25em]">

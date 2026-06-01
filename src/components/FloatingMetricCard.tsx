@@ -10,7 +10,7 @@ interface FloatingMetricCardProps {
 const FloatingMetricCard = ({ metric, value, delay = 0, position = {} }: FloatingMetricCardProps) => {
     return (
         <motion.div
-            className="absolute z-10 bg-white/90 backdrop-blur-md rounded-lg shadow-card border border-beige p-3 min-w-[140px]"
+            className="absolute z-10 bg-noir/90 backdrop-blur-md rounded-lg shadow-card border border-beige p-3 min-w-[140px]"
             style={{
                 ...position,
                 borderLeft: '4px solid #2B5288'

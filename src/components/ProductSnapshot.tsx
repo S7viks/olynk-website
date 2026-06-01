@@ -1,4 +1,4 @@
-﻿import { useState } from 'react';
+import { useState } from 'react';
 import Logo from './Logo';
 import { ArrowDown, Search, Filter, MoreHorizontal } from 'lucide-react';
 
@@ -127,7 +127,7 @@ function ConfidenceBar({ value }: { value: number }) {
 
 function DriverTable() {
     return (
-        <div className="rounded-xl border border-beige bg-white overflow-hidden">
+        <div className="rounded-xl border border-beige bg-noir overflow-hidden">
             <div className="hidden md:grid md:grid-cols-[32px_minmax(0,1fr)_100px_72px_56px] gap-3 px-4 py-2.5 border-b border-beige bg-cream/40 text-[9px] font-black text-tan uppercase tracking-wider">
                 <span>#</span>
                 <span>Driver</span>
@@ -139,7 +139,7 @@ function DriverTable() {
             {DRIVERS.map((row) => (
                 <div
                     key={row.rank}
-                    className={`border-b border-beige/60 last:border-0 ${row.selected ? 'bg-olynk/[0.06]' : 'bg-white'}`}
+                    className={`border-b border-beige/60 last:border-0 ${row.selected ? 'bg-olynk/[0.06]' : 'bg-noir'}`}
                 >
                     <div
                         className={`hidden md:grid md:grid-cols-[32px_minmax(0,1fr)_100px_72px_56px] gap-3 px-4 py-3 items-center ${
@@ -203,7 +203,7 @@ function IntegrationsRow() {
             {INTEGRATIONS.map((name) => (
                 <span
                     key={name}
-                    className="text-[10px] font-medium text-navy/65 px-2 py-0.5 rounded-md bg-white border border-beige"
+                    className="text-[10px] font-medium text-navy/65 px-2 py-0.5 rounded-md bg-noir border border-beige"
                 >
                     {name}
                 </span>
@@ -223,7 +223,7 @@ function DriversPage() {
 
 function DecisionsPage() {
     return (
-        <div className="rounded-xl border border-beige bg-white overflow-hidden">
+        <div className="rounded-xl border border-beige bg-noir overflow-hidden">
             <div className="hidden md:grid md:grid-cols-[100px_minmax(0,1fr)_80px_100px_120px] gap-3 px-4 py-2.5 border-b border-beige bg-cream/40 text-[9px] font-black text-tan uppercase tracking-wider">
                 <span>ID</span>
                 <span>Decision</span>
@@ -235,7 +235,7 @@ function DecisionsPage() {
                 <div
                     key={item.id}
                     className={`border-b border-beige/60 last:border-0 px-4 py-3 ${
-                        i === 0 ? 'bg-olynk/[0.06] border-l-2 border-l-olynk' : 'bg-white'
+                        i === 0 ? 'bg-olynk/[0.06] border-l-2 border-l-olynk' : 'bg-noir'
                     }`}
                 >
                     <div className="hidden md:grid md:grid-cols-[100px_minmax(0,1fr)_80px_100px_120px] gap-3 items-center">
@@ -283,7 +283,7 @@ function PriorityBadge({ priority }: { priority: 'Urgent' | 'High' | 'Medium' | 
 
 function DecisionPanel() {
     return (
-        <div className="flex flex-col h-full bg-white min-h-[320px] lg:min-h-0 lg:flex-1">
+        <div className="flex flex-col h-full bg-noir min-h-[320px] lg:min-h-0 lg:flex-1">
             <div className="px-4 py-3 border-b border-beige bg-navy text-white flex items-start justify-between gap-3 shrink-0">
                 <div>
                     <p className="text-[9px] font-bold uppercase tracking-[0.2em] text-white/50">Decision</p>
@@ -305,7 +305,7 @@ function DecisionPanel() {
                                         step.accent ? 'bg-olynk/5 border border-olynk/25' : 'bg-cream/50'
                                     }`}
                                 >
-                                    <span className="w-5 h-5 rounded-full bg-white border border-beige flex items-center justify-center text-[9px] font-mono font-bold text-steel shrink-0">
+                                    <span className="w-5 h-5 rounded-full bg-noir border border-beige flex items-center justify-center text-[9px] font-mono font-bold text-steel shrink-0">
                                         {i + 1}
                                     </span>
                                     <div className="min-w-0 flex-1">
@@ -346,13 +346,13 @@ function DecisionPanel() {
                         </button>
                         <button
                             type="button"
-                            className="px-3 py-2.5 rounded-xl border border-beige text-[10px] font-black uppercase tracking-wider text-steel bg-white"
+                            className="px-3 py-2.5 rounded-xl border border-beige text-[10px] font-black uppercase tracking-wider text-steel bg-noir"
                         >
                             Snooze
                         </button>
                         <button
                             type="button"
-                            className="p-2.5 rounded-xl border border-beige text-steel bg-white"
+                            className="p-2.5 rounded-xl border border-beige text-steel bg-noir"
                             aria-label="More options"
                         >
                             <MoreHorizontal className="w-4 h-4" />
@@ -383,7 +383,7 @@ const ProductSnapshot = () => {
 
     return (
         <div className="w-full max-w-7xl mx-auto transform-none">
-            <div className="rounded-xl border border-beige bg-white shadow-sm ring-1 ring-black/[0.04] overflow-hidden transform-none">
+            <div className="rounded-xl border border-beige bg-noir shadow-sm ring-1 ring-black/[0.04] overflow-hidden transform-none">
                 <header className="flex flex-wrap items-center gap-x-3 gap-y-2 px-4 sm:px-5 py-3 border-b border-beige bg-cream/50">
                     <Logo size="sm" className="shrink-0" />
                     <div className="hidden sm:flex items-center gap-1.5 text-[11px] font-mono text-steel">
@@ -392,7 +392,7 @@ const ProductSnapshot = () => {
                         <span>production</span>
                     </div>
                     <nav
-                        className="flex items-center p-0.5 bg-white border border-beige rounded-lg"
+                        className="flex items-center p-0.5 bg-noir border border-beige rounded-lg"
                         role="tablist"
                         aria-label="Product views"
                     >
@@ -411,7 +411,7 @@ const ProductSnapshot = () => {
                             </button>
                         ))}
                     </nav>
-                    <div className="flex-1 min-w-[140px] max-w-xs ml-auto hidden lg:flex items-center gap-2 px-3 py-1.5 rounded-lg border border-beige bg-white">
+                    <div className="flex-1 min-w-[140px] max-w-xs ml-auto hidden lg:flex items-center gap-2 px-3 py-1.5 rounded-lg border border-beige bg-noir">
                         <Search className="w-3.5 h-3.5 text-steel shrink-0" />
                         <span className="text-[11px] text-steel truncate">Search drivers, SKUs{S.ellipsis}</span>
                         <kbd className="ml-auto shrink-0 text-[9px] font-mono text-navy/40 bg-cream px-1.5 py-0.5 rounded border border-beige">
@@ -443,12 +443,12 @@ const ProductSnapshot = () => {
                                 <div className="flex items-center gap-2 shrink-0">
                                     <button
                                         type="button"
-                                        className="inline-flex items-center gap-1.5 px-3 py-1.5 text-[10px] font-bold text-navy bg-white border border-beige rounded-lg"
+                                        className="inline-flex items-center gap-1.5 px-3 py-1.5 text-[10px] font-bold text-navy bg-noir border border-beige rounded-lg"
                                     >
                                         <Filter className="w-3 h-3" />
                                         Filters
                                     </button>
-                                    <span className="text-[10px] font-mono text-steel px-2.5 py-1.5 bg-white border border-beige rounded-lg whitespace-nowrap">
+                                    <span className="text-[10px] font-mono text-steel px-2.5 py-1.5 bg-noir border border-beige rounded-lg whitespace-nowrap">
                                         trace_8f2a{S.ellipsis}c41
                                     </span>
                                 </div>
@@ -459,7 +459,7 @@ const ProductSnapshot = () => {
                             <TabContent tab={activeTab} />
                         </div>
 
-                        <footer className="px-4 sm:px-5 py-2.5 border-t border-beige bg-white text-[10px] font-mono text-steel flex flex-wrap items-center justify-between gap-2">
+                        <footer className="px-4 sm:px-5 py-2.5 border-t border-beige bg-noir text-[10px] font-mono text-steel flex flex-wrap items-center justify-between gap-2">
                             <span>
                                 <span className="text-emerald-600 font-bold">EXEC</span> PO-8841 {S.dot}{' '}
                                 <span className="text-navy font-bold">reorder_auto</span> {S.dot} 14ms

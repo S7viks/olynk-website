@@ -153,7 +153,7 @@ const SmartIntegration = () => {
                   w-8 h-8 rounded-full flex items-center justify-center transition-all duration-400
                   ${index <= currentStep 
                     ? 'bg-gradient-to-r from-teal-600 to-cyan-600 text-white scale-105 shadow-md' 
-                    : 'bg-white dark:bg-gray-800 text-gray-400 dark:text-gray-500'}
+                    : 'bg-noir dark:bg-gray-800 text-gray-400 dark:text-gray-500'}
                 `}
                 style={{ transitionDelay: `${index * 50}ms` }}>
                   <step.icon className="w-4 h-4" />
@@ -172,7 +172,7 @@ const SmartIntegration = () => {
 
         {/* Main Visualization */}
         <div className={`
-          bg-white/60 dark:bg-gray-800/60 backdrop-blur-sm rounded-xl shadow-lg p-4 transition-all duration-800 transform
+          bg-noir/60 dark:bg-gray-800/60 backdrop-blur-sm rounded-xl shadow-lg p-4 transition-all duration-800 transform
           ${visibleElements.has('main-container') ? 'opacity-100 translate-y-0 scale-100' : 'opacity-0 translate-y-6 scale-95'}
         `}>
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 items-center">
@@ -250,7 +250,7 @@ const SmartIntegration = () => {
                 </div>
               </div>
               {currentStep >= 1 && integrationActive && (
-                <div className="bg-white dark:bg-gray-800 rounded-md p-2 shadow-sm border border-teal-100 dark:border-teal-900 text-center animate-slide-up min-w-40">
+                <div className="bg-noir dark:bg-gray-800 rounded-md p-2 shadow-sm border border-teal-100 dark:border-teal-900 text-center animate-slide-up min-w-40">
                   <h4 className="text-xs font-bold text-gray-800 dark:text-gray-100 mb-1 flex items-center justify-center gap-1">
                     <Brain className="w-2 h-2 text-teal-500" />
                     AI Orchestrator
@@ -364,7 +364,7 @@ const SmartIntegration = () => {
           {features.map((feature, index) => (
             <div
               key={index}
-              className="bg-white/80 dark:bg-gray-800/80 rounded-md p-2 shadow-sm hover:shadow-md transition-all duration-300 hover:scale-105 border border-white/50 dark:border-gray-700"
+              className="bg-noir/80 dark:bg-gray-800/80 rounded-md p-2 shadow-sm hover:shadow-md transition-all duration-300 hover:scale-105 border border-white/50 dark:border-gray-700"
               style={{ animationDelay: `${feature.delay + 600}ms` }}
             >
               <div className={`w-6 h-6 bg-gradient-to-br ${feature.color} rounded flex items-center justify-center mb-1`}>
@@ -378,7 +378,7 @@ const SmartIntegration = () => {
 
         {/* Health Monitor */}
         <div className={`
-          bg-white/80 dark:bg-gray-800/80 rounded-xl p-3 shadow-lg mt-4 transition-all duration-800 transform
+          bg-noir/80 dark:bg-gray-800/80 rounded-xl p-3 shadow-lg mt-4 transition-all duration-800 transform
           ${visibleElements.has('health-monitor') ? 'opacity-100 translate-y-0 scale-100' : 'opacity-0 translate-y-6 scale-95'}
         `}>
           <div className="text-center mb-2">

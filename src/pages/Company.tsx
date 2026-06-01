@@ -21,14 +21,14 @@ const Company = () => {
               <span className="text-olynk">for Causal Commerce.</span>
             </h1>
             <p className="text-xl lg:text-2xl text-steel max-w-3xl mx-auto leading-relaxed font-medium">
-              We believe every business deserves a digital nervous system that explains <span className="text-navy font-bold">why</span> outcomes move—not just what moved last quarter.
+              We believe every business deserves a digital nervous system that explains <span className="text-navy font-bold">why</span> outcomes move, not just what moved last quarter.
             </p>
           </motion.div>
         </div>
       </section>
 
       {/* Core Mission/Vision Grid */}
-      <section className="py-24 lg:py-32 px-4 border-t border-beige bg-white/40 backdrop-blur-xl relative overflow-hidden">
+      <section className="py-24 lg:py-32 px-4 border-t border-beige bg-noir/40 backdrop-blur-xl relative overflow-hidden">
         <div className="max-w-7xl mx-auto relative z-10">
           <div className="grid lg:grid-cols-2 gap-16 items-start">
             <div className="space-y-12">
@@ -110,7 +110,7 @@ const Company = () => {
             { icon: Award, title: "Global Compliance", desc: "Strict adherence to GDPR, international security protocols, and local privacy laws." },
             { icon: Heart, title: "Reliability", desc: "99.99% system uptime via decentralized compute infrastructure." }
           ].map((item, i) => (
-            <div key={i} className="p-10 rounded-[40px] border border-beige/60 bg-white hover:shadow-xl transition-all group">
+            <div key={i} className="p-10 rounded-[40px] border border-beige/60 bg-noir hover:shadow-xl transition-all group">
               <div className="w-14 h-14 rounded-2xl bg-cream flex items-center justify-center mb-8 group-hover:scale-110 transition-transform">
                 <item.icon className="w-7 h-7 text-navy" />
               </div>
@@ -134,7 +134,7 @@ const Company = () => {
           </p>
           <a
             href="mailto:careers@olynk.ai?subject=Interested in Open Positions"
-            className="inline-block px-12 py-6 bg-white text-navy rounded-2xl font-black text-xl hover:shadow-2xl hover:-translate-y-1 transition-all"
+            className="inline-block px-12 py-6 bg-noir text-navy rounded-2xl font-black text-xl hover:shadow-2xl hover:-translate-y-1 transition-all"
           >
             View Open Deployments
           </a>

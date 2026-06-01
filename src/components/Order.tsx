@@ -116,7 +116,7 @@ const Order: React.FC = () => {
         }`}>
           
           {/* Chaos Side */}
-          <div className={`bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm rounded-3xl p-6 border-2 border-red-200 dark:border-red-700 shadow-2xl transition-all duration-700 ${
+          <div className={`bg-noir/80 dark:bg-gray-800/80 backdrop-blur-sm rounded-3xl p-6 border-2 border-red-200 dark:border-red-700 shadow-2xl transition-all duration-700 ${
             animationStage >= 4 ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-8'
           }`}>
             <div className="text-center mb-8">
@@ -158,7 +158,7 @@ const Order: React.FC = () => {
           </div>
 
           {/* AI Intelligence Side */}
-          <div className={`bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm rounded-3xl p-6 border-2 border-teal-200 dark:border-teal-700 shadow-2xl transition-all duration-700 ${
+          <div className={`bg-noir/80 dark:bg-gray-800/80 backdrop-blur-sm rounded-3xl p-6 border-2 border-teal-200 dark:border-teal-700 shadow-2xl transition-all duration-700 ${
             animationStage >= 5 ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-8'
           }`}>
             <div className="text-center mb-8">
@@ -214,7 +214,7 @@ const Order: React.FC = () => {
             </div>
             
             <div className="grid md:grid-cols-3 gap-6">
-              <div className="text-center bg-white/20 dark:bg-gray-800/20 backdrop-blur-sm rounded-2xl p-6">
+              <div className="text-center bg-noir/20 dark:bg-gray-800/20 backdrop-blur-sm rounded-2xl p-6">
                 <div className="flex items-center justify-center mb-4">
                   <TrendingUp className="w-12 h-12 text-white animate-bounce" />
                 </div>
@@ -226,7 +226,7 @@ const Order: React.FC = () => {
                 <p className="text-teal-100 dark:text-teal-200 text-base font-semibold">Faster Delivery</p>
               </div>
               
-              <div className="text-center bg-white/20 dark:bg-gray-800/20 backdrop-blur-sm rounded-2xl p-6">
+              <div className="text-center bg-noir/20 dark:bg-gray-800/20 backdrop-blur-sm rounded-2xl p-6">
                 <div className="flex items-center justify-center mb-4">
                   <Clock className="w-12 h-12 text-white animate-bounce" style={{ animationDelay: '200ms' }} />
                 </div>
@@ -238,7 +238,7 @@ const Order: React.FC = () => {
                 <p className="text-teal-100 dark:text-teal-200 text-base font-semibold">Days Saved Average</p>
               </div>
               
-              <div className="text-center bg-white/20 dark:bg-gray-800/20 backdrop-blur-sm rounded-2xl p-6">
+              <div className="text-center bg-noir/20 dark:bg-gray-800/20 backdrop-blur-sm rounded-2xl p-6">
                 <div className="flex items-center justify-center mb-4">
                   <CheckCircle className="w-12 h-12 text-white animate-bounce" style={{ animationDelay: '400ms' }} />
                 </div>

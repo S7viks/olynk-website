@@ -35,7 +35,7 @@ const SimpleChart: React.FC<{ scene: number; showAI: boolean }> = ({ scene, show
   };
 
   return (
-    <div className="bg-white rounded-lg p-4 shadow-sm border border-gray-200">
+    <div className="bg-noir rounded-lg p-4 shadow-sm border border-gray-200">
       <h3 className="text-sm font-semibold text-gray-700 mb-3 text-center">
         {showAI ? 'AI Protected Sales' : 'Sales Trend'}
       </h3>
@@ -80,7 +80,7 @@ const SimpleInventory: React.FC<{ scene: number; showAI: boolean }> = ({ scene, 
   };
 
   return (
-    <div className="bg-white rounded-lg p-4 shadow-sm border border-gray-200">
+    <div className="bg-noir rounded-lg p-4 shadow-sm border border-gray-200">
       <div className="text-center">
         <div className="text-2xl font-bold text-gray-800 mb-1">
           {inventory.toLocaleString()}
@@ -120,7 +120,7 @@ const SimpleFinancial: React.FC<{ scene: number; showAI: boolean }> = ({ scene, 
   };
 
   return (
-    <div className="bg-white rounded-lg p-4 shadow-sm border border-gray-200">
+    <div className="bg-noir rounded-lg p-4 shadow-sm border border-gray-200">
       <div className="text-center">
         <div className="text-2xl font-bold text-gray-800 mb-1">
           {formatCurrency(amount)}
@@ -148,7 +148,7 @@ const SimpleControls: React.FC<{
   onSceneChange: (scene: number) => void;
 }> = ({ currentScene, isPlaying, showAI, onPlay, onAIDemo, onReset, onSceneChange }) => {
   return (
-    <div className="bg-white rounded-lg p-4 shadow-sm border border-gray-200">
+    <div className="bg-noir rounded-lg p-4 shadow-sm border border-gray-200">
       <div className="flex items-center justify-between mb-3">
         <h3 className="text-sm font-semibold text-gray-700">Story Progress</h3>
         <div className="flex gap-1">
@@ -261,7 +261,7 @@ const Stock: React.FC<StockProps> = ({ isLoaded, onClose }) => {
   return (
     <div className="w-full h-full bg-gradient-to-br from-pink-50 via-blue-50 to-purple-50 rounded-xl overflow-hidden relative shadow-lg border border-gray-200">
       {/* Header */}
-      <header className="bg-white/80 backdrop-blur-sm border-b border-gray-200">
+      <header className="bg-noir/80 backdrop-blur-sm border-b border-gray-200">
         <div className="px-4 py-3">
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-3">
@@ -275,7 +275,7 @@ const Stock: React.FC<StockProps> = ({ isLoaded, onClose }) => {
             </div>
             <div className="px-3 py-1.5 bg-gradient-to-r from-pink-400 to-purple-400 text-white rounded-full text-sm font-medium">
               <div className="flex items-center gap-1.5">
-                <div className="w-1.5 h-1.5 bg-white rounded-full animate-pulse" />
+                <div className="w-1.5 h-1.5 bg-noir rounded-full animate-pulse" />
                 Live Demo
               </div>
             </div>
@@ -325,7 +325,7 @@ const Stock: React.FC<StockProps> = ({ isLoaded, onClose }) => {
 
         {/* Summary Cards */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-          <div className="bg-white rounded-lg p-4 shadow-sm border border-gray-200">
+          <div className="bg-noir rounded-lg p-4 shadow-sm border border-gray-200">
             <h3 className="text-base font-bold text-gray-800 mb-3 flex items-center gap-2">
               <div className="w-5 h-5 bg-red-300 rounded-lg flex items-center justify-center">
                 <AlertTriangle className="w-2.5 h-2.5 text-red-600" />
@@ -346,17 +346,17 @@ const Stock: React.FC<StockProps> = ({ isLoaded, onClose }) => {
 
           <div className="bg-gradient-to-r from-pink-400 to-purple-400 rounded-lg p-4 text-white shadow-sm">
             <h3 className="text-base font-bold mb-3 flex items-center gap-2">
-              <div className="w-5 h-5 bg-white/20 rounded-lg flex items-center justify-center">
+              <div className="w-5 h-5 bg-noir/20 rounded-lg flex items-center justify-center">
                 <Brain className="w-2.5 h-2.5 text-white" />
               </div>
               With AI Prediction
             </h3>
             <div className="space-y-2">
-              <div className="p-2 bg-white/10 rounded-lg border border-white/20">
+              <div className="p-2 bg-noir/10 rounded-lg border border-white/20">
                 <p className="font-bold text-xs">7-Day Advance Warning</p>
                 <p className="text-xs text-pink-100">Predict demand spikes before they happen</p>
               </div>
-              <div className="p-2 bg-white/10 rounded-lg border border-white/20">
+              <div className="p-2 bg-noir/10 rounded-lg border border-white/20">
                 <p className="font-bold text-xs">100% Availability Maintained</p>
                 <p className="text-xs text-pink-100">Automated reorder recommendations</p>
               </div>

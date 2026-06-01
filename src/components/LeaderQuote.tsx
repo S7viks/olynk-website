@@ -9,7 +9,7 @@ export const LeaderQuote = () => {
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.8, delay: 1.2 }}
     >
-      <div className="bg-white rounded-3xl p-8 lg:p-12 border border-beige relative shadow-sm">
+      <div className="bg-noir rounded-3xl p-8 lg:p-12 border border-beige relative shadow-sm">
         <Quote className="w-10 h-10 text-olynk mx-auto mb-6 opacity-20" />
 
         <blockquote className="text-xl md:text-2xl text-navy font-bold italic mb-8 leading-tight tracking-tight">

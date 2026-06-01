@@ -9,13 +9,13 @@ export default function NotFound() {
     <>
       <SEO
         {...getPageSEO('home')}
-        title="Page not found | OLYNK"
-        description="The page you’re looking for doesn’t exist."
+        title="Page not found | Olynk"
+        description="This page is not on olynkai.com. Return home for causal intelligence for commerce operations."
         canonical={location.pathname}
         noIndex
       />
       <div className="mx-auto max-w-3xl px-6 py-20">
-        <div className="rounded-2xl border border-sand/60 bg-white/70 p-10 backdrop-blur">
+        <div className="rounded-2xl border border-sand/60 bg-noir/70 p-10 backdrop-blur">
           <p className="text-sm font-medium text-steel">404</p>
           <h1 className="mt-2 text-3xl font-semibold tracking-tight text-navy">
             Page not found

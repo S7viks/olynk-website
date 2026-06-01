@@ -84,7 +84,7 @@ const Patterns = () => {
 
         {/* Step 1: Normal Dashboard */}
         <div className={`transition-all duration-1000 transform ${step >= 1 ? 'opacity-100 translate-y-0 scale-100' : 'opacity-0 translate-y-8 scale-95'}`}>
-          <div className="bg-white rounded-lg shadow p-1 border border-slate-200 hover:shadow-md transition-shadow duration-300">
+          <div className="bg-noir rounded-lg shadow p-1 border border-slate-200 hover:shadow-md transition-shadow duration-300">
             <div className="flex items-center justify-between mb-1">
               <div className="flex items-center space-x-1">
                 <BarChart3 className="w-3 h-3 text-teal-600 animate-bounce" />
@@ -129,7 +129,7 @@ const Patterns = () => {
                 { title: 'Weekend Payments', value: '-28%', desc: 'Failures Sat/Sun', color: 'orange', icon: '💳' },
                 { title: 'Heat Inventory', value: '-67%', desc: 'Vanishes in heat', color: 'yellow', icon: '🌡️' }
               ].map((item, index) => (
-                <div key={index} className={`bg-white p-1 rounded border border-${item.color}-200 transform hover:scale-105 transition-all duration-300 animate-shake`}>
+                <div key={index} className={`bg-noir p-1 rounded border border-${item.color}-200 transform hover:scale-105 transition-all duration-300 animate-shake`}>
                   <div className="flex items-center justify-between mb-0.5">
                     <span className="text-sm">{item.icon}</span>
                     <div className={`text-sm font-bold text-${item.color}-800 animate-pulse`}>{item.value}</div>
@@ -179,7 +179,7 @@ const Patterns = () => {
                 { insight: '"Retry payments Monday"', confidence: '89%', color: 'blue', number: '#2' },
                 { insight: '"Stock before heatwave"', confidence: '96%', color: 'purple', number: '#3' }
               ].map((item, index) => (
-                <div key={index} className={`bg-white p-1 rounded border border-${item.color}-200 transform hover:scale-105 transition-all duration-300 hover:shadow`}>
+                <div key={index} className={`bg-noir p-1 rounded border border-${item.color}-200 transform hover:scale-105 transition-all duration-300 hover:shadow`}>
                   <div className={`text-${item.color}-600 text-xs font-bold mb-0.5 flex items-center justify-between`}>
                     <span>AI INSIGHT {item.number}</span>
                     <Eye className="w-2 h-2 animate-pulse" />
@@ -210,7 +210,7 @@ const Patterns = () => {
                 { icon: <div className="w-2 h-2 mx-auto mb-0.5 text-xs">📈</div>, value: '+89%', label: 'Payments' },
                 { icon: <div className="w-2 h-2 mx-auto mb-0.5 text-xs">✅</div>, value: '0', label: 'Stock-outs' }
               ].map((item, index) => (
-                <div key={index} className="bg-white/20 p-0.5 rounded transform hover:scale-110 transition-all duration-300 hover:bg-white/30">
+                <div key={index} className="bg-noir/20 p-0.5 rounded transform hover:scale-110 transition-all duration-300 hover:bg-noir/30">
                   {item.icon}
                   <div className="font-bold text-xs">{item.value}</div>
                   <div className="text-xs opacity-90">{item.label}</div>

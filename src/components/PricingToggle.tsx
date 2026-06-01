@@ -19,7 +19,7 @@ export const PricingToggle: React.FC<PricingToggleProps> = ({ isAnnual, onToggle
         }`}
       >
         <span
-          className={`inline-block h-6 w-6 transform rounded-full bg-white transition-transform ${
+          className={`inline-block h-6 w-6 transform rounded-full bg-noir transition-transform ${
             isAnnual ? 'translate-x-9' : 'translate-x-1'
           }`}
         />

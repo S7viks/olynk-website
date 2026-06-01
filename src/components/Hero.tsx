@@ -43,7 +43,7 @@ const Hero = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
           >
-            Olynk separates drivers from coincidence—then prescribes governed fixes with full lineage.
+            Olynk separates drivers from coincidence, then prescribes governed fixes with full lineage.
             <span className="text-navy font-black"> Stop optimizing noise</span> while inventory drift, delivery risk, and cash leaks compound in silence.
           </motion.p>
 

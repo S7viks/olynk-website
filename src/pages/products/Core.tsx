@@ -3,7 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { Brain, Sparkles, GitBranch, Play, Search, Activity, MessageSquare } from 'lucide-react';
 
 const DecisionEngine = ({ isThinking }: { isThinking: boolean }) => (
-    <div className="relative w-full h-full bg-white overflow-hidden flex items-center justify-center p-8">
+    <div className="relative w-full h-full bg-noir overflow-hidden flex items-center justify-center p-8">
         {/* Technical Blueprint Grid */}
         <div className="absolute inset-0 opacity-[0.15]" style={{
             backgroundImage: 'linear-gradient(#1E293B 1px, transparent 1px), linear-gradient(90deg, #1E293B 1px, transparent 1px)',
@@ -84,9 +84,9 @@ const Core = () => {
     }, []);
 
     const thinkingSteps = [
-        { label: "OBSERVE", text: "Line-3 capacity is below 4 hour buffer for the next shift." },
-        { label: "THINK", text: "Downstream SLA risk is High. Alternate routing and overtime window are within policy." },
-        { label: "ACT", text: "Drafted a mitigation plan: shift swap + expedited RM + updated schedule. Sent for approval." }
+        { label: "OBSERVE", text: "Line-3 capacity is below 4 hour buffer for the next shift (driver: RM delay + absenteeism)." },
+        { label: "INFER", text: "SLA risk is High; alternate routing and overtime are within policy; counterfactual shows +6h recovery if approved." },
+        { label: "ACT", text: "Drafted mitigation: shift swap + expedited RM + schedule bump, queued for approval with driver tree attached." }
     ];
 
     const outputActions = ['Approval Request', 'ERP Update', 'Supplier Notify'];
@@ -107,13 +107,13 @@ const Core = () => {
                     >
                         <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-navy/5 border border-navy/10 text-[11px] font-black font-mono text-navy uppercase tracking-widest mb-8">
                             <Brain className="w-3.5 h-3.5" />
-                            Cognitive Layer
+                            Causal execution layer
                         </div>
                         <h1 className="page-hero-title mb-8">
-                            Reason, learn, <br /><span className="text-olynk">and automate.</span>
+                            Reason over drivers, <br /><span className="text-olynk">then automate.</span>
                         </h1>
                         <p className="text-xl text-steel max-w-2xl mx-auto leading-relaxed font-medium mb-12">
-                            AI that thinks through problems with human-like reasoning. Olynk Core creates autonomous agents to execute complex workflows.
+                            Core evaluates policies against causal reads from Insight, then runs governed workflows with counterfactual checks, approvals, and full lineage.
                         </p>
                     </motion.div>
                 </div>
@@ -126,7 +126,7 @@ const Core = () => {
                         {/* Central Brain Anchor */}
                         <div className="absolute left-1/2 top-0 -translate-x-1/2 w-1 bg-gradient-to-b from-navy/5 to-navy/20 h-10 lg:h-20" />
 
-                        <div className="bg-white rounded-[32px] lg:rounded-[40px] p-5 lg:p-10 text-navy relative overflow-hidden shadow-[0_32px_80px_-16px_rgba(30,41,59,0.1)] border border-beige max-w-5xl mx-auto z-10">
+                        <div className="bg-noir rounded-[32px] lg:rounded-[40px] p-5 lg:p-10 text-navy relative overflow-hidden shadow-[0_32px_80px_-16px_rgba(30,41,59,0.1)] border border-beige max-w-5xl mx-auto z-10">
                             <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
 
                                 <div className="space-y-6 lg:space-y-8">
@@ -135,9 +135,9 @@ const Core = () => {
                                     </div>
 
                                     <div className="text-center lg:text-left">
-                                        <h2 className="text-2xl lg:text-3xl font-black uppercase tracking-tight mb-3 lg:mb-4 text-navy">Cognitive Execution</h2>
+                                        <h2 className="text-2xl lg:text-3xl font-black uppercase tracking-tight mb-3 lg:mb-4 text-navy">Governed execution</h2>
                                         <div className="font-mono text-[9px] lg:text-[10px] text-navy/60 mb-4 bg-navy/5 inline-block px-3 py-1 rounded-full border border-navy/10 uppercase tracking-widest font-black">AGENT_ID: CORE_V1_ALPHA</div>
-                                        <p className="text-sm lg:text-base text-steel font-medium leading-relaxed max-w-md mx-auto lg:mx-0">Our autonomous logic engine maps complex business dependencies and executes multi-step plans in milliseconds.</p>
+                                        <p className="text-sm lg:text-base text-steel font-medium leading-relaxed max-w-md mx-auto lg:mx-0">Core maps dependencies from Insight&apos;s causal graph and executes multi-step plans inside your guardrails, every step logged for audit.</p>
                                     </div>
                                 </div>
 
@@ -165,7 +165,7 @@ const Core = () => {
                                                     key={i}
                                                     initial={{ opacity: 0, x: -10 }}
                                                     animate={{ opacity: 1, x: 0 }}
-                                                    className="flex gap-3 lg:gap-4 items-start bg-white p-3 lg:p-4 rounded-xl border border-beige shadow-sm"
+                                                    className="flex gap-3 lg:gap-4 items-start bg-noir p-3 lg:p-4 rounded-xl border border-beige shadow-sm"
                                                 >
                                                     <div className={`text-[9px] lg:text-[10px] font-black px-1.5 lg:px-2 py-0.5 rounded min-w-[60px] lg:min-w-[70px] text-center ${item.label === 'ACT' ? 'bg-emerald-500/10 text-emerald-600' : 'bg-amber-500/10 text-amber-600'}`}>
                                                         {item.label}
@@ -189,7 +189,7 @@ const Core = () => {
 
                                     <div className="absolute bottom-4 lg:bottom-6 left-6 lg:left-8 text-navy/60 flex items-center gap-2 font-mono text-[9px] lg:text-[10px] font-black uppercase tracking-widest">
                                         <div className="w-1.5 h-1.5 rounded-full bg-amber-500 animate-pulse" />
-                                        Thinking...
+                                        Evaluating drivers...
                                     </div>
                                 </div>
 
@@ -207,7 +207,7 @@ const Core = () => {
                                     className="flex flex-col items-center gap-4"
                                 >
                                     <div className="h-12 w-px bg-gradient-to-b from-navy/20 to-transparent" />
-                                    <div className="bg-white border border-beige px-6 py-3 rounded-2xl text-[11px] font-black text-navy shadow-[0_8px_30px_rgb(0,0,0,0.04)] flex items-center gap-3 uppercase tracking-tighter">
+                                    <div className="bg-noir border border-beige px-6 py-3 rounded-2xl text-[11px] font-black text-navy shadow-[0_8px_30px_rgb(0,0,0,0.04)] flex items-center gap-3 uppercase tracking-tighter">
                                         <div className="w-2 h-2 rounded-full bg-emerald-500" />
                                         {action}
                                     </div>
@@ -225,10 +225,10 @@ const Core = () => {
                         {[
                             {
                                 icon: Sparkles,
-                                title: "Self-Healing Ops",
-                                desc: "Automated intervention when KPIs drift.",
+                                title: "Driver-guarded recovery",
+                                desc: "When KPIs drift, Core proposes interventions tied to ranked drivers, then enforces policy once approved.",
                                 animation: (
-                                    <div className="h-44 bg-white border border-beige rounded-3xl relative overflow-hidden flex flex-col items-center justify-center p-6 shadow-sm">
+                                    <div className="h-44 bg-noir border border-beige rounded-3xl relative overflow-hidden flex flex-col items-center justify-center p-6 shadow-sm">
                                         <div className="flex gap-1.5 mb-6">
                                             {[...Array(8)].map((_, i) => (
                                                 <motion.div
@@ -253,10 +253,10 @@ const Core = () => {
                             },
                             {
                                 icon: GitBranch,
-                                title: "Adaptive Workflows",
-                                desc: "Logic that evolves with your business.",
+                                title: "Adaptive workflows",
+                                desc: "Playbooks evolve with your constraints and approvals, logic stays explainable, not opaque.",
                                 animation: (
-                                    <div className="h-44 bg-white border border-beige rounded-3xl relative overflow-hidden flex items-center justify-center shadow-sm">
+                                    <div className="h-44 bg-noir border border-beige rounded-3xl relative overflow-hidden flex items-center justify-center shadow-sm">
                                         <svg viewBox="0 0 100 60" className="w-full h-full p-6">
                                             <motion.path
                                                 d="M 10 30 L 30 30 L 50 10 L 70 10 L 90 30"
@@ -281,10 +281,10 @@ const Core = () => {
                             },
                             {
                                 icon: MessageSquare,
-                                title: "Conversational BI",
-                                desc: "Natural language to complex execution.",
+                                title: "Causal Q&A",
+                                desc: "Ask why metrics moved and get driver trees plus recommended levers, not a static chart export.",
                                 animation: (
-                                    <div className="h-44 bg-white border border-beige rounded-3xl relative overflow-hidden flex flex-col items-center justify-center p-6 shadow-sm">
+                                    <div className="h-44 bg-noir border border-beige rounded-3xl relative overflow-hidden flex flex-col items-center justify-center p-6 shadow-sm">
                                         <div className="w-full bg-navy/5 border border-navy/5 rounded-xl p-3 flex items-center gap-3 mb-6">
                                             <Search className="w-4 h-4 text-navy/40" />
                                             <motion.div className="text-[11px] text-navy font-bold">
@@ -317,7 +317,7 @@ const Core = () => {
                                 {feature.animation}
                                 <div className="space-y-3">
                                     <div className="flex items-center gap-4">
-                                        <div className="w-12 h-12 rounded-xl bg-white border border-beige flex items-center justify-center group-hover:scale-110 transition-transform duration-300 shadow-sm">
+                                        <div className="w-12 h-12 rounded-xl bg-noir border border-beige flex items-center justify-center group-hover:scale-110 transition-transform duration-300 shadow-sm">
                                             <feature.icon className="w-6 h-6 text-amber-600" />
                                         </div>
                                         <h3 className="text-xl font-black text-navy">{feature.title}</h3>

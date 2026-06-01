@@ -68,7 +68,7 @@ const CTASection = () => {
                 >
                     <button
                         onClick={handlePrimaryCTA}
-                        className="bg-white text-navy px-10 py-5 rounded-lg text-xl font-black hover:bg-cream transition-all duration-200 shadow-xl hover:shadow-2xl hover:scale-105 uppercase tracking-widest font-mono"
+                        className="bg-noir text-navy px-10 py-5 rounded-lg text-xl font-black hover:bg-cream transition-all duration-200 shadow-xl hover:shadow-2xl hover:scale-105 uppercase tracking-widest font-mono"
                     >
                         {ctaContent.buttonText}
                     </button>

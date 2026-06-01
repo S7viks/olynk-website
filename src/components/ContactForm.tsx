@@ -60,7 +60,7 @@ const ContactForm: React.FC = () => {
   };
 
   return (
-    <div className="max-w-2xl mx-auto bg-white dark:bg-gray-800 rounded-2xl shadow-xl p-8">
+    <div className="max-w-2xl mx-auto bg-noir dark:bg-gray-800 rounded-2xl shadow-xl p-8">
       {/* Header */}
       <div className="text-center mb-8">
         <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-4">

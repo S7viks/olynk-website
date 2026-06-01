@@ -187,7 +187,7 @@ const Priority: React.FC = () => {
                 >
                   <div className="flex items-center justify-between">
                     <div className="flex items-center">
-                      <div className="bg-white bg-opacity-20 rounded-full p-2 mr-3">
+                      <div className="bg-noir bg-opacity-20 rounded-full p-2 mr-3">
                         <span className="text-base font-bold">#{index + 1}</span>
                       </div>
                       <div>
@@ -220,18 +220,18 @@ const Priority: React.FC = () => {
                 <CheckCircle className="w-10 h-10 mr-3 animate-pulse" />
                 <h3 className="text-4xl font-bold">Focus Mode Activated</h3>
               </div>
-              <div className="bg-white bg-opacity-10 rounded-xl p-4 mb-4">
+              <div className="bg-noir bg-opacity-10 rounded-xl p-4 mb-4">
                 <h4 className="text-3xl font-bold mb-3">TOP PRIORITY ACTION</h4>
                 <p className="text-base mb-3">Server overload detected - Critical business impact</p>
                 <div className="grid grid-cols-2 gap-3 mb-4">
-                  <div className="bg-white bg-opacity-20 rounded-lg p-3">
+                  <div className="bg-noir bg-opacity-20 rounded-lg p-3">
                     <div className="flex items-center mb-1">
                       <DollarSign className="w-5 h-5 mr-1" />
                       <span className="font-bold text-sm">Business Impact</span>
                     </div>
                     <p className="text-lg font-bold">₹2.3L Revenue Risk</p>
                   </div>
-                  <div className="bg-white bg-opacity-20 rounded-lg p-3">
+                  <div className="bg-noir bg-opacity-20 rounded-lg p-3">
                     <div className="flex items-center mb-1">
                       <Clock className="w-5 h-5 mr-1" />
                       <span className="font-bold text-sm">Time to Resolve</span>
@@ -260,7 +260,7 @@ const Priority: React.FC = () => {
                   </div>
                 </div>
               </div>
-              <button className="w-full bg-white dark:bg-gray-800 text-teal-700 dark:text-teal-300 font-bold py-3 px-4 rounded-xl hover:bg-gray-50 dark:hover:bg-gray-700 transform hover:scale-105 transition-all duration-300 animate-pulse text-sm">
+              <button className="w-full bg-noir dark:bg-gray-800 text-teal-700 dark:text-teal-300 font-bold py-3 px-4 rounded-xl hover:bg-gray-50 dark:hover:bg-gray-700 transform hover:scale-105 transition-all duration-300 animate-pulse text-sm">
                 Execute Priority Action Plan
               </button>
             </div>

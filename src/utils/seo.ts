@@ -67,7 +67,7 @@ export const generateOrganizationStructuredData = () => {
     "name": COMPANY_NAME,
     "url": CANONICAL_BASE_URL,
     "logo": absoluteUrl("/assets/olynk-social-preview.png"),
-    "description": `${BRAND_LOCKUP} delivers causal intelligence for commerce operations—drivers, counterfactuals, and governed execution with full lineage.`,
+    "description": `${BRAND_LOCKUP} delivers causal intelligence for commerce operations, drivers, counterfactuals, and governed execution with full lineage.`,
     "foundingDate": "2024",
     "address": {
       "@type": "PostalAddress",
@@ -94,7 +94,7 @@ export const generateSoftwareStructuredData = () => {
     "name": PLATFORM_NAME,
     "applicationCategory": "BusinessApplication",
     "operatingSystem": "Web",
-    "description": `${PLATFORM_NAME} is a causal operating system for commerce teams. Know what moves outcomes—then rehearse and execute with full traceability.`,
+    "description": `${PLATFORM_NAME} is a causal operating system for commerce teams. Know what moves outcomes, then rehearse and execute with full traceability.`,
     "publisher": {
       "@type": "Organization",
       "name": COMPANY_NAME,
@@ -179,7 +179,7 @@ export const SEO_KEYWORDS = {
 export const PAGE_SEO: Record<string, SEOProps> = {
   home: {
     title: `${BRAND_LOCKUP} | Causal intelligence for commerce operations`,
-    description: `${PLATFORM_NAME} ranks the drivers behind inventory, service, and cash—then executes governed actions with full lineage. Causal operations, not chart theater.`,
+    description: `${PLATFORM_NAME} ranks the drivers behind inventory, service, and cash, then executes governed actions with full lineage. Causal operations, not chart theater.`,
     keywords: SEO_KEYWORDS.home,
     canonical: CANONICAL_BASE_URL,
     ogImage: absoluteUrl("/assets/olynk-social-preview.png"),
@@ -216,7 +216,7 @@ export const PAGE_SEO: Record<string, SEOProps> = {
   },
   waitlist: {
     title: `Join the ${PLATFORM_NAME} waitlist | Early access`,
-    description: `Early access to ${PLATFORM_NAME}. Causal intelligence for inventory, service, and cash—on your stack.`,
+    description: `Early access to ${PLATFORM_NAME}. Causal intelligence for inventory, service, and cash, on your stack.`,
     keywords: SEO_KEYWORDS.home,
     canonical: absoluteUrl("/waitlist"),
     ogImage: absoluteUrl("/assets/olynk-social-preview.png"),
@@ -255,7 +255,7 @@ export const getPageSEO = (pageName: string, customSEO?: Partial<SEOProps>): SEO
 // Default SEO settings
 export const DEFAULT_SEO: SEOProps = {
   title: `${BRAND_LOCKUP} | Causal intelligence for commerce operations`,
-  description: `${PLATFORM_NAME} ranks what moves outcomes—then executes within policy. Causal operations for modern commerce.`,
+  description: `${PLATFORM_NAME} ranks what moves outcomes, then executes within policy. Causal operations for modern commerce.`,
   keywords: SEO_KEYWORDS.home,
   canonical: CANONICAL_BASE_URL,
   ogImage: absoluteUrl("/assets/olynk-social-preview.png"),

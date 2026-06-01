@@ -144,7 +144,7 @@ const Scattered: React.FC = () => {
           {systems.slice(0, visibleCount).map((system, index) => (
             <div
               key={system.name}
-              className={`bg-white dark:bg-gray-800 rounded-lg shadow-md p-2 transform transition-all duration-800 border ${
+              className={`bg-noir dark:bg-gray-800 rounded-lg shadow-md p-2 transform transition-all duration-800 border ${
                 showSync && isSynced ? `scale-105 ring-1 ring-green-400 ${system.color}` : system.color
               }`}
               style={{
@@ -197,7 +197,7 @@ const Scattered: React.FC = () => {
     if (currentScene < SCENES.ORDER_CONFUSION) return null;
 
     return (
-      <div className={`max-w-md mx-auto bg-white dark:bg-gray-800 rounded-lg shadow-md p-3 mb-3 transition-all duration-1000 ${
+      <div className={`max-w-md mx-auto bg-noir dark:bg-gray-800 rounded-lg shadow-md p-3 mb-3 transition-all duration-1000 ${
         showOrder ? 'opacity-100 translate-y-0 scale-100' : 'opacity-0 translate-y-4 scale-95'
       }`}>
         <div className="flex items-center justify-between">
@@ -249,7 +249,7 @@ const Scattered: React.FC = () => {
             <p className={`text-[10px] text-red-700 dark:text-red-400 mb-2 transition-all duration-700 delay-200 ${
               showAlert ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-2'
             }`}>Sold 40 units but only had 23</p>
-            <div className={`bg-white dark:bg-gray-800 rounded-md p-2 border border-red-200 dark:border-red-700 transition-all duration-700 delay-300 ${
+            <div className={`bg-noir dark:bg-gray-800 rounded-md p-2 border border-red-200 dark:border-red-700 transition-all duration-700 delay-300 ${
               showAlert ? 'opacity-100 scale-100 shadow-lg' : 'opacity-0 scale-95'
             }`}>
               <div className={`flex justify-between items-center mb-1 transition-all duration-500 delay-400 ${
@@ -317,7 +317,7 @@ const Scattered: React.FC = () => {
         {benefits.map((benefit, index) => (
           <div
             key={index}
-            className="bg-white dark:bg-gray-800 rounded-lg shadow-md p-2 transform transition-all duration-1000"
+            className="bg-noir dark:bg-gray-800 rounded-lg shadow-md p-2 transform transition-all duration-1000"
             style={{
               transitionDelay: `${index * 100}ms`,
               opacity: currentScene >= SCENES.IMPACT ? 1 : 0,

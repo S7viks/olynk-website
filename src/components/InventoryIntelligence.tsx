@@ -100,7 +100,7 @@ const InventoryIntelligence = () => {
       </div>
 
       <div className="max-w-4xl mx-auto">
-        <header className="bg-white/90 backdrop-blur-sm shadow-sm border-b border-gray-200 p-4">
+        <header className="bg-noir/90 backdrop-blur-sm shadow-sm border-b border-gray-200 p-4">
           <div className="flex items-center justify-between">
             <div className="flex items-center space-x-3">
               <div className="p-2 bg-gradient-to-r from-teal-100 to-blue-100 rounded-lg animate-fade-in">
@@ -153,7 +153,7 @@ const InventoryIntelligence = () => {
 
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
               <div className="space-y-4">
-                <div className="bg-white/90 backdrop-blur-sm rounded-xl shadow-lg p-4 border border-gray-200 transform transition-all duration-500 hover:shadow-xl animate-fade-in-up">
+                <div className="bg-noir/90 backdrop-blur-sm rounded-xl shadow-lg p-4 border border-gray-200 transform transition-all duration-500 hover:shadow-xl animate-fade-in-up">
                   <div className="flex items-center justify-between mb-4">
                     <h2 className="text-lg font-semibold text-gray-900">Sales Prediction Analysis</h2>
                     <div className="flex items-center space-x-2 text-teal-600 animate-pulse-smooth">
@@ -200,7 +200,7 @@ const InventoryIntelligence = () => {
                   </div>
                 </div>
 
-                <div className="bg-white/90 backdrop-blur-sm rounded-xl shadow-lg p-4 border border-gray-200 transform transition-all duration-500 hover:shadow-xl animate-fade-in-up" style={{ animationDelay: '0.2s' }}>
+                <div className="bg-noir/90 backdrop-blur-sm rounded-xl shadow-lg p-4 border border-gray-200 transform transition-all duration-500 hover:shadow-xl animate-fade-in-up" style={{ animationDelay: '0.2s' }}>
                   <h2 className="text-lg font-semibold text-gray-900 mb-4">External Factors Analysis</h2>
                   <div className="grid grid-cols-1 md:grid-cols-3 gap-2">
                     {externalFactors.map((factor, index) => (
@@ -237,7 +237,7 @@ const InventoryIntelligence = () => {
               </div>
 
               <div className="space-y-4">
-                <div className="bg-white/90 backdrop-blur-sm rounded-xl shadow-lg p-4 border border-gray-200 transform transition-all duration-500 hover:shadow-xl animate-fade-in-up">
+                <div className="bg-noir/90 backdrop-blur-sm rounded-xl shadow-lg p-4 border border-gray-200 transform transition-all duration-500 hover:shadow-xl animate-fade-in-up">
                   <div className="flex items-center justify-between mb-3">
                     <h3 className="text-base font-semibold text-gray-900">Prediction Confidence</h3>
                     <Gauge className="h-3 w-3 text-gray-600 animate-spin-smooth" style={{ animationDuration: '4s' }} />
@@ -281,7 +281,7 @@ const InventoryIntelligence = () => {
                   </div>
                 </div>
 
-                <div className="bg-white/90 backdrop-blur-sm rounded-xl shadow-lg p-4 border border-gray-200 transform transition-all duration-500 hover:shadow-xl animate-fade-in-up" style={{ animationDelay: '0.1s' }}>
+                <div className="bg-noir/90 backdrop-blur-sm rounded-xl shadow-lg p-4 border border-gray-200 transform transition-all duration-500 hover:shadow-xl animate-fade-in-up" style={{ animationDelay: '0.1s' }}>
                   <div className="flex items-center justify-between mb-3">
                     <h3 className="text-base font-semibold text-gray-900">Stock Level</h3>
                     <Package className="h-3 w-3 text-gray-600 animate-bounce-smooth" style={{ animationDuration: '1.5s' }} />
@@ -317,7 +317,7 @@ const InventoryIntelligence = () => {
                   </div>
                 </div>
 
-                <div className="bg-white/90 backdrop-blur-sm rounded-xl shadow-lg p-4 border border-gray-200 transform transition-all duration-500 hover:shadow-xl animate-fade-in-up" style={{ animationDelay: '0.2s' }}>
+                <div className="bg-noir/90 backdrop-blur-sm rounded-xl shadow-lg p-4 border border-gray-200 transform transition-all duration-500 hover:shadow-xl animate-fade-in-up" style={{ animationDelay: '0.2s' }}>
                   <div className="flex items-center justify-between mb-3">
                     <h3 className="text-base font-semibold text-gray-900">Revenue at Risk</h3>
                     <IndianRupee className="h-3 w-3 text-gray-600 animate-spin-smooth" style={{ animationDuration: '2s' }} />
@@ -341,7 +341,7 @@ const InventoryIntelligence = () => {
                 </div>
 
                 {showSuccessAnimation && (
-                  <div className="bg-white/90 backdrop-blur-sm rounded-xl shadow-lg p-3 border border-green-200 animate-bounce-in-smooth">
+                  <div className="bg-noir/90 backdrop-blur-sm rounded-xl shadow-lg p-3 border border-green-200 animate-bounce-in-smooth">
                     <div className="text-center">
                       <CheckCircle2 className="h-8 w-8 text-green-600 mx-auto mb-2 animate-spin-smooth" style={{ animationDuration: '1.5s' }} />
                       <h3 className="text-base font-semibold text-green-900 mb-1 animate-fade-in-up">Reorder Successful!</h3>
@@ -365,7 +365,7 @@ const InventoryIntelligence = () => {
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-4 gap-3 mt-4">
-              <div className="bg-white/90 backdrop-blur-sm rounded-xl shadow-lg p-3 border border-gray-200 transform transition-all duration-500 hover:shadow-xl hover:scale-102 animate-fade-in-up">
+              <div className="bg-noir/90 backdrop-blur-sm rounded-xl shadow-lg p-3 border border-gray-200 transform transition-all duration-500 hover:shadow-xl hover:scale-102 animate-fade-in-up">
                 <div className="flex items-center justify-between">
                   <div>
                     <p className="text-gray-600 text-xs">Total Orders</p>
@@ -376,7 +376,7 @@ const InventoryIntelligence = () => {
                 </div>
               </div>
               
-              <div className="bg-white/90 backdrop-blur-sm rounded-xl shadow-lg p-3 border border-gray-200 transform transition-all duration-500 hover:shadow-xl hover:scale-102 animate-fade-in-up" style={{ animationDelay: '0.1s' }}>
+              <div className="bg-noir/90 backdrop-blur-sm rounded-xl shadow-lg p-3 border border-gray-200 transform transition-all duration-500 hover:shadow-xl hover:scale-102 animate-fade-in-up" style={{ animationDelay: '0.1s' }}>
                 <div className="flex items-center justify-between">
                   <div>
                     <p className="text-gray-600 text-xs">Accuracy Rate</p>
@@ -387,7 +387,7 @@ const InventoryIntelligence = () => {
                 </div>
               </div>
               
-              <div className="bg-white/90 backdrop-blur-sm rounded-xl shadow-lg p-3 border border-gray-200 transform transition-all duration-500 hover:shadow-xl hover:scale-102 animate-fade-in-up" style={{ animationDelay: '0.2s' }}>
+              <div className="bg-noir/90 backdrop-blur-sm rounded-xl shadow-lg p-3 border border-gray-200 transform transition-all duration-500 hover:shadow-xl hover:scale-102 animate-fade-in-up" style={{ animationDelay: '0.2s' }}>
                 <div className="flex items-center justify-between">
                   <div>
                     <p className="text-gray-600 text-xs">Response Time</p>
@@ -398,7 +398,7 @@ const InventoryIntelligence = () => {
                 </div>
               </div>
               
-              <div className="bg-white/90 backdrop-blur-sm rounded-xl shadow-lg p-3 border border-gray-200 transform transition-all duration-500 hover:shadow-xl hover:scale-102 animate-fade-in-up" style={{ animationDelay: '0.3s' }}>
+              <div className="bg-noir/90 backdrop-blur-sm rounded-xl shadow-lg p-3 border border-gray-200 transform transition-all duration-500 hover:shadow-xl hover:scale-102 animate-fade-in-up" style={{ animationDelay: '0.3s' }}>
                 <div className="flex items-center justify-between">
                   <div>
                     <p className="text-gray-600 text-xs">Data Sources</p>

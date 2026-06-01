@@ -179,9 +179,9 @@ const OperationalDiagnostic: React.FC<DiagnosticProps> = ({ onComplete }) => {
 
   if (isTransitioning) {
     return (
-      <div className="min-h-screen bg-white flex items-center justify-center px-4">
+      <div className="min-h-screen bg-noir flex items-center justify-center px-4">
         <div className="w-full max-w-[900px] mx-auto">
-          <div className="bg-white rounded-2xl p-16 border border-primary-200 shadow-sm">
+          <div className="bg-noir rounded-2xl p-16 border border-primary-200 shadow-sm">
             <div className="max-w-[600px] text-center mx-auto animate-fade-in">
               <h2 className="text-2xl font-semibold text-primary-900 mb-4 leading-relaxed">
                 Patterns like these often lead to late detection
@@ -197,10 +197,10 @@ const OperationalDiagnostic: React.FC<DiagnosticProps> = ({ onComplete }) => {
   }
 
   return (
-    <div className="min-h-screen bg-white flex items-center justify-center px-4 py-32">
+    <div className="min-h-screen bg-noir flex items-center justify-center px-4 py-32">
       <div className="w-full max-w-[900px] mx-auto">
         {/* Step Content - The Card */}
-        <div className="bg-white rounded-2xl p-16 border border-primary-200 shadow-sm animate-fade-in">
+        <div className="bg-noir rounded-2xl p-16 border border-primary-200 shadow-sm animate-fade-in">
           {/* Header Zone (Optional - subtle context) */}
           <div className="mb-6">
             <p className="text-sm font-medium text-primary-500"></p>
@@ -224,7 +224,7 @@ const OperationalDiagnostic: React.FC<DiagnosticProps> = ({ onComplete }) => {
                   className={`w-full text-left px-6 py-5 rounded-xl border-2 transition-fast ${
                     isSelected
                       ? 'border-accent-500 bg-accent-50'
-                      : 'border-primary-200 bg-white hover:border-primary-300 hover:bg-primary-50'
+                      : 'border-primary-200 bg-noir hover:border-primary-300 hover:bg-primary-50'
                   }`}
                 >
                   <div className="flex items-center justify-between gap-4">
@@ -246,7 +246,7 @@ const OperationalDiagnostic: React.FC<DiagnosticProps> = ({ onComplete }) => {
             {step.allowNone && (
               <button
                 onClick={handleNone}
-                className="w-full text-left px-6 py-5 rounded-xl border-2 border-primary-200 bg-white hover:border-primary-300 hover:bg-primary-50 transition-fast mt-2"
+                className="w-full text-left px-6 py-5 rounded-xl border-2 border-primary-200 bg-noir hover:border-primary-300 hover:bg-primary-50 transition-fast mt-2"
               >
                 <span className="text-primary-600 text-base">None of these</span>
               </button>

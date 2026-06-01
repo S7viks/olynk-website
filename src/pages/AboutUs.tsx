@@ -12,7 +12,7 @@ const AboutUs = () => {
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.8 }}
                     >
-                        <div className="inline-flex items-center gap-2 px-4 py-2 bg-white border border-beige rounded-full mb-8 shadow-sm">
+                        <div className="inline-flex items-center gap-2 px-4 py-2 bg-noir border border-beige rounded-full mb-8 shadow-sm">
                             <Globe className="w-3 h-3 text-navy" />
                             <span className="text-[10px] font-black uppercase tracking-[0.2em] text-navy font-mono">COMPANY_OVERVIEW</span>
                         </div>
@@ -33,7 +33,7 @@ const AboutUs = () => {
             </section>
 
             {/* Mission Section */}
-            <section className="py-20 px-6 bg-white">
+            <section className="py-20 px-6 bg-noir">
                 <div className="max-w-7xl mx-auto">
                     <div className="flex flex-col lg:grid lg:grid-cols-2 gap-12 sm:gap-16 items-center">
                         <div>
@@ -42,7 +42,7 @@ const AboutUs = () => {
                                 <h2 className="text-3xl sm:text-4xl font-black text-navy">Our Mission</h2>
                             </div>
                             <p className="text-lg text-steel leading-relaxed mb-6">
-                                Olynk exists to replace operational guesswork with causal clarity and governed execution. Companies should not burn cycles reconciling charts—they should know which interventions move service, margin, and cash together.
+                                Olynk exists to replace operational guesswork with causal clarity and governed execution. Companies should not burn cycles reconciling charts, they should know which interventions move service, margin, and cash together.
                             </p>
                             <p className="text-lg text-steel leading-relaxed">
                                 By creating an irreducible causal layer above existing tools, we help teams rehearse outcomes, align on drivers, and execute with full visibility and control.
@@ -89,7 +89,7 @@ const AboutUs = () => {
                                 initial={{ opacity: 0, y: 20 }}
                                 whileInView={{ opacity: 1, y: 0 }}
                                 transition={{ delay: i * 0.1 }}
-                                className="p-8 rounded-3xl bg-white border-2 border-beige"
+                                className="p-8 rounded-3xl bg-noir border-2 border-beige"
                             >
                                 <div className="w-14 h-14 rounded-2xl bg-navy flex items-center justify-center mb-6">
                                     <value.icon className="w-7 h-7 text-white" />
@@ -111,7 +111,7 @@ const AboutUs = () => {
                     <p className="text-lg text-white/80 mb-10">
                         We're hiring engineers, designers, and business leaders who want to reshape commerce operations.
                     </p>
-                    <a href="/careers" className="inline-block bg-olynk text-white px-12 py-6 rounded-2xl text-xs font-black uppercase tracking-widest hover:bg-white hover:text-navy transition-all shadow-2xl">
+                    <a href="/careers" className="inline-block bg-olynk text-white px-12 py-6 rounded-2xl text-xs font-black uppercase tracking-widest hover:bg-noir hover:text-navy transition-all shadow-2xl">
                         View Open Positions
                     </a>
                 </div>

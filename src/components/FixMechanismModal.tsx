@@ -51,7 +51,7 @@ const FixMechanismModal = ({ isOpen, onClose, layers, industryTitle, selectedLay
                         transition={{ type: "spring", damping: 25, stiffness: 300 }}
                         className="fixed inset-0 z-50 flex items-center justify-center p-6 pointer-events-none"
                     >
-                        <div className="bg-white rounded-3xl lg:rounded-[48px] border-2 border-navy shadow-2xl max-w-4xl w-full max-h-[90vh] lg:max-h-[85vh] overflow-hidden pointer-events-auto relative mx-4">
+                        <div className="bg-noir rounded-3xl lg:rounded-[48px] border-2 border-navy shadow-2xl max-w-4xl w-full max-h-[90vh] lg:max-h-[85vh] overflow-hidden pointer-events-auto relative mx-4">
 
                             {/* Close Button */}
                             <button
@@ -74,7 +74,7 @@ const FixMechanismModal = ({ isOpen, onClose, layers, industryTitle, selectedLay
                                     <span className="text-olynk italic font-serif font-normal text-xl lg:text-5xl">Analysis</span>
                                 </h2>
                                 <p className="text-steel text-sm lg:text-lg font-medium leading-relaxed max-w-2xl">
-                                    Explore how Olynk's operational intelligence layers work together to solve {industryTitle.toLowerCase()} challenges.
+                                    Explore how Olynk's causal stack, Fabric through governed execution, maps drivers and interventions for {industryTitle.toLowerCase()} challenges.
                                 </p>
                             </div>
 
@@ -94,10 +94,10 @@ const FixMechanismModal = ({ isOpen, onClose, layers, industryTitle, selectedLay
                                             className="group"
                                         >
                                             {/* Layer Card */}
-                                            <div className={`p-5 lg:p-8 rounded-2xl lg:rounded-3xl bg-cream border-2 transition-all ${selectedLayerId === layer.id ? 'border-olynk shadow-lg bg-white ring-4 ring-olynk/10' : 'border-beige hover:border-navy/30'}`}>
+                                            <div className={`p-5 lg:p-8 rounded-2xl lg:rounded-3xl bg-cream border-2 transition-all ${selectedLayerId === layer.id ? 'border-olynk shadow-lg bg-noir ring-4 ring-olynk/10' : 'border-beige hover:border-navy/30'}`}>
                                                 <div className="flex flex-col lg:flex-row items-start gap-4 lg:gap-6">
                                                     {/* Index Badge */}
-                                                    <div className="w-10 h-10 lg:w-14 lg:h-14 rounded-xl lg:rounded-2xl bg-white border-2 border-navy flex items-center justify-center shrink-0">
+                                                    <div className="w-10 h-10 lg:w-14 lg:h-14 rounded-xl lg:rounded-2xl bg-noir border-2 border-navy flex items-center justify-center shrink-0">
                                                         <span className="text-lg lg:text-xl font-black font-mono text-navy">
                                                             0{index + 1}
                                                         </span>
@@ -118,7 +118,7 @@ const FixMechanismModal = ({ isOpen, onClose, layers, industryTitle, selectedLay
                                                         </p>
 
                                                         {/* Technical Implementation */}
-                                                        <div className="bg-white/60 rounded-xl lg:rounded-2xl p-4 lg:p-6 border border-olynk/10">
+                                                        <div className="bg-noir/60 rounded-xl lg:rounded-2xl p-4 lg:p-6 border border-olynk/10">
                                                             <div className="flex items-start gap-3">
                                                                 <Zap className="w-4 h-4 lg:w-5 h-5 text-olynk shrink-0 mt-0.5" fill="currentColor" fillOpacity={0.1} />
                                                                 <div>

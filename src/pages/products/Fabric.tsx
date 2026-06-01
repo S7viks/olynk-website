@@ -3,7 +3,7 @@ import { Database, Network, Layers, Workflow, Zap, Activity, Box, Globe, BarChar
 
 const DataPipeline = () => {
     return (
-        <div className="relative w-full h-full bg-white overflow-hidden flex items-center justify-center p-4">
+        <div className="relative w-full h-full bg-noir overflow-hidden flex items-center justify-center p-4">
             {/* Blueprint Grid */}
             <div className="absolute inset-0 opacity-[0.15]" style={{
                 backgroundImage: 'linear-gradient(#1E293B 1px, transparent 1px), linear-gradient(90deg, #1E293B 1px, transparent 1px)',
@@ -165,7 +165,7 @@ const Fabric = () => {
                             <span className="text-olynk">unify everything.</span>
                         </h1>
                         <p className="text-base sm:text-xl text-steel max-w-2xl mx-auto leading-relaxed font-medium mb-10 lg:mb-12">
-                            Break down silos between ERPs, plants, warehouses, labs, and logistics. Olynk Fabric creates a single, real-time blueprint of your operational truth across any vertical.
+                            Break down silos between ERPs, plants, warehouses, labs, and logistics. Fabric builds a lineage-first operational graph, so downstream causal models and execution always trace to the same governed truth.
                         </p>
                     </motion.div>
                 </div>
@@ -179,12 +179,12 @@ const Fabric = () => {
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
                         transition={{ duration: 0.8, delay: 0.2 }}
-                        className="relative rounded-[32px] sm:rounded-[40px] overflow-hidden shadow-[0_32px_80px_-16px_rgba(30,41,59,0.1)] border border-beige bg-white aspect-[4/3] sm:aspect-auto lg:aspect-[21/9] min-h-[300px] sm:min-h-[400px] lg:min-h-[500px]"
+                        className="relative rounded-[32px] sm:rounded-[40px] overflow-hidden shadow-[0_32px_80px_-16px_rgba(30,41,59,0.1)] border border-beige bg-noir aspect-[4/3] sm:aspect-auto lg:aspect-[21/9] min-h-[300px] sm:min-h-[400px] lg:min-h-[500px]"
                     >
                         <DataPipeline />
 
                         {/* Blueprint overlay labels */}
-                        <div className="absolute top-4 lg:top-8 left-1/2 -translate-x-1/2 px-4 lg:px-6 py-1.5 lg:py-2 bg-white/80 backdrop-blur-md rounded-full border border-beige flex items-center gap-3 lg:gap-4 shadow-sm whitespace-nowrap">
+                        <div className="absolute top-4 lg:top-8 left-1/2 -translate-x-1/2 px-4 lg:px-6 py-1.5 lg:py-2 bg-noir/80 backdrop-blur-md rounded-full border border-beige flex items-center gap-3 lg:gap-4 shadow-sm whitespace-nowrap">
                             <span className="text-[8px] lg:text-[10px] font-mono font-black text-navy/40 uppercase tracking-widest">SYST_BLUEPRINT://CORE_FABRIC_O1</span>
                             <div className="w-px h-3 lg:h-4 bg-beige" />
                             <span className="text-[8px] lg:text-[10px] font-mono font-black text-olynk uppercase tracking-widest flex items-center gap-1.5 lg:gap-2">
@@ -204,7 +204,7 @@ const Fabric = () => {
                             {
                                 icon: Network,
                                 title: "Dynamic Schema Evolution",
-                                desc: "No more fixed databases. Our fabric adapts to new data fields from any source automatically.",
+                                desc: "Schema drift handled automatically, new fields land with lineage so causal models and policies stay aligned to reality.",
                                 animation: (
                                     <div className="h-40 lg:h-44 bg-navy/5 rounded-3xl relative overflow-hidden flex items-center justify-center">
                                         <div className="grid grid-cols-4 gap-2">
@@ -214,7 +214,7 @@ const Fabric = () => {
                                                     initial={{ scale: 0.8, opacity: 0.2 }}
                                                     animate={{ scale: [0.8, 1, 0.8], opacity: [0.2, 0.6, 0.2] }}
                                                     transition={{ duration: 2, repeat: Infinity, delay: i * 0.2 }}
-                                                    className="w-8 h-8 lg:w-10 lg:h-10 bg-white border border-beige rounded-lg flex items-center justify-center shadow-sm"
+                                                    className="w-8 h-8 lg:w-10 lg:h-10 bg-noir border border-beige rounded-lg flex items-center justify-center shadow-sm"
                                                 >
                                                     <div className="w-3 lg:w-4 h-0.5 bg-navy/20 rounded-full" />
                                                 </motion.div>
@@ -227,14 +227,14 @@ const Fabric = () => {
                             {
                                 icon: Layers,
                                 title: "Global Knowledge Index",
-                                desc: "Proprietary vector-sync ensures every SKU, location, and order is indexed for instant AI reasoning.",
+                                desc: "Vector-sync indexes every SKU, location, and order with provenance, retrieval for causal inference and audit, not black-box scoring.",
                                 animation: (
                                     <div className="h-40 lg:h-44 bg-navy/5 rounded-3xl relative overflow-hidden flex items-center justify-center p-6 lg:p-8">
                                         <div className="w-full space-y-2 lg:space-y-3">
                                             {[...Array(3)].map((_, i) => (
                                                 <motion.div
                                                     key={i}
-                                                    className="h-2 lg:h-2.5 bg-white border border-beige rounded-full overflow-hidden shadow-sm"
+                                                    className="h-2 lg:h-2.5 bg-noir border border-beige rounded-full overflow-hidden shadow-sm"
                                                 >
                                                     <motion.div
                                                         initial={{ x: "-100%" }}
@@ -254,15 +254,15 @@ const Fabric = () => {
                             {
                                 icon: Workflow,
                                 title: "Event Stream Engine",
-                                desc: "Real-time processing of signals. React to inventory changes or demand spikes in milliseconds.",
+                                desc: "Real-time signal processing with lineage, driver updates and policy triggers propagate in milliseconds so causal reads never lag the floor.",
                                 animation: (
                                     <div className="h-40 lg:h-44 bg-navy/5 rounded-3xl relative overflow-hidden flex items-center justify-center">
                                         <div className="flex gap-4 lg:gap-6 items-center">
-                                            <div className="w-12 h-12 lg:w-14 lg:h-14 rounded-2xl bg-white border border-beige flex items-center justify-center shadow-md">
+                                            <div className="w-12 h-12 lg:w-14 lg:h-14 rounded-2xl bg-noir border border-beige flex items-center justify-center shadow-md">
                                                 <Zap className="w-6 h-6 lg:w-7 lg:h-7 text-amber-500" />
                                             </div>
                                             <div className="w-16 lg:w-20 h-px bg-gradient-to-r from-transparent via-beige to-transparent" />
-                                            <div className="w-12 h-12 lg:w-14 lg:h-14 rounded-2xl bg-white border border-beige flex items-center justify-center shadow-md">
+                                            <div className="w-12 h-12 lg:w-14 lg:h-14 rounded-2xl bg-noir border border-beige flex items-center justify-center shadow-md">
                                                 <motion.div
                                                     animate={{ scale: [1, 1.2, 1] }}
                                                     transition={{ duration: 0.5, repeat: Infinity }}
@@ -279,7 +279,7 @@ const Fabric = () => {
                                 {feature.animation}
                                 <div className="space-y-2.5 lg:space-y-3 text-center lg:text-left px-2">
                                     <div className="flex flex-col lg:flex-row items-center gap-3 lg:gap-4">
-                                        <div className="w-10 h-10 lg:w-12 lg:h-12 rounded-xl bg-white border border-beige flex items-center justify-center group-hover:scale-110 transition-transform duration-300 shadow-sm">
+                                        <div className="w-10 h-10 lg:w-12 lg:h-12 rounded-xl bg-noir border border-beige flex items-center justify-center group-hover:scale-110 transition-transform duration-300 shadow-sm">
                                             <feature.icon className="w-5 h-5 lg:w-6 lg:h-6 text-olynk" />
                                         </div>
                                         <h3 className="text-lg lg:text-xl font-black text-navy uppercase tracking-tight">{feature.title}</h3>

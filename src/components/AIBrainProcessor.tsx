@@ -24,7 +24,7 @@ export const AIBrainProcessor = () => {
             {[...Array(6)].map((_, i) => (
               <motion.div
                 key={i}
-                className="absolute w-px bg-white/30"
+                className="absolute w-px bg-noir/30"
                 style={{
                   height: "100%",
                   left: "50%",

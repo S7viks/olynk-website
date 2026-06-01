@@ -130,7 +130,7 @@ const CommunicationEngine = () => {
         {/* 2x2 Grid Layout */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-6">
           {/* Step 1: Behavioral Pattern Recognition */}
-          <AnimatedComponent delay={1000} className="bg-white rounded-2xl p-6 shadow-lg border border-teal-100" resetKey={animationKey}>
+          <AnimatedComponent delay={1000} className="bg-noir rounded-2xl p-6 shadow-lg border border-teal-100" resetKey={animationKey}>
             <div className="flex items-center gap-4 mb-4">
               <div className="w-12 h-12 bg-gradient-to-br from-purple-500 to-purple-600 rounded-xl flex items-center justify-center animate-bounce">
                 <Brain className="w-6 h-6 text-white" />
@@ -151,7 +151,7 @@ const CommunicationEngine = () => {
           </AnimatedComponent>
 
           {/* Step 2: Customer Profile */}
-          <AnimatedComponent delay={2000} className="bg-white rounded-2xl p-6 shadow-lg border border-teal-100" resetKey={animationKey}>
+          <AnimatedComponent delay={2000} className="bg-noir rounded-2xl p-6 shadow-lg border border-teal-100" resetKey={animationKey}>
             <div className="flex items-center gap-4 mb-4">
               <div className="w-12 h-12 bg-gradient-to-br from-blue-500 to-blue-600 rounded-xl flex items-center justify-center animate-bounce">
                 <User className="w-6 h-6 text-white" />
@@ -174,7 +174,7 @@ const CommunicationEngine = () => {
           </AnimatedComponent>
 
           {/* Step 3: AI Analysis */}
-          <AnimatedComponent delay={3000} className="bg-white rounded-2xl p-6 shadow-lg border border-teal-100" resetKey={animationKey}>
+          <AnimatedComponent delay={3000} className="bg-noir rounded-2xl p-6 shadow-lg border border-teal-100" resetKey={animationKey}>
             <div className="flex items-center gap-4 mb-4">
               <div className="w-12 h-12 bg-gradient-to-br from-teal-500 to-teal-600 rounded-xl flex items-center justify-center animate-bounce">
                 <Target className="w-6 h-6 text-white" />
@@ -196,7 +196,7 @@ const CommunicationEngine = () => {
           </AnimatedComponent>
 
           {/* Step 4: Proactive Message */}
-          <AnimatedComponent delay={4000} className="bg-white rounded-2xl p-6 shadow-lg border border-teal-100" resetKey={animationKey}>
+          <AnimatedComponent delay={4000} className="bg-noir rounded-2xl p-6 shadow-lg border border-teal-100" resetKey={animationKey}>
             <div className="flex items-center gap-4 mb-4">
               <div className="w-12 h-12 bg-gradient-to-br from-green-500 to-green-600 rounded-xl flex items-center justify-center animate-bounce">
                 <MessageSquare className="w-6 h-6 text-white" />
@@ -227,7 +227,7 @@ const CommunicationEngine = () => {
         {/* Step 5: Outcome - Full Width */}
         <AnimatedComponent delay={5000} className="bg-gradient-to-br from-teal-500 to-teal-600 rounded-2xl p-6 shadow-lg text-white" resetKey={animationKey}>
           <div className="flex items-center gap-4 mb-4">
-            <div className="w-12 h-12 bg-white/20 rounded-xl flex items-center justify-center animate-bounce">
+            <div className="w-12 h-12 bg-noir/20 rounded-xl flex items-center justify-center animate-bounce">
               <TrendingUp className="w-6 h-6 text-white" />
             </div>
             <div className="flex-1">
@@ -256,7 +256,7 @@ const CommunicationEngine = () => {
                   <TypewriterText text="98%" delay={7000} speed={100} resetKey={animationKey} />
                 </span>
               </div>
-              <div className="w-full bg-white/20 rounded-full h-2 overflow-hidden">
+              <div className="w-full bg-noir/20 rounded-full h-2 overflow-hidden">
                 <ProgressBar progress={98} delay={7200} resetKey={animationKey} />
               </div>
             </div>

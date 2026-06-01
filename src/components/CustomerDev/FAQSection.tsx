@@ -76,7 +76,7 @@ const FAQSection = () => {
     return (
         <section
             id="faq"
-            className="py-20 px-4 bg-white"
+            className="py-20 px-4 bg-noir"
             data-section="faq"
         >
             <div className="max-w-3xl mx-auto">
@@ -97,7 +97,7 @@ const FAQSection = () => {
                 </motion.div>
 
                 {/* FAQ Items */}
-                <div className="bg-white border border-gray-200 rounded-lg overflow-hidden">
+                <div className="bg-noir border border-gray-200 rounded-lg overflow-hidden">
                     {FAQ_ITEMS.map((faq, index) => (
                         <FAQItem key={index} faq={faq} index={index} />
                     ))}

@@ -16,9 +16,9 @@ const PricingSection = () => {
       revenueRange: '₹1–5Cr GMV',
       icon: Database,
       features: [
-        'Fabric Layer - unified data from 5 connectors',
-        'Insight Layer - weekly intelligence reports',
-        'Basic anomaly detection & alerts',
+        'Fabric Layer, unified data from 5 connectors with lineage',
+        'Insight Layer, weekly driver and risk briefs',
+        'Anomaly and drift alerts with causal context',
         'WhatsApp notification engine',
         'Single warehouse visibility',
         'Email support (48hr SLA)',
@@ -37,11 +37,11 @@ const PricingSection = () => {
       icon: Brain,
       features: [
         'Everything in Starter',
-        'Core Engine - autonomous execution layer',
-        'Daily predictive intelligence',
+        'Core Engine, policy-bound execution tied to drivers',
+        'Daily causal risk and opportunity signals',
         'Multi-warehouse optimization',
         'Custom approval workflows & audit logs',
-        'Demand forecasting (30/60/90-day)',
+        'Driver-aware demand views (30/60/90-day)',
         'Priority support (12hr SLA)',
         'Dedicated onboarding engineer',
       ],
@@ -60,7 +60,7 @@ const PricingSection = () => {
       features: [
         'Everything in Growth',
         'Orbit Layer - custom business logic modules',
-        'Custom AI model training on your data',
+        'Custom causal model tuning on your data',
         'Multi-tenant / multi-BU architecture',
         'Enterprise audit trails',
         'Dedicated success manager',
@@ -77,8 +77,8 @@ const PricingSection = () => {
     price: 20000,
     label: 'One-time setup & training',
     includes: [
-      'AI model calibration for your business',
-      'Historical data ingestion & pattern mapping',
+      'Causal model calibration on your data',
+      'Historical ingestion with driver mapping',
       'Custom workflow configuration',
       '2–3 team training sessions',
       '30-day optimization guarantee',
@@ -104,7 +104,7 @@ const PricingSection = () => {
             aria-label="Toggle annual billing"
           >
             <span
-              className={`inline-block h-5 w-5 transform rounded-full bg-white shadow-sm transition-transform ${isAnnual ? 'translate-x-6' : 'translate-x-1'}`}
+              className={`inline-block h-5 w-5 transform rounded-full bg-noir shadow-sm transition-transform ${isAnnual ? 'translate-x-6' : 'translate-x-1'}`}
             />
           </button>
           <span className={`text-sm font-bold uppercase tracking-widest transition-colors ${isAnnual ? 'text-navy' : 'text-tan'}`}>
@@ -129,8 +129,8 @@ const PricingSection = () => {
                 key={tier.name}
                 className={`relative flex flex-col rounded-3xl border transition-all duration-500 overflow-hidden ${
                   tier.highlighted
-                    ? 'border-olynk bg-white shadow-xl lg:scale-[1.03] z-10'
-                    : 'border-beige bg-white/60 backdrop-blur-sm hover:shadow-lg hover:border-beige'
+                    ? 'border-olynk bg-noir shadow-xl lg:scale-[1.03] z-10'
+                    : 'border-beige bg-noir/60 backdrop-blur-sm hover:shadow-lg hover:border-beige'
                 }`}
               >
                 {/* Popular badge */}

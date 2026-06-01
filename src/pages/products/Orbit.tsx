@@ -3,7 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { Eye, Lock, FileCheck, Globe, Server, ShieldCheck, UserCheck, Search, Activity } from 'lucide-react';
 
 const GovernanceOrbit = () => (
-    <div className="relative w-full h-full bg-white overflow-hidden flex items-center justify-center p-8">
+    <div className="relative w-full h-full bg-noir overflow-hidden flex items-center justify-center p-8">
         {/* Technical Blueprint Grid */}
         <div className="absolute inset-0 opacity-[0.15]" style={{
             backgroundImage: 'linear-gradient(#1E293B 1px, transparent 1px), linear-gradient(90deg, #1E293B 1px, transparent 1px)',
@@ -93,9 +93,9 @@ const Orbit = () => {
 
     useEffect(() => {
         const events = [
-            "SQL_Query: Service_Level_Trend",
+            "SQL_Query: Driver_Tree_Export",
             "Access_Granted: Partner_Node_B",
-            "Model_Update: Logistic_Regression_v4",
+            "Calibration_Update: Causal_graph_v4",
             "Threat_Detected: IP_Shadow_Deflected",
             "Policy_Enforced: Personal_Data_Masking"
         ];
@@ -136,7 +136,7 @@ const Orbit = () => {
                             Deploy, secure, <br /><span className="text-olynk">and monitor.</span>
                         </h1>
                         <p className="text-xl text-steel max-w-2xl mx-auto leading-relaxed font-medium mb-12">
-                            Enterprise-grade control for your AI workforce. Monitor every decision, enforce compliance policies, and manage access with military-grade security.
+                            Enterprise-grade control for causal recommendations and automated actions. Monitor driver trees, enforce policies, and prove compliance with lineage-grade logs.
                         </p>
                     </motion.div>
                 </div>
@@ -145,7 +145,7 @@ const Orbit = () => {
             {/* Security Dashboard Visual - LIGHT BLUEPRINT */}
             <section className="py-16 lg:py-20 px-4">
                 <div className="max-w-6xl mx-auto">
-                    <div className="bg-white rounded-[40px] p-6 lg:p-10 relative overflow-hidden shadow-[0_32px_80px_-16px_rgba(30,41,59,0.1)] border border-beige">
+                    <div className="bg-noir rounded-[40px] p-6 lg:p-10 relative overflow-hidden shadow-[0_32px_80px_-16px_rgba(30,41,59,0.1)] border border-beige">
                         <div className="grid lg:grid-cols-2 gap-12 items-center relative z-10">
 
                             {/* Left: Security Status */}
@@ -170,7 +170,7 @@ const Orbit = () => {
                                         { icon: Server, label: "Data Residency: US-East-1", status: "LOCKED" },
                                         { icon: FileCheck, label: "Audit Logs Immutability", status: "ENABLED" }
                                     ].map((item, i) => (
-                                        <div key={i} className="bg-white border border-beige p-4 lg:p-5 rounded-2xl flex items-center justify-between group transition-all hover:scale-[1.02] hover:shadow-md">
+                                        <div key={i} className="bg-noir border border-beige p-4 lg:p-5 rounded-2xl flex items-center justify-between group transition-all hover:scale-[1.02] hover:shadow-md">
                                             <div className="flex items-center gap-3 lg:gap-4">
                                                 <div className="w-8 h-8 lg:w-10 lg:h-10 rounded-xl bg-navy/5 flex items-center justify-center">
                                                     <item.icon className="w-3.5 h-3.5 lg:w-4 lg:h-4 text-olynk" />
@@ -210,7 +210,7 @@ const Orbit = () => {
                                                 initial={{ opacity: 0, x: -20 }}
                                                 animate={{ opacity: 1, x: 0 }}
                                                 exit={{ opacity: 0, y: 20 }}
-                                                className={`flex gap-3 lg:gap-4 p-3 lg:p-4 rounded-xl border transition-all ${i === 0 ? 'bg-white border-beige text-navy shadow-sm' : 'bg-transparent border-navy/5 text-navy/40'}`}
+                                                className={`flex gap-3 lg:gap-4 p-3 lg:p-4 rounded-xl border transition-all ${i === 0 ? 'bg-noir border-beige text-navy shadow-sm' : 'bg-transparent border-navy/5 text-navy/40'}`}
                                             >
                                                 <span className="opacity-40 font-black">{log.time}</span>
                                                 <span className="flex-1 font-black uppercase tracking-tight break-all">{log.event}</span>
@@ -243,7 +243,7 @@ const Orbit = () => {
                                 title: "Global Compliance",
                                 desc: "GDPR, CCPA, and Global Privacy ready out of the box.",
                                 animation: (
-                                    <div className="h-44 bg-white border border-beige rounded-3xl relative overflow-hidden flex flex-col items-center justify-center shadow-sm">
+                                    <div className="h-44 bg-noir border border-beige rounded-3xl relative overflow-hidden flex flex-col items-center justify-center shadow-sm">
                                         <div className="relative">
                                             <motion.div
                                                 animate={{ rotate: 360 }}
@@ -267,7 +267,7 @@ const Orbit = () => {
                                 title: "Role-Based Access",
                                 desc: "Granular permissions for Every team member.",
                                 animation: (
-                                    <div className="h-44 bg-white border border-beige rounded-3xl relative overflow-hidden flex items-center justify-center shadow-sm">
+                                    <div className="h-44 bg-noir border border-beige rounded-3xl relative overflow-hidden flex items-center justify-center shadow-sm">
                                         <div className="grid grid-cols-3 gap-2.5 p-6">
                                             {[...Array(9)].map((_, i) => (
                                                 <motion.div
@@ -289,7 +289,7 @@ const Orbit = () => {
                                 title: "Full Observability",
                                 desc: "Every action is traced, logged, and explainable.",
                                 animation: (
-                                    <div className="h-44 bg-white border border-beige rounded-3xl relative overflow-hidden flex flex-col items-center justify-center shadow-sm">
+                                    <div className="h-44 bg-noir border border-beige rounded-3xl relative overflow-hidden flex flex-col items-center justify-center shadow-sm">
                                         <div className="w-[85%] h-24 bg-navy/5 border border-navy/5 rounded-2xl p-4 flex flex-col gap-3">
                                             <div className="flex items-center justify-between">
                                                 <div className="flex gap-1.5">
@@ -321,7 +321,7 @@ const Orbit = () => {
                                 {feature.animation}
                                 <div className="space-y-3">
                                     <div className="flex items-center gap-4">
-                                        <div className="w-12 h-12 rounded-xl bg-white border border-beige flex items-center justify-center group-hover:scale-110 transition-transform duration-300 shadow-sm">
+                                        <div className="w-12 h-12 rounded-xl bg-noir border border-beige flex items-center justify-center group-hover:scale-110 transition-transform duration-300 shadow-sm">
                                             <feature.icon className="w-6 h-6 text-emerald-600" />
                                         </div>
                                         <h3 className="text-xl font-black text-navy">{feature.title}</h3>

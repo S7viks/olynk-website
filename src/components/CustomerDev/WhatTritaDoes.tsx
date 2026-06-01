@@ -20,7 +20,7 @@ const CapabilityCard = ({ capability, index }: CapabilityCardProps) => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 0.5, delay: index * 0.15 }}
-            className="bg-white border border-gray-200 rounded-lg p-8"
+            className="bg-noir border border-gray-200 rounded-lg p-8"
         >
             {/* Number Badge */}
             <div className="flex items-center gap-3 mb-4">
@@ -59,7 +59,7 @@ const WhatTritaDoes = () => {
     return (
         <section
             id="what-trita-does"
-            className="py-20 px-4 bg-white"
+            className="py-20 px-4 bg-noir"
             data-section="what-trita-does"
         >
             <div className="max-w-5xl mx-auto">

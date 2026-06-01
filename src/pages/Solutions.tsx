@@ -18,14 +18,14 @@ const Solutions = () => {
               <span className="text-olynk">Causal Operations.</span>
             </h1>
             <p className="text-xl lg:text-2xl text-steel max-w-3xl mx-auto leading-relaxed font-medium">
-              When complexity hides root causes, correlation is expensive. Trita is the unfair advantage for teams that need ranked drivers, counterfactuals, and governed execution—not another spreadsheet war room.
+              When complexity hides root causes, correlation is expensive. Trita is the unfair advantage for teams that need ranked drivers, counterfactuals, and governed execution, not another spreadsheet war room.
             </p>
           </div>
         </div>
       </section>
 
       {/* Diagnostic/Self-Identification Section */}
-      <section className="py-24 lg:py-32 px-4 border-t border-beige bg-white/40 backdrop-blur-xl relative overflow-hidden">
+      <section className="py-24 lg:py-32 px-4 border-t border-beige bg-noir/40 backdrop-blur-xl relative overflow-hidden">
         <div className="absolute bottom-10 right-10 opacity-[0.02] select-none pointer-events-none">
           <span className="text-[100px] font-black font-mono text-navy uppercase">IDENT_PROTOCOL_V2</span>
         </div>
@@ -33,7 +33,7 @@ const Solutions = () => {
         <div className="max-w-7xl mx-auto relative z-10">
           <div className="grid lg:grid-cols-3 gap-8">
             {/* Column 1: The Threshold */}
-            <div className="bg-white p-6 sm:p-10 rounded-[32px] sm:rounded-[40px] border border-beige/60 shadow-sm space-y-8">
+            <div className="bg-noir p-6 sm:p-10 rounded-[32px] sm:rounded-[40px] border border-beige/60 shadow-sm space-y-8">
               <div className="w-12 h-12 rounded-2xl bg-cream flex items-center justify-center">
                 <Activity className="w-6 h-6 text-navy" />
               </div>
@@ -75,7 +75,7 @@ const Solutions = () => {
             </div>
 
             {/* Column 3: Decision Makers */}
-            <div className="bg-white p-6 sm:p-10 rounded-[32px] sm:rounded-[40px] border border-beige/60 shadow-sm space-y-8">
+            <div className="bg-noir p-6 sm:p-10 rounded-[32px] sm:rounded-[40px] border border-beige/60 shadow-sm space-y-8">
               <div className="w-12 h-12 rounded-2xl bg-cream flex items-center justify-center">
                 <BarChart3 className="w-6 h-6 text-olynk" />
               </div>
@@ -103,12 +103,12 @@ const Solutions = () => {
         <div className="max-w-4xl mx-auto text-center mb-24">
           <h2 className="text-3xl sm:text-5xl lg:text-7xl font-black text-navy tracking-tightest leading-[0.95] mb-8">
             The End of<br />
-            <span className="text-navy/40 italic font-serif font-normal text-3xl sm:text-5xl lg:text-6xl">Information Gaps.</span>
+            <span className="text-navy/40 italic font-serif font-normal text-3xl sm:text-5xl lg:text-6xl">Driver Blind Spots.</span>
           </h2>
         </div>
 
         <div className="max-w-7xl mx-auto">
-          <div className="grid md:grid-cols-3 gap-0 rounded-[48px] overflow-hidden border border-beige shadow-2xl bg-white">
+          <div className="grid md:grid-cols-3 gap-0 rounded-[48px] overflow-hidden border border-beige shadow-2xl bg-noir">
             {/* Solution 1 */}
             <div className="p-8 sm:p-12 border-b md:border-b-0 md:border-r border-beige hover:bg-cream/20 transition-colors group">
               <div className="w-14 h-14 rounded-2xl bg-cream flex items-center justify-center mb-8 group-hover:scale-110 transition-transform">
@@ -116,7 +116,7 @@ const Solutions = () => {
               </div>
               <h3 className="text-2xl font-black text-navy mb-4 tracking-tight">Operational Unification</h3>
               <p className="text-steel leading-relaxed mb-8">
-                Systems disagree. Teams reconcile. Decisions stall. We unify signals across ERP, WMS, CRM, finance, and business so the org runs off one truth.
+                Systems disagree. Teams reconcile. Decisions stall. We unify signals across ERP, WMS, CRM, finance, and business into one governed graph so causal reads and execution start from the same truth.
               </p>
               <div className="space-y-3">
                 <div className="text-[10px] font-black text-tan uppercase tracking-widest">Key Outcomes:</div>
@@ -134,9 +134,9 @@ const Solutions = () => {
               <div className="w-14 h-14 rounded-2xl bg-cream flex items-center justify-center mb-8 group-hover:scale-110 transition-transform">
                 <Factory className="w-7 h-7 text-olynk" />
               </div>
-              <h3 className="text-2xl font-black text-navy mb-4 tracking-tight">Constraint Forecasting</h3>
+              <h3 className="text-2xl font-black text-navy mb-4 tracking-tight">Causal constraint intelligence</h3>
               <p className="text-steel leading-relaxed mb-8">
-                Predict the constraints that will break your week: capacity, material availability, SLA risk, and lead-time shocks. Then simulate the options before you act.
+                Surface the drivers that will break capacity, material availability, SLA, or lead time, then compare counterfactual interventions before you commit capital or schedule.
               </p>
               <div className="space-y-3">
                 <div className="text-[10px] font-black text-tan uppercase tracking-widest">Key Outcomes:</div>
@@ -156,7 +156,7 @@ const Solutions = () => {
               </div>
               <h3 className="text-2xl font-black text-navy mb-4 tracking-tight">Decision Governance</h3>
               <p className="text-steel leading-relaxed mb-8">
-                Align execution with policy. Track why a decision was taken, what it changed, and what it prevented — across teams, systems, and time.
+                Align execution with policy. Track why a decision was taken, what it changed, and what it prevented, across teams, systems, and time.
               </p>
               <div className="space-y-3">
                 <div className="text-[10px] font-black text-tan uppercase tracking-widest">Key Outcomes:</div>
@@ -185,7 +185,7 @@ const Solutions = () => {
           <div className="flex flex-col sm:flex-row gap-6 justify-center">
             <Link
               to="/waitlist"
-              className="px-12 py-6 bg-white text-navy rounded-2xl font-black text-xl hover:shadow-2xl hover:-translate-y-1 transition-all flex items-center justify-center gap-4"
+              className="px-12 py-6 bg-noir text-navy rounded-2xl font-black text-xl hover:shadow-2xl hover:-translate-y-1 transition-all flex items-center justify-center gap-4"
             >
               Request Access Protocol
               <ArrowRight className="w-6 h-6 text-olynk" />

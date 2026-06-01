@@ -12,7 +12,7 @@ import karanImg from '../assets/testimonials/karan.png';
 const TESTIMONIALS_ROW_1 = [
     {
         id: 1,
-        content: "@olynk finally gave us one governed operating picture—and causal narratives we can defend in exec reviews. Less 'what spiked,' more 'what lever to pull next.'",
+        content: "@olynk finally gave us one governed operating picture, and causal narratives we can defend in exec reviews. Less 'what spiked,' more 'what lever to pull next.'",
         author: "Arjun Mehta",
         handle: "VP Operations · Multi-brand retail",
         avatar: arjunImg,
@@ -131,7 +131,7 @@ const TESTIMONIALS_ROW_2 = [
 
 const TestimonialCard = ({ testimonial }: { testimonial: typeof TESTIMONIALS_ROW_1[0] }) => {
     return (
-        <div className="bg-white p-5 lg:p-6 rounded-2xl shadow-sm border border-beige flex flex-col gap-4 relative group hover:shadow-xl transition-all duration-300 w-[280px] sm:w-[350px] shrink-0">
+        <div className="bg-noir p-5 lg:p-6 rounded-2xl shadow-sm border border-beige flex flex-col gap-4 relative group hover:shadow-xl transition-all duration-300 w-[280px] sm:w-[350px] shrink-0">
             {/* Meta Info */}
             <div className="flex items-center justify-between text-[11px] lg:text-[12px] font-bold text-steel">
                 <div className="flex items-center gap-3">

@@ -2,9 +2,9 @@ import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Target, TrendingUp, Zap, BarChart3, Search, Activity, ArrowUpRight, Cloud, DollarSign, AlertTriangle } from 'lucide-react';
 
-const PredictivePulse = () => {
+const CausalPulse = () => {
     return (
-        <div className="relative w-full h-full bg-white overflow-hidden flex items-center justify-center">
+        <div className="relative w-full h-full bg-noir overflow-hidden flex items-center justify-center">
             {/* Technical Blueprint Grid */}
             <div className="absolute inset-0 opacity-[0.15]" style={{
                 backgroundImage: 'linear-gradient(#1E293B 1px, transparent 1px), linear-gradient(90deg, #1E293B 1px, transparent 1px)',
@@ -98,7 +98,7 @@ const PredictivePulse = () => {
 
             {/* Static Overlay Labels */}
             <div className="absolute top-6 left-6 font-mono text-[9px] font-black text-navy/60 uppercase tracking-[0.2em] space-y-1.5">
-                <div>MODE: PREDICTIVE_INFERENCE</div>
+                <div>MODE: CAUSAL_INFERENCE</div>
                 <div>PRECISION: 98.42%</div>
                 <div>SAMPLING: REAL_TIME</div>
             </div>
@@ -169,7 +169,7 @@ const Insight = () => {
                             <span className="text-navy">Act before the lag.</span>
                         </h1>
                         <p className="text-lg sm:text-xl text-steel max-w-2xl mx-auto leading-relaxed font-medium mb-12">
-                            Trita Insight fuses your signals into ranked drivers, counterfactuals, and confidence—so you intervene on root causes with audit-ready narratives, not dashboard whack-a-mole.
+                            Trita Insight fuses your signals into ranked drivers, counterfactuals, and confidence, so you intervene on root causes with audit-ready narratives, not dashboard whack-a-mole.
                         </p>
                     </motion.div>
                 </div>
@@ -183,7 +183,7 @@ const Insight = () => {
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
                         transition={{ duration: 0.8, delay: 0.2 }}
-                        className="relative rounded-[32px] sm:rounded-[40px] overflow-hidden shadow-[0_32px_80px_-16px_rgba(30,41,59,0.1)] border border-beige bg-white"
+                        className="relative rounded-[32px] sm:rounded-[40px] overflow-hidden shadow-[0_32px_80px_-16px_rgba(30,41,59,0.1)] border border-beige bg-noir"
                     >
                         {/* Browser/Window Header */}
                         <div className="h-14 lg:h-16 border-b border-beige bg-cream/30 backdrop-blur-md flex items-center px-4 lg:px-8 justify-between">
@@ -192,7 +192,7 @@ const Insight = () => {
                                 <div className="w-2.5 h-2.5 lg:w-3.5 lg:h-3.5 rounded-full bg-beige border border-navy/10" />
                                 <div className="w-2.5 h-2.5 lg:w-3.5 lg:h-3.5 rounded-full bg-beige border border-navy/10" />
                             </div>
-                            <div className="hidden sm:flex items-center gap-3 text-xs font-black font-mono text-steel/60 bg-white/50 px-5 py-2 rounded-full border border-beige shadow-sm">
+                            <div className="hidden sm:flex items-center gap-3 text-xs font-black font-mono text-steel/60 bg-noir/50 px-5 py-2 rounded-full border border-beige shadow-sm">
                                 <Search className="w-3.5 h-3.5" />
                                 insight_engine_v2.0
                             </div>
@@ -210,28 +210,28 @@ const Insight = () => {
                                 <div className="lg:col-span-2 space-y-8 lg:space-y-10">
                                     <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 lg:gap-0">
                                         <div className="space-y-1.5">
-                                            <h3 className="text-[10px] lg:text-xs font-black text-navy/60 uppercase tracking-widest">Service Forecast</h3>
+                                            <h3 className="text-[10px] lg:text-xs font-black text-navy/60 uppercase tracking-widest">Service outlook (causal)</h3>
                                             <div className="text-2xl sm:text-4xl lg:text-5xl font-mono font-black text-navy tracking-tighter">96.8% <span className="text-emerald-500 text-base sm:text-xl align-top font-bold ml-2">+0.9%</span></div>
                                         </div>
                                         <div className="flex gap-1 lg:gap-2 bg-navy/5 p-1 rounded-xl w-fit">
                                             {['1D', '1W', '1M', '1Y'].map(t => (
-                                                <span key={t} className={`text-[9px] lg:text-[10px] font-black px-3 lg:px-4 py-1.5 lg:py-2 rounded-lg cursor-pointer transition-all ${t === '1M' ? 'bg-white text-navy shadow-sm border border-beige' : 'text-navy/60 hover:text-navy'}`}>{t}</span>
+                                                <span key={t} className={`text-[9px] lg:text-[10px] font-black px-3 lg:px-4 py-1.5 lg:py-2 rounded-lg cursor-pointer transition-all ${t === '1M' ? 'bg-noir text-navy shadow-sm border border-beige' : 'text-navy/60 hover:text-navy'}`}>{t}</span>
                                             ))}
                                         </div>
                                     </div>
 
                                     {/* Code-based Predictive Pulse Visual - Light Theme */}
-                                    <div className="h-[240px] sm:h-[400px] w-full bg-white rounded-2xl lg:rounded-[32px] border border-beige overflow-hidden relative group shadow-inner">
-                                        <PredictivePulse />
+                                    <div className="h-[240px] sm:h-[400px] w-full bg-noir rounded-2xl lg:rounded-[32px] border border-beige overflow-hidden relative group shadow-inner">
+                                        <CausalPulse />
                                     </div>
 
                                     <div className="grid grid-cols-2 gap-4 sm:gap-8">
-                                        <div className="bg-white border border-beige p-4 sm:p-8 rounded-2xl sm:rounded-3xl shadow-sm hover:shadow-md transition-shadow">
-                                            <div className="text-[8px] lg:text-[10px] font-black text-navy/60 uppercase tracking-widest mb-1 lg:mb-2">Model Accuracy</div>
+                                        <div className="bg-noir border border-beige p-4 sm:p-8 rounded-2xl sm:rounded-3xl shadow-sm hover:shadow-md transition-shadow">
+                                            <div className="text-[8px] lg:text-[10px] font-black text-navy/60 uppercase tracking-widest mb-1 lg:mb-2">Calibration fit</div>
                                             <div className="text-xl sm:text-3xl font-mono font-black text-navy">98.4%</div>
                                         </div>
-                                        <div className="bg-white border border-beige p-4 sm:p-8 rounded-2xl sm:rounded-3xl shadow-sm hover:shadow-md transition-shadow">
-                                            <div className="text-[8px] lg:text-[10px] font-black text-navy/60 uppercase tracking-widest mb-1 lg:mb-2">Anomalies Detected</div>
+                                        <div className="bg-noir border border-beige p-4 sm:p-8 rounded-2xl sm:rounded-3xl shadow-sm hover:shadow-md transition-shadow">
+                                            <div className="text-[8px] lg:text-[10px] font-black text-navy/60 uppercase tracking-widest mb-1 lg:mb-2">Driver alerts</div>
                                             <div className="text-xl sm:text-3xl font-mono font-black text-olynk">12 Active</div>
                                         </div>
                                     </div>
@@ -255,7 +255,7 @@ const Insight = () => {
                                                     initial={{ opacity: 0, y: -20, scale: 0.95 }}
                                                     animate={{ opacity: 1, y: 0, scale: 1 }}
                                                     exit={{ opacity: 0, scale: 0.9, x: 20 }}
-                                                    className="p-6 rounded-[24px] bg-white border border-beige shadow-sm hover:border-olynk/30 hover:shadow-lg transition-all cursor-default group"
+                                                    className="p-6 rounded-[24px] bg-noir border border-beige shadow-sm hover:border-olynk/30 hover:shadow-lg transition-all cursor-default group"
                                                 >
                                                     <div className="flex items-start gap-5">
                                                         <div className={`p-3 rounded-xl ${sig.bg} ${sig.color} shadow-sm`}>
@@ -281,8 +281,8 @@ const Insight = () => {
                                         </div>
                                         <div className="relative z-10">
                                             <div className="text-[10px] font-black text-olynk uppercase tracking-[0.2em] mb-3">Proactive Guard</div>
-                                            <p className="text-xs font-bold leading-relaxed mb-6">Core engine is standing by to execute remediation for a constraint breach.</p>
-                                            <button className="w-full text-[11px] font-black py-3 bg-white text-navy rounded-xl uppercase tracking-widest hover:bg-olynk hover:text-white transition-all shadow-lg active:scale-95">Apply Remediation</button>
+                                            <p className="text-xs font-bold leading-relaxed mb-6">Core is ready to execute remediation once drivers and policy checks pass for this constraint breach.</p>
+                                            <button className="w-full text-[11px] font-black py-3 bg-noir text-navy rounded-xl uppercase tracking-widest hover:bg-olynk hover:text-white transition-all shadow-lg active:scale-95">Apply Remediation</button>
                                         </div>
                                     </div>
                                 </div>
@@ -300,10 +300,10 @@ const Insight = () => {
                         {[
                             {
                                 icon: TrendingUp,
-                                title: "Demand Forecasting",
-                                desc: "Models that ingest weather and ad spend to predict sales.",
+                                title: "Demand drivers",
+                                desc: "Merge weather, promos, and channel signals into ranked drivers on sell-through, not a single opaque forecast line.",
                                 animation: (
-                                    <div className="h-48 bg-white border border-beige rounded-[32px] relative overflow-hidden flex flex-col items-center justify-center shadow-sm">
+                                    <div className="h-48 bg-noir border border-beige rounded-[32px] relative overflow-hidden flex flex-col items-center justify-center shadow-sm">
                                         <div className="flex gap-6 mb-6">
                                             <motion.div animate={{ y: [0, -5, 0] }} transition={{ duration: 2, repeat: Infinity }}>
                                                 <Cloud className="w-7 h-7 text-navy/40" />
@@ -328,10 +328,10 @@ const Insight = () => {
                             },
                             {
                                 icon: Target,
-                                title: "Contribution Margin",
-                                desc: "See the true profitability of every SKU in real-time.",
+                                title: "Contribution margin (explained)",
+                                desc: "See SKU-level margin with driver attribution, not just a net bar that hides freight, promos, and returns.",
                                 animation: (
-                                    <div className="h-48 bg-white border border-beige rounded-[32px] relative overflow-hidden flex items-end justify-center p-10 gap-2.5 shadow-sm">
+                                    <div className="h-48 bg-noir border border-beige rounded-[32px] relative overflow-hidden flex items-end justify-center p-10 gap-2.5 shadow-sm">
                                         {[
                                             { h: 32, label: "GROSS", color: "bg-navy/5" },
                                             { h: 24, label: "SHIP", color: "bg-red-400/10" },
@@ -353,10 +353,10 @@ const Insight = () => {
                             },
                             {
                                 icon: BarChart3,
-                                title: "Anomaly Detection",
-                                desc: "Insight alerts you when a KPI deviates from the norm.",
+                                title: "Driver alerts",
+                                desc: "When a KPI moves, Insight surfaces which drivers shifted and confidence, before you chase ghosts in the average.",
                                 animation: (
-                                    <div className="h-48 bg-white border border-beige rounded-[32px] relative overflow-hidden flex items-center justify-center shadow-sm">
+                                    <div className="h-48 bg-noir border border-beige rounded-[32px] relative overflow-hidden flex items-center justify-center shadow-sm">
                                         <div className="w-full px-10">
                                             <svg viewBox="0 0 100 40" className="w-full h-14">
                                                 <path d="M 0 20 L 40 20 L 50 5 L 60 35 L 70 20 L 100 20" fill="none" stroke="rgba(30,41,59,0.05)" strokeWidth="2" />
@@ -386,7 +386,7 @@ const Insight = () => {
                                 {feature.animation}
                                 <div className="space-y-3">
                                     <div className="flex items-center gap-4">
-                                        <div className="w-12 h-12 rounded-xl bg-white border border-beige flex items-center justify-center group-hover:scale-110 transition-all duration-300 shadow-sm">
+                                        <div className="w-12 h-12 rounded-xl bg-noir border border-beige flex items-center justify-center group-hover:scale-110 transition-all duration-300 shadow-sm">
                                             <feature.icon className="w-6 h-6 text-olynk" />
                                         </div>
                                         <h3 className="text-xl font-black text-navy uppercase tracking-tight">{feature.title}</h3>

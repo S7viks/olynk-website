@@ -36,7 +36,7 @@ const PainPointCard = ({ painPoint, index }: PainPointCardProps) => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 0.5, delay: index * 0.1 }}
-            className="bg-white border border-gray-200 rounded-lg p-6 hover:shadow-lg transition-shadow duration-200 cursor-pointer"
+            className="bg-noir border border-gray-200 rounded-lg p-6 hover:shadow-lg transition-shadow duration-200 cursor-pointer"
             onClick={handleClick}
             data-pain-point-id={painPoint.id}
         >

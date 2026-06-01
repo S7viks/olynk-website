@@ -13,7 +13,7 @@ const PrivacyPolicy = () => {
                         transition={{ duration: 0.8 }}
                         className="text-center mb-16"
                     >
-                        <div className="inline-flex items-center gap-2 px-4 py-2 bg-white border border-beige rounded-full mb-8 shadow-sm">
+                        <div className="inline-flex items-center gap-2 px-4 py-2 bg-noir border border-beige rounded-full mb-8 shadow-sm">
                             <Shield className="w-3 h-3 text-navy" />
                             <span className="text-[10px] font-black uppercase tracking-[0.2em] text-navy font-mono">LEGAL_DOCUMENTATION</span>
                         </div>
@@ -25,12 +25,15 @@ const PrivacyPolicy = () => {
                         <p className="text-lg text-steel font-medium">
                             Last updated: December 29, 2024
                         </p>
+                        <p className="text-base text-steel/90 font-medium max-w-2xl mx-auto mt-4">
+                            Olynk processes operational data to deliver causal intelligence and governed automation. This policy describes how we handle that information.
+                        </p>
                     </motion.div>
                 </div>
             </section>
 
             {/* Content Section */}
-            <section className="py-12 px-6 bg-white">
+            <section className="py-12 px-6 bg-noir">
                 <div className="max-w-4xl mx-auto">
                     <div className="prose prose-navy max-w-none">
 

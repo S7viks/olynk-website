@@ -67,7 +67,7 @@ const EarlyAccess = () => {
               return (
                 <div
                   key={index}
-                  className="flex items-center space-x-4 bg-white/10 backdrop-blur-sm rounded-xl p-4 hover:bg-white/20 transition-all duration-300 hover:scale-105"
+                  className="flex items-center space-x-4 bg-noir/10 backdrop-blur-sm rounded-xl p-4 hover:bg-noir/20 transition-all duration-300 hover:scale-105"
                 >
                   <div className="w-10 h-10 rounded-full bg-gradient-to-r from-teal-400 to-cyan-400 flex items-center justify-center flex-shrink-0">
                     <Icon className="h-5 w-5 text-white" />
@@ -79,7 +79,7 @@ const EarlyAccess = () => {
           </div>
 
           {/* Signup Form */}
-          <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-8 max-w-md mx-auto">
+          <div className="bg-noir/10 backdrop-blur-sm rounded-2xl p-8 max-w-md mx-auto">
             <h3 className="text-2xl font-bold text-white mb-6">Get Early Access</h3>
             <p className="text-gray-300 mb-6">
               Join our exclusive early access program and be the first to experience olynk.ai.
@@ -94,7 +94,7 @@ const EarlyAccess = () => {
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
                     placeholder="Enter your email"
-                    className="w-full px-6 py-4 rounded-xl bg-white/20 border border-white/30 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-teal-400 focus:border-transparent transition-all duration-300"
+                    className="w-full px-6 py-4 rounded-xl bg-noir/20 border border-white/30 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-teal-400 focus:border-transparent transition-all duration-300"
                     required
                   />
                   <button

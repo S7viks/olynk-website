@@ -120,7 +120,7 @@ const WaitlistFunnel: React.FC = () => {
       <>
         <SEO {...getPageSEO('waitlist')} />
         <div className="min-h-screen bg-gradient-to-br from-amber-50 via-yellow-50 to-amber-100 flex items-center justify-center p-4">
-        <div className="max-w-md w-full bg-white rounded-2xl shadow-xl p-8 text-center">
+        <div className="max-w-md w-full bg-noir rounded-2xl shadow-xl p-8 text-center">
           <CheckCircle className="h-16 w-16 text-green-500 mx-auto mb-4" />
           <h2 className="text-2xl font-bold text-gray-900 mb-2">You're in!</h2>
           <p className="text-gray-600 mb-6">
@@ -198,7 +198,7 @@ const WaitlistFunnel: React.FC = () => {
             </div>
 
             {/* Signup Form */}
-            <div className="bg-white rounded-2xl shadow-xl p-8">
+            <div className="bg-noir rounded-2xl shadow-xl p-8">
               <h2 className="text-2xl font-bold text-gray-900 mb-6">
                 Join the Waitlist
               </h2>
@@ -215,7 +215,7 @@ const WaitlistFunnel: React.FC = () => {
                       value={formData.firstName}
                       onChange={handleInputChange}
                       required
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-red-500 text-black placeholder-gray-500 bg-white"
+                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-red-500 text-black placeholder-gray-500 bg-noir"
                       placeholder="Enter first name"
                     />
                   </div>
@@ -229,7 +229,7 @@ const WaitlistFunnel: React.FC = () => {
                       value={formData.lastName}
                       onChange={handleInputChange}
                       required
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-red-500 text-black placeholder-gray-500 bg-white"
+                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-red-500 text-black placeholder-gray-500 bg-noir"
                       placeholder="Enter last name"
                     />
                   </div>
@@ -245,7 +245,7 @@ const WaitlistFunnel: React.FC = () => {
                     value={formData.email}
                     onChange={handleInputChange}
                     required
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-red-500 text-black placeholder-gray-500 bg-white"
+                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-red-500 text-black placeholder-gray-500 bg-noir"
                     placeholder="Enter email address"
                   />
                 </div>
@@ -259,7 +259,7 @@ const WaitlistFunnel: React.FC = () => {
                     name="company"
                     value={formData.company}
                     onChange={handleInputChange}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-red-500 text-black placeholder-gray-500 bg-white"
+                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-red-500 text-black placeholder-gray-500 bg-noir"
                     placeholder="Enter company name"
                   />
                 </div>
@@ -273,7 +273,7 @@ const WaitlistFunnel: React.FC = () => {
                       name="industry"
                       value={formData.industry}
                       onChange={handleInputChange}
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-red-500 text-black bg-white"
+                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-red-500 text-black bg-noir"
                     >
                       <option value="">Select Industry</option>
                       <option value="fashion">Fashion & Apparel</option>
@@ -293,7 +293,7 @@ const WaitlistFunnel: React.FC = () => {
                       name="companySize"
                       value={formData.companySize}
                       onChange={handleInputChange}
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-red-500 text-black bg-white"
+                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-red-500 text-black bg-noir"
                     >
                       <option value="">Select Size</option>
                       <option value="solo">Just me</option>
@@ -315,7 +315,7 @@ const WaitlistFunnel: React.FC = () => {
                     onChange={handleInputChange}
                     rows={3}
                     placeholder="Tell us about your inventory management challenges (stockouts, RTOs, manual processes, etc.)..."
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-red-500 text-black placeholder-gray-500 bg-white"
+                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-red-500 text-black placeholder-gray-500 bg-noir"
                   />
                 </div>
 

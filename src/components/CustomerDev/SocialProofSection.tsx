@@ -16,7 +16,7 @@ const PilotApproach = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.6 }}
-                className="bg-white border border-gray-200 rounded-lg p-8"
+                className="bg-noir border border-gray-200 rounded-lg p-8"
             >
                 <p className="text-gray-700 text-lg mb-6 leading-relaxed">
                     {SOCIAL_PROOF.pilotMessage}
@@ -55,7 +55,7 @@ const TestimonialsApproach = () => {
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
                         transition={{ duration: 0.6, delay: idx * 0.1 }}
-                        className="bg-white border border-gray-200 rounded-lg p-6"
+                        className="bg-noir border border-gray-200 rounded-lg p-6"
                     >
                         <blockquote className="text-gray-700 italic mb-4 leading-relaxed">
                             "{testimonial.quote}"

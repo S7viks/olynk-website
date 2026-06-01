@@ -18,7 +18,7 @@ const PROTOCOLS = [
         id: "THINK",
         label: "Causal mapping",
         title: "Model drivers, not just dashboards.",
-        description: "We fuse procurement, production, inventory, logistics, and finance into causal views—ranked explanations, counterfactuals, and confidence—so you intervene before commitments harden.",
+        description: "We fuse procurement, production, inventory, logistics, and finance into causal views, ranked explanations, counterfactuals, and confidence, so you intervene before commitments harden.",
         icon: Brain,
         status: "ACTIVE",
         statusLight: "bg-blue-500",
@@ -117,7 +117,7 @@ const HowItWorks = () => {
                             >
                                 {/* Node Visual */}
                                 <div className="absolute top-0 left-0 hidden lg:flex items-center justify-center w-24 h-24">
-                                    <div className="absolute inset-0 bg-white border border-beige rounded-full shadow-sm" />
+                                    <div className="absolute inset-0 bg-noir border border-beige rounded-full shadow-sm" />
                                     {/* Pulse Effect */}
                                     <div className={`absolute inset-0 ${protocol.statusLight} opacity-5 rounded-full animate-ping`} />
                                     <protocol.icon className="w-10 h-10 text-navy relative z-10" />
@@ -127,7 +127,7 @@ const HowItWorks = () => {
                                 </div>
 
                                 {/* Content Card */}
-                                <div className="bg-white/40 backdrop-blur-xl border border-white rounded-[24px] sm:rounded-[40px] p-6 sm:p-10 lg:p-12 shadow-sm hover:shadow-2xl hover:border-olynk/10 transition-all duration-700 group/card relative overflow-hidden flex flex-col flex-1 h-full">
+                                <div className="bg-noir/40 backdrop-blur-xl border border-white rounded-[24px] sm:rounded-[40px] p-6 sm:p-10 lg:p-12 shadow-sm hover:shadow-2xl hover:border-olynk/10 transition-all duration-700 group/card relative overflow-hidden flex flex-col flex-1 h-full">
                                     {/* Card ID Mask */}
                                     <div className="absolute top-0 right-0 p-6 lg:p-8 opacity-5 group-hover/card:opacity-10 transition-opacity">
                                         <span className="text-4xl lg:text-6xl font-black font-mono tracking-tighter">{protocol.id}</span>
@@ -187,7 +187,7 @@ const HowItWorks = () => {
                             <span className="text-[9px] lg:text-[10px] font-bold text-white/60 uppercase tracking-[0.4em] font-mono">Minutes_to_deploy</span>
                             <span className="text-[8px] text-white/40 font-mono mt-1 block">*Median for pre-built connectors. Enterprise ERPs: 1–2 sprints.</span>
                         </div>
-                        <div className="hidden sm:block h-20 w-[1px] bg-white/20" />
+                        <div className="hidden sm:block h-20 w-[1px] bg-noir/20" />
                         <div className="max-w-full sm:max-w-[200px]">
                             <p className="text-sm lg:text-base font-bold leading-tight text-white/70 group-hover/pod:text-white transition-colors">
                                 Zero-friction setup. Start linking your datasets instantly.
@@ -197,7 +197,7 @@ const HowItWorks = () => {
                     </div>
 
                     {/* Security Pod */}
-                    <div className="flex items-center gap-6 lg:gap-10 p-8 lg:p-10 bg-white border border-beige rounded-3xl lg:rounded-[40px] shadow-sm hover:shadow-xl transition-all duration-500 group/pod relative overflow-hidden">
+                    <div className="flex items-center gap-6 lg:gap-10 p-8 lg:p-10 bg-noir border border-beige rounded-3xl lg:rounded-[40px] shadow-sm hover:shadow-xl transition-all duration-500 group/pod relative overflow-hidden">
                         <div className="w-12 h-12 lg:w-16 lg:h-16 rounded-xl lg:rounded-2xl bg-emerald-50 flex items-center justify-center shrink-0">
                             <ShieldCheck className="w-6 h-6 lg:w-8 h-8 text-navy" />
                         </div>

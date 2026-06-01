@@ -16,7 +16,7 @@ const DemoPlaceholder = () => {
                 <h3 className="text-2xl font-bold mb-4">{DEMO_CONFIG.placeholder.title}</h3>
                 <p className="text-gray-300 mb-6">{DEMO_CONFIG.placeholder.description}</p>
 
-                <div className="bg-white/10 backdrop-blur-sm rounded-lg p-6 text-left">
+                <div className="bg-noir/10 backdrop-blur-sm rounded-lg p-6 text-left">
                     <ol className="space-y-3">
                         {DEMO_CONFIG.placeholder.steps.map((step, idx) => (
                             <li key={idx} className="flex items-start gap-3">

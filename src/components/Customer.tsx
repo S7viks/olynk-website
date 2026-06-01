@@ -82,7 +82,7 @@ const BounceIcon = ({
 
 const TraditionalFlow = ({ startAnimation, globalStep }: { startAnimation: boolean; globalStep: number }) => {
   return (
-    <div className="bg-white dark:bg-gray-800 rounded-xl p-6 shadow-lg border-l-4 border-red-400 dark:border-red-500 transform transition-all duration-500">
+    <div className="bg-noir dark:bg-gray-800 rounded-xl p-6 shadow-lg border-l-4 border-red-400 dark:border-red-500 transform transition-all duration-500">
       <div className="text-center mb-4">
         <h3 className="text-xl font-bold text-gray-800 dark:text-gray-100">Traditional Reactive</h3>
       </div>
@@ -177,7 +177,7 @@ const TraditionalFlow = ({ startAnimation, globalStep }: { startAnimation: boole
 
 const AIFlow = ({ startAnimation, globalStep }: { startAnimation: boolean; globalStep: number }) => {
   return (
-    <div className="bg-white dark:bg-gray-800 rounded-xl p-6 shadow-lg border-l-4 border-teal-400 dark:border-teal-500 transform transition-all duration-500">
+    <div className="bg-noir dark:bg-gray-800 rounded-xl p-6 shadow-lg border-l-4 border-teal-400 dark:border-teal-500 transform transition-all duration-500">
       <div className="text-center mb-4">
         <h3 className="text-xl font-bold text-gray-800 dark:text-gray-100">AI-Powered Proactive</h3>
       </div>
@@ -343,11 +343,11 @@ const Customer: React.FC = () => {
         {/* Bottom Stats */}
         {showStats && (
           <div className="mt-8 grid grid-cols-2 gap-4 max-w-2xl mx-auto opacity-0 animate-fade-in" style={{ animationFillMode: 'forwards' }}>
-            <div className="bg-white dark:bg-gray-800 rounded-lg p-4 shadow-md text-center transform transition-all duration-500 hover:scale-105">
+            <div className="bg-noir dark:bg-gray-800 rounded-lg p-4 shadow-md text-center transform transition-all duration-500 hover:scale-105">
               <div className="text-2xl font-bold text-red-500 dark:text-red-400">48hrs</div>
               <div className="text-sm text-gray-600 dark:text-gray-400">Response Time</div>
             </div>
-            <div className="bg-white dark:bg-gray-800 rounded-lg p-4 shadow-md text-center transform transition-all duration-500 hover:scale-105">
+            <div className="bg-noir dark:bg-gray-800 rounded-lg p-4 shadow-md text-center transform transition-all duration-500 hover:scale-105">
               <div className="text-2xl font-bold text-teal-500 dark:text-teal-400">0 sec</div>
               <div className="text-sm text-gray-600 dark:text-gray-400">Prevention Time</div>
             </div>

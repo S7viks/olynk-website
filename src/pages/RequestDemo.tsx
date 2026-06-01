@@ -29,7 +29,7 @@ const RequestDemo = () => {
               <span className="text-olynk">Deployment.</span>
             </h1>
             <p className="text-xl lg:text-2xl text-steel max-w-3xl mx-auto leading-relaxed font-medium">
-              Request a live causal walkthrough on your actual data nodes—drivers, counterfactuals, and governed actions end to end.
+              Request a live causal walkthrough on your actual data nodes, drivers, counterfactuals, and governed actions end to end.
               See why teams choose causal intelligence over chart-only operations.
             </p>
           </motion.div>
@@ -37,7 +37,7 @@ const RequestDemo = () => {
       </section>
 
       {/* Form & Info Section */}
-      <section className="py-24 lg:py-32 px-4 border-t border-beige bg-white/40 backdrop-blur-xl relative overflow-hidden">
+      <section className="py-24 lg:py-32 px-4 border-t border-beige bg-noir/40 backdrop-blur-xl relative overflow-hidden">
         <div className="max-w-7xl mx-auto">
           <div className="grid lg:grid-cols-2 gap-20 items-stretch">
             {/* Info Column */}
@@ -67,7 +67,7 @@ const RequestDemo = () => {
                 ))}
               </div>
 
-              <div className="p-8 rounded-[40px] border border-beige/60 bg-white/60">
+              <div className="p-8 rounded-[40px] border border-beige/60 bg-noir/60">
                 <div className="flex items-center gap-4 mb-4">
                   <div className="flex -space-x-3">
                     {[1, 2, 3].map(i => (
@@ -86,7 +86,7 @@ const RequestDemo = () => {
 
             {/* Form Column */}
             <div className="relative">
-              <div className="sticky top-40 bg-white p-10 lg:p-14 rounded-[48px] border border-beige shadow-2xl space-y-8">
+              <div className="sticky top-40 bg-noir p-10 lg:p-14 rounded-[48px] border border-beige shadow-2xl space-y-8">
                 {!isSubmitted ? (
                   <>
                     <div className="space-y-2 text-center lg:text-left">
@@ -98,20 +98,20 @@ const RequestDemo = () => {
                       <div className="grid grid-cols-2 gap-6">
                         <div className="space-y-2">
                           <label className="text-[10px] font-black text-tan uppercase tracking-widest ml-1">Operator_Name</label>
-                          <input required type="text" className="w-full px-6 py-4 rounded-2xl bg-cream border-2 border-transparent focus:border-olynk focus:bg-white outline-none transition-all font-bold text-navy" placeholder="John Doe" />
+                          <input required type="text" className="w-full px-6 py-4 rounded-2xl bg-cream border-2 border-transparent focus:border-olynk focus:bg-noir outline-none transition-all font-bold text-navy" placeholder="John Doe" />
                         </div>
                         <div className="space-y-2">
                           <label className="text-[10px] font-black text-tan uppercase tracking-widest ml-1">Entity_Name</label>
-                          <input required type="text" className="w-full px-6 py-4 rounded-2xl bg-cream border-2 border-transparent focus:border-olynk focus:bg-white outline-none transition-all font-bold text-navy" placeholder="Acme Corp" />
+                          <input required type="text" className="w-full px-6 py-4 rounded-2xl bg-cream border-2 border-transparent focus:border-olynk focus:bg-noir outline-none transition-all font-bold text-navy" placeholder="Acme Corp" />
                         </div>
                       </div>
                       <div className="space-y-2">
                         <label className="text-[10px] font-black text-tan uppercase tracking-widest ml-1">Secure_Endpoint (Email)</label>
-                        <input required type="email" className="w-full px-6 py-4 rounded-2xl bg-cream border-2 border-transparent focus:border-olynk focus:bg-white outline-none transition-all font-bold text-navy" placeholder="john@acme.com" />
+                        <input required type="email" className="w-full px-6 py-4 rounded-2xl bg-cream border-2 border-transparent focus:border-olynk focus:bg-noir outline-none transition-all font-bold text-navy" placeholder="john@acme.com" />
                       </div>
                       <div className="space-y-2">
                         <label className="text-[10px] font-black text-tan uppercase tracking-widest ml-1">Network_Volume (Monthly Orders)</label>
-                        <select className="w-full px-6 py-4 rounded-2xl bg-cream border-2 border-transparent focus:border-olynk focus:bg-white outline-none transition-all font-bold text-navy appearance-none cursor-pointer">
+                        <select className="w-full px-6 py-4 rounded-2xl bg-cream border-2 border-transparent focus:border-olynk focus:bg-noir outline-none transition-all font-bold text-navy appearance-none cursor-pointer">
                           <option>5,000 - 10,000</option>
                           <option>10,000 - 50,000</option>
                           <option>50,000 - 100,000</option>

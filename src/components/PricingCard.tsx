@@ -41,7 +41,7 @@ export const PricingCard: React.FC<PricingCardProps> = ({
   const savingsPercentage = originalPrice ? Math.round((savings / originalPrice) * 100) : 0;
 
   return (
-    <div className={`relative bg-white dark:bg-gray-800 rounded-2xl shadow-lg border-2 transition-all duration-300 hover:shadow-xl hover:-translate-y-1 ${
+    <div className={`relative bg-noir dark:bg-gray-800 rounded-2xl shadow-lg border-2 transition-all duration-300 hover:shadow-xl hover:-translate-y-1 ${
       isPopular ? 'border-red-500 dark:border-blue-500 ring-2 ring-red-200 dark:ring-blue-200' : 'border-gray-200 dark:border-gray-700 hover:border-red-300 dark:hover:border-blue-300'
     }`}>
       {isPopular && (
@@ -102,7 +102,7 @@ export const PricingCard: React.FC<PricingCardProps> = ({
         <button className={`w-full py-4 px-6 rounded-xl font-semibold text-lg transition-all duration-200 transform hover:scale-105 focus:outline-none focus:ring-4 focus:ring-opacity-50 ${
           buttonVariant === 'primary'
             ? 'bg-gradient-to-r from-red-500 to-red-600 dark:from-blue-500 dark:to-blue-600 text-white hover:from-red-600 hover:to-red-700 dark:hover:from-blue-600 dark:hover:to-blue-700 focus:ring-red-300 dark:focus:ring-blue-300 shadow-lg'
-            : 'bg-white dark:bg-gray-700 text-red-600 dark:text-yellow-300 border-2 border-red-500 dark:border-blue-500 hover:bg-red-50 dark:hover:bg-blue-900/20 focus:ring-red-300 dark:focus:ring-blue-300'
+            : 'bg-noir dark:bg-gray-700 text-red-600 dark:text-yellow-300 border-2 border-red-500 dark:border-blue-500 hover:bg-red-50 dark:hover:bg-blue-900/20 focus:ring-red-300 dark:focus:ring-blue-300'
         }`}>
           {buttonText}
         </button>

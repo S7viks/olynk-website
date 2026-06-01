@@ -7,35 +7,35 @@ const problemsData = [
     number: "1",
     title: "Inventory Drift",
     description: "Sales data from digital channels, physical nodes, and ERP systems rarely sync in real-time. This leads to overselling, stock-outs, and significant revenue leakage across nodes.",
-    solution: "A unified cognitive layer that creates a single source of truth across all operational endpoints.",
+    solution: "A governed operational graph with lineage, one source of truth so causal reads on stock, allocation, and margin always start from the same facts.",
     icon: Package
   },
   {
     number: "2",
     title: "Operational Blindspots",
-    description: "Supply chain disruptions and demand spikes often go unnoticed until they impact the bottom line. Traditional systems lack the predictive capacity to flag these risks before they manifest.",
-    solution: "Predictive inference engines that identify disruption patterns 10 days before they affect service levels.",
+    description: "Supply chain disruptions and demand spikes often go unnoticed until they impact the bottom line. Dashboards show motion; they rarely isolate which levers actually move risk.",
+    solution: "Causal driver ranking with confidence and lead time, surface what would break service or margin if untreated, before commitments harden.",
     icon: Search
   },
   {
     number: "3",
     title: "Reactive Customer Ops",
     description: "Teams spend significant resources responding to status queries that existing systems should resolve proactively. This manual overhead slows down overall organizational velocity.",
-    solution: "Autonomous agents that monitor order lifecycles and resolve delays before the user is aware of them.",
+    solution: "Policy-bound agents that monitor order lifecycles, explain delays with driver context, and execute approved fixes with audit trails.",
     icon: Users
   },
   {
     number: "4",
     title: "System Fragmentation",
     description: "Moving data manually between legacy ERPs, shipping portals, and ad stacks creates critical bottlenecks. This operational friction costs hundreds of hours in high-value leadership time.",
-    solution: "A universal commerce fabric that connects disparate systems into a single intelligent control center.",
+    solution: "Fabric layer: universal connectors into one causal-ready control plane, not another tab to reconcile.",
     icon: Waypoints
   },
   {
     number: "5",
     title: "Invisible Inefficiencies",
-    description: "Complex correlations between returns, logistics performance, and ad efficiency are invisible to human analysis. Modern commerce operations lose millions to these hidden patterns.",
-    solution: "Pattern recognition models that identify optimization opportunities within high-volume operational data.",
+    description: "Returns, logistics, and ad efficiency move together, but correlation alone hides what to pull first. Modern commerce loses millions optimizing the wrong lever.",
+    solution: "Causal models that rank drivers and counterfactuals inside high-volume operational data, then route interventions through governance.",
     icon: Activity
   }
 ];
@@ -51,10 +51,10 @@ const DiagnosticVisual = ({ activeIndex }: { activeIndex: number }) => {
 
       {/* Header */}
       <div className="relative z-10 flex justify-between items-start">
-        <div className="p-3 bg-white border border-beige rounded-2xl shadow-sm">
+        <div className="p-3 bg-noir border border-beige rounded-2xl shadow-sm">
           <Activity className="w-6 h-6 text-navy" />
         </div>
-        <div className="text-[10px] font-mono font-black text-tan uppercase tracking-widest bg-white border border-beige px-4 py-2 rounded-xl">
+        <div className="text-[10px] font-mono font-black text-tan uppercase tracking-widest bg-noir border border-beige px-4 py-2 rounded-xl">
           DIAGNOSTIC_MODE // ACTIVE
         </div>
       </div>
@@ -80,7 +80,7 @@ const DiagnosticVisual = ({ activeIndex }: { activeIndex: number }) => {
             {/* Active Area Glow */}
             <div className="absolute w-64 h-64 bg-olynk/5 rounded-full blur-3xl animate-pulse" />
 
-            <div className="w-36 h-36 bg-white border-2 border-navy shadow-[0_0_40px_rgba(0,0,0,0.1)] rounded-[40px] flex items-center justify-center relative z-20">
+            <div className="w-36 h-36 bg-noir border-2 border-navy shadow-[0_0_40px_rgba(0,0,0,0.1)] rounded-[40px] flex items-center justify-center relative z-20">
               <Zap className="w-14 h-14 text-navy transition-transform duration-500 group-hover:scale-110" strokeWidth={1.5} />
               {/* Pulse Effect */}
               <div className="absolute inset-0 bg-navy/5 rounded-[40px] animate-ping" style={{ animationDuration: '3s' }} />
@@ -99,7 +99,7 @@ const DiagnosticVisual = ({ activeIndex }: { activeIndex: number }) => {
                 }}
                 className="absolute flex flex-col items-center gap-2"
               >
-                <div className={`w-5 h-5 rounded-full border-2 transition-colors duration-500 ${i === activeIndex ? 'bg-olynk border-navy' : 'bg-white border-beige'}`}
+                <div className={`w-5 h-5 rounded-full border-2 transition-colors duration-500 ${i === activeIndex ? 'bg-olynk border-navy' : 'bg-noir border-beige'}`}
                   style={{
                     boxShadow: i === activeIndex ? '0 0 25px rgba(59,130,246,0.6)' : 'none'
                   }}
@@ -108,7 +108,7 @@ const DiagnosticVisual = ({ activeIndex }: { activeIndex: number }) => {
                   <motion.span
                     initial={{ opacity: 0, y: 10 }}
                     animate={{ opacity: 1, y: 0 }}
-                    className="text-[8px] font-mono font-black text-navy bg-white border border-navy px-2 py-0.5 rounded shadow-sm whitespace-nowrap uppercase tracking-tighter"
+                    className="text-[8px] font-mono font-black text-navy bg-noir border border-navy px-2 py-0.5 rounded shadow-sm whitespace-nowrap uppercase tracking-tighter"
                   >
                     NODE_{i + 1}_ACTIVE
                   </motion.span>
@@ -120,7 +120,7 @@ const DiagnosticVisual = ({ activeIndex }: { activeIndex: number }) => {
       </div>
 
       {/* Analysis Footer */}
-      <div className="relative z-10 bg-white border border-beige rounded-2xl p-6 shadow-sm">
+      <div className="relative z-10 bg-noir border border-beige rounded-2xl p-6 shadow-sm">
         <div className="flex items-center gap-3 mb-2">
           <div className="w-2 h-2 rounded-full bg-olynk animate-pulse" />
           <span className="text-xs font-black text-navy uppercase tracking-widest">System Analysis</span>
@@ -135,7 +135,7 @@ const DiagnosticVisual = ({ activeIndex }: { activeIndex: number }) => {
           />
         </div>
         <div className="mt-3 flex justify-between text-[10px] font-mono text-steel uppercase">
-          <span>Detecting Anomalies...</span>
+          <span>Mapping drivers...</span>
           <span>{problemsData[activeIndex].title}</span>
         </div>
       </div>
@@ -165,7 +165,7 @@ const CommerceSection = () => {
                 <span className="text-olynk italic font-serif font-normal">Operational Friction.</span>
               </h2>
               <p className="text-xl text-steel leading-relaxed">
-                Modern commerce operations are bleeding revenue through inventory drift, blindspots, and manual overhead. Olynk identifies and stops this leakage.
+                Revenue leaks when teams reconcile instead of steering drivers. Olynk maps causal structure across your stack and executes within policy, so leakage stops at the root, not the spreadsheet.
               </p>
             </div>
 
@@ -178,12 +178,12 @@ const CommerceSection = () => {
                   onViewportEnter={() => setActiveProblem(idx)}
                   viewport={{ amount: 0.6, margin: "-10% 0px -40% 0px" }}
                   className={`group cursor-pointer rounded-[32px] border transition-all duration-500 overflow-hidden ${activeProblem === idx
-                    ? 'bg-white border-navy shadow-xl scale-[1.02]'
-                    : 'bg-white/40 border-beige hover:border-navy/30 hover:bg-white/80 backdrop-blur-sm'
+                    ? 'bg-noir border-navy shadow-xl scale-[1.02]'
+                    : 'bg-noir/40 border-beige hover:border-navy/30 hover:bg-noir/80 backdrop-blur-sm'
                     }`}
                 >
                   <div className="p-8 lg:p-10 flex gap-6 lg:gap-8">
-                    <div className={`w-12 h-12 rounded-2xl flex items-center justify-center shrink-0 border transition-colors ${activeProblem === idx ? 'bg-navy border-navy' : 'bg-white border-beige'
+                    <div className={`w-12 h-12 rounded-2xl flex items-center justify-center shrink-0 border transition-colors ${activeProblem === idx ? 'bg-navy border-navy' : 'bg-noir border-beige'
                       }`}>
                       <span className={`text-sm font-black font-mono ${activeProblem === idx ? 'text-white' : 'text-tan'
                         }`}>0{idx + 1}</span>
@@ -218,7 +218,7 @@ const CommerceSection = () => {
 
           {/* Right Column: Diagnostic Visual - Sticky */}
           <div className="hidden lg:block lg:col-span-6 sticky top-32 self-start">
-            <div className="aspect-square rounded-[48px] bg-white border border-beige shadow-2xl overflow-hidden relative">
+            <div className="aspect-square rounded-[48px] bg-noir border border-beige shadow-2xl overflow-hidden relative">
               <DiagnosticVisual activeIndex={activeProblem} />
             </div>
           </div>
