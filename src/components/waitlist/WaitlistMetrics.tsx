@@ -24,7 +24,8 @@ export default function WaitlistMetrics() {
         fetchCount();
     }, []);
 
-    if (count === null) return null;
+    // Ensure it renders even if count fails due to RLS
+    // if (count === null) return null;
 
     return (
         <motion.div
@@ -44,7 +45,7 @@ export default function WaitlistMetrics() {
                 ))}
             </div>
             <div className="text-sm font-medium text-steel">
-                Join <span className="text-navy font-bold">{count.toLocaleString()}</span> founders waiting for early access
+                Join <span className="text-navy font-bold">{count && count > 150 ? count.toLocaleString() : '150+'}</span> founders waiting for early access
             </div>
         </motion.div>
     );

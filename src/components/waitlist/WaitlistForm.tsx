@@ -37,15 +37,12 @@ export default function WaitlistForm() {
         setError(null);
 
         try {
-            const { data: result, error: supabaseError } = await supabase
+            const { error: supabaseError } = await supabase
                 .from('waitlist')
-                .insert([{ email: data.email }])
-                .select()
-                .single();
+                .insert([{ email: data.email }]);
 
             if (supabaseError) throw supabaseError;
 
-            setInsertedId(result.id);
             setStep('details');
         } catch (err: any) {
             console.error('Waitlist error:', err);
@@ -64,7 +61,7 @@ export default function WaitlistForm() {
         
         setLoading(true);
         try {
-            if (insertedId) {
+            if (data.email) {
                 const { error: supabaseError } = await supabase
                     .from('waitlist')
                     .update({
@@ -72,14 +69,14 @@ export default function WaitlistForm() {
                         company_name: data.company_name,
                         role: data.role
                     })
-                    .eq('id', insertedId);
+                    .eq('email', data.email);
 
                 if (supabaseError) throw supabaseError;
             }
             setStep('success');
         } catch (err: any) {
             console.error('Update error:', err);
-            // Even if update fails, they are already on the list
+            // Even if update fails due to RLS, they are already on the list
             setStep('success'); 
         } finally {
             setLoading(false);
