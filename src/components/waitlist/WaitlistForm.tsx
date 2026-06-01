@@ -39,7 +39,12 @@ export default function WaitlistForm() {
         try {
             const { error: supabaseError } = await supabase
                 .from('waitlist')
-                .insert([{ email: data.email }]);
+                .insert([{ 
+                    email: data.email,
+                    full_name: '',
+                    company_name: '',
+                    role: ''
+                }]);
 
             if (supabaseError) throw supabaseError;
 
