@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { supabase } from '../../supabase';
-import { ArrowRight, CheckCircle2, Loader2, Sparkles } from 'lucide-react';
+import { ArrowRight, CheckCircle2, Loader2, Sparkles, Check } from 'lucide-react';
 
 type FormData = {
     email: string;
@@ -107,7 +107,7 @@ export default function WaitlistForm() {
                                     required
                                     value={data.email}
                                     onChange={e => updateData({ email: e.target.value })}
-                                    placeholder="Enter your work email..."
+                                    placeholder="Enter your email address..."
                                     className="w-full bg-transparent border-none px-6 py-4 text-navy placeholder:text-steel/50 font-medium outline-none text-lg"
                                 />
                                 <button
@@ -214,9 +214,8 @@ export default function WaitlistForm() {
                         animate={{ opacity: 1, scale: 1 }}
                         className="bg-noir/90 backdrop-blur-xl border border-beige/50 rounded-3xl p-10 sm:p-14 shadow-2xl text-center"
                     >
-                        <div className="w-20 h-20 bg-emerald-100 rounded-full flex items-center justify-center mx-auto mb-6 relative">
-                            <div className="absolute inset-0 bg-emerald-400 rounded-full animate-ping opacity-20"></div>
-                            <Sparkles className="w-10 h-10 text-emerald-600" />
+                        <div className="w-16 h-16 border border-beige rounded-full flex items-center justify-center mx-auto mb-6 bg-cream shadow-inner">
+                            <Check className="w-6 h-6 text-navy" />
                         </div>
                         <h2 className="text-3xl font-black text-navy mb-4 tracking-tight">Access Secured</h2>
                         <p className="text-steel mb-8 text-lg">
