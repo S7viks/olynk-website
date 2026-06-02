@@ -84,6 +84,8 @@ const App = () => {
                 }
               />
 
+              <Route path="/main" element={<Navigate to="/" replace />} />
+
               <Route
                 path="/platform"
                 element={
